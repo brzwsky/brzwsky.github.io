@@ -6,4 +6,4 @@ Disallow: /*?utm_
 Disallow: /*?ref=
 Disallow: /*?aff=
 
-Sitemap: https://topjeu777.com/sitemap.xml
+Sitemap: https://www.topjeu777.com/sitemap.xml
