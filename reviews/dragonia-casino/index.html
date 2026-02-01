@@ -6,6 +6,8 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, user-scalable=yes"
 		/>
+
+		<!-- Title & Description -->
 		<title>Dragonia Casino Avis – Mon expérience complète 2026</title>
 		<meta
 			name="description"
@@ -15,6 +17,49 @@
 			rel="canonical"
 			href="https://www.topjeu777.com/reviews/dragonia-casino/"
 		/>
+
+		<!-- Favicon -->
+		<link rel="icon" href="favicon.ico" sizes="any" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="img/favicons_pack/favicon-32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="img/favicons_pack/favicon-192.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="img/favicons_pack/favicon-180.png"
+		/>
+		<link rel="manifest" href="site.webmanifest" />
+
+		<!-- Preconnect for critical origins -->
+		<link
+			rel="preconnect"
+			href="https://www.google-analytics.com"
+			crossorigin
+		/>
+		<link
+			rel="preconnect"
+			href="https://www.googletagmanager.com"
+			crossorigin
+		/>
+		<link rel="preconnect" href="https://analytics.ahrefs.com" crossorigin />
+
+		<!-- SEO & Robots -->
+		<meta
+			name="robots"
+			content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+		/>
+		<meta name="msvalidate.01" content="3500FD496F749A9D9E7D6305C11AB0B2" />
+
+		<!-- Open Graph -->
 		<meta property="og:type" content="article" />
 		<meta
 			property="og:title"
@@ -28,7 +73,13 @@
 			property="og:url"
 			content="https://www.topjeu777.com/reviews/dragonia-casino/"
 		/>
+		<meta
+			property="og:image"
+			content="https://www.topjeu777.com/img/preview.jpg"
+		/>
 		<meta property="og:locale" content="fr_FR" />
+
+		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta
 			name="twitter:title"
@@ -38,6 +89,11 @@
 			name="twitter:description"
 			content="Découvrez mon avis complet sur Dragonia Casino, le casino en ligne avec plus de 11 000 jeux. Bonus de bienvenue, jeux, jackpots, retraits rapides et programme VIP détaillés."
 		/>
+		<meta
+			name="twitter:image"
+			content="https://www.topjeu777.com/img/preview.jpg"
+		/>
+
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -151,6 +207,7 @@
 				]
 			}
 		</script>
+
 		<style>
 			/* =====================
    Base
@@ -422,8 +479,51 @@
 				}
 			}
 		</style>
-		<link rel="stylesheet" href="/style.minified.css" />
-		<script src="/app.minified.js" defer></script>
+
+		<!-- Preload main CSS -->
+		<link
+			rel="preload"
+			href="style.minified.css"
+			as="style"
+			onload="
+				this.onload = null;
+				this.rel = 'stylesheet';
+			"
+		/>
+		<noscript><link rel="stylesheet" href="style.minified.css" /></noscript>
+
+		<!-- Google Analytics 4 (Consent-based) -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var btn = document.getElementById('accept-analytics-btn');
+				if (btn) {
+					btn.addEventListener('click', function () {
+						// Load GA script dynamically
+						if (!window.gtagScriptLoaded) {
+							var s = document.createElement('script');
+							s.src =
+								'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
+							s.defer = true;
+							document.head.appendChild(s);
+							window.gtagScriptLoaded = true;
+						}
+
+						window.dataLayer = window.dataLayer || [];
+						function gtag() {
+							dataLayer.push(arguments);
+						}
+						gtag('js', new Date());
+						gtag('consent', 'update', {
+							ad_storage: 'granted',
+							analytics_storage: 'granted',
+						});
+						gtag('config', 'G-YYE4H0PHYY');
+					});
+				}
+			});
+		</script>
+		<!-- Main JS -->
+		<script defer src="app.minified.js"></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<!-- Cookie Consent Banner -->
