@@ -152,132 +152,146 @@
 			}
 		</script>
 		<style>
-			/* === Critical CSS (LCP / FCP / CLS safe) === */
-
+			/* =====================
+   Base
+===================== */
 			html {
 				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-				width: 100%;
 				min-width: 320px;
 				overflow-x: hidden;
 			}
-
 			*,
 			*::before,
 			*::after {
 				box-sizing: inherit;
 			}
-
 			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: Helvetica, Arial, sans-serif;
+				line-height: 1.6;
+				color: #222;
+				background: #fff;
 				display: flex;
 				flex-direction: column;
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				min-width: 320px;
-				min-height: 100vh;
-				font-family: Helvetica, sans-serif;
-				font-size: 1rem;
-				overflow-x: hidden;
 			}
-
-			[hidden] {
-				display: none !important;
-			}
-
 			main {
-				flex: 1 0 auto;
-				margin: 0 auto;
+				flex: 1;
 				max-width: 1200px;
+				margin: 0 auto;
 				padding: 0 2rem;
 			}
-
-			/* ===== Header ===== */
-			.header {
-				position: sticky;
-				top: 0;
-				z-index: 900;
-				width: 100%;
-				background: rgba(0, 0, 0, 0.2);
-				padding: 0.5rem 0;
-			}
-
-			.header__container {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0.15rem 2rem;
-			}
-
-			.header__logo {
+			img {
 				display: block;
-				width: auto;
+				max-width: 100%;
 				height: auto;
-				max-height: 85px;
+			}
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+			.fade-in {
+				opacity: 0;
+				animation: fadeIn 0.4s ease forwards;
+			}
+			@keyframes fadeIn {
+				to {
+					opacity: 1;
+				}
 			}
 
-			/* ===== Hero (LCP text) ===== */
+			/* =====================
+   Hero
+===================== */
 			.hero {
-				padding-left: 0;
-				padding-right: 0;
+				margin-top: 2rem;
 			}
-
 			.hero__title {
-				font-size: 2rem;
-				line-height: 1.2;
-				margin-bottom: 0.5rem;
-				color: #1a1a1a;
+				font-size: 2.1rem;
+				line-height: 1.25;
+				margin: 0 0 0.5rem;
 			}
-
 			.hero__meta {
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
 				gap: 0.5rem;
-				margin: 1.2rem 0 1.5rem;
+				font-size: 0.85rem;
+				opacity: 0.85;
+			}
+			.hero__text {
+				margin-top: 1rem;
+				max-width: 900px;
+			}
+			.disclaimer {
+				margin-top: 1.2rem;
+				font-size: 0.8rem;
+				opacity: 0.7;
 			}
 
-			.hero__text p {
-				margin-bottom: 1rem;
-				line-height: 1.6;
-				color: #222;
+			/* =====================
+   Author
+===================== */
+			.author {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+			.author__photo {
+				border-radius: 50%;
+			}
+			.author__name {
+				font-weight: 600;
 			}
 
-			/* ===== First casino card (visible immediately) ===== */
-			.casino-card,
-			.casino-button {
+			/* =====================
+   Casino Card
+===================== */
+			.casino-card {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				gap: 1.5rem;
 				background: #fff;
-				border-radius: 15px;
-				padding: 1.5rem 1.75rem;
-				margin-bottom: 1.5rem;
+				border-radius: 14px;
+				padding: 1.5rem;
+				margin: 3rem 0;
+				box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 			}
-
+			.casino-card__info {
+				flex-shrink: 0;
+			}
 			.casino-card__image {
-				display: block;
 				width: 150px;
 				height: 150px;
 				object-fit: contain;
-				border-radius: 8px;
-				flex-shrink: 0;
 			}
-
+			.casino-button__rating {
+				text-align: center;
+				min-width: 120px;
+			}
 			.casino-card__score {
-				font-size: 1.375rem;
+				font-size: 1.4rem;
 				font-weight: 700;
-				margin: 0;
+				margin: 0.25rem 0;
 			}
-
 			.casino-card__stars {
 				margin: 0;
 				color: gold;
 			}
-
+			.casino-card__features {
+				text-align: center;
+				flex: 1;
+			}
+			.casino-button__title {
+				margin: 0 0 0.4rem;
+				font-size: 1.05rem;
+				font-weight: 700;
+			}
+			.casino-card__bonus {
+				margin: 0;
+				font-size: 0.95rem;
+			}
 			.casino-card__button {
 				display: inline-flex;
 				align-items: center;
@@ -285,107 +299,131 @@
 				padding: 1rem 2rem;
 				background: #1e7e34;
 				border-radius: 6px;
-				text-decoration: none;
+				white-space: nowrap;
 			}
-
 			.casino-card__button-link {
-				color: #fff;
-				font-size: 0.875rem;
+				font-size: 0.85rem;
 				font-weight: 700;
-				text-decoration: none;
+				color: #fff;
 			}
 
-			/* ===== Mobile critical ===== */
-			@media (max-width: 767px) {
-				.header__container {
-					padding: 0.15rem 1rem;
-				}
-
-				.header__logo {
-					max-height: 50px;
-				}
-
-				.hero__title {
-					font-size: 1.5rem;
-				}
-
-				.casino-button {
-					flex-wrap: wrap;
-					gap: 1rem;
-				}
+			/* =====================
+   Content
+===================== */
+			.landing-content {
+				margin-top: 3rem;
 			}
-		</style>
-
-		<link rel="stylesheet" href="/style.minified.css" />
-		<link rel="stylesheet" href="dragonia.minified.css" />
-		<style>
-			.landing-content p {
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto 1rem;
-				line-height: 1.6;
-				box-sizing: border-box;
+			.landing-content > h2,
+			.landing-content > article > h2 {
+				margin: 2.5rem 0 1rem;
+				font-size: 1.6rem;
+			}
+			.landing-content p,
+			.landing-content ul,
+			.landing-content ol {
+				max-width: 900px;
+				margin-bottom: 1rem;
 			}
 			.landing-content ul,
-			.landing-content ol,
-			.landing-content h2,
-			.landing-content h3 {
+			.landing-content ol {
+				padding-left: 1.4rem;
+			}
+
+			/* =====================
+   Banners
+===================== */
+			.banners {
+				display: block;
+				margin: 2rem 0;
+			}
+
+			/* =====================
+   Tables
+===================== */
+			table {
 				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto 1rem;
-				box-sizing: border-box;
+				max-width: 900px;
+				border-collapse: collapse;
+				margin: 1.5rem 0;
 			}
-			.page-review .banners img {
-				aspect-ratio: auto;
+			th,
+			td {
+				padding: 0.75rem;
+				border: 1px solid #ddd;
+				text-align: left;
 			}
+
+			/* =====================
+   Mobile Compatibility
+===================== */
+			.mobile-compatibility {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+			}
+
+			/* =====================
+   FAQ
+===================== */
+			.faq {
+				margin: 4rem 0;
+			}
+			.faq-item {
+				border-bottom: 1px solid #ddd;
+				padding: 1rem 0;
+			}
+			.faq-question {
+				width: 100%;
+				background: none;
+				border: none;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				cursor: pointer;
+				text-align: left;
+			}
+			.faq-question h3 {
+				margin: 0;
+				font-size: 1.05rem;
+			}
+			.faq-toggle {
+				font-size: 1.5rem;
+			}
+			.faq-answer {
+				display: none;
+				margin-top: 0.75rem;
+			}
+			.faq-question[aria-expanded='true'] + .faq-answer {
+				display: block;
+			}
+
+			/* =====================
+   Responsive
+===================== */
 			@media (max-width: 767px) {
-				.casino-button__rating {
-					align-items: center;
-					box-sizing: border-box;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					margin-left: auto;
-					margin-right: auto;
+				main {
+					padding: 0 1rem;
+				}
+				.hero__title {
+					font-size: 1.6rem;
+				}
+				.casino-card {
+					flex-wrap: wrap;
 					text-align: center;
-					width: 120px;
 				}
-				.casino-card__stars {
-					margin-bottom: 1rem;
-				}
-				.casino-button__title {
-					font-weight: 700;
-					font-size: 1rem;
+				.casino-button__rating {
+					margin: 0 auto;
 				}
 				.mobile-compatibility {
 					display: block;
 				}
-				.mobile-compatibility p {
-					max-width: none;
-					margin-bottom: 0.5rem;
-				}
-				.mobile-compatibility .banners {
-					max-width: 260px;
-					margin: 2.5rem auto;
-				}
-			}
-			@media (min-width: 768px) {
-				.mobile-compatibility {
-					display: flex;
-					align-items: center;
-					gap: 3rem;
-				}
-				.mobile-compatibility p {
-					flex: 1;
-					max-width: none;
-				}
 				.mobile-compatibility img {
-					max-width: 220px;
-					height: auto;
+					margin: 0 auto;
 				}
 			}
 		</style>
-		<script src="/app.minified-1.js" defer></script>
+		<link rel="stylesheet" href="/style.minified.css" />
+		<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<!-- Cookie Consent Banner -->
@@ -638,364 +676,113 @@
 					mes premières sessions, je me suis sentie en sécurité, ce qui est
 					crucial pour profiter pleinement de l'expérience sans stress.
 				</p>
+				<article>
+					<h2>💰 Bonus et promotions</h2>
 
-				<h2>💰 Bonus et promotions</h2>
+					<!-- Banner -->
+					<a
+						class="banners fade-in"
+						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+						rel="nofollow noopener noreferrer"
+						style="display: block; margin: 2rem 0"
+						aria-label="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins – Jouer maintenant"
+					>
+						<picture>
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/baner-dragonia-400.webp
+								"
+								media="(max-width: 480px)"
+							/>
 
-				<!-- Banner -->
-				<a
-					class="banners fade-in"
-					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-					rel="nofollow noopener noreferrer"
-					style="display: block; margin: 2rem 0"
-					aria-label="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins – Jouer maintenant"
-				>
-					<picture>
-						<source
-							srcset="/reviews/dragonia-casino/banners/baner-dragonia-400.webp"
-							media="(max-width: 480px)"
-						/>
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/baner-dragonia-800.webp
+								"
+								media="(max-width: 1024px)"
+							/>
 
-						<source
-							srcset="/reviews/dragonia-casino/banners/baner-dragonia-800.webp"
-							media="(max-width: 1024px)"
-						/>
+							<img
+								src="/reviews/dragonia-casino/banners/baner-dragonia-1200.webp"
+								alt="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins"
+								width="1200"
+								height="400"
+								style="width: 100%; height: auto; max-width: 1200px"
+								loading="eager"
+								fetchpriority="high"
+							/>
+						</picture>
+					</a>
 
-						<img
-							src="/reviews/dragonia-casino/banners/baner-dragonia-1200.webp"
-							alt="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins"
-							width="1200"
-							height="400"
-							style="width: 100%; height: auto; max-width: 1200px"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					</picture>
-				</a>
-
-				<p>
-					Dragonia Casino se distingue par la richesse de ses promotions. J'ai
-					testé plusieurs d'entre elles et voici mon retour :
-				</p>
-				<h3>Bonus de bienvenue</h3>
-				<section class="casino-info content-width fade-in">
-					<table>
-						<caption class="visually-hidden">
-							Conditions du bonus de bienvenue Dragonia Casino
-						</caption>
-						<tbody>
-							<tr>
-								<th>🎁 Bonus</th>
-								<td>100 % jusqu'à 500 € + 200 tours gratuits + Bonus Crab</td>
-							</tr>
-							<tr>
-								<th>💳 Dépôt minimum</th>
-								<td>10 €</td>
-							</tr>
-							<tr>
-								<th>📋 Conditions</th>
-								<td>
-									Wager x35 pour le bonus, x40 pour les free spins, à remplir en
-									10 jours
-								</td>
-							</tr>
-							<tr>
-								<th>💰 Mise maximale</th>
-								<td>5 € par tour</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<p>
-					Personnellement, j'ai trouvé ce bonus idéal pour découvrir la
-					ludothèque sans dépenser trop d'argent propre, et les free spins sur
-					dix jours permettent de prolonger l'expérience progressivement.
-				</p>
-				<h3>Bonus hebdomadaire</h3>
-				<p>
-					Chaque dépôt entre lundi et jeudi d'au moins 20 € m'a permis d'obtenir
-					50 free spins supplémentaires, avec un wager de 40x et 7 jours pour
-					les utiliser. Cela maintient la motivation et rend le jeu plus
-					excitant.
-				</p>
-				<h3>Bonus du week-end</h3>
-				<ul>
-					<li>50 % sur chaque dépôt jusqu'à 700 € + 50 free spins</li>
-					<li>Dépôt minimum : 20 €</li>
-					<li>Free spins activés à partir de 50 €</li>
-				</ul>
-				<p>
-					Ces offres rendent mes sessions du week-end plus dynamiques et donnent
-					vraiment l'impression que Dragonia récompense l'activité régulière.
-				</p>
-				<h3>Bonus Crab et Défis</h3>
-				<p>
-					Le Bonus Crab est un vrai petit plaisir : un simple dépôt de 10 €
-					permet de tourner la pince et de gagner aléatoirement des free spins,
-					cash ou Jetons.
-				</p>
-				<p>
-					Les défis hebdomadaires m'ont également beaucoup amusée : en
-					complétant certaines missions sur les slots ou paris sportifs, j'ai
-					accumulé des Jetons supplémentaires, que j'ai pu ensuite échanger
-					contre des tours gratuits ou de l'argent réel.
-				</p>
-
-				<!-- Banner -->
-				<a
-					class="banners fade-in"
-					rel="nofollow noopener noreferrer"
-					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-					style="display: block; margin: 2rem 0"
-					aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
-				>
-					<picture>
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-400.webp
-							"
-							media="(max-width: 480px)"
-						/>
-
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-800.webp
-							"
-							media="(max-width: 1024px)"
-						/>
-
-						<img
-							src="/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-1200.webp"
-							alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
-							width="1200"
-							height="300"
-							style="width: 100%; height: auto; max-width: 1200px"
-							loading="lazy"
-						/>
-					</picture>
-				</a>
-
-				<h2>🎮 Logiciels et jeux</h2>
-				<p>
-					Dragonia Casino offre plus de 11 000 jeux, dont une majorité de
-					machines à sous, mais aussi blackjack, roulette, baccarat, poker, et
-					jeux en direct.
-				</p>
-				<ul>
-					<li>
-						<strong>Machines à sous :</strong> j'ai testé Big Bass Bonanza et
-						Moon Princess Stargazing, avec des RTP proches de 97 %. Variété
-						énorme, des classiques aux Megaways.
-					</li>
-					<li>
-						<strong>Blackjack :</strong> American Blackjack et Blackjack Beto
-						offrent des sessions stratégiques avec des rendements supérieurs à
-						99 %.
-					</li>
-					<li>
-						<strong>Baccarat :</strong> simple pour les débutants, mais
-						engageant pour les joueurs expérimentés grâce à des variantes comme
-						No Commission Baccarat.
-					</li>
-					<li>
-						<strong>Roulette :</strong> de la classique à Fortune Roulette
-						5000x, j'ai adoré l'effet dramatique des multiplicateurs élevés.
-					</li>
-					<li>
-						<strong>Poker :</strong> des variantes originales comme Oasis Poker
-						et High Hand Hold'em rendent le jeu plus stimulant.
-					</li>
-					<li>
-						<strong>Jackpots :</strong> plus de 100 titres progressifs et des
-						jeux comme Buffalo Blitz Megamerge offrent des gains énormes
-						potentiels.
-					</li>
-					<li>
-						<strong>Jeux instantanés et crash games :</strong> Aviator, Olympus
-						Plinko, Penalty from the Streets… parfait pour changer de rythme.
-					</li>
-				</ul>
-
-				<!-- Banner -->
-				<a
-					class="banners fade-in"
-					rel="nofollow noopener noreferrer"
-					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-					style="display: block; margin: 2rem 0"
-					aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
-				>
-					<picture>
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/games-baner-dragonia-400.webp
-							"
-							media="(max-width: 480px)"
-						/>
-
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/games-baner-dragonia-800.webp
-							"
-							media="(max-width: 1024px)"
-						/>
-
-						<img
-							src="/reviews/dragonia-casino/banners/games-baner-dragonia-1200.webp"
-							alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
-							width="1200"
-							height="330"
-							style="width: 100%; height: auto; max-width: 1200px"
-							loading="lazy"
-						/>
-					</picture>
-				</a>
-
-				<h2>🖥️ Casino en direct</h2>
-				<p>
-					Avec plus de 662 tables HD, l'expérience live est vraiment immersive.
-					J'ai testé Gold Saloon et Dragon Tiger via Evolution et Bombay Live :
-					les croupiers sont réactifs, l'interface fluide, et l'interaction avec
-					les autres joueurs ajoute un vrai plaisir social au jeu.
-				</p>
-
-				<h2>⚽ Paris sportifs</h2>
-				<p>
-					Dragonia Casino propose également une section complète de paris
-					sportifs, avec football, rugby, esports, futsal et cricket.
-					L'interface est claire et intuitive, et les cotes sont compétitives.
-					Les nouveaux parieurs peuvent profiter d'un bonus 100 % jusqu'à 100 €
-					avec dépôt de 20 € minimum et mise x6.
-				</p>
-
-				<h2>⚡ Retraits et dépôts</h2>
-				<p>
-					Dragonia Casino propose des dépôts et retraits rapides et sécurisés,
-					avec un large choix de méthodes de paiement populaires, adaptées aux
-					joueurs francophones. La plateforme accepte aussi bien les paiements
-					classiques que les cryptomonnaies, ce qui permet une grande
-					flexibilité pour gérer son argent en ligne.
-				</p>
-				<h2>💳 Dépôts sur Dragonia Casino</h2>
-				<p>
-					Les dépôts sur Dragonia Casino sont simples et rapides, avec un
-					montant minimum de 10 € et un plafond pouvant atteindre 5 000 € par
-					transaction.
-				</p>
-				<p><strong>Méthodes de dépôt disponibles :</strong></p>
-				<p>
-					Visa, MasterCard, PaysafeCard, Instant Banking, Skrill, Neteller,
-					Jeton, MiFinity, Pay by mobile, ainsi que les cryptomonnaies suivantes
-					: Bitcoin, Bitcoin Cash, Litecoin, Ethereum et Dogecoin.
-				</p>
-				<p>
-					Les dépôts sont généralement instantanés, ce qui permet de commencer à
-					jouer immédiatement.
-				</p>
-				<h2>💸 Retraits sur Dragonia Casino</h2>
-				<p>
-					Les retraits Dragonia Casino sont traités rapidement une fois le
-					compte vérifié, avec un montant minimum de retrait de 10 €.
-				</p>
-				<ul>
-					<li>
-						<strong>Plafond de retrait standard :</strong> jusqu'à 5 000 €
-					</li>
-					<li><strong>Plafond de retrait VIP :</strong> jusqu'à 20 000 €</li>
-				</ul>
-				<p><strong>Méthodes de retrait disponibles :</strong></p>
-				<p>
-					Visa, MasterCard, virement bancaire (Wire Transfer), Skrill, Jeton,
-					MiFinity, ainsi que les cryptomonnaies suivantes : Bitcoin, Bitcoin
-					Cash, Ethereum, Litecoin et Dogecoin.
-				</p>
-				<p><strong>⏱️ Délais de traitement des retraits :</strong></p>
-				<p>
-					Les retraits en cryptomonnaies sont instantanés, tandis que les
-					retraits via cartes, e-wallets ou virement bancaire sont généralement
-					traités sous 1 à 3 jours ouvrables.
-				</p>
-
-				<h2>✍🏻 S’inscrire sur Dragonia Casino</h2>
-				<p>
-					Créer un compte sur Dragonia Casino a été plutôt simple et rapide. De
-					mon côté, tout s’est fait en quelques minutes, sans mauvaise surprise
-					:
-				</p>
-				<ol>
-					<li>
-						La première chose à faire consiste à se rendre sur le site officiel
-						de Dragonia, puis à cliquer sur le bouton « S’inscrire », mis en
-						avant sur la page d’accueil.
-					</li>
-					<li>
-						Lors de cette étape, le site vous invite à choisir le type de bonus
-						que vous souhaitez activer, entre l’offre dédiée au casino ou celle
-						liée aux paris sportifs.
-					</li>
-					<li>
-						Il vous faudra ensuite indiquer une adresse e-mail valide et définir
-						un mot de passe personnel, qui servira lors de chaque connexion.
-					</li>
-					<li>
-						Avant de poursuivre, l’acceptation des conditions générales du site
-						est nécessaire.
-					</li>
-					<li>
-						Pour finaliser l’inscription, il ne reste plus qu’à compléter les
-						informations personnelles demandées et à valider le formulaire. Une
-						fois le compte créé, l’accès aux jeux en argent réel est immédiat.
-					</li>
-				</ol>
-				<p>
-					Dragonia Casino propose également une inscription via Play ID, une
-					alternative rapide pour ceux qui souhaitent simplifier la procédure.
-					Toutefois, avant tout retrait de gains, une vérification d’identité
-					(KYC) sera exigée. Cette démarche peut être réalisée dès l’inscription
-					ou ultérieurement, mais elle reste indispensable afin de sécuriser le
-					compte et d’activer les paiements.
-				</p>
-
-				<!-- Banner -->
-				<a
-					class="banners fade-in"
-					rel="nofollow noopener noreferrer"
-					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-					style="display: block; margin: 2rem 0"
-					aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
-				>
-					<picture>
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/registration-baner-dragonia-400.webp
-							"
-							media="(max-width: 480px)"
-						/>
-
-						<source
-							srcset="
-								/reviews/dragonia-casino/banners/registration-baner-dragonia-800.webp
-							"
-							media="(max-width: 1024px)"
-						/>
-
-						<img
-							src="/reviews/dragonia-casino/banners/registration-baner-dragonia-1200.webp"
-							alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
-							width="1200"
-							height="700"
-							style="width: 100%; height: auto; max-width: 1200px"
-							loading="lazy"
-						/>
-					</picture>
-				</a>
-				<h2>📱 Compatibilité mobile</h2>
-
-				<div class="mobile-compatibility">
 					<p>
-						Aucune application n’est nécessaire. Le site est entièrement
-						optimisé pour mobile, que ce soit iOS ou Android. Navigation fluide,
-						accès rapide aux jeux, chargement en moins de 5 secondes : parfait
-						pour jouer où je veux, même en déplacement.
+						Dragonia Casino se distingue par la richesse de ses promotions. J'ai
+						testé plusieurs d'entre elles et voici mon retour :
 					</p>
+					<h3 class="casino-bonus">Bonus de bienvenue</h3>
+					<section class="casino-info content-width fade-in">
+						<table>
+							<caption class="visually-hidden">
+								Conditions du bonus de bienvenue Dragonia Casino
+							</caption>
+							<tbody>
+								<tr>
+									<th>🎁 Bonus</th>
+									<td>100 % jusqu'à 500 € + 200 tours gratuits + Bonus Crab</td>
+								</tr>
+								<tr>
+									<th>💳 Dépôt minimum</th>
+									<td>10 €</td>
+								</tr>
+								<tr>
+									<th>📋 Conditions</th>
+									<td>
+										Wager x35 pour le bonus, x40 pour les free spins, à remplir
+										en 10 jours
+									</td>
+								</tr>
+								<tr>
+									<th>💰 Mise maximale</th>
+									<td>5 € par tour</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<p>
+						Personnellement, j'ai trouvé ce bonus idéal pour découvrir la
+						ludothèque sans dépenser trop d'argent propre, et les free spins sur
+						dix jours permettent de prolonger l'expérience progressivement.
+					</p>
+					<h3>Bonus hebdomadaire</h3>
+					<p>
+						Chaque dépôt entre lundi et jeudi d'au moins 20 € m'a permis
+						d'obtenir 50 free spins supplémentaires, avec un wager de 40x et 7
+						jours pour les utiliser. Cela maintient la motivation et rend le jeu
+						plus excitant.
+					</p>
+					<h3 class="casino-bonus">Bonus du week-end</h3>
+					<ul>
+						<li>50 % sur chaque dépôt jusqu'à 700 € + 50 free spins</li>
+						<li>Dépôt minimum : 20 €</li>
+						<li>Free spins activés à partir de 50 €</li>
+					</ul>
+					<p>
+						Ces offres rendent mes sessions du week-end plus dynamiques et
+						donnent vraiment l'impression que Dragonia récompense l'activité
+						régulière.
+					</p>
+					<h3 class="casino-bonus">Bonus Crab et Défis</h3>
+					<p>
+						Le Bonus Crab est un vrai petit plaisir : un simple dépôt de 10 €
+						permet de tourner la pince et de gagner aléatoirement des free
+						spins, cash ou Jetons.
+					</p>
+					<p>
+						Les défis hebdomadaires m'ont également beaucoup amusée : en
+						complétant certaines missions sur les slots ou paris sportifs, j'ai
+						accumulé des Jetons supplémentaires, que j'ai pu ensuite échanger
+						contre des tours gratuits ou de l'argent réel.
+					</p>
+
 					<!-- Banner -->
 					<a
 						class="banners fade-in"
@@ -1007,68 +794,352 @@
 						<picture>
 							<source
 								srcset="
-									/reviews/dragonia-casino/banners/mobile-baner-dragonia-260.webp
+									/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-400.webp
 								"
 								media="(max-width: 480px)"
 							/>
 
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-800.webp
+								"
+								media="(max-width: 1024px)"
+							/>
+
 							<img
-								src="/reviews/dragonia-casino/banners/mobile-baner-dragonia-365.webp"
+								src="/reviews/dragonia-casino/banners/bonus-baner-dragonia-casino-1200.webp"
 								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
-								width="365"
-								height="730"
-								style="width: 100%; height: auto; max-width: 365px"
+								width="1200"
+								height="300"
+								style="width: 100%; height: auto; max-width: 1200px"
 								loading="lazy"
 							/>
 						</picture>
 					</a>
-				</div>
+				</article>
 
-				<h2>🔒 Sécurité et fiabilité</h2>
-				<p>
-					Dragonia Casino utilise un cryptage SSL 256 bits et Cloudflare pour
-					protéger mes informations et mes transactions. J’ai pu activer
-					l’authentification 2FA pour encore plus de sécurité. La licence
-					officielle des autorités d’Anjouan garantit que la plateforme est
-					régulée et transparente.
-				</p>
+				<article>
+					<h2>🎮 Logiciels et jeux</h2>
+					<p>
+						Dragonia Casino offre plus de 11 000 jeux, dont une majorité de
+						machines à sous, mais aussi blackjack, roulette, baccarat, poker, et
+						jeux en direct.
+					</p>
+					<ul>
+						<li>
+							<strong>Machines à sous :</strong> j'ai testé Big Bass Bonanza et
+							Moon Princess Stargazing, avec des RTP proches de 97 %. Variété
+							énorme, des classiques aux Megaways.
+						</li>
+						<li>
+							<strong>Blackjack :</strong> American Blackjack et Blackjack Beto
+							offrent des sessions stratégiques avec des rendements supérieurs à
+							99 %.
+						</li>
+						<li>
+							<strong>Baccarat :</strong> simple pour les débutants, mais
+							engageant pour les joueurs expérimentés grâce à des variantes
+							comme No Commission Baccarat.
+						</li>
+						<li>
+							<strong>Roulette :</strong> de la classique à Fortune Roulette
+							5000x, j'ai adoré l'effet dramatique des multiplicateurs élevés.
+						</li>
+						<li>
+							<strong>Poker :</strong> des variantes originales comme Oasis
+							Poker et High Hand Hold'em rendent le jeu plus stimulant.
+						</li>
+						<li>
+							<strong>Jackpots :</strong> plus de 100 titres progressifs et des
+							jeux comme Buffalo Blitz Megamerge offrent des gains énormes
+							potentiels.
+						</li>
+						<li>
+							<strong>Jeux instantanés et crash games :</strong> Aviator,
+							Olympus Plinko, Penalty from the Streets… parfait pour changer de
+							rythme.
+						</li>
+					</ul>
 
-				<h2>📞 Service client</h2>
-				<p>
-					Le support est disponible 24h/24 et 7j/7, via live chat ou e-mail
-					(support@dragonia.com). Les réponses sont rapides et en français, ce
-					qui rend l'expérience plus rassurante quand on rencontre un problème
-					ou une question sur un bonus ou un retrait.
-				</p>
+					<!-- Banner -->
+					<a
+						class="banners fade-in"
+						rel="nofollow noopener noreferrer"
+						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+						style="display: block; margin: 2rem 0"
+						aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
+					>
+						<picture>
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/games-baner-dragonia-400.webp
+								"
+								media="(max-width: 480px)"
+							/>
 
-				<h2>📝 Restrictions et jeu responsable</h2>
-				<ul>
-					<li>Âge minimum : 18 ans</li>
-					<li>
-						Interdit pour certains pays : États-Unis, Royaume-Uni, Bulgarie
-					</li>
-					<li>
-						Outils de contrôle : limites de dépôt, auto-exclusion temporaire ou
-						définitive, accès aux organismes d'aide comme Gambling Therapy
-					</li>
-				</ul>
-				<p>
-					Personnellement, j'ai trouvé très utile de pouvoir fixer mes limites,
-					surtout pendant les sessions plus longues.
-				</p>
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/games-baner-dragonia-800.webp
+								"
+								media="(max-width: 1024px)"
+							/>
 
-				<h2>🔚 Conclusion</h2>
-				<p>
-					Dragonia Casino m'a vraiment séduite : interface claire, univers
-					immersif, large choix de jeux et bonus attractifs. Le seul point
-					perfectible est le plafond mensuel des retraits (7 000 € pour les
-					comptes standards), un peu bas par rapport à certains concurrents.
-				</p>
-				<p>
-					Pour moi, c'est un casino idéal pour les joueurs qui aiment diversité,
-					fun et sécurité, que ce soit pour les slots, le live ou les paris
-					sportifs.
-				</p>
+							<img
+								src="/reviews/dragonia-casino/banners/games-baner-dragonia-1200.webp"
+								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
+								width="1200"
+								height="330"
+								style="width: 100%; height: auto; max-width: 1200px"
+								loading="lazy"
+							/>
+						</picture>
+					</a>
+				</article>
+
+				<article>
+					<h2>🖥️ Casino en direct</h2>
+					<p>
+						Avec plus de 662 tables HD, l'expérience live est vraiment
+						immersive. J'ai testé Gold Saloon et Dragon Tiger via Evolution et
+						Bombay Live : les croupiers sont réactifs, l'interface fluide, et
+						l'interaction avec les autres joueurs ajoute un vrai plaisir social
+						au jeu.
+					</p>
+				</article>
+
+				<article>
+					<h2>⚽ Paris sportifs</h2>
+					<p>
+						Dragonia Casino propose également une section complète de paris
+						sportifs, avec football, rugby, esports, futsal et cricket.
+						L'interface est claire et intuitive, et les cotes sont compétitives.
+						Les nouveaux parieurs peuvent profiter d'un bonus 100 % jusqu'à 100
+						€ avec dépôt de 20 € minimum et mise x6.
+					</p>
+				</article>
+
+				<article>
+					<h2>⚡ Retraits et dépôts</h2>
+					<p>
+						Dragonia Casino propose des dépôts et retraits rapides et sécurisés,
+						avec un large choix de méthodes de paiement populaires, adaptées aux
+						joueurs francophones. La plateforme accepte aussi bien les paiements
+						classiques que les cryptomonnaies, ce qui permet une grande
+						flexibilité pour gérer son argent en ligne.
+					</p>
+				</article>
+
+				<article>
+					<h2>💳 Dépôts sur Dragonia Casino</h2>
+					<p>
+						Les dépôts sur Dragonia Casino sont simples et rapides, avec un
+						montant minimum de 10 € et un plafond pouvant atteindre 5 000 € par
+						transaction.
+					</p>
+					<p><strong>Méthodes de dépôt disponibles :</strong></p>
+					<p>
+						Visa, MasterCard, PaysafeCard, Instant Banking, Skrill, Neteller,
+						Jeton, MiFinity, Pay by mobile, ainsi que les cryptomonnaies
+						suivantes : Bitcoin, Bitcoin Cash, Litecoin, Ethereum et Dogecoin.
+					</p>
+					<p>
+						Les dépôts sont généralement instantanés, ce qui permet de commencer
+						à jouer immédiatement.
+					</p>
+				</article>
+
+				<article>
+					<h2>💸 Retraits sur Dragonia Casino</h2>
+					<p>
+						Les retraits Dragonia Casino sont traités rapidement une fois le
+						compte vérifié, avec un montant minimum de retrait de 10 €.
+					</p>
+					<ul>
+						<li>
+							<strong>Plafond de retrait standard :</strong> jusqu'à 5 000 €
+						</li>
+						<li><strong>Plafond de retrait VIP :</strong> jusqu'à 20 000 €</li>
+					</ul>
+					<p><strong>Méthodes de retrait disponibles :</strong></p>
+					<p>
+						Visa, MasterCard, virement bancaire (Wire Transfer), Skrill, Jeton,
+						MiFinity, ainsi que les cryptomonnaies suivantes : Bitcoin, Bitcoin
+						Cash, Ethereum, Litecoin et Dogecoin.
+					</p>
+					<p><strong>⏱️ Délais de traitement des retraits :</strong></p>
+					<p>
+						Les retraits en cryptomonnaies sont instantanés, tandis que les
+						retraits via cartes, e-wallets ou virement bancaire sont
+						généralement traités sous 1 à 3 jours ouvrables.
+					</p>
+				</article>
+
+				<article>
+					<h2>✍🏻 S’inscrire sur Dragonia Casino</h2>
+					<p>
+						Créer un compte sur Dragonia Casino a été plutôt simple et rapide.
+						De mon côté, tout s’est fait en quelques minutes, sans mauvaise
+						surprise :
+					</p>
+					<ol>
+						<li>
+							La première chose à faire consiste à se rendre sur le site
+							officiel de Dragonia, puis à cliquer sur le bouton « S’inscrire »,
+							mis en avant sur la page d’accueil.
+						</li>
+						<li>
+							Lors de cette étape, le site vous invite à choisir le type de
+							bonus que vous souhaitez activer, entre l’offre dédiée au casino
+							ou celle liée aux paris sportifs.
+						</li>
+						<li>
+							Il vous faudra ensuite indiquer une adresse e-mail valide et
+							définir un mot de passe personnel, qui servira lors de chaque
+							connexion.
+						</li>
+						<li>
+							Avant de poursuivre, l’acceptation des conditions générales du
+							site est nécessaire.
+						</li>
+						<li>
+							Pour finaliser l’inscription, il ne reste plus qu’à compléter les
+							informations personnelles demandées et à valider le formulaire.
+							Une fois le compte créé, l’accès aux jeux en argent réel est
+							immédiat.
+						</li>
+					</ol>
+					<p>
+						Dragonia Casino propose également une inscription via Play ID, une
+						alternative rapide pour ceux qui souhaitent simplifier la procédure.
+						Toutefois, avant tout retrait de gains, une vérification d’identité
+						(KYC) sera exigée. Cette démarche peut être réalisée dès
+						l’inscription ou ultérieurement, mais elle reste indispensable afin
+						de sécuriser le compte et d’activer les paiements.
+					</p>
+
+					<!-- Banner -->
+					<a
+						class="banners fade-in"
+						rel="nofollow noopener noreferrer"
+						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+						style="display: block; margin: 2rem 0"
+						aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
+					>
+						<picture>
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/registration-baner-dragonia-400.webp
+								"
+								media="(max-width: 480px)"
+							/>
+
+							<source
+								srcset="
+									/reviews/dragonia-casino/banners/registration-baner-dragonia-800.webp
+								"
+								media="(max-width: 1024px)"
+							/>
+
+							<img
+								src="/reviews/dragonia-casino/banners/registration-baner-dragonia-1200.webp"
+								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
+								width="1200"
+								height="700"
+								style="width: 100%; height: auto; max-width: 1200px"
+								loading="lazy"
+							/>
+						</picture>
+					</a>
+				</article>
+
+				<article>
+					<h2>📱 Compatibilité mobile</h2>
+					<div class="mobile-compatibility">
+						<p>
+							Aucune application n’est nécessaire. Le site est entièrement
+							optimisé pour mobile, que ce soit iOS ou Android. Navigation
+							fluide, accès rapide aux jeux, chargement en moins de 5 secondes :
+							parfait pour jouer où je veux, même en déplacement.
+						</p>
+						<!-- Banner -->
+						<a
+							class="banners fade-in"
+							rel="nofollow noopener noreferrer"
+							href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+							style="display: block; margin: 2rem 0"
+							aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
+						>
+							<picture>
+								<source
+									srcset="
+										/reviews/dragonia-casino/banners/mobile-baner-dragonia-260.webp
+									"
+									media="(max-width: 480px)"
+								/>
+
+								<img
+									src="/reviews/dragonia-casino/banners/mobile-baner-dragonia-365.webp"
+									alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
+									width="365"
+									height="730"
+									style="width: 100%; height: auto; max-width: 220px"
+									loading="lazy"
+								/>
+							</picture>
+						</a>
+					</div>
+				</article>
+				<article>
+					<h2>🔒 Sécurité et fiabilité</h2>
+					<p>
+						Dragonia Casino utilise un cryptage SSL 256 bits et Cloudflare pour
+						protéger mes informations et mes transactions. J’ai pu activer
+						l’authentification 2FA pour encore plus de sécurité. La licence
+						officielle des autorités d’Anjouan garantit que la plateforme est
+						régulée et transparente.
+					</p>
+				</article>
+
+				<article>
+					<h2>📞 Service client</h2>
+					<p>
+						Le support est disponible 24h/24 et 7j/7, via live chat ou e-mail
+						(support@dragonia.com). Les réponses sont rapides et en français, ce
+						qui rend l'expérience plus rassurante quand on rencontre un problème
+						ou une question sur un bonus ou un retrait.
+					</p>
+				</article>
+				<article>
+					<h2>📝 Restrictions et jeu responsable</h2>
+					<ul>
+						<li>Âge minimum : 18 ans</li>
+						<li>
+							Interdit pour certains pays : États-Unis, Royaume-Uni, Bulgarie
+						</li>
+						<li>
+							Outils de contrôle : limites de dépôt, auto-exclusion temporaire
+							ou définitive, accès aux organismes d'aide comme Gambling Therapy
+						</li>
+					</ul>
+					<p>
+						Personnellement, j'ai trouvé très utile de pouvoir fixer mes
+						limites, surtout pendant les sessions plus longues.
+					</p>
+				</article>
+				<article>
+					<h2>🔚 Conclusion</h2>
+					<p>
+						Dragonia Casino m'a vraiment séduite : interface claire, univers
+						immersif, large choix de jeux et bonus attractifs. Le seul point
+						perfectible est le plafond mensuel des retraits (7 000 € pour les
+						comptes standards), un peu bas par rapport à certains concurrents.
+					</p>
+					<p>
+						Pour moi, c'est un casino idéal pour les joueurs qui aiment
+						diversité, fun et sécurité, que ce soit pour les slots, le live ou
+						les paris sportifs.
+					</p>
+				</article>
 			</div>
 
 			<!-- Casino Card -->
