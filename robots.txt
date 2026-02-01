@@ -1,3 +1,4 @@
+# Разрешаем всем поисковым роботам сканировать сайт, кроме закрытых директорий
 User-agent: *
 Disallow: /private/
 Disallow: /tmp/
@@ -6,4 +7,5 @@ Disallow: /*?utm_
 Disallow: /*?ref=
 Disallow: /*?aff=
 
-Sitemap: https://www.topjeu777.com/sitemap.xml
+# Указываем карту сайта
+Sitemap: https://topjeu777.com/sitemap.xml
