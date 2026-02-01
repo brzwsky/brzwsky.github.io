@@ -10,6 +10,7 @@
 			name="trustpilot-one-time-domain-verification-id"
 			content="5417c7d5-3a75-46f7-a138-3145ca41b8b9"
 		/>
+
 		<title>TopJeu - Top Casinos en Ligne Fiables 2026</title>
 
 		<!-- Favicon -->
@@ -33,7 +34,7 @@
 		/>
 		<link rel="manifest" href="site.webmanifest" />
 
-		<!-- Preconnect -->
+		<!-- Preconnect for critical origins -->
 		<link
 			rel="preconnect"
 			href="https://www.google-analytics.com"
@@ -57,6 +58,7 @@
 		/>
 		<link rel="canonical" href="https://www.topjeu777.com/" />
 		<meta name="msvalidate.01" content="3500FD496F749A9D9E7D6305C11AB0B2" />
+
 		<meta property="og:type" content="website" />
 		<meta
 			property="og:title"
@@ -270,7 +272,7 @@
 			}
 		</style>
 
-		<!-- Stylesheet -->
+		<!-- Preload main CSS -->
 		<link
 			rel="preload"
 			href="style.minified.css"
@@ -282,20 +284,21 @@
 		/>
 		<noscript><link rel="stylesheet" href="style.minified.css" /></noscript>
 
-		<!-- Google Analytics 4 -->
-		<script
-			defer
-			src="https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY"
-		></script>
+		<!-- Google Analytics 4 (Consent-based) -->
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				var btn = document.getElementById('accept-analytics-btn');
 				if (btn) {
 					btn.addEventListener('click', function () {
-						var s = document.createElement('script');
-						s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
-						s.defer = true;
-						document.head.appendChild(s);
+						// Load GA script dynamically
+						if (!window.gtagScriptLoaded) {
+							var s = document.createElement('script');
+							s.src =
+								'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
+							s.defer = true;
+							document.head.appendChild(s);
+							window.gtagScriptLoaded = true;
+						}
 
 						window.dataLayer = window.dataLayer || [];
 						function gtag() {
@@ -311,7 +314,8 @@
 				}
 			});
 		</script>
-		<!-- JS -->
+
+		<!-- Main JS -->
 		<script defer src="app.minified.js"></script>
 	</head>
 	<body lang="fr" id="top">
