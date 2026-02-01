@@ -245,7 +245,7 @@
 				color: #000;
 			}
 			.header {
-				background: linear-gradient(90deg, #000, #0a162b, #ac2f38);
+				background: black;
 				color: #fff;
 				padding: 1rem 0;
 			}
@@ -271,8 +271,15 @@
 		</style>
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="style.minified.css" />
-
+		<link
+			rel="preload"
+			href="style.minified.css"
+			as="style"
+			onload="
+				this.onload = null;
+				this.rel = 'stylesheet';
+			"
+		/>
 		<noscript><link rel="stylesheet" href="style.minified.css" /></noscript>
 
 		<!-- Google Analytics 4 -->
@@ -281,34 +288,25 @@
 			src="https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY"
 		></script>
 		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-
-			// Initialization
-			gtag('js', new Date());
-
-			// Default Consent Mode: disabled
-			gtag('consent', 'default', {
-				ad_storage: 'denied',
-				analytics_storage: 'denied',
-			});
-
-			// GA configuration
-			gtag('config', 'G-YYE4H0PHYY');
-
-			// Update consent on button click
 			document.addEventListener('DOMContentLoaded', function () {
-				var acceptBtn = document.getElementById('accept-analytics-btn');
-				if (acceptBtn) {
-					acceptBtn.addEventListener('click', function () {
+				var btn = document.getElementById('accept-analytics-btn');
+				if (btn) {
+					btn.addEventListener('click', function () {
+						var s = document.createElement('script');
+						s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
+						s.defer = true;
+						document.head.appendChild(s);
+
+						window.dataLayer = window.dataLayer || [];
+						function gtag() {
+							dataLayer.push(arguments);
+						}
+						gtag('js', new Date());
 						gtag('consent', 'update', {
 							ad_storage: 'granted',
 							analytics_storage: 'granted',
 						});
-						// Extra event to log consent granted
-						gtag('event', 'consent_granted', { event_category: 'consent' });
+						gtag('config', 'G-YYE4H0PHYY');
 					});
 				}
 			});
@@ -331,7 +329,7 @@
 			<div class="header__container">
 				<div class="header__logo-block">
 					<a
-						href="https://www.topjeu777.com/"
+						href="/index.html"
 						rel="canonical"
 						class="header__logo-link"
 					>
@@ -1115,7 +1113,7 @@
 							src="img/banners/mafia-banner.webp"
 							alt="Bannière promotionnelle de Mafia Casino, offrant un bonus de bienvenue"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -1298,7 +1296,7 @@
 							src="img/banners/brutal-banner-fix.webp"
 							alt="Bannière promotionnelle de Brutal Casino, bonus de bienvenue"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -1455,7 +1453,7 @@
 							src="img/banners/dragonia-banner.webp"
 							alt="Bannière promotionnelle de Dragonia Casino, univers pirate"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -1665,7 +1663,7 @@
 							src="img/banners/mrpacho-banner.webp"
 							alt="Bannière promotionnelle de MrPacho Casino, univers pirate"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -1827,7 +1825,7 @@
 							src="img/banners/casinostars-banner.webp"
 							alt="Bannière promotionnelle de Casinostars Casino"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -2013,7 +2011,7 @@
 							src="img/banners/peaches-banner.webp"
 							alt="Bannière promotionnelle de Peaches Casino, univers fruité"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -2173,7 +2171,7 @@
 							src="img/banners/winzter-banner.webp"
 							alt="Bannière promotionnelle de Winzter Casino"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -2348,7 +2346,7 @@
 							src="img/banners/binobet-banner.webp"
 							alt="Bannière promotionnelle de Winzter Casino"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -2543,7 +2541,7 @@
 							src="img/banners/spininio-banner.webp"
 							alt="Bannière promotionnelle de Spininio Casino, univers pirate"
 							width="1200"
-							height="680"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
@@ -2759,7 +2757,7 @@
 							src="img/banners/julius-banner.webp"
 							alt="Bannière promotionnelle de Julius Casino, ambiance romaine"
 							width="1200"
-							height="300"
+							height="600"
 							loading="lazy"
 						/>
 					</a>
