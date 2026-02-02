@@ -13,10 +13,7 @@
 			name="description"
 			content="Découvrez mon avis complet sur Dragonia Casino, le casino en ligne avec plus de 11 000 jeux. Bonus de bienvenue, jeux, jackpots, retraits rapides et programme VIP détaillés."
 		/>
-		<link
-			rel="canonical"
-			href="https://www.topjeu777.com/dragonia-casino/"
-		/>
+		<link rel="canonical" href="https://www.topjeu777.com/dragonia-casino/" />
 
 		<!-- Favicon -->
 		<link rel="icon" href="/favicon.ico" sizes="any" />
@@ -210,204 +207,43 @@
 
 		<style>
 			/* =====================
-   Base
+   Reset HTML & Body
 ===================== */
 			html {
-				box-sizing: border-box;
-				min-width: 320px;
-				overflow-x: hidden;
+				margin: 0;
+				padding: 0;
+				width: 100%;
 			}
-			*,
-			*::before,
-			*::after {
-				box-sizing: inherit;
-			}
+
 			body {
 				margin: 0;
-				min-height: 100vh;
-				font-family: Helvetica, Arial, sans-serif;
-				line-height: 1.6;
-				color: #222;
-				background: #fff;
-				display: flex;
-				flex-direction: column;
-			}
-			main {
-				flex: 1;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 2rem;
-			}
-			img {
-				display: block;
-				max-width: 100%;
-				height: auto;
-			}
-			a {
-				color: inherit;
-				text-decoration: none;
-			}
-			.fade-in {
-				opacity: 0;
-				animation: fadeIn 0.4s ease forwards;
-			}
-			@keyframes fadeIn {
-				to {
-					opacity: 1;
-				}
-			}
-
-			/* =====================
-   Hero
-===================== */
-			.hero {
-				margin-top: 2rem;
-			}
-			.hero__title {
-				font-size: 2.1rem;
-				line-height: 1.25;
-				margin: 0 0 0.5rem;
-			}
-			.hero__meta {
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				gap: 0.5rem;
-				font-size: 0.85rem;
-				opacity: 0.85;
-			}
-			.hero__text {
-				margin-top: 1rem;
-				max-width: 900px;
-			}
-			.disclaimer {
-				margin-top: 1.2rem;
-				font-size: 0.8rem;
-				opacity: 0.7;
-			}
-
-			/* =====================
-   Author
-===================== */
-			.author {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.4rem;
-			}
-			.author__photo {
-				border-radius: 50%;
-			}
-			.author__name {
-				font-weight: 600;
-			}
-
-			/* =====================
-   Casino Card
-===================== */
-			.casino-card {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 1.5rem;
-				background: #fff;
-				border-radius: 14px;
-				padding: 1.5rem;
-				margin: 3rem 0;
-				box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-			}
-			.casino-card__info {
-				flex-shrink: 0;
-			}
-			.casino-card__image {
-				width: 150px;
-				height: 150px;
-				object-fit: contain;
-			}
-			.casino-button__rating {
-				text-align: center;
-				min-width: 120px;
-			}
-			.casino-card__score {
-				font-size: 1.4rem;
-				font-weight: 700;
-				margin: 0.25rem 0;
-			}
-			.casino-card__stars {
-				margin: 0;
-				color: gold;
-			}
-			.casino-card__features {
-				text-align: center;
-				flex: 1;
-			}
-			.casino-button__title {
-				margin: 0 0 0.4rem;
-				font-size: 1.05rem;
-				font-weight: 700;
-			}
-			.casino-card__bonus {
-				margin: 0;
-				font-size: 0.95rem;
-			}
-			.casino-card__button {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 1rem 2rem;
-				background: #1e7e34;
-				border-radius: 6px;
-				white-space: nowrap;
-			}
-			.casino-card__button-link {
-				font-size: 0.85rem;
-				font-weight: 700;
-				color: #fff;
-			}
-
-			/* =====================
-   Content
-===================== */
-			.landing-content {
-				margin-top: 3rem;
-			}
-			.landing-content > h2,
-			.landing-content > article > h2 {
-				margin: 2.5rem 0 1rem;
-				font-size: 1.6rem;
-			}
-			.landing-content p,
-			.landing-content ul,
-			.landing-content ol {
-				max-width: 900px;
-				margin-bottom: 1rem;
-			}
-			.landing-content ul,
-			.landing-content ol {
-				padding-left: 1.4rem;
-			}
-
-			/* =====================
-   Banners
-===================== */
-			.banners {
-				display: block;
-				margin: 2rem 0;
-			}
-
-			/* =====================
-   Tables
-===================== */
-			table {
+				padding: 0;
 				width: 100%;
-				max-width: 900px;
-				border-collapse: collapse;
-				margin: 1.5rem 0;
 			}
-			th,
-			td {
-				padding: 0.75rem;
-				border: 1px solid #ddd;
-				text-align: left;
+
+			/* =====================
+   Header & Footer Full Width
+===================== */
+			.header {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.header__container {
+				max-width: none;
+				width: 100%;
+			}
+
+			.footer {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.footer__container {
+				max-width: none;
+				width: 100%;
 			}
 
 			/* =====================
@@ -415,67 +251,36 @@
 ===================== */
 			.mobile-compatibility {
 				display: flex;
-				align-items: center;
-				gap: 2rem;
+				align-items: flex-start;
+				gap: 5rem;
 			}
 
-			/* =====================
-   FAQ
-===================== */
-			.faq {
-				margin: 4rem 0;
+			.mobile-compatibility__text {
+				flex: 1;
+				min-width: 0;
 			}
-			.faq-item {
-				border-bottom: 1px solid #ddd;
-				padding: 1rem 0;
-			}
-			.faq-question {
-				width: 100%;
-				background: none;
-				border: none;
+
+			.mobile-compatibility__banner {
+				flex: 0 0 auto;
 				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				cursor: pointer;
-				text-align: left;
-			}
-			.faq-question h3 {
-				margin: 0;
-				font-size: 1.05rem;
-			}
-			.faq-toggle {
-				font-size: 1.5rem;
-			}
-			.faq-answer {
-				display: none;
-				margin-top: 0.75rem;
-			}
-			.faq-question[aria-expanded='true'] + .faq-answer {
-				display: block;
+				justify-content: center;
+				margin-left: 5rem;
 			}
 
 			/* =====================
    Responsive
 ===================== */
 			@media (max-width: 767px) {
-				main {
-					padding: 0 1rem;
-				}
-				.hero__title {
-					font-size: 1.6rem;
-				}
-				.casino-card {
-					flex-wrap: wrap;
-					text-align: center;
-				}
-				.casino-button__rating {
-					margin: 0 auto;
-				}
 				.mobile-compatibility {
-					display: block;
+					flex-direction: column;
+					justify-content: first baseline;
+				}
+				.mobile-compatibility__banner {
+					align-self: center;
+					margin: 0;
 				}
 				.mobile-compatibility img {
-					margin: 0 auto;
+					margin: auto 0;
 				}
 			}
 		</style>
@@ -523,7 +328,7 @@
 			});
 		</script>
 		<!-- Main JS -->
-		<script defer src="/app.minified.js"></script>
+		<script defer src="/app.js"></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<!-- Cookie Consent Banner -->
@@ -760,7 +565,7 @@
 			<!-- Content Sections -->
 			<div class="landing-content fade-in">
 				<h2>✅ Dragonia Casino est-il fiable ?</h2>
-				<p>
+				<p class="content-width fade-in">
 					Avant de créer mon compte, ma première question était évidemment :
 					peut-on vraiment leur faire confiance ? J'ai vérifié et Dragonia
 					Casino est entièrement légal, opéré par NovaForge LTD et licencié par
@@ -769,7 +574,7 @@
 					Platipus, régulièrement audités pour garantir l'équité des tirages et
 					le respect des standards de l'industrie.
 				</p>
-				<p>
+				<p class="content-width fade-in">
 					Lors de mes premiers jeux, j'ai pu constater que tout fonctionnait
 					correctement : mes gains étaient crédités immédiatement et les RNG
 					(générateurs de nombres aléatoires) semblaient vraiment fiables. Dès
@@ -814,7 +619,7 @@
 						</picture>
 					</a>
 
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino se distingue par la richesse de ses promotions. J'ai
 						testé plusieurs d'entre elles et voici mon retour :
 					</p>
@@ -847,13 +652,13 @@
 							</tbody>
 						</table>
 					</section>
-					<p>
+					<p class="content-width fade-in">
 						Personnellement, j'ai trouvé ce bonus idéal pour découvrir la
 						ludothèque sans dépenser trop d'argent propre, et les free spins sur
 						dix jours permettent de prolonger l'expérience progressivement.
 					</p>
 					<h3>Bonus hebdomadaire</h3>
-					<p>
+					<p class="content-width fade-in">
 						Chaque dépôt entre lundi et jeudi d'au moins 20 € m'a permis
 						d'obtenir 50 free spins supplémentaires, avec un wager de 40x et 7
 						jours pour les utiliser. Cela maintient la motivation et rend le jeu
@@ -865,18 +670,18 @@
 						<li>Dépôt minimum : 20 €</li>
 						<li>Free spins activés à partir de 50 €</li>
 					</ul>
-					<p>
+					<p class="content-width fade-in">
 						Ces offres rendent mes sessions du week-end plus dynamiques et
 						donnent vraiment l'impression que Dragonia récompense l'activité
 						régulière.
 					</p>
 					<h3 class="casino-bonus">Bonus Crab et Défis</h3>
-					<p>
+					<p class="content-width fade-in">
 						Le Bonus Crab est un vrai petit plaisir : un simple dépôt de 10 €
 						permet de tourner la pince et de gagner aléatoirement des free
 						spins, cash ou Jetons.
 					</p>
-					<p>
+					<p class="content-width fade-in">
 						Les défis hebdomadaires m'ont également beaucoup amusée : en
 						complétant certaines missions sur les slots ou paris sportifs, j'ai
 						accumulé des Jetons supplémentaires, que j'ai pu ensuite échanger
@@ -920,7 +725,7 @@
 
 				<article>
 					<h2>🎮 Logiciels et jeux</h2>
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino offre plus de 11 000 jeux, dont une majorité de
 						machines à sous, mais aussi blackjack, roulette, baccarat, poker, et
 						jeux en direct.
@@ -1009,7 +814,7 @@
 
 				<article>
 					<h2>⚽ Paris sportifs</h2>
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino propose également une section complète de paris
 						sportifs, avec football, rugby, esports, futsal et cricket.
 						L'interface est claire et intuitive, et les cotes sont compétitives.
@@ -1020,7 +825,7 @@
 
 				<article>
 					<h2>⚡ Retraits et dépôts</h2>
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino propose des dépôts et retraits rapides et sécurisés,
 						avec un large choix de méthodes de paiement populaires, adaptées aux
 						joueurs francophones. La plateforme accepte aussi bien les paiements
@@ -1031,7 +836,7 @@
 
 				<article>
 					<h2>💳 Dépôts sur Dragonia Casino</h2>
-					<p>
+					<p class="content-width fade-in">
 						Les dépôts sur Dragonia Casino sont simples et rapides, avec un
 						montant minimum de 10 € et un plafond pouvant atteindre 5 000 € par
 						transaction.
@@ -1050,7 +855,7 @@
 
 				<article>
 					<h2>💸 Retraits sur Dragonia Casino</h2>
-					<p>
+					<p class="content-width fade-in">
 						Les retraits Dragonia Casino sont traités rapidement une fois le
 						compte vérifié, avec un montant minimum de retrait de 10 €.
 					</p>
@@ -1060,14 +865,18 @@
 						</li>
 						<li><strong>Plafond de retrait VIP :</strong> jusqu'à 20 000 €</li>
 					</ul>
-					<p><strong>Méthodes de retrait disponibles :</strong></p>
-					<p>
+					<p class="content-width fade-in">
+						<strong>Méthodes de retrait disponibles :</strong>
+					</p>
+					<p class="content-width fade-in">
 						Visa, MasterCard, virement bancaire (Wire Transfer), Skrill, Jeton,
 						MiFinity, ainsi que les cryptomonnaies suivantes : Bitcoin, Bitcoin
 						Cash, Ethereum, Litecoin et Dogecoin.
 					</p>
-					<p><strong>⏱️ Délais de traitement des retraits :</strong></p>
-					<p>
+					<p class="content-width fade-in">
+						<strong>⏱️ Délais de traitement des retraits :</strong>
+					</p>
+					<p class="content-width fade-in">
 						Les retraits en cryptomonnaies sont instantanés, tandis que les
 						retraits via cartes, e-wallets ou virement bancaire sont
 						généralement traités sous 1 à 3 jours ouvrables.
@@ -1076,7 +885,7 @@
 
 				<article>
 					<h2>✍🏻 S’inscrire sur Dragonia Casino</h2>
-					<p>
+					<p class="content-width fade-in">
 						Créer un compte sur Dragonia Casino a été plutôt simple et rapide.
 						De mon côté, tout s’est fait en quelques minutes, sans mauvaise
 						surprise :
@@ -1155,43 +964,66 @@
 				<article>
 					<h2>📱 Compatibilité mobile</h2>
 					<div class="mobile-compatibility">
-						<p>
-							Aucune application n’est nécessaire. Le site est entièrement
-							optimisé pour mobile, que ce soit iOS ou Android. Navigation
-							fluide, accès rapide aux jeux, chargement en moins de 5 secondes :
-							parfait pour jouer où je veux, même en déplacement.
-						</p>
-						<!-- Banner -->
-						<a
-							class="banners fade-in"
-							rel="nofollow noopener noreferrer"
-							href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-							style="display: block; margin: 2rem 0"
-							aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
-						>
-							<picture>
-								<source
-									srcset="
-										/reviews/dragonia-casino/banners/mobile-baner-dragonia-260.webp
-									"
-									media="(max-width: 480px)"
-								/>
+						<div class="mobile-compatibility__text">
+							<p class="content-width fade-in">
+								Pas besoin de télécharger quoi que ce soit ! Le casino
+								fonctionne parfaitement depuis votre navigateur, que vous soyez
+								sur iOS ou Android. Le site s’adapte tout seul à la taille de
+								votre écran, que vous soyez sur smartphone ou tablette, donc
+								tout reste clair et lisible.
+							</p>
+							<p class="content-width fade-in">
+								La navigation est vraiment fluide, tout est facile à trouver et
+								à lancer, exactement comme sur ordinateur. Tous les jeux sont
+								accessibles en quelques clics seulement, ce qui est super
+								pratique si vous changez souvent d’appareil ou que vous voulez
+								jouer vite pendant vos déplacements.
+							</p>
+							<p class="content-width fade-in">
+								Les pages se chargent rapidement, généralement en moins de 5
+								secondes avec une connexion correcte, donc pas de frustration ni
+								de temps perdu. Que vous soyez dans le métro, en pause au boulot
+								ou installé tranquillement sur votre canapé, tout reste simple
+								et agréable.
+							</p>
+							<p class="content-width fade-in">
+								En résumé, jouer sur mobile, c’est rapide, pratique et sans
+								prise de tête. Vous profitez de vos jeux préférés où vous
+								voulez, quand vous voulez.
+							</p>
+						</div>
 
-								<img
-									src="/reviews/dragonia-casino/banners/mobile-baner-dragonia-365.webp"
-									alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
-									width="365"
-									height="730"
-									style="width: 100%; height: auto; max-width: 220px"
-									loading="lazy"
-								/>
-							</picture>
-						</a>
+						<!-- Banner -->
+						<div class="mobile-compatibility__banner">
+							<a
+								class="banners fade-in"
+								rel="nofollow noopener noreferrer"
+								href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+								aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
+							>
+								<picture>
+									<source
+										srcset="
+											/reviews/dragonia-casino/banners/mobile-baner-dragonia-260.webp
+										"
+										media="(max-width: 480px)"
+									/>
+									<img
+										src="/reviews/dragonia-casino/banners/mobile-baner-dragonia-365.webp"
+										alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
+										width="365"
+										height="730"
+										style="width: 100%; height: auto; max-width: 220px"
+										loading="lazy"
+									/>
+								</picture>
+							</a>
+						</div>
 					</div>
 				</article>
 				<article>
 					<h2>🔒 Sécurité et fiabilité</h2>
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino utilise un cryptage SSL 256 bits et Cloudflare pour
 						protéger mes informations et mes transactions. J’ai pu activer
 						l’authentification 2FA pour encore plus de sécurité. La licence
@@ -1202,13 +1034,14 @@
 
 				<article>
 					<h2>📞 Service client</h2>
-					<p>
+					<p class="content-width fade-in">
 						Le support est disponible 24h/24 et 7j/7, via live chat ou e-mail
 						(support@dragonia.com). Les réponses sont rapides et en français, ce
 						qui rend l'expérience plus rassurante quand on rencontre un problème
 						ou une question sur un bonus ou un retrait.
 					</p>
 				</article>
+
 				<article>
 					<h2>📝 Restrictions et jeu responsable</h2>
 					<ul>
@@ -1221,20 +1054,20 @@
 							ou définitive, accès aux organismes d'aide comme Gambling Therapy
 						</li>
 					</ul>
-					<p>
+					<p class="content-width fade-in">
 						Personnellement, j'ai trouvé très utile de pouvoir fixer mes
 						limites, surtout pendant les sessions plus longues.
 					</p>
 				</article>
 				<article>
 					<h2>🔚 Conclusion</h2>
-					<p>
+					<p class="content-width fade-in">
 						Dragonia Casino m'a vraiment séduite : interface claire, univers
 						immersif, large choix de jeux et bonus attractifs. Le seul point
 						perfectible est le plafond mensuel des retraits (7 000 € pour les
 						comptes standards), un peu bas par rapport à certains concurrents.
 					</p>
-					<p>
+					<p class="content-width fade-in">
 						Pour moi, c'est un casino idéal pour les joueurs qui aiment
 						diversité, fun et sécurité, que ce soit pour les slots, le live ou
 						les paris sportifs.
@@ -1278,6 +1111,8 @@
 					<span class="casino-card__button-link fade-in">Jouez maintenant</span>
 				</a>
 			</section>
+
+			<!-- FAQ Section -->
 			<h2>❓ FAQ Dragonia Casino</h2>
 			<section class="faq faq-section fade-in">
 				<!-- FAQ 1 -->
@@ -1556,7 +1391,9 @@
 					informations.
 				</p>
 				<h3>1. Collecte de données</h3>
-				<p>Nous collectons les données suivantes :</p>
+				<p class="content-width fade-in">
+					Nous collectons les données suivantes :
+				</p>
 				<ul>
 					<li>
 						<strong>Données de navigation :</strong> pages visitées, durée de
@@ -1573,7 +1410,7 @@
 				</ul>
 
 				<h3>2. Finalité de l'utilisation</h3>
-				<p>Les données sont utilisées pour :</p>
+				<p class="content-width fade-in">Les données sont utilisées pour :</p>
 				<ul>
 					<li>Analyser l'audience et améliorer l'expérience utilisateur</li>
 					<li>Répondre aux demandes de contact</li>
@@ -1591,7 +1428,9 @@
 				</ul>
 
 				<h3>4. Partage des données</h3>
-				<p>Vos données peuvent être partagées avec :</p>
+				<p class="content-width fade-in">
+					Vos données peuvent être partagées avec :
+				</p>
 				<ul>
 					<li>
 						<strong>Google Analytics :</strong> pour l'analyse d'audience
@@ -1608,7 +1447,9 @@
 				</ul>
 
 				<h3>5. Vos droits</h3>
-				<p>Conformément au RGPD, vous disposez des droits suivants :</p>
+				<p class="content-width fade-in">
+					Conformément au RGPD, vous disposez des droits suivants :
+				</p>
 				<ul>
 					<li>
 						<strong>Droit d'accès :</strong> obtenir une copie de vos données
