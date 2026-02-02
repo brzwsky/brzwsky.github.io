@@ -347,6 +347,55 @@ body:not(.dark) .header__logo-line--subtitle {
 	width: 25px;
 }
 
+/* Casino Review Links */
+.casino-review-link {
+	border-radius: 5px;
+	color: inherit;
+	cursor: pointer;
+	display: inline-block;
+	padding: 0.1rem 0.1rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.casino-review-link strong {
+	color: inherit !important;
+	font-weight: 700;
+}
+
+body.dark .casino-review-link {
+	color: #b30000;
+}
+
+body.dark .casino-review-link strong {
+	color: #b30000 !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.casino-review-link:hover {
+		background: rgba(255, 255, 255, 0.12);
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+		color: #ffefef;
+		outline: none;
+	}
+
+	body:not(.dark) .casino-review-link:hover {
+		background: rgba(179, 0, 0, 0.12);
+		box-shadow: 0 6px 18px rgba(179, 0, 0, 0.16);
+		color: #b30000 !important;
+	}
+
+	body.dark .casino-review-link:hover {
+		background: rgba(255, 255, 255, 0.08);
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+		color: #ffffff !important;
+	}
+
+	body.dark .casino-review-link:hover strong {
+		color: #ffffff !important;
+	}
+}
+
 /* Burger Menu */
 .burger {
 	background: none;
@@ -464,7 +513,6 @@ body:not(.dark) .header__logo-line--subtitle {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
-	max-width: 1200px;
 	padding: 0 2rem;
 	width: 100%;
 }
