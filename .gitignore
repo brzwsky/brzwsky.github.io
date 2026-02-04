@@ -1,7 +1,43 @@
 DS_Store
 .vscode
 .github
+.idea/
 
 # Unminified source files (use minified versions in production)
 styles.css
 app.js
+
+# Development environment
+.env
+.env.local
+node_modules/
+package-lock.json
+
+# IDE and editor files
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# OS and temporary files
+Thumbs.db
+*.log
+*.tmp
+tmp/
+temp/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.cache/
+
+# Build outputs
+dist/
+build/
+.next/
+
+# Wrangler (Cloudflare)
+.wrangler/

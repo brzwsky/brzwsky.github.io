@@ -1,0 +1,4 @@
+# Apply filter to HTML files
+index.html filter=minify-html
+ca/index.html filter=minify-html
+reviews/*/index.html filter=minify-html

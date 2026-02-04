@@ -1,0 +1,7 @@
+name = "topjeu-geo-worker"
+main = "src/index.js"
+compatibility_date = "2024-12-16"
+
+[env.production]
+route = "https://www.topjeu777.com/*"
+zone_id = "YOUR_ZONE_ID"
