@@ -2,11 +2,20 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/topjeuco/public_html/
 
+    # Core pages
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -R ca $DEPLOYPATH
+
+    # Assets & config
     - /bin/cp -R img $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
-    - /bin/cp app.minified.js $DEPLOYPATH
-    - /bin/cp styles.minified.css $DEPLOYPATH
+    - /bin/cp site.webmanifest $DEPLOYPATH
+
+    # Scripts & styles (minified)
+    - /bin/cp app.minified.js $DEPLOYPATH/app.js
+    - /bin/cp style.minified.css $DEPLOYPATH/styles.css
     - /bin/cp favicon.ico $DEPLOYPATH
-    - /bin/cp -R reviews $DEPLOYPATH/reviews/ 
+
+    # Reviews section
+    - /bin/cp -R reviews $DEPLOYPATH/reviews/
