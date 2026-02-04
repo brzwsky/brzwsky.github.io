@@ -2,3 +2,6 @@ DS_Store
 .vscode
 .github
 
+# Unminified source files (use minified versions in production)
+styles.css
+app.js

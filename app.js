@@ -9,9 +9,72 @@ const observerRegistry = {
 	globalScrollObserver: null,
 };
 
+// Timing constants for consistent animations
+const TIMINGS = {
+	BANNER_INITIAL_DELAY: 2000,
+	BANNER_EXPAND_DELAY: 20,
+	BANNER_EXPAND_COMPLETE: 450,
+	MODAL_ANIMATION: 300,
+	MODAL_OPENING_DELAY: 50,
+	TOUCH_RESET_DELAY: 100,
+	FEEDBACK_TIMEOUT: 5000,
+	SCROLL_DEBOUNCE: 100,
+	RESIZE_DEBOUNCE: 150,
+};
+
+// Keyboard navigation keys for accessibility
+const KEYBOARD_KEYS = new Set([
+	'Tab',
+	'ArrowUp',
+	'ArrowDown',
+	'ArrowLeft',
+	'ArrowRight',
+	'Escape',
+]);
+
 const MOBILE_MAX_WIDTH = 768;
 
+// LocalStorage helper with error handling
+const storage = {
+	get(key) {
+		try {
+			return localStorage.getItem(key);
+		} catch {
+			return null;
+		}
+	},
+	set(key, value) {
+		try {
+			localStorage.setItem(key, value);
+			return true;
+		} catch {
+			return false;
+		}
+	},
+	remove(key) {
+		try {
+			localStorage.removeItem(key);
+			return true;
+		} catch {
+			return false;
+		}
+	},
+};
+
+// Cached viewport check with invalidation on resize
+let cachedIsMobile = null;
+let viewportCheckTime = 0;
+const VIEWPORT_CACHE_DURATION = 100; // ms
+
 function isMobileViewport() {
+	const now = Date.now();
+	if (
+		cachedIsMobile !== null &&
+		now - viewportCheckTime < VIEWPORT_CACHE_DURATION
+	) {
+		return cachedIsMobile;
+	}
+
 	const doc = document.documentElement;
 	const candidates = [
 		typeof window.innerWidth === 'number' ? window.innerWidth : null,
@@ -20,9 +83,24 @@ function isMobileViewport() {
 			? window.screen.width
 			: null,
 	].filter((value) => value && value > 0);
-	if (!candidates.length) return window.innerWidth <= MOBILE_MAX_WIDTH;
-	return Math.min(...candidates) <= MOBILE_MAX_WIDTH;
+
+	const result = candidates.length
+		? Math.min(...candidates) <= MOBILE_MAX_WIDTH
+		: window.innerWidth <= MOBILE_MAX_WIDTH;
+
+	cachedIsMobile = result;
+	viewportCheckTime = now;
+	return result;
 }
+
+// Invalidate viewport cache on resize
+window.addEventListener(
+	'resize',
+	() => {
+		cachedIsMobile = null;
+	},
+	{ passive: true },
+);
 
 // ============================================================================
 // COOKIE CONSENT & ANALYTICS MANAGEMENT (Unified)
@@ -66,10 +144,8 @@ class CookieConsentManager {
 		const consent = localStorage.getItem(this.consentKey);
 
 		if (!consent) {
-			// Use requestAnimationFrame to prevent layout shifts
-			requestAnimationFrame(() => {
-				setTimeout(() => this.showBanner(), 2000);
-			});
+			// Delayed banner display
+			setTimeout(() => this.showBanner(), TIMINGS.BANNER_INITIAL_DELAY);
 		} else if (consent === 'accepted') {
 			this.banner.style.display = 'none';
 		} else if (consent === 'declined') {
@@ -103,12 +179,12 @@ class CookieConsentManager {
 			this.banner.classList.add('show');
 			this.container.style.maxHeight = this.container.scrollHeight + 'px';
 			this.container.style.opacity = '1';
-		}, 20);
+		}, TIMINGS.BANNER_EXPAND_DELAY);
 
 		setTimeout(() => {
 			this.banner.classList.remove('expanding');
 			this.container.style.maxHeight = 'none';
-		}, 450);
+		}, TIMINGS.BANNER_EXPAND_COMPLETE);
 	}
 
 	setupEventListeners() {
@@ -154,21 +230,20 @@ class CookieConsentManager {
 		this.analyticsBanner.classList.remove('hidden');
 		this.analyticsBanner.setAttribute('aria-hidden', 'true');
 
-		const analyticsChoice = localStorage.getItem(this.analyticsConsentKey);
+		const analyticsChoice = storage.get(this.analyticsConsentKey);
 
 		if (analyticsChoice === 'accepted') {
 			this.hideAnalyticsBanner();
 		} else {
-			// Use requestAnimationFrame to prevent layout shifts
-			requestAnimationFrame(() => {
-				setTimeout(() => {
-					this.showAnalyticsBanner();
-				}, 2000);
-			});
+			// Delayed banner display
+			setTimeout(
+				() => this.showAnalyticsBanner(),
+				TIMINGS.BANNER_INITIAL_DELAY,
+			);
 		}
 
 		this.analyticsAccept.addEventListener('click', () => {
-			localStorage.setItem(this.analyticsConsentKey, 'accepted');
+			storage.set(this.analyticsConsentKey, 'accepted');
 			this.hideAnalyticsBanner();
 
 			// Update gtag consent
@@ -184,13 +259,10 @@ class CookieConsentManager {
 	showAnalyticsBanner() {
 		if (!this.analyticsBanner) return;
 
-		// Use requestAnimationFrame to prevent layout shifts
-		requestAnimationFrame(() => {
-			this.analyticsBanner.style.display = '';
-			this.analyticsBanner.classList.add('show');
-			this.analyticsBanner.classList.add('visible');
-			this.analyticsBanner.setAttribute('aria-hidden', 'false');
-		});
+		this.analyticsBanner.style.display = '';
+		this.analyticsBanner.classList.add('show');
+		this.analyticsBanner.classList.add('visible');
+		this.analyticsBanner.setAttribute('aria-hidden', 'false');
 	}
 
 	hideAnalyticsBanner() {
@@ -501,7 +573,7 @@ class PopupManager {
 					popupElement.style.willChange = '';
 				}
 			}, this.animationDuration);
-		}, 50); // Small delay to prevent rapid opening
+		}, TIMINGS.MODAL_OPENING_DELAY);
 	}
 
 	closePopup(popupElement) {
@@ -544,7 +616,7 @@ class PopupManager {
 		// Reset closing flag after animation
 		setTimeout(() => {
 			this.isClosing = false;
-		}, 300);
+		}, TIMINGS.MODAL_ANIMATION);
 	}
 
 	openPrivacyPopup() {
@@ -575,7 +647,7 @@ class PopupManager {
 		// Reset closing flag after animation
 		setTimeout(() => {
 			this.isClosing = false;
-		}, 300);
+		}, TIMINGS.MODAL_ANIMATION);
 	}
 
 	// Safe menu closing with conflict prevention
@@ -587,15 +659,20 @@ class PopupManager {
 			window.mobileMenuManager.closeMenu({ restoreFocus: false });
 			return;
 		}
-		const menu = document.querySelector('.nav-menu');
-		const burger = document.querySelector('.burger');
+		// Fallback: use cached elements from MobileMenuManager if available
+		const menu =
+			window.mobileMenuManager?.menu || document.querySelector('.nav-menu');
+		const burger =
+			window.mobileMenuManager?.burger || document.querySelector('.burger');
+
 		if (menu && burger && menu.classList.contains('active')) {
 			menu.classList.remove('active');
 			const isMobile = isMobileViewport();
 			if (isMobile) {
 				menu.setAttribute('aria-hidden', 'true');
 				setTimeout(() => {
-					if (!menu.classList.contains('active') && isMobileViewport()) {
+					// Cache the viewport check result
+					if (!menu.classList.contains('active') && isMobile) {
 						menu.setAttribute('hidden', '');
 					}
 				}, 400);
@@ -1526,7 +1603,7 @@ class FAQManager {
 				clearTimeout(scrollTimeout);
 				scrollTimeout = setTimeout(() => {
 					this.updateVisibleFAQItemsEnhanced(container);
-				}, 16); // ~60fps throttling
+				}, TIMINGS.SCROLL_DEBOUNCE);
 			},
 			{ passive: true },
 		);
@@ -1629,29 +1706,54 @@ class FAQManager {
 		const isOpen = button.getAttribute('aria-expanded') === 'true';
 
 		if (isOpen) {
-			answer.style.maxHeight = '0';
+			// Set current height first to enable transition
+			answer.style.maxHeight = answer.scrollHeight + 'px';
+			// Force reflow
+			answer.offsetHeight;
+			// Then collapse
+			requestAnimationFrame(() => {
+				answer.style.maxHeight = '0';
+			});
 			button.setAttribute('aria-expanded', 'false');
 			answer.classList.remove('open');
 		} else {
 			// Close any other open FAQ items (accordion behavior)
-			document
-				.querySelectorAll('.faq-question[aria-expanded="true"]')
-				.forEach((openBtn) => {
-					if (openBtn !== button) {
-						const openAnswer = openBtn.nextElementSibling;
-						if (openAnswer) {
-							openAnswer.style.maxHeight = '0';
-							openAnswer.classList.remove('open');
-						}
-						openBtn.setAttribute('aria-expanded', 'false');
-					}
-				});
+			// Use cached questions if available, otherwise query
+			const openQuestions =
+				this.faqQuestions.length > 0
+					? Array.from(this.faqQuestions).filter(
+							(q) => q.getAttribute('aria-expanded') === 'true',
+						)
+					: Array.from(
+							document.querySelectorAll('.faq-question[aria-expanded="true"]'),
+						);
 
-			// Stabilize: clear then set exact height for smooth transition
-			answer.style.maxHeight = '';
-			answer.style.maxHeight = answer.scrollHeight + 'px';
-			button.setAttribute('aria-expanded', 'true');
+			openQuestions.forEach((openBtn) => {
+				if (openBtn !== button) {
+					const openAnswer = openBtn.nextElementSibling;
+					if (openAnswer) {
+						openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
+						// Force reflow
+						openAnswer.offsetHeight;
+						requestAnimationFrame(() => {
+							openAnswer.style.maxHeight = '0';
+						});
+						openAnswer.classList.remove('open');
+					}
+					openBtn.setAttribute('aria-expanded', 'false');
+				}
+			});
+
+			// Set starting point, then animate to full height
+			answer.style.maxHeight = '0';
 			answer.classList.add('open');
+			button.setAttribute('aria-expanded', 'true');
+
+			// Trigger reflow then set target height for smooth transition
+			answer.offsetHeight;
+			requestAnimationFrame(() => {
+				answer.style.maxHeight = answer.scrollHeight + 'px';
+			});
 		}
 	}
 
@@ -2797,7 +2899,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		scrollBtn.addEventListener('touchend', () => {
 			setTimeout(() => {
 				scrollBtn.style.backgroundColor = '';
-			}, 100);
+			}, TIMINGS.TOUCH_RESET_DELAY);
 		});
 	}
 
@@ -2818,19 +2920,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		const body = document.body;
 		if (!body) return;
 
-		const keyboardKeys = new Set([
-			'Tab',
-			'ArrowUp',
-			'ArrowDown',
-			'ArrowLeft',
-			'ArrowRight',
-			'Escape',
-		]);
-
 		window.addEventListener(
 			'keydown',
 			(e) => {
-				if (keyboardKeys.has(e.key)) {
+				if (KEYBOARD_KEYS.has(e.key)) {
 					usingKeyboard = true;
 					body.classList.add('user-is-tabbing');
 				}
