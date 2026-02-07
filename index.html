@@ -3,6 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:site_name" content="TopJeu" />
+		<meta
+			name="description"
+			content="TopJeu : classement 2026 des casinos en ligne fiables, bonus, avis impartiaux et conseils pour jouer en toute securite."
+		/>
 		<title>TopJeu - Casinos Fiables en Ligne 2026</title>
 		<link
 			rel="icon"
@@ -32,7 +37,8 @@
 		<link
 			rel="preconnect"
 			href="https://www.googletagmanager.com"
-
+			crossorigin
+		/>
 		<meta name="msvalidate.01" content="3500FD496F749A9D9E7D6305C11AB0B2" />
 
 		<meta property="og:type" content="website" />
@@ -76,13 +82,18 @@
 						"url": "https://www.topjeu777.com/",
 						"name": "TopJeu",
 						"description": "Classement et avis des meilleurs casinos en ligne francophones en 2026",
-						"inLanguage": "fr-FR"
+						"inLanguage": "fr-FR",
+						"publisher": {
+							"@type": "Organization",
+							"name": "TopJeu",
+							"url": "https://www.topjeu777.com/"
+						}
 					},
 					{
 						"@type": "WebPage",
 						"@id": "https://www.topjeu777.com/#webpage",
 						"url": "https://www.topjeu777.com/",
-						"name": "TopJeu - Top Casinos en Ligne Fiables 2026",
+						"name": "TopJeu – Top Casinos en Ligne Fiables 2026",
 						"description": "Top 11 casinos en ligne fiables pour les joueurs francophones : avis, bonus, sécurité et conseils",
 						"isPartOf": {
 							"@id": "https://www.topjeu777.com/#website"
@@ -93,8 +104,11 @@
 						"@type": "ItemList",
 						"@id": "https://www.topjeu777.com/#top-casinos",
 						"name": "Top 11 Casinos en Ligne Fiables",
-						"itemListOrder": "https://schema.org/ItemListOrderDescending",
+						"itemListOrder": "https://schema.org/ItemListOrderAscending",
 						"numberOfItems": 11,
+						"isPartOf": {
+							"@id": "https://www.topjeu777.com/#webpage"
+						},
 						"itemListElement": [
 							{
 								"@type": "ListItem",
@@ -167,13 +181,16 @@
 					{
 						"@type": "FAQPage",
 						"@id": "https://www.topjeu777.com/#faq",
+						"isPartOf": {
+							"@id": "https://www.topjeu777.com/#webpage"
+						},
 						"mainEntity": [
 							{
 								"@type": "Question",
 								"name": "Comment trouver un casino en ligne fiable ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "En choisissant un casino disposant d’une licence valide, de paiements sécurisés, de retraits rapides et d’un support client réactif. Tous les casinos listés sur cette page ont été testés."
+									"text": "En choisissant un casino disposant d’une licence valide, de paiements sécurisés, de retraits rapides et d’un support client réactif."
 								}
 							},
 							{
@@ -194,14 +211,6 @@
 							},
 							{
 								"@type": "Question",
-								"name": "Sur quels jeux a-t-on le plus de chances de gagner ?",
-								"acceptedAnswer": {
-									"@type": "Answer",
-									"text": "Les machines à sous à faible volatilité, le blackjack et la roulette européenne offrent généralement de meilleures probabilités que les jeux très volatils."
-								}
-							},
-							{
-								"@type": "Question",
 								"name": "Les bonus de casino sont-ils fiables ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
@@ -214,96 +223,33 @@
 			}
 		</script>
 
-		<!-- Inline Critical CSS -->
-		<style>
-			body {
-				margin: 0;
-				font-family: Helvetica, sans-serif;
-				background: #fff;
-				color: #000;
-			}
-			.header {
-				background: black;
-				color: #fff;
-				padding: 1rem 0;
-			}
-			.header__container {
-				max-width: 1200px;
-				margin: 0 auto;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 0 2rem;
-			}
-			main {
-				flex: 1;
-				padding: 0 2rem;
-				max-width: 1200px;
-				margin: 0 auto;
-			}
-			h1,
-			h2,
-			h3 {
-				color: #1a1a1a;
-			}
-		</style>
-
 		<!-- Preload main CSS -->
 		<link
 			rel="preload"
-			href="/style.minified.css"
+			href="/style.minified.css?v=20260207"
 			as="style"
 			onload="
 				this.onload = null;
 				this.rel = 'stylesheet';
 			"
 		/>
-		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
-
-		<!-- Google Analytics 4 (Consent-based) -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				var btn = document.getElementById('accept-analytics-btn');
-				if (btn) {
-					btn.addEventListener('click', function () {
-						// Load GA script dynamically
-						if (!window.gtagScriptLoaded) {
-							var s = document.createElement('script');
-							s.src =
-								'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
-							s.defer = true;
-							document.head.appendChild(s);
-							window.gtagScriptLoaded = true;
-						}
-
-						window.dataLayer = window.dataLayer || [];
-						function gtag() {
-							dataLayer.push(arguments);
-						}
-						gtag('js', new Date());
-						gtag('consent', 'update', {
-							ad_storage: 'granted',
-							analytics_storage: 'granted',
-						});
-						gtag('config', 'G-YYE4H0PHYY');
-					});
-				}
-			});
-		</script>
+		<noscript>
+			<link rel="stylesheet" href="/style.minified.css?v=20260207" />
+		</noscript>
 
 		<!-- Main JS -->
-		<script defer src="/app.minified.js"></script>
+		<script defer src="/app.minified.js?v=20260207"></script>
 	</head>
 	<body lang="fr" id="top">
 		<!-- Cookie Consent Banner -->
-		<div class="cookie-consent-banner fade-in">
+		<div class="cookie-consent-banner u-fade-in">
 			<p>
 				Nous utilisons Google Analytics pour améliorer votre expérience.
 				Acceptez-vous ?
 			</p>
 			<button id="accept-analytics-btn">Accepter</button>
 		</div>
-		<div class="menu-overlay" aria-hidden="true"></div>
+		<div class="nav-menu__overlay" aria-hidden="true"></div>
 		<!-- Header -->
 		<header class="header" role="banner">
 			<div class="header__container">
@@ -319,7 +265,7 @@
 							height="60"
 						/>
 					</a>
-					<div class="header__logo-text fade-in">
+					<div class="header__logo-text u-fade-in">
 						<p class="header__logo-line header__logo-line--title">TopJeu</p>
 						<p class="header__logo-line header__logo-line--subtitle">
 							casino fiables
@@ -327,7 +273,7 @@
 					</div>
 				</div>
 				<button
-					class="burger"
+					class="header__burger"
 					aria-label="Menu"
 					aria-controls="primary-menu"
 					aria-expanded="false"
@@ -344,7 +290,7 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="close-menu" aria-label="Fermer le menu">✕</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">✕</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -360,26 +306,24 @@
 									loading="eager"
 									width="25"
 									height="25"
-									style="width: 25px; height: 25px; object-fit: contain"
 								/>
 								<span>YouTube</span>
 							</a>
 						</li>
 						<li class="nav-menu__item nav-menu__item--avis">
-							<div class="avis-wrapper">
+							<div class="nav-menu__avis">
 								<button
 									type="button"
-									class="header__link nav-menu__link avis-toggle"
+									class="header__link nav-menu__link nav-menu__avis-toggle"
 									aria-expanded="false"
 									aria-controls="avis-list"
 								>
 									Avis
-									<span class="avis-toggle__icon" aria-hidden="true">
+									<span class="nav-menu__avis-toggle-icon" aria-hidden="true">
 										<svg
 											viewBox="0 0 10 10"
 											width="10"
 											height="10"
-											style="display: block"
 											fill="currentColor"
 										>
 											<polygon points="3,2 8,5 3,8" />
@@ -388,14 +332,14 @@
 								</button>
 								<ul
 									id="avis-list"
-									class="avis-dropdown"
+									class="nav-menu__avis-dropdown"
 									role="menu"
 									aria-hidden="true"
 								>
 									<li role="none">
 										<a
 											role="menuitem"
-											class="avis-link"
+											class="nav-menu__avis-link"
 											href="/dragonia-casino/"
 											>Dragonia Casino</a
 										>
@@ -427,7 +371,7 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="header__controls fade-in">
+				<div class="header__controls u-fade-in">
 					<!-- Canada region link -->
 					<a
 						href="/ca/"
@@ -449,7 +393,7 @@
 						type="button"
 						id="theme-toggle"
 						class="theme-toggle-button"
-						aria-label="Toggle dark/light mode"
+						aria-label="Basculer le theme clair/sombre"
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
@@ -462,7 +406,7 @@
 				Les meilleurs casinos en ligne francophones fiables en 2026
 			</h1>
 			<!-- Hero Section -->
-			<section class="hero fade-in">
+			<section class="hero u-fade-in">
 				<p class="hero__meta">
 					<span class="author"
 						><img
@@ -476,11 +420,12 @@
 					</span>
 					Rédigé par :
 					<span>
-						<a href="#" class="author__name">Dariah Belle</a>
+						<span class="author__name">Dariah Belle</span>
 					</span>
-					· Dernière mise à jour : <span class="light">9 Janvier 2026</span>
+					· Dernière mise à jour :
+					<span class="u-font-light">9 Janvier 2026</span>
 				</p>
-				<p class="disclaimer fade-in">
+				<p class="disclaimer u-fade-in">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
 					modération, fixez des limites et ne misez jamais plus que ce que vous
 					pouvez vous permettre de perdre. Si vous sentez que le jeu devient un
@@ -504,9 +449,9 @@
 				</div>
 			</section>
 			<!-- Casino Cards -->
-			<section id="top5" class="casino-cards-container casino-cards fade-in">
+			<section id="top5" class="casino-cards-container casino-cards u-fade-in">
 				<h2>Liste des Casinos en ligne français fiables</h2>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Pour composer ce classement, j’ai évalué chaque casino en ligne selon
 					des critères clés : fiabilité, richesse du catalogue de jeux, clarté
 					des offres promotionnelles, solutions de paiement et efficacité du
@@ -535,8 +480,7 @@
 								fetchpriority="high"
 								width="150"
 								height="83"
-								srcset="
-						/assets/img/logo-casinos/mafiacasino-logo.svg 150w"
+								srcset="/assets/img/logo-casinos/mafiacasino-logo.svg 150w"
 							/>
 							<div>
 								<h3 class="casino-card__title">Mafia Casino</h3>
@@ -553,7 +497,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.8</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-mafia-top5">Mafia Casino</strong>
 							</p>
 						</div>
@@ -563,8 +507,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-001
-							"
+							aria-describedby="casino-name-mafia-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -572,7 +515,7 @@
 				</article>
 
 				<!--Card Brutal-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">2</div>
@@ -603,7 +546,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.7</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-brutal-top5">Brutal Casino</strong>
 							</p>
 						</div>
@@ -613,8 +556,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-002
-							"
+							aria-describedby="casino-name-brutal-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -622,7 +564,7 @@
 				</article>
 
 				<!--Card Dragonia Casino-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">3</div>
@@ -634,8 +576,7 @@
 								loading="lazy"
 								width="150"
 								height="83"
-								srcset="
-						/assets/img/logo-casinos/dragonia-logo.webp 150w"
+								srcset="/assets/img/logo-casinos/dragonia-logo.webp 150w"
 							/>
 
 							<div>
@@ -653,7 +594,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.6</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-dragonia-top5">Dragonia Casino</strong>
 							</p>
 						</div>
@@ -663,8 +604,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-003
-							"
+							aria-describedby="casino-name-dragonia-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -672,7 +612,7 @@
 				</article>
 
 				<!--Card MrPacho Casino-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">4</div>
@@ -703,7 +643,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.3</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-mrpacho-top5">MrPacho Casino</strong>
 							</p>
 						</div>
@@ -713,7 +653,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-004"
+							aria-describedby="casino-name-mrpacho-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -721,7 +661,7 @@
 				</article>
 
 				<!--Card Casinostars-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">5</div>
@@ -753,7 +693,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.2</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-casinostars-top5">Casinostars</strong>
 							</p>
 						</div>
@@ -763,7 +703,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-005"
+							aria-describedby="casino-name-casinostars-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -771,7 +711,7 @@
 				</article>
 
 				<!--Card CasinoPeaches-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">6</div>
@@ -803,7 +743,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">8.8</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-peaches-top5">CasinoPeaches</strong>
 							</p>
 						</div>
@@ -813,7 +753,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-006"
+							aria-describedby="casino-name-peaches-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -821,7 +761,7 @@
 				</article>
 
 				<!--Card Spininio-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">7</div>
@@ -834,8 +774,7 @@
 								loading="lazy"
 								width="150"
 								height="50"
-								srcset="
-						/assets/img/logo-casinos/spininio-logo.webp 150w"
+								srcset="/assets/img/logo-casinos/spininio-logo.webp 150w"
 							/>
 
 							<div>
@@ -851,17 +790,17 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">8.5</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-spininio-top5">Spininio Casino</strong>
 							</p>
 						</div>
 						<a
 							class="casino-card__button"
-							href=" https://go.spininio.online/visit/?bta=35107&nci=7796"
+							href="https://go.spininio.online/visit/?bta=35107&nci=7796"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-007"
+							aria-describedby="casino-name-spininio-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -869,7 +808,7 @@
 				</article>
 
 				<!--Card Winzter-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">8</div>
@@ -881,8 +820,7 @@
 								loading="lazy"
 								width="150"
 								height="47"
-								srcset="
-						/assets/img/logo-casinos/winzter-logo.webp 150w"
+								srcset="/assets/img/logo-casinos/winzter-logo.webp 150w"
 							/>
 
 							<div>
@@ -898,7 +836,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">8.3</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-winzter-top5">Winzter Casino</strong>
 							</p>
 						</div>
@@ -908,7 +846,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-008"
+							aria-describedby="casino-name-winzter-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -916,7 +854,7 @@
 				</article>
 
 				<!--Card Binobet Casino-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">9</div>
@@ -950,7 +888,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">8.2</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-binobet-top5">Binobet Casino</strong>
 							</p>
 						</div>
@@ -960,7 +898,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-009"
+							aria-describedby="casino-name-binobet-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -968,7 +906,7 @@
 				</article>
 
 				<!--Card Wonderluck-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">10</div>
@@ -977,8 +915,7 @@
 								class="casino-card__image"
 								src="/assets/img/logo-casinos/wonderluck-logo.webp"
 								alt="Logo de WonderLuck Casino, classé numéro 10"
-								srcset="
-						/assets/img/logo-casinos/wonderluck-logo.webp 150w"
+								srcset="/assets/img/logo-casinos/wonderluck-logo.webp 150w"
 								sizes="150px"
 								width="150"
 								height="90"
@@ -1000,7 +937,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">8.0</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-wonderluck-top5"
 									>WonderLuck Casino</strong
 								>
@@ -1012,7 +949,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-010"
+							aria-describedby="casino-name-wonderluck-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -1020,7 +957,7 @@
 				</article>
 
 				<!--Card CasinoLab-->
-				<article class="casino-article fade-in">
+				<article class="casino-article u-fade-in">
 					<div class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">11</div>
@@ -1049,7 +986,7 @@
 						<div class="casino-card__rating">
 							<p class="casino-card__score">7.9</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="display: none">
+							<p class="u-visually-hidden">
 								<strong id="casino-name-casinolab-top5">CasinoLab</strong>
 							</p>
 						</div>
@@ -1059,7 +996,7 @@
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-011"
+							aria-describedby="casino-name-casinolab-top5"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -1068,9 +1005,9 @@
 			</section>
 
 			<!--Mon Top 10 des meilleurs casinos en ligne 2026-->
-			<div class="content-width fade-in">
+			<div class="u-content-width u-fade-in">
 				<h2>🏅 Mon Top 10 des meilleurs casinos en ligne 2026</h2>
-				<p class="content-width">
+				<p class="u-content-width">
 					Je veux vous faire découvrir mon Top 10 des casinos en ligne 💖. Je
 					vais partager avec vous ce que j’aime et ce que j’aime moins dans
 					chacun, pour que vous puissiez faire le bon choix. Je suis confiante
@@ -1078,14 +1015,14 @@
 					utiliser en toute sécurité.
 				</p>
 
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					C'est pourquoi je partage ici mes avis honnêtes et directs, basés sur
 					mon expérience réelle de joueuse. Prenez une minute pour parcourir ce
 					classement - cela peut vraiment vous éviter des erreurs et vous faire
 					gagner du temps.
 				</p>
 
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Chaque site présenté ici a ses points forts et ses limites, que je
 					détaille sans détour. Mon objectif n'est pas de vous vendre du rêve,
 					mais de vous donner une vision claire et transparente. Avec ces
@@ -1097,13 +1034,16 @@
 			<!-- Reviews -->
 			<section class="landing-content">
 				<!-- Review Mafia Casino -->
-				<section id="mafia-casino" class="casino-review_mafia-casino fade-in">
-					<h3 class="content-width fade-in">
+				<section
+					id="mafia-casino"
+					class="casino-review casino-review--mafia-casino u-fade-in"
+				>
+					<h3 class="u-content-width u-fade-in">
 						Mafia Casino - un nouveau casino en ligne à l'ambiance unique pour
 						les joueurs francophones
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://mfac.lunostra.com/?mid=309272_1829542"
 					>
@@ -1115,7 +1055,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong>Mafia Casino</strong> s'impose comme une nouvelle
 						destination de choix pour les amateurs de jeux en ligne
 						francophones. Avec son univers original inspiré du monde mafieux, le
@@ -1124,15 +1064,15 @@
 						joueurs plus expérimentés.
 					</p>
 
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dès l'inscription, les nouveaux joueurs sont accueillis avec un
 						bonus de bienvenue attractif, sans conditions complexes ni pièges
 						cachés. L'interface est claire, fluide, et disponible en français,
 						ce qui permet une prise en main rapide.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Mafia Casino
 							</caption>
 							<tbody>
@@ -1171,8 +1111,8 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo fade-in">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo u-fade-in">
 							<img
 								class="casino-card__image"
 								src="/assets/img/logo-casinos/mafiacasino-logo.svg"
@@ -1182,36 +1122,36 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="align-items: center">
+						<div class="casino-card__rating u-fade-in">
+							<p>
 								<strong id="casino-name-mafia-detail">Mafia Casino</strong>
 							</p>
 							<p class="casino-card__score">9.8</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">
 								100% Jusqu'à 500 € + 200<br />
 								Free Spins
 							</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://mafiacasino.com/"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-001"
+							aria-describedby="casino-name-mafia-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
 
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Une <strong>interface en français</strong>, facile à utiliser sur
 							mobile ou ordinateur
@@ -1234,20 +1174,20 @@
 						</li>
 					</ul>
 
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
 
-					<ul class="content-width fade-in">
+					<ul class="u-content-width u-fade-in">
 						<li>
 							La <strong>licence de jeu</strong> délivrée par Anjouan, moins
 							réputée que celles de la MGA ou de Curaçao
 						</li>
 					</ul>
 
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
 
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J'ai testé Mafia Casino par curiosité, attirée par son univers
 						original façon film noir. J'ai déposé 25 € et profité du bonus de
 						bienvenue sans souci. J'ai surtout joué sur des titres comme Money
@@ -1257,11 +1197,11 @@
 						français, réponse rapide et polie. Une bonne surprise !
 					</p>
 
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						<strong> Verdict : </strong>
 					</h4>
 
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong
 							>Mafia Casino est une excellente option pour les joueurs
 							francophones</strong
@@ -1272,7 +1212,7 @@
 						prise de tête.
 					</p>
 
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 Si vous cherchez un casino qui sort un peu des sentiers battus
 						tout en restant fiable, celui-ci mérite un essai. Après tout, qui
 						n'a jamais rêvé d'être le parrain… des jackpots ? 😉
@@ -1280,13 +1220,16 @@
 				</section>
 
 				<!--Review Brutal Casino-->
-				<section id="brutal-casino" class="casino-review_brutal-casino fade-in">
-					<h3 class="content-width fade-in">
+				<section
+					id="brutal-casino"
+					class="casino-review casino-review--brutal-casino u-fade-in"
+				>
+					<h3 class="u-content-width u-fade-in">
 						Brutal Casino - une plateforme moderne avec des paiements rapides et
 						une interface en français
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
 					>
@@ -1298,7 +1241,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong>Brutal Casino</strong> est un site de jeu en ligne qui se
 						distingue par son ambiance audacieuse et son offre variée. Avec une
 						licence valide délivrée par Antigua, il propose une large gamme de
@@ -1308,9 +1251,9 @@
 						bienvenue de 100% jusqu’à 1000 € .
 					</p>
 
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Brutal Casino
 							</caption>
 							<tbody>
@@ -1349,10 +1292,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/brutal-logo.webp"
 								data-dark="/assets/img/logo-casinos/brutal-logo-dark.webp"
 								alt="Logo de Brutal Casino (section avis détaillé)"
@@ -1361,34 +1304,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="white-space: nowrap">
+						<div class="casino-card__rating u-fade-in">
+							<p class="u-nowrap">
 								<strong id="casino-name-brutal-detail">Brutal Casino</strong>
 							</p>
 							<p class="casino-card__score">9.7</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								100% Jusqu'à 1000 €
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">100% Jusqu'à 1000 €</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-002"
+							aria-describedby="casino-name-brutal-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							<strong>Cashback:</strong> entre 10 % et 30 % selon les offres
 						</li>
@@ -1398,8 +1339,8 @@
 							immédiat
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							<strong>Promotions :</strong>, pas d’offres régulières disponibles
 						</li>
@@ -1407,10 +1348,10 @@
 							<strong>Support : </strong> assistance téléphonique non proposée
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai testé Brutal Casino par curiosité. L’inscription a été rapide,
 						et le site est fluide.<strong
 							>J’ai déposé 20 € et profité du bonus de bienvenue sans
@@ -1419,14 +1360,14 @@
 						Les jeux sont variés, et les retraits ont été traités
 						<strong>en 4 heures via Bitcoin.</strong>
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width u-fade-in">
 						<strong>Brutal Casino</strong> est une option solide pour les
 						joueurs à la recherche d’une expérience de jeu diversifiée et
 						sécurisée. Avec ses bonus attractifs et sa plateforme fiable, il
 						mérite d’être essayé.
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 Si vous aimez les sensations fortes et les frissons du jeu,
 						Brutal Casino est fait pour vous. Avec ses bonus attractifs et sa
 						sélection de jeux variée, c’est un vrai terrain de jeu pour les
@@ -1437,13 +1378,13 @@
 				<!--Review Dragonia Casino-->
 				<section
 					id="dragonia-casino"
-					class="casino-review_dragonia-casino fade-in"
+					class="casino-review casino-review--dragonia-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						Dragonia Casino - plongez dans un royaume de dragons et de gains
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 					>
@@ -1455,7 +1396,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Lancé en 2025,
 						<a href="/reviews/dragonia-casino/" class="casino-review-link"
 							><strong>Dragonia Casino</strong></a
@@ -1465,7 +1406,7 @@
 						pour faire de la figuration, le site affiche une volonté assumée de
 						jouer dans la cour des grands. Et il ne manque pas d’arguments.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Plus de <strong>10 000 jeux</strong>, des
 						<strong>bonus généreux</strong>, des
 						<strong>promotions constantes</strong> et une plateforme accessible
@@ -1474,9 +1415,9 @@
 						en ligne qui apporte un vrai vent de fraîcheur dans l’iGaming - et
 						qui a de quoi séduire autant les curieux que les joueurs réguliers.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Dragonia Casino
 							</caption>
 							<tbody>
@@ -1515,10 +1456,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/dragonia-logo.webp"
 								alt="Logo de Dragonia Casino (section avis détaillé)"
 								width="150"
@@ -1526,8 +1467,8 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="white-space: nowrap">
+						<div class="casino-card__rating u-fade-in">
+							<p class="u-nowrap">
 								<strong id="casino-name-dragonia-detail"
 									>Dragonia Casino</strong
 								>
@@ -1535,27 +1476,27 @@
 							<p class="casino-card__score">9.6</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">
 								100% Jusqu'à 500 € + 200 Free Spins + 1 Bonus Crab
 							</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-003"
+							aria-describedby="casino-name-dragonia-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width">
 						<li>
 							Une bibliothèque massive de jeux :
 							<strong>plus de 11 000 titres</strong>
@@ -1577,8 +1518,8 @@
 							régulières
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width">
 						<li>
 							Retraits limités à <strong>5 000 € par opération </strong> (pour
 							un maximum de <strong>7 000 € par mois</strong>)<strong>
@@ -1586,10 +1527,10 @@
 							>
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai déposé 20 € via Visa,
 						<strong
 							>le processus a été instantané et le bonus de bienvenue s’est
@@ -1597,21 +1538,21 @@
 						>. J’ai ensuite testé une vingtaine de jeux - dont quelques titres
 						en live - et tout a parfaitement tourné, même sur mobile.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai demandé un retrait de 75 € via portefeuille crypto (USDT-TRC20)
 						: <strong>validé en moins de 24 heures</strong>, après une simple
 						vérification d’identité.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Le support en direct a répondu en moins de 5 minutes, avec des
 						réponses précises et un ton courtois.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Franchement, l’expérience a été fluide du début à la fin, sans
 						mauvaise surprise.
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width">
 						Dragonia est un nouveau venu, mais déjà un casino bien construit et
 						loin des plateformes trop basiques qu’on croise parfois. Malgré son
 						jeune âge, l’offre est déjà très solide : retraits dès 10 €, plus de
@@ -1619,23 +1560,23 @@
 						promotions régulières qui mettent un peu de piment dans
 						l’expérience.
 					</p>
-					<p class="content-width">
+					<p class="u-content-width">
 						La licence provient d’Anjouan - pas la plus prestigieuse - mais le
 						site travaille avec de vrais fournisseurs certifiés : Play’n GO,
 						Pragmatic, Hacksaw, NoLimit, BTG, NetEnt… donc des jeux solides,
 						fiables et vérifiés.
 					</p>
-					<p class="content-width">
+					<p class="u-content-width">
 						Pour les gros joueurs,
 						<strong>le programme VIP et la flexibilité des paiements</strong>
 						seront un vrai plus. Pour les débutants, le bonus de bienvenue est
 						généreux, mais il faut bien lire les conditions.
 					</p>
-					<p class="content-width">
+					<p class="u-content-width">
 						Si vous aimez les casinos bien fournis, rapides et faciles à prendre
 						en main, celui-ci mérite clairement un essai.
 					</p>
-					<p class="light" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-italic u-mt-lg">
 						💬 J’ai déposé, joué, gagné un peu, perdu un peu… bref, j’ai fait
 						mon tour complet.
 						<strong>
@@ -1649,14 +1590,14 @@
 				<!-- Review MrPacho -->
 				<section
 					id="mrpacho-casino"
-					class="casino-review_mr-pacho-casino fade-in"
+					class="casino-review casino-review--mr-pacho-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						MrPacho Casino - une plateforme moderne avec un univers unique et
 						des bonus attractifs
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://mrpc.fynkelto.com/?mid=311639_1885523"
 					>
@@ -1668,7 +1609,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong>MrPacho Casino</strong> m’a tout de suite séduite par son
 						style joyeux et décontracté : couleurs vives, personnages amusants
 						et une ambiance musicale qui met de bonne humeur. On sent que la
@@ -1676,9 +1617,9 @@
 						l’attention. Mais est-ce que le contenu est à la hauteur du décor ?
 						J’ai fait le test complet, et voilà mon avis.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Captain Slots Casino
 							</caption>
 							<tbody>
@@ -1717,10 +1658,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/mrpacho-logo.webp"
 								data-dark="/assets/img/logo-casinos/mrpacho-logo-dark.webp"
 								alt="Logo de MrPacho Casino (section avis détaillé)"
@@ -1729,34 +1670,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="white-space: nowrap">
+						<div class="casino-card__rating u-fade-in">
+							<p class="u-nowrap">
 								<strong id="casino-name-mrpacho-detail">MrPacho Casino</strong>
 							</p>
 							<p class="casino-card__score">9.3</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								Jusqu'à 500 € + 200 Free Spins
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">Jusqu'à 500 € + 200 Free Spins</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://mrpc.fynkelto.com/?mid=311639_1885523"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-004"
+							aria-describedby="casino-name-mrpacho-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Bonus de bienvenue généreux et
 							<strong>promotions régulières</strong>
@@ -1774,15 +1713,15 @@
 							classiques
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>Pas de support téléphonique (uniquement chat et e-mail)</li>
 						<li>Certaines promotions sont limitées selon le pays</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Honnêtement, cette plateforme est top ! Il y a tellement de jeux et
 						de fournisseurs que je ne risque pas de m’ennuyer, c’est bien plus
 						complet que ce que j’ai vu ailleurs. Et puis,
@@ -1791,8 +1730,8 @@
 							et super sympa</strong
 						>. Je passe un super moment ici !
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width u-fade-in">
 						Franchement,
 						<strong>je ne peux que recommander cette plateforme</strong>. La
 						variété des jeux est énorme, il y en a pour tous les goûts, et
@@ -1803,7 +1742,7 @@
 						>. Si vous cherchez un casino en ligne à la fois complet et
 						convivial, c’est clairement une valeur sûre.
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 MrPacho est un casino sympa et fiable,
 						<strong>je le recommande volontiers.</strong>
 					</p>
@@ -1812,9 +1751,9 @@
 				<!-- Reviev Casinostars -->
 				<section
 					id="casinostars-casino"
-					class="casino-review_casinostars fade-in"
+					class="casino-review casino-review--casinostars u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						Casinostars - une plateforme premium pour jouer en toute simplicité
 					</h3>
 					<a
@@ -1830,7 +1769,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dès l’arrivée sur Casinostars, on est accueilli par une interface
 						élégante au design noir & blanc, avec des touches rouges bien
 						placées. Le site est pensé pour que chaque étape soit fluide :
@@ -1838,14 +1777,14 @@
 						«Slots», «Live», «Shows». On retrouve aussi plus de 10 000 jeux
 						issus de plus de 60 fournisseurs, ce qui donne directement le ton.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Pour les joueuses francophones, c’est un vrai atout : bonus de
 						bienvenue 100 % jusqu’à 300 €, programme VIP motivant, méthodes de
 						paiement variées, crypto acceptée. Oui, l’essentiel est là.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur GoldSpin Casino
 							</caption>
 							<tbody>
@@ -1884,10 +1823,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/casinostars-logo.webp"
 								data-dark="/assets/img/logo-casinos/casinostars-logo-dark.webp"
 								alt="Logo de GoldSpin Casino (section avis détaillé)"
@@ -1896,34 +1835,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="white-space: nowrap">
+						<div class="casino-card__rating u-fade-in">
+							<p class="u-nowrap">
 								<strong id="casino-name-casinostars-detail">Casinostars</strong>
 							</p>
 							<p class="casino-card__score">9.2</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								100% Jusqu'à 300 €
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">100% Jusqu'à 300 €</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://record.mematoaffiliates.com/_xE9a67iwPh6YnVqGHN08XWNd7ZgqdRLk/1/"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-005"
+							aria-describedby="casino-name-casinostars-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Une ludothèque massive avec un choix énorme de jeux (slots, jeux
 							en direct, jackpots)
@@ -1937,8 +1874,8 @@
 							de dépôt / retrait
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Il serait intéressant de voir une section de paris sportifs
 							ajoutée à l’avenir
@@ -1952,10 +1889,10 @@
 							elle reste correcte pour débuter
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai voulu pousser le test un peu plus loin :
 						<strong>
 							dépôts, une session live, et un retrait crypto en moins d’une
@@ -1963,28 +1900,28 @@
 						>. Tout fonctionne bien, les délais annoncés sont respectés et le
 						site reste agréable même après plusieurs sessions.
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width u-fade-in">
 						Je recommande Casinostars à toutes les joueuses, quel que soit leur
 						niveau d’expérience ou leur budget. Pour les débutantes, les bonus
 						sans exigence de mise sont un vrai atout ; pour les plus
 						expérimentées, le programme VIP et les limites de dépôt élevées
 						offrent une belle flexibilité.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						La ludothèque riche, la navigation fluide et les transactions
 						rapides rendent l’expérience agréable et sans stress.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Seul petit bémol : la limite de retrait mensuelle pourrait freiner
 						les plus gros volumes de jeu.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Mais dans l’ensemble,
 						<strong>Casinostars reste une plateforme fiable</strong>, complète
 						et parfaitement adaptée à la majorité des profils de joueuses.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						💬 Franchement, j’ai été séduite par Casinostars. C’est simple,
 						propre, sans fioritures, et ça fait du bien dans un univers casino
 						parfois surchargé. Pour celles et ceux qui veulent découvrir
@@ -1998,13 +1935,13 @@
 				<!-- Review Peaches Casino -->
 				<section
 					id="peaches-casino"
-					class="casino-review_peaches-casino fade-in"
+					class="casino-review casino-review--peaches-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						CasinoPeaches - un site de jeu en ligne rafraîchissant et prometteur
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://record.primeweb-affiliates.com/_GFcvXbc7UQ6YNevImT-MDGNd7ZgqdRLk/1"
 					>
@@ -2016,21 +1953,21 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						CasinoPeaches est un nouveau site de jeu en ligne qui se distingue
 						par son interface colorée et son approche conviviale. Bien qu’il
 						soit encore jeune, il propose une sélection de jeux de qualité et un
 						<strong>bonus de bienvenue de 250% jusqu’à 1000 €</strong>.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						CasinoPeaches propose des jeux de fournisseurs réputés comme Play’n
 						GO, Pragmatic Play ou BGaming, tous équipés de RNG. Les logiciels
 						sont <strong>certifiés par eCOGRA et iTechLabs</strong> pour assurer
 						des résultats aléatoires et équitables.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur CasinoPeaches
 							</caption>
 							<tbody>
@@ -2069,10 +2006,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/peaches-logo.webp"
 								data-dark="/assets/img/logo-casinos/peaches-logo-dark.webp"
 								alt="Logo de Peaches Casino (section avis détaillé)"
@@ -2081,34 +2018,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="align-items: center">
+						<div class="casino-card__rating u-fade-in">
+							<p>
 								<strong id="casino-name-peaches-detail">Peaches Casino</strong>
 							</p>
 							<p class="casino-card__score">8.8</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								250% Jusqu'à 1000 €
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">250% Jusqu'à 1000 €</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://record.primeweb-affiliates.com/_GFcvXbc7UQ6YNevImT-MDGNd7ZgqdRLk/1"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-006"
+							aria-describedby="casino-name-peaches-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Limites de retrait mensuelles élevées,
 							<strong>jusqu’à 30 000 €</strong>
@@ -2123,13 +2058,13 @@
 						</li>
 						<li>Cashback disponible <strong>sans exigence de mise</strong></li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>Navigation un peu compliquée sans filtres de jeux</li>
 						<li>Impossible d’essayer les jeux gratuitement en mode démo</li>
 					</ul>
-					<h4 class="fade-in">🔍 Mon petit mot en tant que testeuse :</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<h4 class="u-fade-in">🔍 Mon petit mot en tant que testeuse :</h4>
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai exploré CasinoPeaches pour découvrir son univers fruité et
 						coloré. L’inscription a été rapide et la navigation très intuitive.
 						J’ai déposé 25 € et
@@ -2138,15 +2073,15 @@
 						l’ambiance du casino. Les retraits sont encore en cours de
 						traitement, mais tout semble clair et sécurisé. 👀
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width u-fade-in">
 						CasinoPeaches, c’est un univers pétillant ✨ où l’on peut s’amuser
 						sur des jeux comme Sweet Bonanza ou Fruit Party, parfaits pour
 						découvrir le casino sans se prendre la tête. Les bonus sont créatifs
 						et généreux : cashback sans condition de mise et
 						<strong>bonus de bienvenue boosté</strong> pour démarrer en douceur.
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 Vous aimez les jeux sucrés et les expériences fruitées ? 🍑
 						CasinoPeaches est un vrai bonbon ! Même si le site est jeune, il
 						offre des parties fun et colorées qui donnent envie de cliquer
@@ -2158,13 +2093,13 @@
 				<!-- Review  Winzter Casino -->
 				<section
 					id="winzter-casino"
-					class="casino-review_winzter-casino fade-in"
+					class="casino-review casino-review--winzter-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						Winzter Casino - une plateforme moderne aux promesses ambitieuses
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://go.affililinks.com/visit/?bta=35262&nci=5351&afp=1&utm_campaign=FR"
 					>
@@ -2176,7 +2111,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dès l’arrivée sur <strong>Winzter Casino</strong>, on est accueilli
 						par une interface soignée, une navigation fluide et une ambiance
 						conçue pour les amateurs de jeux en ligne. Le site propose une
@@ -2184,14 +2119,14 @@
 						que des options de paiement incluant les cryptomonnaies et des
 						retraits annoncés sous 2 jours.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Tout n’est pas parfait, bien sûr : la plateforme opère sous licence
 						d’Anjouan, les bonus demandent un peu d’attention, et les retraits
 						peuvent parfois prendre un peu plus de temps que prévu.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Winzter Casino
 							</caption>
 							<tbody>
@@ -2230,45 +2165,43 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/winzter-logo.webp"
-								alt="Logo de Sushi Casino (section avis détaillé)"
+								alt="Logo de Winzter Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="align-items: center">
+						<div class="casino-card__rating u-fade-in">
+							<p>
 								<strong id="casino-name-winzter-detail">Winzter Casino</strong>
 							</p>
 							<p class="casino-card__score">8.9</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								Jusqu'à 3000 € + 20% Cashback
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">Jusqu'à 3000 € + 20% Cashback</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://go.affililinks.com/visit/?bta=35262&nci=5351&afp=1&utm_campaign=FR"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-007"
+							aria-describedby="casino-name-winzter-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>Accès aux jeux les plus en vogue</li>
 						<li>
 							Bonus de bienvenue
@@ -2284,43 +2217,43 @@
 						<li>Possibilité de paiements en crypto-monnaies</li>
 						<li>Support client disponible 24h/24 et 7j/7</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>Sélection de jeux de casino limitée</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’ai trouvé Winzter Casino agréable à explorer - son design clair et
 						sa navigation intuitive rendent l’expérience fluide, surtout pour
 						celles et ceux qui découvrent les casinos en ligne. Pour les
 						débutants, c’est une belle porte d’entrée avec une sélection variée
 						de jeux signés par des fournisseurs renommés.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						En revanche, les joueuses plus expérimentées pourraient rapidement
 						faire le tour. Dans ce cas, je conseille de découvrir
 						<strong>Binobet Casino</strong>, où l’on retrouve plus de
 						<strong>6 700 jeux</strong> et une ludothèque en constante
 						expansion.
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width">
 						Winzter Casino, c’est un peu le
 						<strong>nouveau visage cool du jeu en ligne</strong> : des bonus
 						sympas, une interface claire et une ambiance légère qui donne envie
 						d’y revenir.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Pas besoin d’être une pro pour s’y retrouver - c’est un casino
 						parfait pour jouer détendue et découvrir les grands classiques.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Je garde un œil dessus, parce qu’il a clairement le potentiel pour
 						devenir une très belle surprise.
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 Franchement,
 						<strong>Winzter m’a laissé une bonne impression</strong>. Le site
 						est fluide, moderne et facile à prendre en main. On sent que tout
@@ -2332,14 +2265,14 @@
 				<!--Review  Binobet Casino -->
 				<section
 					id="binobet-casino"
-					class="casino-review_binobet-casino fade-in"
+					class="casino-review casino-review--binobet-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						Binobet Casino - un univers audacieux pour les joueurs à la
 						recherche de variété
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://trackingbino.bet/d0hiyugry"
 					>
@@ -2351,7 +2284,7 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dès l’entrée chez <strong>Binobet Casino</strong>, on tombe sur un
 						décor original - teintes gris-violet, un
 						<strong>petit dinosaure facétieux en mascotte</strong> 🦖- et une
@@ -2359,16 +2292,16 @@
 						de jeux, y compris machines à sous, live casino, paris sportifs et
 						e-sports, et accepte notamment les cryptomonnaies.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Pour les joueuses qui aiment se plonger dans l’offre, Binobet
 						propose un bonus de bienvenue généreux, des missions à accomplir et
 						une boutique de récompenses intégrée. On sent que Binobet évolue
 						encore - quelques petits détails techniques à peaufiner, mais le
 						potentiel est clairement là.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Binobet Casino
 							</caption>
 							<tbody>
@@ -2407,10 +2340,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/binobet-logo.webp"
 								data-dark="/assets/img/logo-casinos/binobet-logo-dark.webp"
 								alt="Logo de Binobet Casino"
@@ -2419,34 +2352,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="align-items: center">
+						<div class="casino-card__rating u-fade-in">
+							<p>
 								<strong id="casino-name-binobet-detail">Binobet Casino</strong>
 							</p>
 							<p class="casino-card__score">8.4</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								Jusqu'à 1500 € + 150 Free Spins
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">Jusqu'à 1500 € + 150 Free Spins</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://trackingbino.bet/d0hiyugry"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-008"
+							aria-describedby="casino-name-binobet-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							<strong
 								>Très large sélection de jeux + section paris & e-sports</strong
@@ -2462,8 +2393,8 @@
 							possible, ambiance fun et moderne
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Quelques parties des conditions d’utilisation ne sont pas encore
 							dispo en français
@@ -2475,49 +2406,49 @@
 							>.
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Binobet, c’est clairement
 						<strong>le repaire des fans de crypto</strong>. Le site met en avant
 						une grande variété de monnaies numériques - pratiques, rapides et
 						surtout ultra-sécurisées.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						J’aime son univers original, ses bonus bien pensés et sa ludothèque
 						XXL qui donne envie de tout tester.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Petit bémol : pas encore de retrait par virement bancaire, dommage
 						pour celles et ceux qui préfèrent les méthodes plus classiques.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Mais globalement,
 						<strong>Binobet coche presque toutes les cases</strong> pour celles
 						et ceux qui aiment jouer moderne et en toute liberté.
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width">
 						Après y avoir passé plusieurs heures, je peux dire que
 						<strong>Binobet m’a vraiment convaincue</strong>.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						J’ai adoré son univers fun et coloré, avec ces petits dinosaures qui
 						apportent une touche d’originalité.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						L’expérience est fluide, le site inspire confiance, et le programme
 						VIP ainsi que la boutique de récompenses ajoutent une vraie
 						dimension motivante au jeu.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong
 							>Bref, un casino crypto qui a du caractère et qu’on prend plaisir
 							à explorer.</strong
 						>
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 J’aime quand un casino a de la personnalité - et Binobet en a à
 						revendre. C’est coloré, bien pensé et franchement agréable à
 						explorer. Un bon équilibre entre fun et fiabilité.
@@ -2527,14 +2458,14 @@
 				<!-- Review Spininio Casino -->
 				<section
 					id="spininio-casino"
-					class="casino-review_spininio-casino fade-in"
+					class="casino-review casino-review--spininio-casino u-fade-in"
 				>
-					<h3 class="content-width fade-in">
+					<h3 class="u-content-width u-fade-in">
 						Spininio Casino – jouer au casino et aux paris sportifs au même
 						endroit
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://go.spininio.online/visit/?bta=35107&nci=7796"
 					>
@@ -2546,14 +2477,14 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Spininio Casino est un casino en ligne moderne qui s’adresse aux
 						<strong>joueurs francophones</strong>, avec
 						<strong>des bonus attractifs</strong> en euros, une sélection variée
 						de jeux et une interface simple à prendre en main. Voici mon avis
 						après test.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Spininio Casino est une plateforme de jeu en ligne relativement
 						récente qui combine casino en ligne et paris sportifs au sein d’un
 						même compte. Le site mise sur une navigation fluide, des paiements
@@ -2561,11 +2492,11 @@
 						convenir aussi bien aux nouveaux joueurs qu’aux profils plus
 						expérimentés.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dès les premières minutes, l’interface se montre claire, moderne et
 						parfaitement adaptée au jeu sur ordinateur comme sur mobile.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Spininio Casino propose un
 						<strong>bonus de bienvenue pouvant atteindre 1 000</strong> €, un
 						large choix de machines à sous, des jeux de table populaires et un
@@ -2581,9 +2512,9 @@
 						>, avec des <strong>dépôts rapides et des retraits fiables</strong>.
 					</p>
 
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Spininio Casino
 							</caption>
 							<tbody>
@@ -2622,10 +2553,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/spininio-logo.webp"
 								data-dark="/assets/img/logo-casinos/spininio-logo-dark.webp"
 								alt="Logo de Spininio Casino (section avis détaillé)"
@@ -2634,36 +2565,34 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
+						<div class="casino-card__rating u-fade-in">
 							<p class="casino-card__score">8.5</p>
 							<p class="casino-card__stars">★★★★★</p>
-							<p style="white-space: nowrap">
-								<strong id="casino-name-captainslots-detail"
+							<p class="u-nowrap">
+								<strong id="casino-name-spininio-detail"
 									>Spininio Casino</strong
 								>
 							</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								Jusqu'à 1000 €
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">Jusqu'à 1000 €</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://go.spininio.online/visit/?bta=35107&nci=7796"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-007"
+							aria-describedby="casino-name-spininio-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							<strong
 								>Casino & sportsbook réunis sur une seule plateforme</strong
@@ -2694,8 +2623,8 @@
 							intégrés
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width">
 						<li>
 							<strong>Licence offshore (Anjouan)</strong> , avec un niveau de
 							régulation plus souple
@@ -2706,17 +2635,17 @@
 							>
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Après test, Spininio laisse une impression plutôt positive, surtout
 						grâce à sa <strong>simplicité d’utilisation</strong> et à son
 						concept <strong>tout-en-un casino + paris sportifs</strong>. La
 						navigation est intuitive, les jeux se chargent rapidement et
 						l’ensemble fonctionne très bien sur mobile.
 					</p>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Comme souvent avec les plateformes sous licence offshore, je
 						recommande cependant de
 						<strong>prendre le temps de lire les conditions de bonus</strong> et
@@ -2725,8 +2654,8 @@
 						que les exigences ne sont pas remplies.
 					</p>
 
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width">
 						<strong>Spininio Casino</strong> s’adresse aux
 						<strong>joueurs francophones</strong> qui recherchent une plateforme
 						moderne, polyvalente et simple à utiliser, avec la possibilité
@@ -2736,7 +2665,7 @@
 						particulièrement appréciable pour ceux qui aiment tout avoir au même
 						endroit.
 					</p>
-					<p class="light" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-italic u-mt-lg">
 						💬 Spininio mise sur la polyvalence et la simplicité — un bon choix
 						pour les joueurs francophones qui veulent casino et sports sans
 						complications.
@@ -2744,13 +2673,16 @@
 				</section>
 
 				<!--Review Julius Casino-->
-				<section id="julius-casino" class="casino-review_julius-casino fade-in">
-					<h3 class="content-width fade-in">
+				<section
+					id="julius-casino"
+					class="casino-review casino-review--julius-casino u-fade-in"
+				>
+					<h3 class="u-content-width u-fade-in">
 						Julius Casino - une immersion dans l’Empire romain avec des bonus
 						impressionnants
 					</h3>
 					<a
-						class="banners fade-in"
+						class="banners u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://record.roosterz.io/_6vYjCU0IzSTUOsjNOfgKeWNd7ZgqdRLk/1/"
 					>
@@ -2762,15 +2694,15 @@
 							loading="lazy"
 						/>
 					</a>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Parmi les casinos que j’ai testés récemment, Julius Casino m’a
 						vraiment séduite. La plateforme, développée par Red Digital N.V,
 						propose une expérience de jeu complète et prometteuse. J’ai pris le
 						temps d’explorer et d’analyser tous les services qu’elle offre.
 					</p>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Informations sur Julius Casino
 							</caption>
 							<tbody>
@@ -2809,10 +2741,10 @@
 							</tbody>
 						</table>
 					</section>
-					<section class="casino-card casino-button fade-in">
-						<div class="casino-card__info casino-card__info_logo">
+					<section class="casino-card casino-card--button u-fade-in">
+						<div class="casino-card__info casino-card__info--logo">
 							<img
-								class="casino-card__image fade-in"
+								class="casino-card__image u-fade-in"
 								src="/assets/img/logo-casinos/julius-logo.svg"
 								alt="Logo de Julius Casino (section avis détaillé)"
 								width="150"
@@ -2820,34 +2752,32 @@
 								loading="lazy"
 							/>
 						</div>
-						<div class="casino-button__rating fade-in">
-							<p style="align-items: center">
+						<div class="casino-card__rating u-fade-in">
+							<p>
 								<strong id="casino-name-julius-detail">Julius Casino</strong>
 							</p>
 							<p class="casino-card__score">8.7</p>
 							<p class="casino-card__stars">★★★★★</p>
 						</div>
-						<div class="casino-card__features fade-in">
-							<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-							<p class="casino-card__bonus" style="text-align: center">
-								Jusqu'à 3000 € + 150 Free Spins
-							</p>
+						<div class="casino-card__features u-fade-in">
+							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+							<p class="casino-card__bonus">Jusqu'à 3000 € + 150 Free Spins</p>
 						</div>
 						<a
-							class="casino-card__button fade-in"
+							class="casino-card__button u-fade-in"
 							href="https://record.roosterz.io/_6vYjCU0IzSTUOsjNOfgKeWNd7ZgqdRLk/1/"
 							target="_blank"
 							rel="nofollow noopener noreferrer"
 							tabindex="0"
-							aria-describedby="casino-uuid-010"
+							aria-describedby="casino-name-julius-detail"
 						>
-							<span class="casino-card__button-link fade-in"
+							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h4 style="margin-top: 2rem" class="fade-in">✅ Avantages :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">✅ Avantages :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							Assistance disponible en français,
 							<strong>jour et nuit (24/7)</strong>
@@ -2858,8 +2788,8 @@
 							données
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">❌ À noter :</h4>
-					<ul class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">❌ À noter :</h4>
+					<ul class="u-content-width u-fade-in">
 						<li>
 							<strong>Peu de solutions disponibles</strong> pour les retraits
 						</li>
@@ -2868,10 +2798,10 @@
 							doit rappeler un joueur en difficulté
 						</li>
 					</ul>
-					<h4 style="margin-top: 2rem" class="fade-in">
+					<h4 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h4>
-					<p class="light fade-in" style="font-style: italic">
+					<p class="u-font-light u-fade-in u-italic">
 						Ce que j’ai aimé chez Julius Casino, c’est l’immersion totale dans
 						l’univers romain dès mon arrivée. L’inscription a été simple et
 						<strong>la navigation très fluide</strong>. J’ai
@@ -2887,8 +2817,8 @@
 							complications.</strong
 						>
 					</p>
-					<h4 style="margin-top: 2rem" class="fade-in">Verdict :</h4>
-					<p class="content-width fade-in">
+					<h4 class="u-fade-in u-mt-lg">Verdict :</h4>
+					<p class="u-content-width u-fade-in">
 						Julius Casino offre une expérience immersive dans
 						<strong>l’univers romain avec des bonus généreux</strong> et une
 						large sélection de jeux. Je me suis sentie comme un véritable César
@@ -2899,7 +2829,7 @@
 						bénéficient même d’un traitement encore plus rapide, ce qui rend
 						l’expérience encore plus agréable.
 					</p>
-					<p class="light fade-in" style="font-style: italic; margin-top: 2rem">
+					<p class="u-font-light u-fade-in u-italic u-mt-lg">
 						💬 Pour les fans d’histoire et de luxe, Julius Casino vous
 						transporte directement dans l’Empire romain 🏛️. Entre bonus généreux
 						et jeux variés, vous pourrez vous sentir comme un véritable César en
@@ -2907,19 +2837,19 @@
 					</p>
 				</section>
 				<!-- Guide -->
-				<h3 id="responsable" class="content-width fade-in">
+				<h3 id="responsable" class="u-content-width u-fade-in">
 					🎯 Jouer de façon responsable sur un casino en ligne : mes conseils
 					essentiels
 				</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Le jeu d'argent en ligne doit rester un divertissement, non une source
 					de stress ou de dépendance. Pour cela, adopter une approche
 					responsable sur un casino en ligne est crucial.
 				</p>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					<strong>Mes conseils pour jouer en toute sécurité :</strong>
 				</p>
-				<ul class="content-width fade-in">
+				<ul class="u-content-width u-fade-in">
 					<li>Fixez un budget de jeu clair et ne le dépassez jamais</li>
 					<li>
 						Utilisez les outils de limites de dépôt ou d'auto-exclusion proposés
@@ -2930,20 +2860,20 @@
 					</li>
 					<li>Faites régulièrement des pauses pour garder le contrôle</li>
 				</ul>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					✅ En respectant ces règles, vous profitez du casino en ligne dans
 					l'espace francophone de manière saine et durable.
 				</p>
 
-				<h3 id="choisir" class="content-width fade-in">
+				<h3 id="choisir" class="u-content-width u-fade-in">
 					🏆 Comment choisir le meilleur casino en ligne francophone en 2026 ?
 				</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Avec des centaines de plateformes disponibles, choisir un casino en
 					ligne fiable peut sembler complexe. Voici les critères essentiels à
 					vérifier avant de vous inscrire :
 				</p>
-				<ul class="content-width fade-in">
+				<ul class="u-content-width u-fade-in">
 					<li>
 						Licence légale : assurez-vous que le casino en ligne possède une
 						licence de jeu valide délivrée par une autorité reconnue (ANJ,
@@ -2964,24 +2894,24 @@
 						Evolution, Pragmatic Play)
 					</li>
 				</ul>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					🎰 Un bon casino en ligne doit allier sécurité, diversité et fluidité
 					pour une expérience optimale.
 				</p>
 
-				<h3 id="bonus" class="content-width fade-in">
+				<h3 id="bonus" class="u-content-width u-fade-in">
 					📜 Bonus de casino en ligne : comprendre les conditions de mise avant
 					de jouer
 				</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Les bonus de casino en ligne peuvent sembler attractifs, mais il est
 					crucial de comprendre les conditions de mise (ou "wagering
 					requirements").
 				</p>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					<strong>Voici ce que vous devez savoir :</strong>
 				</p>
-				<ul class="content-width fade-in">
+				<ul class="u-content-width u-fade-in">
 					<li>
 						Le wagering indique combien de fois vous devez miser le bonus avant
 						de pouvoir retirer vos gains
@@ -2999,15 +2929,15 @@
 						souvent à 100 %, contrairement au blackjack ou à la roulette)
 					</li>
 				</ul>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					🧠 En comprenant bien ces règles, vous tirez le meilleur profit des
 					bonus sur un casino en ligne tout en évitant les pièges.
 				</p>
-				<section class="faq fade-in">
-					<h2 class="fade-in">FAQ sur les casinos en ligne</h2>
+				<section class="faq u-fade-in">
+					<h2 class="u-fade-in">FAQ sur les casinos en ligne</h2>
 
 					<!-- FAQ 1 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -3025,7 +2955,7 @@
 							role="region"
 							aria-labelledby="faq-q1"
 						>
-							<p class="content-width">
+							<p class="u-content-width">
 								En consultant mon top des casinos testés sur cette page, vous
 								avez déjà une
 								<strong
@@ -3040,7 +2970,7 @@
 					</div>
 
 					<!-- FAQ 2 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -3056,7 +2986,7 @@
 							role="region"
 							aria-labelledby="faq-q2"
 						>
-							<p class="content-width">
+							<p class="u-content-width">
 								Un casino douteux aura souvent des
 								<strong>conditions floues</strong>, des
 								<strong>avis négatifs répétés</strong>, des
@@ -3068,7 +2998,7 @@
 					</div>
 
 					<!-- FAQ 3 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -3086,7 +3016,7 @@
 							role="region"
 							aria-labelledby="faq-q3"
 						>
-							<p class="content-width">
+							<p class="u-content-width">
 								Non. Il est
 								<strong
 									>strictement interdit de jouer en ligne sans avoir au moins 18
@@ -3098,7 +3028,7 @@
 					</div>
 
 					<!-- FAQ 4 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -3117,7 +3047,7 @@
 							role="region"
 							aria-labelledby="faq-q4"
 						>
-							<p class="content-width">
+							<p class="u-content-width">
 								Sur les casinos listés ici, vous pouvez jouer à des centaines de
 								jeux différents -
 								<strong>tous testés et sélectionnés</strong>. Pour maximiser vos
@@ -3131,7 +3061,7 @@
 					</div>
 
 					<!-- FAQ 5 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -3149,7 +3079,7 @@
 							role="region"
 							aria-labelledby="faq-q5"
 						>
-							<p class="content-width">
+							<p class="u-content-width">
 								Oui, mais à condition de jouer sur des casinos
 								<strong>licenciés et vérifiés</strong>. Lisez toujours les
 								<strong>conditions des bonus</strong> : mise minimale, jeux
@@ -3164,53 +3094,53 @@
 		</main>
 
 		<!-- Footer -->
-		<footer class="footer fade-in" role="contentinfo">
-			<div class="footer__container fade-in">
-				<div class="footer__content fade-in">
-					<div class="footer__section fade-in">
+		<footer class="footer u-fade-in" role="contentinfo">
+			<div class="footer__container u-fade-in">
+				<div class="footer__content u-fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>TopJeu</h3>
 						<p>
 							Votre guide de confiance pour les meilleurs casinos en ligne
 							francophones. Je teste et évalue chaque plateforme pour vous
 							offrir des recommandations fiables et transparentes.
 						</p>
-						<div class="footer__contact fade-in">
+						<div class="footer__contact u-fade-in">
 							<span class="footer__contact-icon">📧</span>
 							<a
 								href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 								>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 							>
 						</div>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Liens utiles</h3>
 						<ul>
 							<li>
-								<a href="#top5" class="footer__link fade-in"
+								<a href="#top5" class="footer__link u-fade-in"
 									>Casinos en ligne</a
 								>
 							</li>
 							<li>
-								<a href="#bonus" class="footer__link fade-in"
+								<a href="#bonus" class="footer__link u-fade-in"
 									>Bonus de casino</a
 								>
 							</li>
 							<li>
-								<a href="#choisir" class="footer__link fade-in"
+								<a href="#choisir" class="footer__link u-fade-in"
 									>Comment choisir le casino</a
 								>
 							</li>
 							<li>
-								<a href="#responsable" class="footer__link fade-in"
+								<a href="#responsable" class="footer__link u-fade-in"
 									>Jouer responsable</a
 								>
 							</li>
 							<li>
 								<a
-									href="#about"
-									class="footer__link fade-in"
+									href="#popup"
+									class="footer__link u-fade-in"
 									data-popup-target="about"
 								>
 									Qui suis-je ?
@@ -3218,8 +3148,8 @@
 							</li>
 							<li>
 								<a
-									href="#contact"
-									class="footer__link fade-in"
+									href="#popup-contact"
+									class="footer__link u-fade-in"
 									data-popup-target="contact"
 								>
 									Contact
@@ -3228,7 +3158,7 @@
 							<li>
 								<a
 									href="#privacy-popup"
-									class="footer__link fade-in"
+									class="footer__link u-fade-in"
 									id="privacy-link"
 									data-popup-target="privacy"
 								>
@@ -3237,8 +3167,8 @@
 							</li>
 							<li>
 								<a
-									href="#cookie-settings"
-									class="footer__link fade-in"
+									href="#cookie-banner"
+									class="footer__link u-fade-in"
 									id="cookie-settings-link"
 								>
 									Paramètres des cookies
@@ -3247,9 +3177,9 @@
 						</ul>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Avertissement</h3>
-						<p class="footer__disclaimer fade-in">
+						<p class="footer__disclaimer u-fade-in">
 							<strong>18+</strong> Le jeu peut causer une dépendance. Jouez avec
 							modération. Les jeux d'argent sont interdits aux mineurs. En cas
 							de problème, contactez les services spécialisés d’aide et
@@ -3257,17 +3187,17 @@
 						</p>
 					</div>
 
-					<div class="footer__section footer__section--bottom fade-in">
+					<div class="footer__section footer__section--bottom u-fade-in">
 						<h3>Suivez-moi</h3>
-						<div class="footer__social fade-in">
+						<div class="footer__social u-fade-in">
 							<a
 								href="https://www.youtube.com/@TopJeu777"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 							>
 								<img
-									class="youtube-icon fade-in"
+									class="youtube-icon u-fade-in"
 									src="/assets/img/youtube.webp"
 									alt="Icône YouTube TopJeu (footer), lien vers chaîne"
 									width="25"
@@ -3277,14 +3207,14 @@
 								<span>YouTube</span>
 							</a>
 						</div>
-						<div class="footer__copyright footer__copyright--mobile fade-in">
+						<div class="footer__copyright footer__copyright--mobile u-fade-in">
 							© 2026 TopJeu. Tous droits réservés.
 						</div>
 					</div>
 				</div>
 
 				<!-- Copyright section for desktop -->
-				<div class="footer__copyright-desktop fade-in">
+				<div class="footer__copyright-desktop u-fade-in">
 					© 2025 TopJeu. Tous droits réservés.
 				</div>
 			</div>
@@ -3308,7 +3238,7 @@
 					&times;
 				</button>
 				<h2 id="privacy-title">Politique de confidentialité</h2>
-				<p style="font-size: 13px; color: #b73740; margin-top: 2rem">
+				<p class="privacy-popup__meta">
 					<strong>Mise à jour :</strong> Septembre 2025
 				</p>
 				<p>
@@ -3410,8 +3340,7 @@
 					Email :
 					<a
 						href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-						class="footer__link"
-						style="color: #b73740"
+						class="footer__link privacy-popup__email"
 						>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 					>
 				</p>
@@ -3425,7 +3354,7 @@
 		<!-- POPUP: À propos de nous -->
 		<div
 			id="popup"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="about-title"
@@ -3435,15 +3364,14 @@
 					&times;
 				</button>
 				<h2 id="about-title" class="popup__title">Qui suis-je ?</h2>
-				<div style="display: flex; flex-direction: row; align-items: center">
+				<div class="about-author">
 					<span class="author"
 						><img
 							width="80"
 							height="80"
-							style="width: 80px; height: 80px; margin-right: 1.5rem"
 							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle, auteure du site TopJeu"
-							class="author__photo"
+							class="author__photo about-author__photo"
 							loading="lazy"
 					/></span>
 					<h3>Dariah Belle</h3>
@@ -3486,13 +3414,13 @@
 					</li>
 					<li>⏱ Réponse sous 24h garantie.</li>
 				</ul>
-				<p class="content-width">
+				<p class="u-content-width">
 					💎 Joueurs réguliers ou à la recherche d'un petit plus ? Et si votre
 					façon de jouer vous ouvrait les portes d'un accompagnement sur-mesure
 					? Bonus privés, gestionnaire dédié, retraits plus rapides… et une
 					sélection confidentielle de casinos triés pour vous.
 				</p>
-				<div class="about-carousel fade-in" data-carousel-region>
+				<div class="about-carousel u-fade-in" data-carousel-region>
 					<h3 class="about-carousel__title">Ce que disent les joueurs</h3>
 					<div
 						class="testimonial-carousel"
@@ -3566,7 +3494,7 @@
 						></div>
 					</div>
 				</div>
-				<p class="content-width">
+				<p class="u-content-width">
 					👉 Je suis là pour vous guider, dans l'ombre. Contact discret et
 					réponse garantie.
 				</p>
@@ -3576,7 +3504,7 @@
 		<!-- POPUP: Contact -->
 		<div
 			id="popup-contact"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="contact-title"
@@ -3602,7 +3530,7 @@
 						id="name"
 						name="name"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="email">Email *</label>
 					<input
@@ -3610,7 +3538,7 @@
 						id="email"
 						name="email"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="message">Message *</label>
 					<textarea
@@ -3618,11 +3546,11 @@
 						name="message"
 						required
 						rows="5"
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					></textarea>
 					<button type="submit" class="popup__button">Envoyer</button>
 				</form>
-				<p id="form-success-message" class="form-success-message hidden">
+				<p id="form-success-message" class="form-success-message u-hidden">
 					Message envoyé avec succès !
 				</p>
 			</div>
@@ -3639,7 +3567,7 @@
 		>
 			<div
 				class="cookie-banner__minimized-icon"
-				aria-label="Показать настройки cookies"
+				aria-label="Afficher les parametres des cookies"
 				tabindex="0"
 				role="button"
 			>
@@ -3647,27 +3575,16 @@
 			</div>
 			<div class="cookie-banner__container">
 				<div class="cookie-banner__content">
-					<h4
-						id="cookie-title"
-						style="
-							margin: 0 0 0.5rem 0;
-							font-size: 1.1rem;
-							color: #fff;
-							font-weight: 700;
-						"
-					>
-						Nous sommes des cookies
-					</h4>
+					<h4 id="cookie-title">Nous sommes des cookies</h4>
 					<p id="cookie-description" class="cookie-banner__text">
 						Nous utilisons des cookies pour améliorer votre expérience sur
 						TopJeu. En continuant à naviguer, vous acceptez notre utilisation
 						des cookies.
 					</p>
-					<p style="margin: 0.5rem 0 0 0; font-size: 0.85rem">
+					<p class="cookie-banner__note">
 						<a
 							href="#privacy-popup"
-							class="footer__link"
-							style="font-weight: 600"
+							class="footer__link cookie-banner__link--emphasis"
 							id="cookie-privacy-link"
 							data-popup-target="privacy"
 							>Lire la politique de confidentialité</a
@@ -3693,14 +3610,15 @@
 			</div>
 		</div>
 		<!-- Scroll to top button -->
-		<a href="#top" id="scrolltop" aria-label="Scroll up the page to the top">
-			<img
+		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
+			<svg
 				class="arrow-up"
-				src="/assets/img/arrow-icon.webp"
-				alt="arrow-icon"
-				width="30"
-				height="30"
-				loading="lazy"
-		/></a>
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<path d="M12 4l-6 6h4v10h4V10h4z" />
+			</svg>
+		</a>
 	</body>
 </html>

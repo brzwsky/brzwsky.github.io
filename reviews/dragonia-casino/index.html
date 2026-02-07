@@ -205,130 +205,22 @@
 			}
 		</script>
 
-		<style>
-			/* =====================
-   Reset HTML & Body
-===================== */
-			html {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-			}
-
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-			}
-
-			/* =====================
-   Header & Footer Full Width
-===================== */
-			.header {
-				width: 100%;
-				margin: 0;
-				padding: 0;
-			}
-
-			.header__container {
-				max-width: none;
-				width: 100%;
-			}
-
-			.footer {
-				width: 100%;
-				margin: 0;
-				padding: 0;
-			}
-
-			.footer__container {
-				max-width: none;
-				width: 100%;
-			}
-
-			/* =====================
-   Mobile Compatibility
-===================== */
-			.mobile-compatibility {
-				display: flex;
-				align-items: flex-start;
-				gap: 5rem;
-			}
-
-			.mobile-compatibility__text {
-				flex: 1;
-				min-width: 0;
-			}
-
-			.mobile-compatibility__banner {
-				flex: 0 0 auto;
-				display: flex;
-				justify-content: center;
-				margin-left: 5rem;
-			}
-
-			/* =====================
-   Responsive
-===================== */
-			@media (max-width: 767px) {
-				.mobile-compatibility {
-					flex-direction: column;
-					justify-content: first baseline;
-				}
-				.mobile-compatibility__banner {
-					align-self: center;
-					margin: 0;
-				}
-				.mobile-compatibility img {
-					margin: auto 0;
-				}
-			}
-		</style>
-
 		<!-- Preload main CSS -->
 		<link
 			rel="preload"
-			href="/style.minified.css"
+			href="/style.minified.css?v=20260207"
 			as="style"
 			onload="
 				this.onload = null;
 				this.rel = 'stylesheet';
 			"
 		/>
-		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
+		<noscript>
+			<link rel="stylesheet" href="/style.minified.css?v=20260207" />
+		</noscript>
 
-		<!-- Google Analytics 4 (Consent-based) -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				var btn = document.getElementById('accept-analytics-btn');
-				if (btn) {
-					btn.addEventListener('click', function () {
-						// Load GA script dynamically
-						if (!window.gtagScriptLoaded) {
-							var s = document.createElement('script');
-							s.src =
-								'https://www.googletagmanager.com/gtag/js?id=G-YYE4H0PHYY';
-							s.defer = true;
-							document.head.appendChild(s);
-							window.gtagScriptLoaded = true;
-						}
-
-						window.dataLayer = window.dataLayer || [];
-						function gtag() {
-							dataLayer.push(arguments);
-						}
-						gtag('js', new Date());
-						gtag('consent', 'update', {
-							ad_storage: 'granted',
-							analytics_storage: 'granted',
-						});
-						gtag('config', 'G-YYE4H0PHYY');
-					});
-				}
-			});
-		</script>
 		<!-- Main JS -->
-		<script defer src="/app.minified.js"></script>
+		<script defer src="/app.minified.js?v=20260207"></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<!-- Cookie Consent Banner -->
@@ -339,7 +231,7 @@
 			</p>
 			<button id="accept-analytics-btn">Accepter</button>
 		</div>
-		<div class="menu-overlay" aria-hidden="true"></div>
+		<div class="nav-menu__overlay" aria-hidden="true"></div>
 		<!-- Header -->
 		<header class="header" role="banner">
 			<div class="header__container">
@@ -355,7 +247,7 @@
 							alt="TopJeu – logo du site"
 						/>
 					</a>
-					<div class="header__logo-text fade-in">
+					<div class="header__logo-text u-fade-in">
 						<p class="header__logo-line header__logo-line--title">TopJeu</p>
 						<p class="header__logo-line header__logo-line--subtitle">
 							casino fiables
@@ -363,7 +255,7 @@
 					</div>
 				</div>
 				<button
-					class="burger"
+					class="header__burger"
 					aria-label="Menu"
 					aria-controls="primary-menu"
 					aria-expanded="false"
@@ -380,7 +272,7 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="close-menu" aria-label="Fermer le menu">✕</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">✕</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -396,26 +288,24 @@
 									loading="eager"
 									width="25"
 									height="25"
-									style="width: 25px; height: 25px; object-fit: contain"
 								/>
 								<span>YouTube</span>
 							</a>
 						</li>
 						<li class="nav-menu__item nav-menu__item--avis">
-							<div class="avis-wrapper">
+							<div class="nav-menu__avis">
 								<button
 									type="button"
-									class="header__link nav-menu__link avis-toggle"
+									class="header__link nav-menu__link nav-menu__avis-toggle"
 									aria-expanded="false"
 									aria-controls="avis-list"
 								>
 									Avis
-									<span class="avis-toggle__icon" aria-hidden="true">
+									<span class="nav-menu__avis-toggle-icon" aria-hidden="true">
 										<svg
 											viewBox="0 0 10 10"
 											width="10"
 											height="10"
-											style="display: block"
 											fill="currentColor"
 										>
 											<polygon points="3,2 8,5 3,8" />
@@ -424,14 +314,14 @@
 								</button>
 								<ul
 									id="avis-list"
-									class="avis-dropdown"
+									class="nav-menu__avis-dropdown"
 									role="menu"
 									aria-hidden="true"
 								>
 									<li role="none">
 										<a
 											role="menuitem"
-											class="avis-link"
+											class="nav-menu__avis-link"
 											href="/dragonia-casino/"
 											>Dragonia Casino</a
 										>
@@ -463,12 +353,12 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="theme-switch-wrapper fade-in">
+				<div class="theme-switch-wrapper u-fade-in">
 					<button
 						type="button"
 						id="theme-toggle"
 						class="theme-toggle-button"
-						aria-label="Toggle dark/light mode"
+						aria-label="Basculer le theme clair/sombre"
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
@@ -480,7 +370,7 @@
 				Dragonia Casino Avis – Mon expérience complète 2026
 			</h1>
 			<!-- Hero Section -->
-			<section class="hero fade-in">
+			<section class="hero u-fade-in">
 				<p class="hero__meta">
 					<span class="author"
 						><img
@@ -493,11 +383,11 @@
 					/></span>
 					Rédigé par :
 					<span>
-						<a href="#" class="author__name">Dariah Belle</a>
+						<span class="author__name">Dariah Belle</span>
 					</span>
 					· Dernière mise à jour : 9 Janvier 2026
 				</p>
-				<p class="disclaimer fade-in">
+				<p class="disclaimer u-fade-in">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
 					modération, fixez des limites et ne misez jamais plus que ce que vous
 					pouvez vous permettre de perdre. Si vous sentez que le jeu devient un
@@ -518,10 +408,10 @@
 			</section>
 
 			<!-- Casino Card -->
-			<section class="casino-card casino-button fade-in">
-				<div class="casino-card__info casino-card__info_logo">
+			<section class="casino-card casino-card--button u-fade-in">
+				<div class="casino-card__info casino-card__info--logo">
 					<img
-						class="casino-card__image fade-in"
+						class="casino-card__image u-fade-in"
 						src="/assets/img/logo-casinos/dragonia-logo.webp"
 						alt="Logo de Dragonia Casino (section avis détaillé)"
 						width="150"
@@ -529,35 +419,37 @@
 						loading="lazy"
 					/>
 				</div>
-				<div class="casino-button__rating fade-in">
-					<p style="white-space: nowrap">
+				<div class="casino-card__rating u-fade-in">
+					<p class="u-nowrap">
 						<strong id="casino-name-dragonia-detail">Dragonia Casino</strong>
 					</p>
 					<p class="casino-card__score">9.6</p>
 					<p class="casino-card__stars">★★★★★</p>
 				</div>
-				<div class="casino-card__features fade-in">
-					<span class="casino-button__title">Bonus De Bienvenue</span>
-					<p class="casino-card__bonus" style="text-align: center">
+				<div class="casino-card__features u-fade-in">
+					<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+					<p class="casino-card__bonus">
 						100% Jusqu'à 500 € + 200 Free Spins + 1 Bonus Crab
 					</p>
 				</div>
 				<a
-					class="casino-card__button fade-in"
+					class="casino-card__button u-fade-in"
 					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 					target="_blank"
 					rel="nofollow noopener noreferrer"
 					tabindex="0"
-					aria-describedby="casino-uuid-003"
+					aria-describedby="casino-name-dragonia-detail"
 				>
-					<span class="casino-card__button-link fade-in">Jouez maintenant</span>
+					<span class="casino-card__button-link u-fade-in"
+						>Jouez maintenant</span
+					>
 				</a>
 			</section>
 
 			<!-- Content Sections -->
-			<div class="landing-content fade-in">
-				<h2>✅ Dragonia Casino est-il fiable ?</h2>
-				<p class="content-width fade-in">
+			<div class="landing-content u-fade-in">
+				<h2 id="fiabilite">✅ Dragonia Casino est-il fiable ?</h2>
+				<p class="u-content-width u-fade-in">
 					Avant de créer mon compte, ma première question était évidemment :
 					peut-on vraiment leur faire confiance ? J'ai vérifié et Dragonia
 					Casino est entièrement légal, opéré par NovaForge LTD et licencié par
@@ -566,7 +458,7 @@
 					Platipus, régulièrement audités pour garantir l'équité des tirages et
 					le respect des standards de l'industrie.
 				</p>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Lors de mes premiers jeux, j'ai pu constater que tout fonctionnait
 					correctement : mes gains étaient crédités immédiatement et les RNG
 					(générateurs de nombres aléatoires) semblaient vraiment fiables. Dès
@@ -574,14 +466,13 @@
 					crucial pour profiter pleinement de l'expérience sans stress.
 				</p>
 				<article>
-					<h2>💰 Bonus et promotions</h2>
+					<h2 id="bonus">💰 Bonus et promotions</h2>
 
 					<!-- Banner -->
 					<a
-						class="banners fade-in"
+						class="banners banners--spaced u-fade-in"
 						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 						rel="nofollow noopener noreferrer"
-						style="display: block; margin: 2rem 0"
 						aria-label="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins – Jouer maintenant"
 					>
 						<picture>
@@ -604,21 +495,20 @@
 								alt="Dragonia Casino – Bonus jusqu'à 500€ + 200 free spins"
 								width="1200"
 								height="400"
-								style="width: 100%; height: auto; max-width: 1200px"
 								loading="eager"
 								fetchpriority="high"
 							/>
 						</picture>
 					</a>
 
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino se distingue par la richesse de ses promotions. J'ai
 						testé plusieurs d'entre elles et voici mon retour :
 					</p>
 					<span class="casino-bonus">Bonus de bienvenue</span>
-					<section class="casino-info content-width fade-in">
+					<section class="casino-info u-content-width u-fade-in">
 						<table>
-							<caption class="visually-hidden">
+							<caption class="u-visually-hidden">
 								Conditions du bonus de bienvenue Dragonia Casino
 							</caption>
 							<tbody>
@@ -644,13 +534,13 @@
 							</tbody>
 						</table>
 					</section>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Personnellement, j'ai trouvé ce bonus idéal pour découvrir la
 						ludothèque sans dépenser trop d'argent propre, et les free spins sur
 						dix jours permettent de prolonger l'expérience progressivement.
 					</p>
 					<h3>Bonus hebdomadaire</h3>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Chaque dépôt entre lundi et jeudi d'au moins 20 € m'a permis
 						d'obtenir 50 free spins supplémentaires, avec un wager de 40x et 7
 						jours pour les utiliser. Cela maintient la motivation et rend le jeu
@@ -662,18 +552,18 @@
 						<li>Dépôt minimum : 20 €</li>
 						<li>Free spins activés à partir de 50 €</li>
 					</ul>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Ces offres rendent mes sessions du week-end plus dynamiques et
 						donnent vraiment l'impression que Dragonia récompense l'activité
 						régulière.
 					</p>
 					<h3 class="casino-bonus">Bonus Crab et Défis</h3>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Le Bonus Crab est un vrai petit plaisir : un simple dépôt de 10 €
 						permet de tourner la pince et de gagner aléatoirement des free
 						spins, cash ou Jetons.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Les défis hebdomadaires m'ont également beaucoup amusée : en
 						complétant certaines missions sur les slots ou paris sportifs, j'ai
 						accumulé des Jetons supplémentaires, que j'ai pu ensuite échanger
@@ -682,10 +572,9 @@
 
 					<!-- Banner -->
 					<a
-						class="banners fade-in"
+						class="banners banners--spaced u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-						style="display: block; margin: 2rem 0"
 						aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
 					>
 						<picture>
@@ -708,7 +597,6 @@
 								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
 								width="1200"
 								height="300"
-								style="width: 100%; height: auto; max-width: 1200px"
 								loading="lazy"
 							/>
 						</picture>
@@ -716,8 +604,8 @@
 				</article>
 
 				<article>
-					<h2>🎮 Logiciels et jeux</h2>
-					<p class="content-width fade-in">
+					<h2 id="jeux">🎮 Logiciels et jeux</h2>
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino offre plus de 11 000 jeux, dont une majorité de
 						machines à sous, mais aussi blackjack, roulette, baccarat, poker, et
 						jeux en direct.
@@ -760,10 +648,9 @@
 
 					<!-- Banner -->
 					<a
-						class="banners fade-in"
+						class="banners banners--spaced u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-						style="display: block; margin: 2rem 0"
 						aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
 					>
 						<picture>
@@ -786,7 +673,6 @@
 								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
 								width="1200"
 								height="330"
-								style="width: 100%; height: auto; max-width: 1200px"
 								loading="lazy"
 							/>
 						</picture>
@@ -795,7 +681,7 @@
 
 				<article>
 					<h2>🖥️ Casino en direct</h2>
-					<p class='content-width fade-in'>
+					<p class="u-content-width u-fade-in">
 						Avec plus de 662 tables HD, l'expérience live est vraiment
 						immersive. J'ai testé Gold Saloon et Dragon Tiger via Evolution et
 						Bombay Live : les croupiers sont réactifs, l'interface fluide, et
@@ -806,7 +692,7 @@
 
 				<article>
 					<h2>⚽ Paris sportifs</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino propose également une section complète de paris
 						sportifs, avec football, rugby, esports, futsal et cricket.
 						L'interface est claire et intuitive, et les cotes sont compétitives.
@@ -816,8 +702,8 @@
 				</article>
 
 				<article>
-					<h2>⚡ Retraits et dépôts</h2>
-					<p class="content-width fade-in">
+					<h2 id="retraits-depots">⚡ Retraits et dépôts</h2>
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino propose des dépôts et retraits rapides et sécurisés,
 						avec un large choix de méthodes de paiement populaires, adaptées aux
 						joueurs francophones. La plateforme accepte aussi bien les paiements
@@ -828,12 +714,14 @@
 
 				<article>
 					<h2>💳 Dépôts sur Dragonia Casino</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Les dépôts sur Dragonia Casino sont simples et rapides, avec un
 						montant minimum de 10 € et un plafond pouvant atteindre 5 000 € par
 						transaction.
 					</p>
-					<p class='content-width fade-in'><strong>Méthodes de dépôt disponibles :</strong></p>
+					<p class="u-content-width u-fade-in">
+						<strong>Méthodes de dépôt disponibles :</strong>
+					</p>
 					<p>
 						Visa, MasterCard, PaysafeCard, Instant Banking, Skrill, Neteller,
 						Jeton, MiFinity, Pay by mobile, ainsi que les cryptomonnaies
@@ -847,7 +735,7 @@
 
 				<article>
 					<h2>💸 Retraits sur Dragonia Casino</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Les retraits Dragonia Casino sont traités rapidement une fois le
 						compte vérifié, avec un montant minimum de retrait de 10 €.
 					</p>
@@ -857,18 +745,18 @@
 						</li>
 						<li><strong>Plafond de retrait VIP :</strong> jusqu'à 20 000 €</li>
 					</ul>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong>Méthodes de retrait disponibles :</strong>
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Visa, MasterCard, virement bancaire (Wire Transfer), Skrill, Jeton,
 						MiFinity, ainsi que les cryptomonnaies suivantes : Bitcoin, Bitcoin
 						Cash, Ethereum, Litecoin et Dogecoin.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						<strong>⏱️ Délais de traitement des retraits :</strong>
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Les retraits en cryptomonnaies sont instantanés, tandis que les
 						retraits via cartes, e-wallets ou virement bancaire sont
 						généralement traités sous 1 à 3 jours ouvrables.
@@ -877,7 +765,7 @@
 
 				<article>
 					<h2>✍🏻 S’inscrire sur Dragonia Casino</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Créer un compte sur Dragonia Casino a été plutôt simple et rapide.
 						De mon côté, tout s’est fait en quelques minutes, sans mauvaise
 						surprise :
@@ -909,7 +797,7 @@
 							immédiat.
 						</li>
 					</ol>
-					<p class='content-width fade-in'>
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino propose également une inscription via Play ID, une
 						alternative rapide pour ceux qui souhaitent simplifier la procédure.
 						Toutefois, avant tout retrait de gains, une vérification d’identité
@@ -920,10 +808,9 @@
 
 					<!-- Banner -->
 					<a
-						class="banners fade-in"
+						class="banners banners--spaced u-fade-in"
 						rel="nofollow noopener noreferrer"
 						href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
-						style="display: block; margin: 2rem 0"
 						aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
 					>
 						<picture>
@@ -946,7 +833,6 @@
 								alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
 								width="1200"
 								height="700"
-								style="width: 100%; height: auto; max-width: 1200px"
 								loading="lazy"
 							/>
 						</picture>
@@ -957,28 +843,28 @@
 					<h2>📱 Compatibilité mobile</h2>
 					<div class="mobile-compatibility">
 						<div class="mobile-compatibility__text">
-							<p class="content-width fade-in">
+							<p class="u-content-width u-fade-in">
 								Pas besoin de télécharger quoi que ce soit ! Le casino
 								fonctionne parfaitement depuis votre navigateur, que vous soyez
 								sur iOS ou Android. Le site s’adapte tout seul à la taille de
 								votre écran, que vous soyez sur smartphone ou tablette, donc
 								tout reste clair et lisible.
 							</p>
-							<p class="content-width fade-in">
+							<p class="u-content-width u-fade-in">
 								La navigation est vraiment fluide, tout est facile à trouver et
 								à lancer, exactement comme sur ordinateur. Tous les jeux sont
 								accessibles en quelques clics seulement, ce qui est super
 								pratique si vous changez souvent d’appareil ou que vous voulez
 								jouer vite pendant vos déplacements.
 							</p>
-							<p class="content-width fade-in">
+							<p class="u-content-width u-fade-in">
 								Les pages se chargent rapidement, généralement en moins de 5
 								secondes avec une connexion correcte, donc pas de frustration ni
 								de temps perdu. Que vous soyez dans le métro, en pause au boulot
 								ou installé tranquillement sur votre canapé, tout reste simple
 								et agréable.
 							</p>
-							<p class="content-width fade-in">
+							<p class="u-content-width u-fade-in">
 								En résumé, jouer sur mobile, c’est rapide, pratique et sans
 								prise de tête. Vous profitez de vos jeux préférés où vous
 								voulez, quand vous voulez.
@@ -988,7 +874,7 @@
 						<!-- Banner -->
 						<div class="mobile-compatibility__banner">
 							<a
-								class="banners fade-in"
+								class="banners u-fade-in"
 								rel="nofollow noopener noreferrer"
 								href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 								aria-label="Bannière Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins – S'inscrire"
@@ -1002,10 +888,10 @@
 									/>
 									<img
 										src="/reviews/dragonia-casino/banners/mobile-baner-dragonia-365.webp"
+										class="banners__image--narrow"
 										alt="Bannière promotionnelle de Dragonia Casino – Bonus de bienvenue jusqu'à 500 € + 200 free spins"
 										width="365"
 										height="730"
-										style="width: 100%; height: auto; max-width: 220px"
 										loading="lazy"
 									/>
 								</picture>
@@ -1015,7 +901,7 @@
 				</article>
 				<article>
 					<h2>🔒 Sécurité et fiabilité</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino utilise un cryptage SSL 256 bits et Cloudflare pour
 						protéger mes informations et mes transactions. J’ai pu activer
 						l’authentification 2FA pour encore plus de sécurité. La licence
@@ -1026,7 +912,7 @@
 
 				<article>
 					<h2>📞 Service client</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Le support est disponible 24h/24 et 7j/7, via live chat ou e-mail
 						(support@dragonia.com). Les réponses sont rapides et en français, ce
 						qui rend l'expérience plus rassurante quand on rencontre un problème
@@ -1046,20 +932,20 @@
 							ou définitive, accès aux organismes d'aide comme Gambling Therapy
 						</li>
 					</ul>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Personnellement, j'ai trouvé très utile de pouvoir fixer mes
 						limites, surtout pendant les sessions plus longues.
 					</p>
 				</article>
 				<article>
 					<h2>🔚 Conclusion</h2>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Dragonia Casino m'a vraiment séduite : interface claire, univers
 						immersif, large choix de jeux et bonus attractifs. Le seul point
 						perfectible est le plafond mensuel des retraits (7 000 € pour les
 						comptes standards), un peu bas par rapport à certains concurrents.
 					</p>
-					<p class="content-width fade-in">
+					<p class="u-content-width u-fade-in">
 						Pour moi, c'est un casino idéal pour les joueurs qui aiment
 						diversité, fun et sécurité, que ce soit pour les slots, le live ou
 						les paris sportifs.
@@ -1068,10 +954,10 @@
 			</div>
 
 			<!-- Casino Card -->
-			<section class="casino-card casino-button fade-in">
-				<div class="casino-card__info casino-card__info_logo">
+			<section class="casino-card casino-card--button u-fade-in">
+				<div class="casino-card__info casino-card__info--logo">
 					<img
-						class="casino-card__image fade-in"
+						class="casino-card__image u-fade-in"
 						src="/assets/img/logo-casinos/dragonia-logo.webp"
 						alt="Logo de Dragonia Casino (section avis détaillé)"
 						width="150"
@@ -1079,36 +965,40 @@
 						loading="lazy"
 					/>
 				</div>
-				<div class="casino-button__rating fade-in">
-					<p style="white-space: nowrap">
-						<strong id="casino-name-dragonia-detail">Dragonia Casino</strong>
+				<div class="casino-card__rating u-fade-in">
+					<p class="u-nowrap">
+						<strong id="casino-name-dragonia-detail-bottom"
+							>Dragonia Casino</strong
+						>
 					</p>
 					<p class="casino-card__score">9.6</p>
 					<p class="casino-card__stars">★★★★★</p>
 				</div>
-				<div class="casino-card__features fade-in">
-					<h3 class="casino-button__title">Bonus De Bienvenue</h3>
-					<p class="casino-card__bonus" style="text-align: center">
+				<div class="casino-card__features u-fade-in">
+					<h3 class="casino-card__bonus-title">Bonus De Bienvenue</h3>
+					<p class="casino-card__bonus">
 						100% Jusqu'à 500 € + 200 Free Spins + 1 Bonus Crab
 					</p>
 				</div>
 				<a
-					class="casino-card__button fade-in"
+					class="casino-card__button u-fade-in"
 					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
 					target="_blank"
 					rel="nofollow noopener noreferrer"
 					tabindex="0"
-					aria-describedby="casino-uuid-003"
+					aria-describedby="casino-name-dragonia-detail-bottom"
 				>
-					<span class="casino-card__button-link fade-in">Jouez maintenant</span>
+					<span class="casino-card__button-link u-fade-in"
+						>Jouez maintenant</span
+					>
 				</a>
 			</section>
 
 			<!-- FAQ Section -->
 			<h2>❓ FAQ Dragonia Casino</h2>
-			<section class="faq faq-section fade-in">
+			<section class="faq faq-section u-fade-in">
 				<!-- FAQ 1 -->
-				<div class="faq-item fade-in">
+				<div class="faq-item u-fade-in">
 					<button
 						class="faq-question"
 						aria-expanded="false"
@@ -1132,7 +1022,7 @@
 				</div>
 
 				<!-- FAQ 2 -->
-				<div class="faq-item fade-in">
+				<div class="faq-item u-fade-in">
 					<button
 						class="faq-question"
 						aria-expanded="false"
@@ -1156,7 +1046,7 @@
 				</div>
 
 				<!-- FAQ 3 -->
-				<div class="faq-item fade-in">
+				<div class="faq-item u-fade-in">
 					<button
 						class="faq-question"
 						aria-expanded="false"
@@ -1180,7 +1070,7 @@
 				</div>
 
 				<!-- FAQ 4 -->
-				<div class="faq-item fade-in">
+				<div class="faq-item u-fade-in">
 					<button
 						class="faq-question"
 						aria-expanded="false"
@@ -1192,7 +1082,7 @@
 					</button>
 					<div
 						id="faq-4"
-						class="faq-answer
+						class="faq-answer"
 						role="region"
 						aria-labelledby="faq-q4"
 					>
@@ -1203,7 +1093,7 @@
 				</div>
 
 				<!-- FAQ 5 -->
-				<div class="faq-item fade-in">
+				<div class="faq-item u-fade-in">
 					<button
 						class="faq-question"
 						aria-expanded="false"
@@ -1228,53 +1118,53 @@
 			</section>
 		</main>
 		<!-- Footer -->
-		<footer class="footer fade-in" role="contentinfo">
-			<div class="footer__container fade-in">
-				<div class="footer__content fade-in">
-					<div class="footer__section fade-in">
+		<footer class="footer u-fade-in" role="contentinfo">
+			<div class="footer__container u-fade-in">
+				<div class="footer__content u-fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>TopJeu</h3>
 						<p>
 							Votre guide de confiance pour les meilleurs casinos en ligne
 							francophones. Je teste et évalue chaque plateforme pour vous
 							offrir des recommandations fiables et transparentes.
 						</p>
-						<div class="footer__contact fade-in">
+						<div class="footer__contact u-fade-in">
 							<span class="footer__contact-icon">📧</span>
 							<a
 								href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 								>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 							>
 						</div>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Liens utiles</h3>
 						<ul>
 							<li>
-								<a href="#top5" class="footer__link fade-in"
-									>Casinos en ligne</a
+								<a href="#fiabilite" class="footer__link u-fade-in"
+									>Fiabilité et licence</a
 								>
 							</li>
 							<li>
-								<a href="#bonus" class="footer__link fade-in"
-									>Bonus de casino</a
+								<a href="#bonus" class="footer__link u-fade-in"
+									>Bonus et promos</a
 								>
 							</li>
 							<li>
-								<a href="#choisir" class="footer__link fade-in"
-									>Comment choisir le casino</a
+								<a href="#jeux" class="footer__link u-fade-in"
+									>Jeux et logiciels</a
 								>
 							</li>
 							<li>
-								<a href="#responsable" class="footer__link fade-in"
-									>Jouer responsable</a
+								<a href="#retraits-depots" class="footer__link u-fade-in"
+									>Retraits et depots</a
 								>
 							</li>
 							<li>
 								<a
-									href="#about"
-									class="footer__link fade-in"
+									href="#popup"
+									class="footer__link u-fade-in"
 									data-popup-target="about"
 								>
 									Qui suis-je ?
@@ -1282,8 +1172,8 @@
 							</li>
 							<li>
 								<a
-									href="#contact"
-									class="footer__link fade-in"
+									href="#popup-contact"
+									class="footer__link u-fade-in"
 									data-popup-target="contact"
 								>
 									Contact
@@ -1292,7 +1182,7 @@
 							<li>
 								<a
 									href="#privacy-popup"
-									class="footer__link fade-in"
+									class="footer__link u-fade-in"
 									id="privacy-link"
 									data-popup-target="privacy"
 								>
@@ -1301,8 +1191,8 @@
 							</li>
 							<li>
 								<a
-									href="#cookie-settings"
-									class="footer__link fade-in"
+									href="#cookie-banner"
+									class="footer__link u-fade-in"
 									id="cookie-settings-link"
 								>
 									Paramètres des cookies
@@ -1311,9 +1201,9 @@
 						</ul>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Avertissement</h3>
-						<p class="footer__disclaimer fade-in">
+						<p class="footer__disclaimer u-fade-in">
 							<strong>18+</strong> Le jeu peut causer une dépendance. Jouez avec
 							modération. Les jeux d'argent sont interdits aux mineurs. En cas
 							de problème, contactez les services spécialisés d’aide et
@@ -1321,17 +1211,17 @@
 						</p>
 					</div>
 
-					<div class="footer__section footer__section--bottom fade-in">
+					<div class="footer__section footer__section--bottom u-fade-in">
 						<h3>Suivez-moi</h3>
-						<div class="footer__social fade-in">
+						<div class="footer__social u-fade-in">
 							<a
 								href="https://www.youtube.com/@TopJeu777"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 							>
 								<img
-									class="youtube-icon fade-in"
+									class="youtube-icon u-fade-in"
 									src="/assets/img/youtube.webp"
 									alt="Icône YouTube TopJeu (footer), lien vers chaîne"
 									width="25"
@@ -1341,14 +1231,14 @@
 								<span>YouTube</span>
 							</a>
 						</div>
-						<div class="footer__copyright footer__copyright--mobile fade-in">
+						<div class="footer__copyright footer__copyright--mobile u-fade-in">
 							© 2026 TopJeu. Tous droits réservés.
 						</div>
 					</div>
 				</div>
 
 				<!-- Copyright section for desktop -->
-				<div class="footer__copyright-desktop fade-in">
+				<div class="footer__copyright-desktop u-fade-in">
 					© 2025 TopJeu. Tous droits réservés.
 				</div>
 			</div>
@@ -1372,7 +1262,7 @@
 					&times;
 				</button>
 				<h2 id="privacy-title">Politique de confidentialité</h2>
-				<p style="font-size: 13px; color: #b73740; margin-top: 2rem">
+				<p class="privacy-popup__meta">
 					<strong>Mise à jour :</strong> Septembre 2025
 				</p>
 				<p>
@@ -1383,7 +1273,7 @@
 					informations.
 				</p>
 				<h3>1. Collecte de données</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Nous collectons les données suivantes :
 				</p>
 				<ul>
@@ -1402,7 +1292,9 @@
 				</ul>
 
 				<h3>2. Finalité de l'utilisation</h3>
-				<p class="content-width fade-in">Les données sont utilisées pour :</p>
+				<p class="u-content-width u-fade-in">
+					Les données sont utilisées pour :
+				</p>
 				<ul>
 					<li>Analyser l'audience et améliorer l'expérience utilisateur</li>
 					<li>Répondre aux demandes de contact</li>
@@ -1420,7 +1312,7 @@
 				</ul>
 
 				<h3>4. Partage des données</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Vos données peuvent être partagées avec :
 				</p>
 				<ul>
@@ -1439,7 +1331,7 @@
 				</ul>
 
 				<h3>5. Vos droits</h3>
-				<p class="content-width fade-in">
+				<p class="u-content-width u-fade-in">
 					Conformément au RGPD, vous disposez des droits suivants :
 				</p>
 				<ul>
@@ -1480,8 +1372,7 @@
 					Email :
 					<a
 						href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-						class="footer__link"
-						style="color: #b73740"
+						class="footer__link privacy-popup__email"
 						>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 					>
 				</p>
@@ -1495,7 +1386,7 @@
 		<!-- POPUP: À propos de nous -->
 		<div
 			id="popup"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="about-title"
@@ -1505,15 +1396,14 @@
 					&times;
 				</button>
 				<h2 id="about-title" class="popup__title">Qui suis-je ?</h2>
-				<div style="display: flex; flex-direction: row; align-items: center">
+				<div class="about-author">
 					<span class="author"
 						><img
 							width="80"
 							height="80"
-							style="width: 80px; height: 80px; margin-right: 1.5rem"
 							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle, auteure du site TopJeu"
-							class="author__photo"
+							class="author__photo about-author__photo"
 							loading="lazy"
 					/></span>
 					<h3>Dariah Belle</h3>
@@ -1556,13 +1446,13 @@
 					</li>
 					<li>⏱ Réponse sous 24h garantie.</li>
 				</ul>
-				<p class="content-width">
+				<p class="u-content-width">
 					💎 Joueurs réguliers ou à la recherche d'un petit plus ? Et si votre
 					façon de jouer vous ouvrait les portes d'un accompagnement sur-mesure
 					? Bonus privés, gestionnaire dédié, retraits plus rapides… et une
 					sélection confidentielle de casinos triés pour vous.
 				</p>
-				<div class="about-carousel fade-in" data-carousel-region>
+				<div class="about-carousel u-fade-in" data-carousel-region>
 					<h3 class="about-carousel__title">Ce que disent les joueurs</h3>
 					<div
 						class="testimonial-carousel"
@@ -1636,7 +1526,7 @@
 						></div>
 					</div>
 				</div>
-				<p class="content-width">
+				<p class="u-content-width">
 					👉 Je suis là pour vous guider, dans l'ombre. Contact discret et
 					réponse garantie.
 				</p>
@@ -1646,7 +1536,7 @@
 		<!-- POPUP: Contact -->
 		<div
 			id="popup-contact"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="contact-title"
@@ -1672,7 +1562,7 @@
 						id="name"
 						name="name"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="email">Email *</label>
 					<input
@@ -1680,7 +1570,7 @@
 						id="email"
 						name="email"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="message">Message *</label>
 					<textarea
@@ -1688,11 +1578,11 @@
 						name="message"
 						required
 						rows="5"
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					></textarea>
 					<button type="submit" class="popup__button">Envoyer</button>
 				</form>
-				<p id="form-success-message" class="form-success-message hidden">
+				<p id="form-success-message" class="form-success-message u-hidden">
 					Message envoyé avec succès !
 				</p>
 			</div>
@@ -1709,7 +1599,7 @@
 		>
 			<div
 				class="cookie-banner__minimized-icon"
-				aria-label="Показать настройки cookies"
+				aria-label="Afficher les parametres des cookies"
 				tabindex="0"
 				role="button"
 			>
@@ -1717,27 +1607,16 @@
 			</div>
 			<div class="cookie-banner__container">
 				<div class="cookie-banner__content">
-					<h4
-						id="cookie-title"
-						style="
-							margin: 0 0 0.5rem 0;
-							font-size: 1.1rem;
-							color: #fff;
-							font-weight: 700;
-						"
-					>
-						Nous sommes des cookies
-					</h4>
+					<h4 id="cookie-title">Nous sommes des cookies</h4>
 					<p id="cookie-description" class="cookie-banner__text">
 						Nous utilisons des cookies pour améliorer votre expérience sur
 						TopJeu. En continuant à naviguer, vous acceptez notre utilisation
 						des cookies.
 					</p>
-					<p style="margin: 0.5rem 0 0 0; font-size: 0.85rem">
+					<p class="cookie-banner__note">
 						<a
 							href="#privacy-popup"
-							class="footer__link"
-							style="font-weight: 600"
+							class="footer__link cookie-banner__link--emphasis"
 							id="cookie-privacy-link"
 							data-popup-target="privacy"
 							>Lire la politique de confidentialité</a
@@ -1763,14 +1642,15 @@
 			</div>
 		</div>
 		<!-- Scroll to top button -->
-		<a href="#top" id="scrolltop" aria-label="Scroll up the page to the top">
-			<img
+		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
+			<svg
 				class="arrow-up"
-				src="/assets/img/arrow-icon.webp"
-				alt="arrow icon"
-				width="30"
-				height="30"
-				loading="lazy"
-		/></a>
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<path d="M12 4l-6 6h4v10h4V10h4z" />
+			</svg>
+		</a>
 	</body>
 </html>

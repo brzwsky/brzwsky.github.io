@@ -15,34 +15,19 @@
 			name="keywords"
 			content="Brutal Casino, avis Brutal Casino, bonus Brutal Casino, jeux en ligne, casino fiable, casino français, retraits rapides, programme VIP"
 		/>
-		<link rel="stylesheet" href="/style.minified.css" />
-		<script src="/app.minified.js"></script>
-		<style>
-			/* Ensure header and footer take full width */
-			html,
-			body {
-				width: 100% !important;
-				max-width: 100% !important;
-				margin: 0 !important;
-				padding: 0 !important;
-			}
-			.header,
-			.footer {
-				width: 100% !important;
-				max-width: 100% !important;
-			}
-		</style>
+		<link rel="stylesheet" href="/style.minified.css?v=20260207" />
+		<script defer src="/app.minified.js?v=20260207"></script>
 	</head>
-	<body lang="fr" id="top">
+	<body lang="fr" id="top" class="page-review">
 		<!-- Cookie Consent Banner -->
-		<div class="cookie-consent-banner fade-in">
+		<div class="cookie-consent-banner u-fade-in">
 			<p>
 				Nous utilisons Google Analytics pour améliorer votre expérience.
 				Acceptez-vous ?
 			</p>
 			<button id="accept-analytics-btn">Accepter</button>
 		</div>
-		<div class="menu-overlay" aria-hidden="true"></div>
+		<div class="nav-menu__overlay" aria-hidden="true"></div>
 		<!-- Header -->
 		<header class="header" role="banner">
 			<div class="header__container">
@@ -56,15 +41,9 @@
 							width="160"
 							height="60"
 							fetchpriority="high"
-							style="
-								width: 160px;
-								height: 60px;
-								object-fit: contain;
-								display: block;
-							"
 						/>
 					</a>
-					<div class="header__logo-text fade-in">
+					<div class="header__logo-text u-fade-in">
 						<p class="header__logo-line header__logo-line--title">TopJeu</p>
 						<p class="header__logo-line header__logo-line--subtitle">
 							casino fiables
@@ -72,7 +51,7 @@
 					</div>
 				</div>
 				<button
-					class="burger"
+					class="header__burger"
 					aria-label="Menu"
 					aria-controls="primary-menu"
 					aria-expanded="false"
@@ -89,7 +68,7 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="close-menu" aria-label="Fermer le menu">✕</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">✕</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -105,26 +84,24 @@
 									loading="eager"
 									width="25"
 									height="25"
-									style="width: 25px; height: 25px; object-fit: contain"
 								/>
 								<span>YouTube</span>
 							</a>
 						</li>
 						<li class="nav-menu__item nav-menu__item--avis">
-							<div class="avis-wrapper">
+							<div class="nav-menu__avis">
 								<button
 									type="button"
-									class="header__link nav-menu__link avis-toggle"
+									class="header__link nav-menu__link nav-menu__avis-toggle"
 									aria-expanded="false"
 									aria-controls="avis-list"
 								>
 									Avis
-									<span class="avis-toggle__icon" aria-hidden="true">
+									<span class="nav-menu__avis-toggle-icon" aria-hidden="true">
 										<svg
 											viewBox="0 0 10 10"
 											width="10"
 											height="10"
-											style="display: block"
 											fill="currentColor"
 										>
 											<polygon points="3,2 8,5 3,8" />
@@ -133,14 +110,14 @@
 								</button>
 								<ul
 									id="avis-list"
-									class="avis-dropdown"
+									class="nav-menu__avis-dropdown"
 									role="menu"
 									aria-hidden="true"
 								>
 									<li role="none">
 										<a
 											role="menuitem"
-											class="avis-link"
+											class="nav-menu__avis-link"
 											href="../brutal-casino/index.html"
 											>Brutal Casino</a
 										>
@@ -148,7 +125,7 @@
 									<li role="none">
 										<a
 											role="menuitem"
-											class="avis-link"
+											class="nav-menu__avis-link"
 											href="../dragonia-casino/index.html"
 											>Dragonia Casino</a
 										>
@@ -180,12 +157,12 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="theme-switch-wrapper fade-in">
+				<div class="theme-switch-wrapper u-fade-in">
 					<button
 						type="button"
 						id="theme-toggle"
 						class="theme-toggle-button"
-						aria-label="Toggle dark/light mode"
+						aria-label="Basculer le theme clair/sombre"
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
@@ -194,7 +171,7 @@
 		</header>
 		<main role="main">
 			<!-- Hero Section -->
-			<section class="hero fade-in">
+			<section class="hero u-fade-in">
 				<h1 class="hero__title">Brutal Casino – Avis complet 2026</h1>
 				<p class="hero__meta">
 					<span class="author"
@@ -208,11 +185,11 @@
 					/></span>
 					Rédigé par :
 					<span>
-						<a href="#" class="author__name">Dariah Belle</a>
+						<span class="author__name">Dariah Belle</span>
 					</span>
 					· Dernière mise à jour : 9 Janvier 2026
 				</p>
-				<p class="disclaimer fade-in">
+				<p class="disclaimer u-fade-in">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
 					modération, fixez des limites et ne misez jamais plus que ce que vous
 					pouvez vous permettre de perdre. Si vous sentez que le jeu devient un
@@ -231,10 +208,10 @@
 			</section>
 
 			<!-- Casino Card -->
-			<section class="casino-card casino-button fade-in">
-				<div class="casino-card__info casino-card__info_logo">
+			<section class="casino-card casino-card--button u-fade-in">
+				<div class="casino-card__info casino-card__info--logo">
 					<img
-						class="casino-card__image fade-in"
+						class="casino-card__image u-fade-in"
 						src="/assets/img/logo-casinos/brutal-logo.webp"
 						data-dark="/assets/img/logo-casinos/brutal-logo-dark.webp"
 						alt="Logo de Brutal Casino (section avis détaillé)"
@@ -243,34 +220,34 @@
 						loading="lazy"
 					/>
 				</div>
-				<div class="casino-button__rating fade-in">
-					<p style="white-space: nowrap">
+				<div class="casino-card__rating u-fade-in">
+					<p class="u-nowrap">
 						<strong id="casino-name-brutal-detail">Brutal Casino</strong>
 					</p>
 					<p class="casino-card__score">9.7</p>
 					<p class="casino-card__stars">★★★★★</p>
 				</div>
-				<div class="casino-card__features fade-in">
-					<h4 class="casino-button__title">Bonus De Bienvenue</h4>
-					<p class="casino-card__bonus" style="text-align: center">
-						100% Jusqu'à 1000 €
-					</p>
+				<div class="casino-card__features u-fade-in">
+					<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
+					<p class="casino-card__bonus">100% Jusqu'à 1000 €</p>
 				</div>
 				<a
-					class="casino-card__button fade-in"
+					class="casino-card__button u-fade-in"
 					href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
 					target="_blank"
 					rel="nofollow noopener noreferrer"
 					tabindex="0"
-					aria-describedby="casino-uuid-002"
+					aria-describedby="casino-name-brutal-detail"
 				>
-					<span class="casino-card__button-link fade-in">Jouez maintenant</span>
+					<span class="casino-card__button-link u-fade-in"
+						>Jouez maintenant</span
+					>
 				</a>
 			</section>
 
 			<!-- Content Sections -->
-			<section class="landing-content fade-in">
-				<h2>✅ Brutal Casino est-il fiable ?</h2>
+			<section class="landing-content u-fade-in">
+				<h2 id="fiabilite">✅ Brutal Casino est-il fiable ?</h2>
 				<p>
 					Avant de m'inscrire, ma première question était : ce casino est-il
 					sérieux ? Après quelques recherches, j'ai découvert que Brutal Casino
@@ -303,7 +280,7 @@
 					rend l'expérience agréable dès le départ.
 				</p>
 
-				<h2>🎁 Bonus et promotions</h2>
+				<h2 id="bonus">🎁 Bonus et promotions</h2>
 				<p>
 					Le site brutalcasino.com propose une politique promotionnelle
 					différente de celle de ses concurrents. Celle-ci se compose d'un bonus
@@ -350,10 +327,9 @@
 
 				<!-- Banner -->
 				<a
-					class="banners fade-in"
+					class="banners banners--spaced u-fade-in"
 					rel="nofollow noopener noreferrer"
 					href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
-					style="display: block; margin: 2rem 0"
 				>
 					<img
 						src="/assets/img/banners/brutal-banner-fix.webp"
@@ -361,98 +337,53 @@
 						width="1200"
 						height="300"
 						loading="lazy"
-						style="width: 100%; height: auto; max-width: 1200px"
 					/>
 				</a>
-				<table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0">
+				<table class="review-table">
 					<thead>
-						<tr style="background-color: #f9f9f9">
-							<th
-								style="
-									border: 1px solid #ddd;
-									padding: 0.75rem;
-									text-align: left;
-								"
-							>
-								Niveau
-							</th>
-							<th
-								style="
-									border: 1px solid #ddd;
-									padding: 0.75rem;
-									text-align: left;
-								"
-							>
-								Cashback
-							</th>
-							<th
-								style="
-									border: 1px solid #ddd;
-									padding: 0.75rem;
-									text-align: left;
-								"
-							>
-								Limite retrait
-							</th>
-							<th
-								style="
-									border: 1px solid #ddd;
-									padding: 0.75rem;
-									text-align: left;
-								"
-							>
-								Bonus anniversaire
-							</th>
+						<tr>
+							<th>Niveau</th>
+							<th>Cashback</th>
+							<th>Limite retrait</th>
+							<th>Bonus anniversaire</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								Raw Rookie
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">10 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">6 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">+</td>
+							<td>Raw Rookie</td>
+							<td>10 %</td>
+							<td>6 000 €</td>
+							<td>+</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								Bluffing Brawler
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">12 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">8 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">++</td>
+							<td>Bluffing Brawler</td>
+							<td>12 %</td>
+							<td>8 000 €</td>
+							<td>++</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								High Roller Renegade
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">15 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">12 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">+++</td>
+							<td>High Roller Renegade</td>
+							<td>15 %</td>
+							<td>12 000 €</td>
+							<td>+++</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								Iron-Handed Titan
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">19 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">18 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">++++</td>
+							<td>Iron-Handed Titan</td>
+							<td>19 %</td>
+							<td>18 000 €</td>
+							<td>++++</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								Jackpot King or Queen
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">24 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">26 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">+++++</td>
+							<td>Jackpot King or Queen</td>
+							<td>24 %</td>
+							<td>26 000 €</td>
+							<td>+++++</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">
-								Casino Overlord
-							</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">30 %</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">36 000 €</td>
-							<td style="border: 1px solid #ddd; padding: 0.75rem">++++++</td>
+							<td>Casino Overlord</td>
+							<td>30 %</td>
+							<td>36 000 €</td>
+							<td>++++++</td>
 						</tr>
 					</tbody>
 				</table>
@@ -479,7 +410,7 @@
 					permet d'éviter des retards lors des retraits.
 				</p>
 
-				<h2>🎰 Jeux et logiciels</h2>
+				<h2 id="jeux">🎰 Jeux et logiciels</h2>
 				<p>
 					Brutal Casino propose plus de <strong>1 600 jeux</strong>, tous
 					facilement accessibles grâce à un catalogue bien organisé.
@@ -512,10 +443,9 @@
 
 				<!-- Banner -->
 				<a
-					class="banners fade-in"
+					class="banners banners--spaced u-fade-in"
 					rel="nofollow noopener noreferrer"
 					href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
-					style="display: block; margin: 2rem 0"
 				>
 					<img
 						src="/assets/img/banners/brutal-banner-fix.webp"
@@ -523,11 +453,10 @@
 						width="1200"
 						height="300"
 						loading="lazy"
-						style="width: 100%; height: auto; max-width: 1200px"
 					/>
 				</a>
 
-				<h2>💳 Méthodes de paiement</h2>
+				<h2 id="paiements">💳 Méthodes de paiement</h2>
 				<h3>Dépôts</h3>
 				<ul>
 					<li><strong>Cartes bancaires :</strong> 20 – 1 750 €, instantané</li>
@@ -615,10 +544,9 @@
 
 				<!-- Final CTA Banner -->
 				<a
-					class="banners fade-in"
+					class="banners banners--spaced u-fade-in"
 					rel="nofollow noopener noreferrer"
 					href="https://record.igpartners.xyz/_PwBtQtly5-OYkdHVp7xCcmNd7ZgqdRLk/1/"
-					style="display: block; margin: 2rem 0"
 				>
 					<img
 						src="/assets/img/banners/brutal-banner-fix.webp"
@@ -626,14 +554,13 @@
 						width="1200"
 						height="300"
 						loading="lazy"
-						style="width: 100%; height: auto; max-width: 1200px"
 					/>
 				</a>
 
 				<h2>❓ FAQ</h2>
-				<section class="faq faq-section fade-in">
+				<section class="faq faq-section u-fade-in">
 					<!-- FAQ 1 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -660,7 +587,7 @@
 					</div>
 
 					<!-- FAQ 2 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -687,7 +614,7 @@
 					</div>
 
 					<!-- FAQ 3 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -714,7 +641,7 @@
 					</div>
 
 					<!-- FAQ 4 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -742,7 +669,7 @@
 					</div>
 
 					<!-- FAQ 5 -->
-					<div class="faq-item fade-in">
+					<div class="faq-item u-fade-in">
 						<button
 							class="faq-question"
 							aria-expanded="false"
@@ -771,53 +698,53 @@
 			</section>
 		</main>
 		<!-- Footer -->
-		<footer class="footer fade-in" role="contentinfo">
-			<div class="footer__container fade-in">
-				<div class="footer__content fade-in">
-					<div class="footer__section fade-in">
+		<footer class="footer u-fade-in" role="contentinfo">
+			<div class="footer__container u-fade-in">
+				<div class="footer__content u-fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>TopJeu</h3>
 						<p>
 							Votre guide de confiance pour les meilleurs casinos en ligne
 							francophones. Je teste et évalue chaque plateforme pour vous
 							offrir des recommandations fiables et transparentes.
 						</p>
-						<div class="footer__contact fade-in">
+						<div class="footer__contact u-fade-in">
 							<span class="footer__contact-icon">📧</span>
 							<a
 								href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 								>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 							>
 						</div>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Liens utiles</h3>
 						<ul>
 							<li>
-								<a href="#top5" class="footer__link fade-in"
-									>Casinos en ligne</a
+								<a href="#fiabilite" class="footer__link u-fade-in"
+									>Fiabilite et licence</a
 								>
 							</li>
 							<li>
-								<a href="#bonus" class="footer__link fade-in"
-									>Bonus de casino</a
+								<a href="#bonus" class="footer__link u-fade-in"
+									>Bonus et promos</a
 								>
 							</li>
 							<li>
-								<a href="#choisir" class="footer__link fade-in"
-									>Comment choisir le casino</a
+								<a href="#jeux" class="footer__link u-fade-in"
+									>Jeux et logiciels</a
 								>
 							</li>
 							<li>
-								<a href="#responsable" class="footer__link fade-in"
-									>Jouer responsable</a
+								<a href="#paiements" class="footer__link u-fade-in"
+									>Paiements</a
 								>
 							</li>
 							<li>
 								<a
-									href="#about"
-									class="footer__link fade-in"
+									href="#popup"
+									class="footer__link u-fade-in"
 									data-popup-target="about"
 								>
 									Qui suis-je ?
@@ -825,8 +752,8 @@
 							</li>
 							<li>
 								<a
-									href="#contact"
-									class="footer__link fade-in"
+									href="#popup-contact"
+									class="footer__link u-fade-in"
 									data-popup-target="contact"
 								>
 									Contact
@@ -835,7 +762,7 @@
 							<li>
 								<a
 									href="#privacy-popup"
-									class="footer__link fade-in"
+									class="footer__link u-fade-in"
 									id="privacy-link"
 									data-popup-target="privacy"
 								>
@@ -844,8 +771,8 @@
 							</li>
 							<li>
 								<a
-									href="#cookie-settings"
-									class="footer__link fade-in"
+									href="#cookie-banner"
+									class="footer__link u-fade-in"
 									id="cookie-settings-link"
 								>
 									Paramètres des cookies
@@ -854,9 +781,9 @@
 						</ul>
 					</div>
 
-					<div class="footer__section fade-in">
+					<div class="footer__section u-fade-in">
 						<h3>Avertissement</h3>
-						<p class="footer__disclaimer fade-in">
+						<p class="footer__disclaimer u-fade-in">
 							<strong>18+</strong> Le jeu peut causer une dépendance. Jouez avec
 							modération. Les jeux d'argent sont interdits aux mineurs. En cas
 							de problème, contactez les services spécialisés d'aide et
@@ -864,17 +791,17 @@
 						</p>
 					</div>
 
-					<div class="footer__section footer__section--bottom fade-in">
+					<div class="footer__section footer__section--bottom u-fade-in">
 						<h3>Suivez-moi</h3>
-						<div class="footer__social fade-in">
+						<div class="footer__social u-fade-in">
 							<a
 								href="https://www.youtube.com/@TopJeu777"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="footer__link fade-in"
+								class="footer__link u-fade-in"
 							>
 								<img
-									class="youtube-icon fade-in"
+									class="youtube-icon u-fade-in"
 									src="/assets/img/youtube.webp"
 									alt="Icône YouTube TopJeu (footer), lien vers chaîne"
 									width="25"
@@ -884,14 +811,14 @@
 								<span>YouTube</span>
 							</a>
 						</div>
-						<div class="footer__copyright footer__copyright--mobile fade-in">
+						<div class="footer__copyright footer__copyright--mobile u-fade-in">
 							© 2026 TopJeu. Tous droits réservés.
 						</div>
 					</div>
 				</div>
 
 				<!-- Copyright section for desktop -->
-				<div class="footer__copyright-desktop fade-in">
+				<div class="footer__copyright-desktop u-fade-in">
 					© 2025 TopJeu. Tous droits réservés.
 				</div>
 			</div>
@@ -915,7 +842,7 @@
 					&times;
 				</button>
 				<h2 id="privacy-title">Politique de confidentialité</h2>
-				<p style="font-size: 13px; color: #b73740; margin-top: 2rem">
+				<p class="privacy-popup__meta">
 					<strong>Mise à jour :</strong> Septembre 2025
 				</p>
 				<p>
@@ -1017,8 +944,7 @@
 					Email :
 					<a
 						href="mailto:&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-						class="footer__link"
-						style="color: #b73740"
+						class="footer__link privacy-popup__email"
 						>&#116;&#111;&#112;&#106;&#101;&#117;&#55;&#55;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
 					>
 				</p>
@@ -1032,7 +958,7 @@
 		<!-- POPUP: À propos de nous -->
 		<div
 			id="popup"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="about-title"
@@ -1042,17 +968,17 @@
 					&times;
 				</button>
 				<h2 id="about-title" class="popup__title">Qui suis-je ?</h2>
-				<div style="display: flex; flex-direction: row; align-items: center">
-					<span class="author"
-						><img
+				<div class="about-author">
+					<span class="author">
+						<img
 							width="80"
 							height="80"
-							style="width: 80px; height: 80px; margin-right: 1.5rem"
 							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle, auteure du site TopJeu"
-							class="author__photo"
+							class="author__photo about-author__photo"
 							loading="lazy"
-					/></span>
+						/>
+					</span>
 					<h3>Dariah Belle</h3>
 				</div>
 				<p>
@@ -1093,13 +1019,13 @@
 					</li>
 					<li>⏱ Réponse sous 24h garantie.</li>
 				</ul>
-				<p class="content-width">
+				<p class="u-content-width">
 					💎 Joueurs réguliers ou à la recherche d'un petit plus ? Et si votre
 					façon de jouer vous ouvrait les portes d'un accompagnement sur-mesure
 					? Bonus privés, gestionnaire dédié, retraits plus rapides… et une
 					sélection confidentielle de casinos triés pour vous.
 				</p>
-				<div class="about-carousel fade-in" data-carousel-region>
+				<div class="about-carousel u-fade-in" data-carousel-region>
 					<h3 class="about-carousel__title">Ce que disent les joueurs</h3>
 					<div
 						class="testimonial-carousel"
@@ -1173,7 +1099,7 @@
 						></div>
 					</div>
 				</div>
-				<p class="content-width">
+				<p class="u-content-width">
 					👉 Je suis là pour vous guider, dans l'ombre. Contact discret et
 					réponse garantie.
 				</p>
@@ -1183,7 +1109,7 @@
 		<!-- POPUP: Contact -->
 		<div
 			id="popup-contact"
-			class="popup hidden"
+			class="popup u-hidden"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="contact-title"
@@ -1209,7 +1135,7 @@
 						id="name"
 						name="name"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="email">Email *</label>
 					<input
@@ -1217,7 +1143,7 @@
 						id="email"
 						name="email"
 						required
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					/>
 					<label for="message">Message *</label>
 					<textarea
@@ -1225,11 +1151,11 @@
 						name="message"
 						required
 						rows="5"
-						style="width: 100%; padding: 0.5rem; margin-bottom: 1rem"
+						class="popup__input"
 					></textarea>
 					<button type="submit" class="popup__button">Envoyer</button>
 				</form>
-				<p id="form-success-message" class="form-success-message hidden">
+				<p id="form-success-message" class="form-success-message u-hidden">
 					Message envoyé avec succès !
 				</p>
 			</div>
@@ -1246,7 +1172,7 @@
 		>
 			<div
 				class="cookie-banner__minimized-icon"
-				aria-label="Показать настройки cookies"
+				aria-label="Afficher les parametres des cookies"
 				tabindex="0"
 				role="button"
 			>
@@ -1254,27 +1180,16 @@
 			</div>
 			<div class="cookie-banner__container">
 				<div class="cookie-banner__content">
-					<h4
-						id="cookie-title"
-						style="
-							margin: 0 0 0.5rem 0;
-							font-size: 1.1rem;
-							color: #fff;
-							font-weight: 700;
-						"
-					>
-						Nous sommes des cookies
-					</h4>
+					<h4 id="cookie-title">Nous sommes des cookies</h4>
 					<p id="cookie-description" class="cookie-banner__text">
 						Nous utilisons des cookies pour améliorer votre expérience sur
 						TopJeu. En continuant à naviguer, vous acceptez notre utilisation
 						des cookies.
 					</p>
-					<p style="margin: 0.5rem 0 0 0; font-size: 0.85rem">
+					<p class="cookie-banner__note">
 						<a
 							href="#privacy-popup"
-							class="footer__link"
-							style="font-weight: 600"
+							class="footer__link cookie-banner__link--emphasis"
 							id="cookie-privacy-link"
 							data-popup-target="privacy"
 							>Lire la politique de confidentialité</a
@@ -1301,14 +1216,14 @@
 		</div>
 		<!-- Scroll to top button -->
 		<a href="#top" id="scrolltop" aria-label="Retour en haut de la page">
-			<img
+			<svg
 				class="arrow-up"
-				src="/assets/img/arrow-icon.webp"
-				alt=""
-				width="30"
-				height="30"
-				loading="lazy"
-			/>
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<path d="M12 4l-6 6h4v10h4V10h4z" />
+			</svg>
 		</a>
 	</body>
 </html>

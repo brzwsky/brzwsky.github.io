@@ -1,3 +1,4 @@
+.DS_Store
 DS_Store
 .vscode
 .github
@@ -10,6 +11,8 @@ app.js
 # Development environment
 .env
 .env.local
+.env.*
+!.env.example
 node_modules/
 package-lock.json
 
@@ -24,13 +27,17 @@ package-lock.json
 Thumbs.db
 *.log
 *.tmp
+*.bak
+*.orig
 tmp/
 temp/
+backup-*/
 
 # Python
 __pycache__/
 *.pyc
 .pytest_cache/
+.venv/
 venv/
 .cache/
 
