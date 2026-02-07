@@ -1300,6 +1300,7 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 	color: inherit;
 }
 .casino-card__title {
+	border-bottom: 2px solid var(--color-red-hover);
 	display: inline-block;
 	@media (min-width: 391px) and (max-width: 406px) {
 		main {
@@ -1667,7 +1668,7 @@ section.landing-content > .casino-review > h2 {
 	padding-bottom: 1.5rem;
 }
 section.landing-content > .casino-review > h2::after {
-	background-image: url('/assets/img/red-line.webp');
+	background-image: url('assets/img/red-line.webp');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	bottom: 3px;
@@ -3690,13 +3691,6 @@ body.is-dark .disclaimer {
 	body:not(.is-dark) .privacy-popup__content strong,
 	body:not(.is-dark) .privacy-popup__content em {
 		color: #fff !important;
-	}
-}
-@media (min-width: 1080px) and (max-width: 1190px) {
-	.casino-card__title::after {
-		left: 7.5% !important;
-		right: 7.5% !important;
-		width: 85% !important;
 	}
 }
 @media (max-width: 1023px) {
