@@ -646,7 +646,7 @@ body.is-dark .casino-review-link strong {
 }
 .page-review .header__container,
 .page-review .footer__container {
-	max-width: none;
+	max-width: var(--max-content-width);
 	width: 100%;
 }
 .page-review .mobile-compatibility {
