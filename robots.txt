@@ -7,4 +7,3 @@ Disallow: /scripts/
 Disallow: /cf-worker/
 
 Sitemap: https://www.topjeu777.com/sitemap.xml
-Sitemap: https://www.topjeu777.com/ca/sitemap.xml
