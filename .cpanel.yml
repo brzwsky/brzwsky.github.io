@@ -7,7 +7,7 @@ deployment:
     - /bin/cp -R ca $DEPLOYPATH
 
     # Assets & config
-    - /bin/cp -R img $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp site.webmanifest $DEPLOYPATH

@@ -38,20 +38,16 @@
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 
-		<!-- Removed GA preconnect until consent (privacy) -->
-
 		<!-- Preload primary LCP banner for faster first paint -->
+		<!-- Preload only the real LCP image (desktop, largest) -->
 		<link
 			rel="preload"
 			as="image"
 			href="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
-			imagesrcset="
-				/assets/img/ca/banners/crowngreen/crowngreen-banner-400.webp 400w,
-				/assets/img/ca/banners/crowngreen/crowngreen-banner-800.webp 800w,
-				/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp 1200w
-			"
+			fetchpriority="high"
+			imagesrcset="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp 1200w"
 			imagesizes="100vw"
-		/>
+		/> <!-- LCP: fetchpriority and preload for desktop only -->
 
 		<!-- SEO & Open Graph -->
 		<!-- Canada-only meta description -->
@@ -297,7 +293,8 @@
 								class="header__link nav-menu__link"
 								href="https://www.youtube.com/@TopJeu777"
 								target="_blank"
-								rel="nofollow noopener noreferrer"
+							<meta name="visitor-country" content="CA" />
+							<meta name="visitor-country" content="CA" />
 							>
 								<img
 									class="youtube-icon"
@@ -402,11 +399,11 @@
 		</header>
 
 		<main role="main">
-			<h1 class="hero__title">Meilleur casino en ligne Canada 2026</h1>
 			<!-- Hero Section -->
 			<section class="hero u-fade-in">
+				<h1 class="hero__title">Meilleur casino en ligne Canada 2026</h1> <!-- moved h1 inside hero for SEO/semantics -->
 				<p class="hero__meta">
-					<span class="author"
+					<span class="author">
 						<img
 							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle, auteure de TopJeu"
@@ -475,7 +472,7 @@
 						<img
 							class="casino-card__icon"
 							src="/assets/img/crown-icon.webp"
-							alt="Icône de couronne pour le classement Top 1 Mafia Casino"
+							alt="Icône de couronne pour le classement Top 1 Crowngreen Casino" 
 							width="60"
 							height="60"
 							loading="lazy"
@@ -537,16 +534,13 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="assets/img/ca/logos/spinempire/spinempire-logo.webp"
-								data-dark="assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
+								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp" 
+								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino, classé numéro 2"
 								loading="lazy"
 								width="150"
 								height="83"
-								srcset="
-									/assets/img/ca/logos/spinempire/spinempire-logo.webp      150w,
-									/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp 150w
-								"
+								srcset="/assets/img/ca/logos/spinempire/spinempire-logo.webp 150w, /assets/img/ca/logos/spinempire/spinempire-logo-dark.webp 150w"
 							/>
 							<div>
 								<h3 class="casino-card__title">SpinEmpire Casino</h3>
@@ -590,13 +584,13 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="assets/img/logo-casinos/spininio-logo.webp"
-								data-dark="assets/img/logo-casinos/spininio-logo-dark.webp"
+								src="/assets/img/logo-casinos/spininio-logo.webp"
+								data-dark="/assets/img/logo-casinos/spininio-logo-dark.webp"
 								alt="Logo de Spininio Casino, classé numéro 3"
 								loading="lazy"
 								width="150"
 								height="83"
-								srcset="assets/img/logo-casinos/spininio-logo.webp 150w"
+								srcset="/assets/img/logo-casinos/spininio-logo.webp 150w"
 							/>
 
 							<div>
@@ -637,12 +631,12 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="assets/img/ca/logos/vegazone/vegazone-logo.webp"
+								src="/assets/img/ca/logos/vegazone/vegazone-logo.webp"
 								alt="Logo de Vegazone Casino, classé numéro 4"
 								loading="lazy"
 								width="150"
 								height="83"
-								srcset="assets/img/ca/logos/vegazone/vegazone-logo.webp 150w"
+								srcset="/assets/img/ca/logos/vegazone/vegazone-logo.webp 150w"
 							/>
 							<div>
 								<h3 class="casino-card__title">Vegazone Casino</h3>
@@ -684,12 +678,12 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="assets/img/logo-casinos/mafiacasino-logo.svg"
+								src="/assets/img/logo-casinos/mafiacasino-logo.svg" 
 								alt="Logo de Mafia Casino, classé numéro 5"
 								loading="lazy"
 								width="150"
 								height="41"
-								srcset="assets/img/logo-casinos/mafiacasino-logo.svg 150w"
+								srcset="/assets/img/logo-casinos/mafiacasino-logo.svg 150w"
 							/>
 
 							<div>
@@ -834,13 +828,14 @@
 								"
 							/>
 							<img
-								src="assets/img/ca/banners/crowngreen/crowngreen-banner-400.webp"
+								src="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
 								alt="Bannière promotionnelle de Crowngreen Casino, offrant un bonus de bienvenue"
 								width="1200"
 								height="600"
 								loading="eager"
 								decoding="async"
-							/>
+								fetchpriority="high"
+							/> <!-- LCP: explicit width/height, fetchpriority, absolute path -->
 						</picture>
 					</a>
 
@@ -895,13 +890,13 @@
 						<div class="casino-card__info casino-card__info--logo u-fade-in">
 							<img
 								class="casino-card__image"
-								src="assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
-								data-dark="assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
+								src="/assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
+								data-dark="/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
 								alt="Logo de Crowngreen Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
-							/>
+							/> <!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p>
@@ -1064,13 +1059,13 @@
 								"
 							/>
 							<img
-								src="assets/img/ca/banners/spinempire/spinempire-banner-400.webp"
+								src="/assets/img/ca/banners/spinempire/spinempire-banner-1200.webp"
 								alt="Bannière promotionnelle de SpinEmpire Casino, bonus de bienvenue"
 								width="1200"
 								height="600"
 								loading="eager"
 								decoding="async"
-							/>
+							/> <!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
 					<section class="casino-info u-content-width u-fade-in">
@@ -1119,13 +1114,13 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="assets/img/ca/logos/spinempire/spinempire-logo.webp"
-								data-dark="assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
+								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp"
+								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
-							/>
+							/> <!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -1331,13 +1326,13 @@
 								"
 							/>
 							<img
-								src="assets/img/ca/banners/spininio/spininio-banner-400.webp"
+								src="/assets/img/ca/banners/spininio/spininio-banner-1200.webp"
 								alt="Bannière promotionnelle de Spininio Casino, univers pirate"
 								width="1200"
 								height="600"
 								loading="eager"
 								decoding="async"
-							/>
+							/> <!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
 					<section class="casino-info u-content-width u-fade-in">
@@ -1385,13 +1380,13 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="assets/img/logo-casinos/spininio-logo.webp"
-								data-dark="assets/img/logo-casinos/spininio-logo-dark.webp"
+								src="/assets/img/logo-casinos/spininio-logo.webp"
+								data-dark="/assets/img/logo-casinos/spininio-logo-dark.webp"
 								alt="Logo de Spininio Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
-							/>
+							/> <!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -1739,26 +1734,26 @@
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
-								srcset="assets/img/ca/banners/mafia/mafia-banner-400.webp"
+								srcset="/assets/img/ca/banners/mafia/mafia-banner-400.webp"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
-								srcset="assets/img/ca/banners/mafia/mafia-banner-800.webp"
+								srcset="/assets/img/ca/banners/mafia/mafia-banner-800.webp"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
-								srcset="assets/img/ca/banners/mafia/mafia-banner-1200.webp"
+								srcset="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
 							/>
 							<img
-								src="assets/img/ca/banners/mafia/mafia-banner-400.webp"
+								src="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
 								alt="Bannière promotionnelle de Mafia Casino"
 								width="1200"
 								height="600"
 								loading="eager"
 								decoding="async"
-							/>
+							/> <!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
 					<section class="casino-info u-content-width u-fade-in">
@@ -1806,12 +1801,12 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="assets/img/logo-casinos/mafiacasino-logo.svg"
+								src="/assets/img/logo-casinos/mafiacasino-logo.svg"
 								alt="Logo de Mafia Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
-							/>
+							/> <!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -2560,12 +2555,12 @@
 							>
 								<img
 									class="youtube-icon u-fade-in"
-									src="assets/img/youtube.webp"
+									src="/assets/img/youtube.webp"
 									alt="Icône YouTube TopJeu (footer), lien vers chaîne"
 									width="25"
 									height="25"
 									loading="lazy"
-								/>
+								/> <!-- fixed path -->
 								<span>YouTube</span>
 							</a>
 						</div>
@@ -2731,7 +2726,7 @@
 						><img
 							width="80"
 							height="80"
-							src="assets/img/author-photo.webp"
+							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle, auteure du site TopJeu"
 							class="author__photo about-author__photo"
 							loading="lazy"
