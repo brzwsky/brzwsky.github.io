@@ -87,7 +87,7 @@
 			content="https://www.topjeu777.com/assets/img/preview.jpg"
 		/>
 
-		<!-- Structured Data: Main Sections (Home, Top 10, FAQ)  -->
+		<!-- JSON-LD structured data -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -239,19 +239,7 @@
 			}
 		</script>
 
-		<!-- Preload main CSS -->
-		<link
-			rel="preload"
-			href="/style.minified.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
-		/>
-		<noscript>
-			<link rel="stylesheet" href="/style.minified.css" />
-		</noscript>
+		<link rel="stylesheet" href="/style.minified.css" />
 
 		<!-- Main JS -->
 		<script defer src="/app.minified.js"></script>

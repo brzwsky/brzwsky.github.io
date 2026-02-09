@@ -2,25 +2,19 @@
 <html lang="fr-CA">
 	<head>
 		<meta charset="UTF-8" />
-		<!-- Dynamic base for GitHub Pages vs production root -->
-		<script>
-			(function () {
-				var base = window.location.hostname.endsWith('github.io')
-					? '/ca/'
-					: '/';
-				document.write('<base href="' + base + '">');
-			})();
-		</script>
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, user-scalable=yes"
+		/>
+		<title>TopJeu - Top Casinos en Ligne Fiables 2026</title>
+		<meta
+			name="description"
+			content="TopJeu 2026 : Classement des meilleurs casinos en ligne fiables pour les joueurs canadiens francophones. Avis, bonus, jeux et conseils pour jouer en toute sécurité au Canada."
 		/>
 		<meta
 			name="trustpilot-one-time-domain-verification-id"
 			content="5417c7d5-3a75-46f7-a138-3145ca41b8b9"
 		/>
-
-		<title>TopJeu - Top Casinos en Ligne Fiables 2026</title>
 
 		<!-- Favicon -->
 		<link rel="icon" href="/favicon.ico" sizes="any" />
@@ -38,29 +32,8 @@
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 
-		<!-- Preload primary LCP banner for faster first paint -->
-		<!-- Preload only the real LCP image (desktop, largest) -->
-		<link
-			rel="preload"
-			as="image"
-			href="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
-			fetchpriority="high"
-			imagesrcset="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp 1200w"
-			imagesizes="100vw"
-		/>
-		<!-- LCP: fetchpriority and preload for desktop only -->
-
-		<!-- SEO & Open Graph -->
-		<!-- Canada-only meta description -->
-		<meta
-			name="description"
-			content="TopJeu 2026 : Classement des meilleurs casinos en ligne fiables pour les joueurs canadiens francophones. Avis, bonus, jeux et conseils pour jouer en toute sécurité au Canada."
-		/>
-		<meta
-			name="robots"
-			content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-		/>
 		<link rel="canonical" href="https://www.topjeu777.com/ca/" />
+
 		<!-- Hreflang updated for CA/FR + x-default -->
 		<link
 			rel="alternate"
@@ -74,6 +47,10 @@
 			href="https://www.topjeu777.com/"
 		/>
 		<meta name="msvalidate.01" content="3500FD496F749A9D9E7D6305C11AB0B2" />
+		<meta
+			name="robots"
+			content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+		/>
 
 		<!-- OG/Twitter aligned to Canada locale -->
 		<meta property="og:type" content="website" />
@@ -106,7 +83,7 @@
 			content="https://www.topjeu777.com/ca/assets/img/preview.jpg"
 		/>
 
-		<!-- Canada-specific structured data (fr-CA only) -->
+		<!-- JSON-LD structured data -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -220,19 +197,17 @@
 			}
 		</script>
 
-		<!-- Preload main CSS -->
 		<link
 			rel="preload"
-			href="/style.minified.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
+			as="image"
+			href="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
+			fetchpriority="high"
+			imagesrcset="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp 1200w"
+			imagesizes="100vw"
 		/>
-		<noscript>
-			<link rel="stylesheet" href="/style.minified.css" />
-		</noscript>
+
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="/style.minified.css" />
 
 		<!-- Main JS -->
 		<script defer src="/app.minified.js"></script>
@@ -247,6 +222,7 @@
 			<button id="accept-analytics-btn">Accepter</button>
 		</div>
 		<div class="nav-menu__overlay" aria-hidden="true"></div>
+
 		<!-- Header -->
 		<header class="header" role="banner">
 			<div class="header__container">
@@ -370,6 +346,8 @@
 						</li>
 					</ul>
 				</nav>
+
+				<!-- Toggles -->
 				<div class="header__controls u-fade-in">
 					<!-- French region link -->
 					<a
@@ -461,6 +439,7 @@
 					<strong>mon top des casinos au Québec</strong> et les bonus de
 					bienvenue qui les accompagnent.
 				</p>
+
 				<!--Card Crowngreen Casino-->
 				<article class="casino-article">
 					<div class="casino-card casino-card--top">
@@ -842,9 +821,7 @@
 								height="600"
 								loading="eager"
 								decoding="async"
-								fetchpriority="high"
 							/>
-							<!-- LCP: explicit width/height, fetchpriority, absolute path -->
 						</picture>
 					</a>
 
@@ -906,7 +883,6 @@
 								height="150"
 								loading="lazy"
 							/>
-							<!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p>
@@ -1076,7 +1052,6 @@
 								loading="eager"
 								decoding="async"
 							/>
-							<!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
 					<section class="casino-info u-content-width u-fade-in">
@@ -1132,7 +1107,6 @@
 								height="150"
 								loading="lazy"
 							/>
-							<!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -1345,9 +1319,9 @@
 								loading="eager"
 								decoding="async"
 							/>
-							<!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
+
 					<section class="casino-info u-content-width u-fade-in">
 						<table>
 							<caption class="u-visually-hidden">
@@ -1400,7 +1374,6 @@
 								height="150"
 								loading="lazy"
 							/>
-							<!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -1768,7 +1741,6 @@
 								loading="eager"
 								decoding="async"
 							/>
-							<!-- fixed path, explicit width/height, LCP not affected -->
 						</picture>
 					</a>
 					<section class="casino-info u-content-width u-fade-in">
@@ -1822,7 +1794,6 @@
 								height="150"
 								loading="lazy"
 							/>
-							<!-- fixed logo path -->
 						</div>
 						<div class="casino-card__rating u-fade-in">
 							<p class="u-nowrap">
@@ -2983,6 +2954,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Scroll to top button -->
 		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
 			<svg
@@ -2994,6 +2966,7 @@
 				<path d="M12 4l-6 6h4v10h4V10h4z" />
 			</svg>
 		</a>
+
 		<!-- Load Google Analytics only after consent (localStorage check) -->
 		<script>
 			// Avoid pre-consent analytics by checking localStorage.
