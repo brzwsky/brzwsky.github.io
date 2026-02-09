@@ -220,14 +220,14 @@ init(){const visitorCountry=getVisitorCountry();if(!visitorCountry)return;const 
 return}
 const storageKey=`${this.localStorageKey}_${targetLocale}`;const alreadyShown=localStorage.getItem(storageKey);if(!alreadyShown){if(isGeoDevHost()){console.info('[GEO][DEV] Show popup:',{visitorCountry,currentLocaleCountry,targetLocale,storageKey,})}
 this.showPopup({targetLocale,storageKey})}else if(isGeoDevHost()){console.info('[GEO][DEV] Popup already shown:',storageKey)}}
-showPopup({targetLocale,storageKey}){const isTargetCanada=targetLocale==='CA';const title=isTargetCanada?'🇨🇦 TopJeu Canada':'🇫🇷 TopJeu France';const message=isTargetCanada?'Bienvenue au Canada ! Découvrez notre version spécialement adaptée pour les joueurs canadiens.':'Vous consultez la version Canada. Souhaitez-vous revenir sur la version France ?';const ctaHref=isTargetCanada?'/ca/':'/';const ctaText=isTargetCanada?'Visiter TopJeu Canada':'Aller sur TopJeu France';const overlay=document.createElement('div');overlay.id=this.popupId;overlay.className='geo-popup-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-labelledby','geo-popup-title');overlay.innerHTML=`
+showPopup({targetLocale,storageKey}){const isTargetCanada=targetLocale==='CA';const title=isTargetCanada?'🇨🇦 TopJeu Canada':'🇫🇷 TopJeu France';const message=isTargetCanada?'Cette version est destinée aux joueurs canadiens. Souhaitez-vous consulter la version adaptée aux joueurs français ?':'Cette version est destinée aux joueurs français. Souhaitez-vous consulter la version adaptée aux joueurs canadiens ?';const ctaHref=isTargetCanada?'/ca/':'/';const ctaText=isTargetCanada?'Visiter TopJeu Canada':'Aller sur TopJeu France';const overlay=document.createElement('div');overlay.id=this.popupId;overlay.className='geo-popup-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-labelledby','geo-popup-title');overlay.innerHTML=`
 			<div class="geo-popup-content">
 				<button class="geo-popup-close" aria-label="Fermer">✕</button>
 				<h2 id="geo-popup-title">${title}</h2>
 				<p>${message}</p>
 				<div class="geo-popup-actions">
 					<a href="${ctaHref}" class="geo-popup-cta">${ctaText}</a>
-					<button class="geo-popup-dismiss">Plus tard</button>
+					<button class="geo-popup-dismiss">Rester sur cette version du site</button>
 				</div>
 			</div>
 		`;document.body.appendChild(overlay);requestAnimationFrame(()=>{overlay.classList.add('is-visible')});const closeBtn=overlay.querySelector('.geo-popup-close');const dismissBtn=overlay.querySelector('.geo-popup-dismiss');const ctaLink=overlay.querySelector('.geo-popup-cta');const closePopup=()=>{overlay.classList.remove('is-visible');setTimeout(()=>overlay.remove(),300);localStorage.setItem(storageKey,'true');if(isGeoDevHost()){console.info('[GEO][DEV] Popup closed, set storage:',storageKey)}};closeBtn.addEventListener('click',closePopup);dismissBtn.addEventListener('click',closePopup);ctaLink.addEventListener('click',()=>{localStorage.setItem(storageKey,'true');if(isGeoDevHost()){console.info('[GEO][DEV] CTA click, set storage:',storageKey)}});overlay.addEventListener('click',(e)=>{if(e.target===overlay)closePopup();});document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&overlay.parentNode){closePopup()}})}}
