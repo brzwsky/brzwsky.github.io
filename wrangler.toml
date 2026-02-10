@@ -1,7 +1,0 @@
-name = "topjeu-geo-worker"
-main = "./cf-worker/worker.js"
-compatibility_date = "2024-12-16"
-
-routes = [
-  { pattern = "www.topjeu777.com/*", zone_id = "439d1c3f7c7ce5202424793373ed45af" }
-]
