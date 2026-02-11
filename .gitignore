@@ -5,7 +5,7 @@ DS_Store
 .idea/
 
 # Unminified source files (use minified versions in production)
-styles.css
+style.css
 app.js
 
 # Development environment
