@@ -349,87 +349,8 @@
 				line-height: 1.4;
 				margin-bottom: 0.6rem;
 			}
-			*:focus {
-				outline: 0;
-			}
-			body.is-tabbing :focus-visible {
-				outline: 2px solid var(--color-red-hover);
-				outline-offset: 2px;
-			}
-
-			/* Critical LCP: hero text, cookie banner, fade-in */
-			.hero__text {
-				font-size: 2.2rem;
-				font-weight: 700;
-				line-height: 1.1;
-				color: #fff;
-				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-				margin: 0 0 1.5rem 0;
-			}
-			/* CLS & LCP fixes */
-			main {
-				min-height: 420px;
-				padding-bottom: 2rem;
-			}
-			.hero {
-				min-height: 320px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			}
-			.hero__meta {
-				min-height: 32px;
-				margin-bottom: 1rem;
-			}
-			.hero__text {
-				margin-bottom: 1.5rem;
-			}
-			.hero__text > p:first-child {
-				font-size: 1.15rem;
-				font-weight: 500;
-				min-height: 28px;
-			}
-			.u-fade-in {
-				will-change: opacity, transform;
-				backface-visibility: hidden;
-			}
-			.cookie-consent-banner {
-				position: fixed;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				z-index: 1000;
-				background: #fffbe7;
-				color: #222;
-				box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
-				padding: 1rem 1.5rem;
-				border-radius: 12px 12px 0 0;
-				font-size: 1rem;
-				transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-				will-change: transform;
-			}
-			.u-fade-in {
-				opacity: 0;
-				transform: translateY(24px);
-				transition:
-					opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-					transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-				will-change: opacity, transform;
-			}
-			.u-fade-in.is-visible {
-				opacity: 1;
-				transform: none;
-			}
-			/* Font-display swap for LCP font (if custom font used) */
-			@font-face {
-				font-family: 'Montserrat';
-				src: url('/assets/fonts/Montserrat.woff2') format('woff2');
-				font-display: swap;
-				font-weight: 400;
-				font-style: normal;
-			}
 		</style>
-		<!-- Non-critical CSS loaded async (render-blocking fix) -->
+		<!-- Non-critical CSS loaded async -->
 		<link
 			rel="stylesheet"
 			href="style.minified.css"
@@ -442,7 +363,6 @@
 		<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" id="top">
-		
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner u-fade-in">
 			<p>
@@ -1239,7 +1159,6 @@
 
 			<!-- Reviews -->
 			<section class="landing-content">
-				
 				<!-- Review Mafia Casino -->
 				<section
 					id="mafia-casino"
