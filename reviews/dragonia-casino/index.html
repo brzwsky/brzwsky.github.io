@@ -36,9 +36,6 @@
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 
-		<!-- Preconnect removed: unused for LCP/critical path -->
-		<link rel="preconnect" href="https://analytics.ahrefs.com" crossorigin />
-
 		<!-- SEO & Robots -->
 		<meta
 			name="robots"
@@ -195,8 +192,7 @@
 			}
 		</script>
 
-		<!-- Main CSS -->
-		<!-- Inline critical CSS (first ~20 lines of style.minified.css) for above-the-fold content -->
+		<!-- Inline critical CSS -->
 		<style>
 			:root {
 				--color-white: #fff;
@@ -338,10 +334,7 @@
 		<script src="/app.minified.js?v=20260207" defer></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
-		<!--
-		Forced reflow mitigation: scroll/DOM update code is wrapped in requestAnimationFrame in JS (see app.minified.js lines 230–236, 2:67)
-		If you update JS, ensure scroll/DOM updates are inside rAF.
-	-->
+
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner">
 			<p>
