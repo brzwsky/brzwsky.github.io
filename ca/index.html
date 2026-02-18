@@ -770,9 +770,6 @@
 				margin-right: auto;
 				max-width: 1200px;
 			}
-			.u-fade-in {
-				opacity: 1;
-			}
 			@media (max-width: 768px) {
 				.header__burger {
 					align-items: center;
@@ -826,17 +823,7 @@
 		/>
 
 		<!-- CSS -->
-		<link
-			rel="stylesheet"
-			href="/style.minified.css"
-			media="print"
-			onload="
-				this.media = 'all';
-				document.querySelectorAll('.u-fade-in').forEach(function (el) {
-					el.classList.add('is-visible');
-				});
-			"
-		/>
+		<link rel="stylesheet" href="/style.minified.css" media="print" />
 		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
 
 		<!-- JS -->
@@ -844,22 +831,8 @@
 	</head>
 
 	<body lang="fr-CA" id="top">
-		<script>
-			(function () {
-				function markFadeInVisible() {
-					document.querySelectorAll('.u-fade-in').forEach(function (el) {
-						el.classList.add('is-visible');
-					});
-				}
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', markFadeInVisible);
-				} else {
-					markFadeInVisible();
-				}
-			})();
-		</script>
 		<!-- Cookie Consent Banner -->
-		<div class="cookie-consent-banner u-fade-in">
+		<div class="cookie-consent-banner">
 			<p>
 				Nous utilisons Google Analytics pour améliorer votre expérience.
 				Acceptez-vous ?
@@ -883,7 +856,7 @@
 							height="60"
 						/>
 					</a>
-					<div class="header__logo-text u-fade-in">
+					<div class="header__logo-text">
 						<p class="header__logo-line header__logo-line--title">TopJeu</p>
 						<p class="header__logo-line header__logo-line--subtitle">
 							casinos fiables
@@ -993,7 +966,7 @@
 				</nav>
 
 				<!-- Toggles -->
-				<div class="header__controls u-fade-in">
+				<div class="header__controls">
 					<!-- French region link -->
 					<a
 						href="/"
@@ -1080,9 +1053,9 @@
 				</div>
 			</section>
 			<!-- Casino Cards -->
-			<section id="top5" class="casino-cards-container casino-cards u-fade-in">
+			<section id="top5" class="casino-cards-container casino-cards">
 				<h2>Les casinos en ligne les plus fiables au Québec</h2>
-				<p class="u-content-width u-fade-in">
+				<p class="u-content-width">
 					Pour établir ma sélection, j’ai analysé chaque casino selon des
 					critères essentiels : sécurité, variété et qualité des jeux,
 					transparence des promotions, options de paiement et rapidité du
