@@ -565,6 +565,256 @@
 				outline: 2px solid var(--color-red-hover);
 				outline-offset: 2px;
 			}
+			/* Above-the-fold: header, cookie banner, hero — avoid FOUC */
+			.header {
+				-webkit-backdrop-filter: blur(20px) saturate(180%);
+				backdrop-filter: blur(20px) saturate(180%);
+				background: var(--overlay-medium);
+				box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+				box-sizing: border-box;
+				color: var(--color-white);
+				font-family: Arial, sans-serif;
+				padding: var(--spacing-xs) 0;
+				position: sticky;
+				top: 0;
+				width: 100%;
+				z-index: 900;
+			}
+			.header__container {
+				align-items: center;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				margin: 0 auto;
+				max-width: var(--max-content-width);
+				padding: 0.15rem 0;
+				position: relative;
+				width: 100%;
+			}
+			.header__logo-block {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+			}
+			.header__logo-block .header__logo {
+				display: block;
+				margin: 0 auto 0.1rem;
+				max-height: 85px;
+				object-fit: contain;
+				width: 160px;
+				height: 60px;
+			}
+			.header__logo-text {
+				color: var(--color-white);
+				text-align: center;
+			}
+			.header__logo-line {
+				line-height: 1.2;
+				margin: 0;
+				text-align: center;
+			}
+			.header__logo-line--title {
+				color: var(--color-white);
+				font-family: Helvetica, sans-serif;
+				font-size: 1.2rem;
+				font-weight: 700;
+			}
+			.header__logo-line--subtitle {
+				color: var(--color-white);
+				font-family: Helvetica, sans-serif;
+				font-size: 0.7rem;
+				font-weight: 500;
+				text-transform: uppercase;
+			}
+			.header__burger {
+				background: 0;
+				border: 0;
+				cursor: pointer;
+				display: none;
+				flex-direction: column;
+				height: 18px;
+				justify-content: space-between;
+				margin: 0;
+				padding: 0;
+				width: 24px;
+			}
+			.header__burger span {
+				background-color: var(--color-white);
+				display: block;
+				height: 2px;
+				width: 100%;
+			}
+			.header__controls {
+				align-items: center;
+				display: flex;
+				gap: 2rem;
+			}
+			.nav-menu {
+				display: block;
+				position: relative;
+			}
+			.nav-menu__list {
+				align-items: center;
+				display: flex;
+				gap: var(--spacing-sm);
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.nav-menu__item {
+				display: flex;
+			}
+			.nav-menu__link {
+				align-items: center;
+				color: var(--color-white);
+				display: flex;
+				gap: 0.4rem;
+				text-decoration: none;
+			}
+			.nav-menu__overlay {
+				display: none;
+			}
+			.cookie-consent-banner {
+				-webkit-backdrop-filter: blur(20px) saturate(180%);
+				backdrop-filter: blur(20px) saturate(180%);
+				align-items: center;
+				background: rgb(0 0 0 / 0.18);
+				border: 1px solid rgb(255 255 255 / 0.06);
+				border-radius: 8px;
+				box-shadow: 0 8px 30px rgb(0 0 0 / 0.35);
+				color: var(--color-white);
+				display: flex;
+				justify-content: space-between;
+				left: 50%;
+				max-width: 400px;
+				padding: 1rem;
+				position: fixed;
+				top: 8rem;
+				transform: translateX(-50%);
+				width: auto;
+				z-index: 900;
+			}
+			.cookie-consent-banner p {
+				font-size: 0.9rem;
+				margin: 0;
+			}
+			.cookie-consent-banner button {
+				background: var(--color-white);
+				border: 1px solid rgb(0 0 0 / 0.25);
+				border-radius: 999px;
+				color: #1a1a1a;
+				cursor: pointer;
+				margin-left: 1rem;
+				padding: 0.5rem 1rem;
+			}
+			.hero {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.hero__title {
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+			.hero__meta {
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin: 1.2rem 0 1.5rem 0;
+			}
+			.hero__text {
+				display: flex;
+				flex-direction: column;
+			}
+			.hero__text p {
+				line-height: 1.6;
+				max-width: 1200px;
+			}
+			.author {
+				align-items: center;
+				display: inline-flex;
+				gap: 0.5rem;
+			}
+			.author__photo {
+				aspect-ratio: 1 / 1;
+				border-radius: 50%;
+				display: inline-block;
+				height: 35px;
+				object-fit: cover;
+				width: 35px;
+			}
+			.disclaimer {
+				background: var(--color-white);
+				background: linear-gradient(298deg, #fff 0, #fffafa 67%, #ffe0d9 100%);
+				border-radius: 10px;
+				color: #555;
+				font-size: 0.7rem;
+				line-height: 1.4;
+				margin-bottom: 1rem;
+				margin-top: 2rem;
+				max-width: 750px;
+				padding: 0.5rem 0.5rem 0.5rem 30px;
+				position: relative;
+			}
+			.disclaimer::before {
+				content: '🔔';
+				font-size: 1rem;
+				left: 5px;
+				position: absolute;
+				top: 55%;
+				transform: translateY(-50%);
+			}
+			.u-content-width {
+				box-sizing: border-box;
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 1200px;
+			}
+			.u-fade-in {
+				opacity: 1;
+			}
+			@media (max-width: 768px) {
+				.header__burger {
+					align-items: center;
+					display: flex;
+					flex-direction: column;
+					gap: 4px;
+					height: 30px;
+					justify-content: center;
+					position: absolute;
+					right: 1rem;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 24px;
+					z-index: 1002;
+				}
+				.header__container {
+					justify-content: center;
+					min-height: 30px;
+					padding: 0.5rem 1rem;
+				}
+				.header__logo-block {
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					z-index: 1001;
+					max-width: 140px;
+				}
+				.header__logo-block .header__logo {
+					max-height: 45px;
+				}
+				.header__controls {
+					left: 1rem;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					z-index: 1002;
+				}
+				.nav-menu[hidden] {
+					display: none;
+				}
+			}
 		</style>
 
 		<!-- Preload LCP Image -->
@@ -580,14 +830,34 @@
 			rel="stylesheet"
 			href="/style.minified.css"
 			media="print"
-			onload="this.media = 'all'"
+			onload="
+				this.media = 'all';
+				document.querySelectorAll('.u-fade-in').forEach(function (el) {
+					el.classList.add('is-visible');
+				});
+			"
 		/>
+		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
 	</head>
 
 	<body lang="fr-CA" id="top">
+		<script>
+			(function () {
+				function markFadeInVisible() {
+					document.querySelectorAll('.u-fade-in').forEach(function (el) {
+						el.classList.add('is-visible');
+					});
+				}
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', markFadeInVisible);
+				} else {
+					markFadeInVisible();
+				}
+			})();
+		</script>
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner u-fade-in">
 			<p>
