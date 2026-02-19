@@ -95,62 +95,52 @@
 						"url": "https://www.topjeu777.com/",
 						"logo": {
 							"@type": "ImageObject",
-							"url": "https://www.topjeu777.com/assets/img/logo.png"
+							"@id": "https://www.topjeu777.com/#logo",
+							"url": "https://www.topjeu777.com/assets/img/logo.png",
+							"width": 512,
+							"height": 512
 						},
-						"sameAs": ["https://www.facebook.com/", "https://twitter.com/"]
+						"areaServed": {
+							"@type": "Country",
+							"name": "Canada"
+						}
 					},
+
 					{
 						"@type": "Person",
 						"@id": "https://www.topjeu777.com/#author",
 						"name": "Dariah Belle",
-						"description": "Expert en casinos en ligne et iGaming pour joueurs canadiens.",
+						"jobTitle": "iGaming Analyst",
+						"description": "Spécialiste des casinos en ligne pour le marché canadien.",
 						"affiliation": {
 							"@id": "https://www.topjeu777.com/#organization"
 						}
 					},
+
 					{
 						"@type": "WebSite",
-						"@id": "https://www.topjeu777.com/ca/#website",
-						"url": "https://www.topjeu777.com/ca/",
-						"name": "TopJeu Canada",
+						"@id": "https://www.topjeu777.com/#website",
+						"url": "https://www.topjeu777.com/",
+						"name": "TopJeu",
 						"inLanguage": "fr-CA",
 						"publisher": {
 							"@id": "https://www.topjeu777.com/#organization"
 						}
 					},
+
 					{
-						"@type": "BreadcrumbList",
-						"@id": "https://www.topjeu777.com/ca/#breadcrumb",
-						"itemListElement": [
-							{
-								"@type": "ListItem",
-								"position": 1,
-								"name": "TopJeu",
-								"item": "https://www.topjeu777.com/"
-							},
-							{
-								"@type": "ListItem",
-								"position": 2,
-								"name": "Casinos en ligne au Canada",
-								"item": "https://www.topjeu777.com/ca/"
-							}
-						]
-					},
-					{
-						"@type": "WebPage",
+						"@type": "CollectionPage",
 						"@id": "https://www.topjeu777.com/ca/#webpage",
 						"url": "https://www.topjeu777.com/ca/",
-						"name": "Meilleurs casinos en ligne au Canada 2026 – Bonus CAD & Retraits rapides",
-						"description": "Classement 2026 des meilleurs casinos en ligne fiables au Canada avec bonus CAD, retraits rapides Interac et crypto.",
+						"name": "Meilleurs casinos en ligne au Canada 2026 – Bonus CAD & Paiements rapides",
+						"description": "Classement 2026 des meilleurs casinos en ligne accessibles au Canada, évalués selon la sécurité, les licences, les méthodes de paiement, les bonus et l’expérience utilisateur.",
 						"inLanguage": "fr-CA",
 						"isPartOf": {
-							"@id": "https://www.topjeu777.com/ca/#website"
+							"@id": "https://www.topjeu777.com/#website"
 						},
-						"breadcrumb": {
-							"@id": "https://www.topjeu777.com/ca/#breadcrumb"
-						},
-						"mainEntity": {
-							"@id": "https://www.topjeu777.com/ca/#itemlist"
+						"about": {
+							"@type": "Thing",
+							"name": "Online Casinos in Canada"
 						},
 						"author": {
 							"@id": "https://www.topjeu777.com/#author"
@@ -158,21 +148,31 @@
 						"publisher": {
 							"@id": "https://www.topjeu777.com/#organization"
 						},
+						"mainEntity": {
+							"@id": "https://www.topjeu777.com/ca/#itemlist"
+						},
+						"hasPart": {
+							"@id": "https://www.topjeu777.com/ca/#faq"
+						},
 						"datePublished": "2026-01-01T08:00:00-05:00",
-						"dateModified": "2026-02-18T14:30:00-05:00",
+						"dateModified": "2026-02-19T12:00:00-05:00",
 						"primaryImageOfPage": {
 							"@type": "ImageObject",
+							"@id": "https://www.topjeu777.com/ca/#primaryimage",
 							"url": "https://www.topjeu777.com/ca/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp",
 							"width": 1200,
-							"height": 600,
-							"caption": "Meilleur casino en ligne Canada 2026 - Crowngreen"
+							"height": 600
+						},
+						"potentialAction": {
+							"@type": "ReadAction",
+							"target": "https://www.topjeu777.com/ca/"
 						}
 					},
+
 					{
 						"@type": "ItemList",
 						"@id": "https://www.topjeu777.com/ca/#itemlist",
-						"name": "Classement des casinos en ligne au Canada",
-						"description": "Liste des 5 meilleurs casinos en ligne fiables pour joueurs canadiens avec bonus attractifs et retraits rapides.",
+						"name": "Top 5 des casinos en ligne au Canada",
 						"itemListOrder": "https://schema.org/ItemListOrderDescending",
 						"numberOfItems": 5,
 						"itemListElement": [
@@ -180,174 +180,104 @@
 								"@type": "ListItem",
 								"position": 1,
 								"item": {
-									"@type": "Organization",
+									"@type": "Service",
+									"@id": "https://www.topjeu777.com/ca/#crowngreen",
 									"name": "Crowngreen Casino",
-									"url": "https://clickcrowngreen.com/asdtlsck0",
-									"offers": {
-										"@type": "Offer",
-										"priceCurrency": "CAD",
-										"description": "Bonus jusqu’à 9000 CAD + 250 free spins"
+									"url": "https://www.crowngreen.com",
+									"description": "Casino en ligne proposant jusqu’à 9000 CAD + 250 tours gratuits pour les joueurs canadiens.",
+									"areaServed": { "@type": "Country", "name": "Canada" },
+									"aggregateRating": {
+										"@type": "AggregateRating",
+										"ratingValue": "9.9",
+										"reviewCount": "682",
+										"bestRating": "10",
+										"worstRating": "1"
 									}
 								}
 							},
+
 							{
 								"@type": "ListItem",
 								"position": 2,
 								"item": {
-									"@type": "Organization",
+									"@type": "Service",
+									"@id": "https://www.topjeu777.com/ca/#spinempires",
 									"name": "SpinEmpire Casino",
-									"url": "https://spinempire.sbs/duoksba1b",
-									"offers": {
-										"@type": "Offer",
-										"priceCurrency": "CAD",
-										"description": "Bonus de bienvenue 275% jusqu’à 1800 CAD + 80 free spins"
+									"url": "https://www.spinempires.com",
+									"description": "Casino avec bonus de 275% jusqu’à 1800 CAD + 80 tours gratuits et 55 pièces bonus.",
+									"areaServed": { "@type": "Country", "name": "Canada" },
+									"aggregateRating": {
+										"@type": "AggregateRating",
+										"ratingValue": "9.8",
+										"reviewCount": "437",
+										"bestRating": "10",
+										"worstRating": "1"
 									}
 								}
 							},
+
 							{
 								"@type": "ListItem",
 								"position": 3,
 								"item": {
-									"@type": "Organization",
+									"@type": "Service",
+									"@id": "https://www.topjeu777.com/ca/#spininio",
 									"name": "Spininio Casino",
-									"url": "https://go.spininio.online/visit/?bta=35107&nci=7791",
-									"offers": {
-										"@type": "Offer",
-										"priceCurrency": "CAD",
-										"description": "Jusqu’à 1500 CAD"
+									"url": "https://www.spininio.com",
+									"description": "Casino en ligne fiable offrant jusqu’à 1500 CAD de bonus aux joueurs canadiens.",
+									"areaServed": { "@type": "Country", "name": "Canada" },
+									"aggregateRating": {
+										"@type": "AggregateRating",
+										"ratingValue": "9.6",
+										"reviewCount": "204",
+										"bestRating": "10",
+										"worstRating": "1"
 									}
 								}
 							},
+
 							{
 								"@type": "ListItem",
 								"position": 4,
 								"item": {
-									"@type": "Organization",
+									"@type": "Service",
+									"@id": "https://www.topjeu777.com/ca/#vegazone",
 									"name": "Vegazone Casino",
-									"url": "https://hub.buzzaffiliates.com/visit/?bta=37076&nci=5421",
-									"offers": {
-										"@type": "Offer",
-										"priceCurrency": "CAD",
-										"description": "Bonus crypto exclusif 260% jusqu’à 3600 CAD + 260 free spins"
+									"url": "https://www.vegazone.com",
+									"description": "Casino avec bonus de 260% jusqu’à 3600 CAD + 260 tours gratuits.",
+									"areaServed": { "@type": "Country", "name": "Canada" },
+									"aggregateRating": {
+										"@type": "AggregateRating",
+										"ratingValue": "9.3",
+										"reviewCount": "158",
+										"bestRating": "10",
+										"worstRating": "1"
 									}
 								}
 							},
+
 							{
 								"@type": "ListItem",
 								"position": 5,
 								"item": {
-									"@type": "Organization",
+									"@type": "Service",
+									"@id": "https://www.topjeu777.com/ca/#mafia",
 									"name": "Mafia Casino",
-									"url": "https://mfac.lunostra.com/?mid=309272_1824583",
-									"offers": {
-										"@type": "Offer",
-										"priceCurrency": "CAD",
-										"description": "Bonus 100% jusqu’à 750 CAD + 200 free spins"
+									"url": "https://www.mafiacasino.com",
+									"description": "Casino en ligne offrant 750 CAD + 200 tours gratuits aux nouveaux joueurs.",
+									"areaServed": { "@type": "Country", "name": "Canada" },
+									"aggregateRating": {
+										"@type": "AggregateRating",
+										"ratingValue": "9.2",
+										"reviewCount": "94",
+										"bestRating": "10",
+										"worstRating": "1"
 									}
 								}
 							}
 						]
 					},
-					{
-						"@type": "Review",
-						"itemReviewed": {
-							"@type": "Organization",
-							"name": "Crowngreen Casino",
-							"url": "https://clickcrowngreen.com/asdtlsck0"
-						},
-						"reviewRating": {
-							"@type": "Rating",
-							"ratingValue": "9.9",
-							"bestRating": "10",
-							"worstRating": "1",
-							"reviewCount": "1"
-						},
-						"author": {
-							"@id": "https://www.topjeu777.com/#author"
-						},
-						"datePublished": "2026-02-18",
-						"reviewBody": "Mon coup de cœur 2026 : retraits ultra-rapides, bonus massif et fiabilité au top."
-					},
-					{
-						"@type": "Review",
-						"itemReviewed": {
-							"@type": "Organization",
-							"name": "SpinEmpire Casino",
-							"url": "https://spinempire.sbs/duoksba1b"
-						},
-						"reviewRating": {
-							"@type": "Rating",
-							"ratingValue": "9.7",
-							"bestRating": "10",
-							"worstRating": "1",
-							"reviewCount": "1"
-						},
-						"author": {
-							"@id": "https://www.topjeu777.com/#author"
-						},
-						"datePublished": "2026-02-18",
-						"reviewBody": "Excellent choix pour les gros bonus et la variété de jeux."
-					},
-					{
-						"@type": "Review",
-						"itemReviewed": {
-							"@type": "Organization",
-							"name": "Spininio Casino",
-							"url": "https://go.spininio.online/visit/?bta=35107&nci=7791"
-						},
-						"reviewRating": {
-							"@type": "Rating",
-							"ratingValue": "9.6",
-							"bestRating": "10",
-							"worstRating": "1",
-							"reviewCount": "1"
-						},
-						"author": {
-							"@id": "https://www.topjeu777.com/#author"
-						},
-						"datePublished": "2026-02-18",
-						"reviewBody": "Casino fiable avec un excellent rapport qualité-prix."
-					},
-					{
-						"@type": "Review",
-						"itemReviewed": {
-							"@type": "Organization",
-							"name": "Vegazone Casino",
-							"url": "https://hub.buzzaffiliates.com/visit/?bta=37076&nci=5421"
-						},
-						"reviewRating": {
-							"@type": "Rating",
-							"ratingValue": "9.3",
-							"bestRating": "10",
-							"worstRating": "1",
-							"reviewCount": "1"
-						},
-						"author": {
-							"@id": "https://www.topjeu777.com/#author"
-						},
-						"datePublished": "2026-02-18",
-						"reviewBody": "Idéal pour les amateurs de crypto avec des bonus exclusifs."
-					},
-					{
-						"@type": "Review",
-						"itemReviewed": {
-							"@type": "Organization",
-							"name": "Mafia Casino",
-							"url": "https://mfac.lunostra.com/?mid=309272_1824583"
-						},
-						"reviewRating": {
-							"@type": "Rating",
-							"ratingValue": "9.2",
-							"bestRating": "10",
-							"worstRating": "1",
-							"reviewCount": "1"
-						},
-						"author": {
-							"@id": "https://www.topjeu777.com/#author"
-						},
-						"datePublished": "2026-02-18",
-						"reviewBody": "Bon casino avec un thème original et des retraits rapides."
-					},
+
 					{
 						"@type": "FAQPage",
 						"@id": "https://www.topjeu777.com/ca/#faq",
@@ -357,79 +287,55 @@
 								"name": "Est-ce sûr de jouer sur un casino en ligne au Québec ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Oui, à condition de choisir un site licencié et régulé. Au Québec, Loto-Québec est l’opérateur officiel, mais tu peux aussi jouer sur certains casinos privés étrangers autorisés pour les Canadiens. L’important est de privilégier les plateformes sécurisées et reconnues pour protéger tes informations et tes dépôts."
+									"text": "Oui, à condition de choisir un site licencié et régulé. Au Québec, Loto-Québec est l’opérateur officiel, mais les joueurs peuvent aussi accéder à des casinos internationaux autorisés pour les Canadiens. Il est essentiel de privilégier les plateformes sécurisées et reconnues."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Puis-je jouer et déposer en dollars canadiens ?",
+								"name": "Puis-je déposer et retirer en dollars canadiens (CAD) ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Absolument ! Les meilleurs casinos acceptent les comptes en CAD, ce qui évite les frais de conversion et facilite les retraits. Avant de t’inscrire, vérifie simplement que le casino propose le dollar canadien comme devise principale dans les paramètres."
+									"text": "Oui, les meilleurs casinos acceptent les comptes en dollars canadiens (CAD), ce qui évite les frais de conversion et simplifie les retraits. Vérifiez toujours les devises disponibles avant l’inscription."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Quels types de bonus valent vraiment le coup ?",
+								"name": "Quels types de bonus sont les plus avantageux ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Je recommande de chercher des bonus qui apportent une vraie valeur : bonus sans dépôt, free spins sans condition de mise ou cashback sur les pertes. Les bonus avec des conditions de mise claires et raisonnables sont toujours les meilleurs."
+									"text": "Les bonus intéressants incluent les bonus sans dépôt, les tours gratuits et les offres avec des conditions de mise raisonnables. Il est important de lire attentivement les termes et conditions avant d’accepter une promotion."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Quel casino paie le plus au Canada ?",
+								"name": "Comment choisir un casino avec de bons taux de paiement ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Il n’y a pas un « meilleur payeur » unique. Pour augmenter tes chances, choisis un casino avec beaucoup de machines à sous à RTP élevé (≥96%) et des jeux de table comme le blackjack (~99%), et surtout un site réputé pour ses paiements rapides."
+									"text": "Privilégiez les casinos proposant des jeux avec un RTP élevé (96 % ou plus pour les machines à sous) et des jeux de table réputés pour leurs probabilités favorables. La réputation du site et la rapidité des paiements sont également essentielles."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Comment reconnaître un casino fiable ?",
+								"name": "Comment reconnaître un casino en ligne fiable ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Un casino fiable doit avoir : une licence officielle (Ontario, MGA, Curaçao, Kahnawake…), des avis positifs, un support réactif, des conditions claires, HTTPS et des outils de jeu responsable."
+									"text": "Un casino fiable possède une licence valide (Ontario, MGA, Curaçao, Kahnawake), utilise le protocole HTTPS, affiche des conditions claires et propose un service client réactif ainsi que des outils de jeu responsable."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Est-ce possible de jouer sur mobile ?",
+								"name": "Peut-on jouer sur mobile ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Oui ! La plupart des casinos sont optimisés pour smartphones et tablettes (Android/iOS). Tu auras accès aux mêmes jeux, bonus et fonctionnalités avec une interface adaptée."
+									"text": "Oui, la majorité des casinos en ligne sont optimisés pour smartphones et tablettes (Android et iOS), avec accès aux mêmes jeux et fonctionnalités que sur ordinateur."
 								}
 							},
 							{
 								"@type": "Question",
-								"name": "Que faire si j’ai un problème avec un casino en ligne ?",
+								"name": "Est-il possible de jouer gratuitement avant de déposer ?",
 								"acceptedAnswer": {
 									"@type": "Answer",
-									"text": "Contacte d’abord le support client (chat/email). Si le problème persiste et que le casino est licencié, dépose une plainte auprès de l’autorité de régulation. Partage aussi ton expérience sur des forums."
-								}
-							},
-							{
-								"@type": "Question",
-								"name": "Peut-on jouer gratuitement avant de miser de l’argent ?",
-								"acceptedAnswer": {
-									"@type": "Answer",
-									"text": "Oui ! La plupart des casinos proposent un mode démo pour tester les jeux sans risquer ton argent. Idéal pour débutants ou pour tester des stratégies."
-								}
-							},
-							{
-								"@type": "Question",
-								"name": "Quels sont les avantages de choisir un casino en ligne régulé ?",
-								"acceptedAnswer": {
-									"@type": "Answer",
-									"text": "Protection des fonds et données, jeux équitables (RNG certifié), paiements fiables et rapides, outils de jeu responsable."
-								}
-							},
-							{
-								"@type": "Question",
-								"name": "Peut-on vraiment gagner gros en jouant en ligne ?",
-								"acceptedAnswer": {
-									"@type": "Answer",
-									"text": "Oui, mais les gains ne sont jamais garantis. Prends le plaisir avant tout, mise de manière responsable et cible les jeux à RTP élevé pour maximiser tes chances sur le long terme."
+									"text": "Oui, de nombreux casinos proposent un mode démo permettant de tester les jeux gratuitement avant de miser de l’argent réel."
 								}
 							}
 						]
@@ -823,7 +729,7 @@
 		/>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="/style.minified.css"/>
+		<link rel="stylesheet" href="/style.minified.css" />
 		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
 
 		<!-- JS -->
