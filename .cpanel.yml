@@ -13,8 +13,8 @@ deployment:
     - /bin/cp site.webmanifest $DEPLOYPATH
 
     # Scripts & styles (minified)
-    - /bin/cp app.minified.js $DEPLOYPATH/app.js
-    - /bin/cp style.minified.css $DEPLOYPATH/styles.css
+    - /bin/cp app.minified.js $DEPLOYPATH/app.minified.js
+    - /bin/cp style.minified.css $DEPLOYPATH/style.minified.css
     - /bin/cp favicon.ico $DEPLOYPATH
 
     # Reviews section
