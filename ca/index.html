@@ -725,7 +725,38 @@
 				margin-right: auto;
 				max-width: 1200px;
 			}
+			/* CA-only legacy red divider for review cards */
+			section.landing-content > .casino-review > h2 {
+				margin-bottom: 1rem;
+				padding-bottom: 1.5rem;
+				position: relative;
+			}
+			section.landing-content > .casino-review > h2::after {
+				background-image: url(/assets/img/red-line.webp);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				bottom: 3px;
+				content: '';
+				height: 6px;
+				left: 8px;
+				position: absolute;
+				transform: translateY(20%);
+				width: calc(100% - 8px);
+			}
 			@media (max-width: 768px) {
+				main {
+					max-width: 100%;
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+				section.landing-content > .casino-review > h2 {
+					padding-top: 1.5rem;
+				}
+				section.landing-content > .casino-review > h2::after {
+					bottom: auto;
+					top: -1rem;
+					transform: none;
+				}
 				.header__burger {
 					align-items: center;
 					display: flex;
@@ -767,7 +798,33 @@
 					display: none;
 				}
 			}
-		</style>
+			@media (min-width: 768px) and (max-width: 1200px) {
+				.header__container {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+				main {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+			}
+			.casino-cards,
+			.casino-cards-container {
+				width: 100%;
+			}
+			.casino-card,
+			.casino-card--top {
+				box-sizing: border-box;
+				width: 100%;
+			}
+			.casino-card__image {
+				display: block;
+				height: auto;
+				margin: 0 auto;
+				max-width: 150px;
+				width: 100%;
+			}
+			</style>
 
 		<!-- Preload LCP Image -->
 		<link
@@ -778,15 +835,19 @@
 		/>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="/style.minified.css" />
-		<noscript><link rel="stylesheet" href="/style.minified.css" /></noscript>
+		<link
+			rel="stylesheet"
+			href="/style.minified.css"
+			media="print"
+			onload="this.media = 'all'"
+			fetchpriority="low"
+		/>
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
 	</head>
 
 	<body lang="fr-CA" id="top">
-
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner">
 			<p>
@@ -2792,7 +2853,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-1"
-							aria-label="Afficher la réponse à la question : Est-ce sûr de jouer sur un casino en ligne au Québec ?"
+							aria-label="Est-ce sûr de jouer sur un casino en ligne au Québec ?"
 						>
 							<h3 id="faq-q1">
 								🎰 Est-ce sûr de jouer sur un casino en ligne au Québec ?
@@ -2823,7 +2884,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-2"
-							aria-label="Afficher la réponse à la question : Comment identifier un casino non fiable ?"
+							aria-label="Puis-je jouer et déposer en dollars canadiens ?"
 						>
 							<h3 id="faq-q2">
 								🤑 Puis-je jouer et déposer en dollars canadiens ?
@@ -2852,7 +2913,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-3"
-							aria-label="Afficher la réponse à la question : Peut-on jouer au casino sans avoir 18 ans ?"
+							aria-label="Quels types de bonus valent vraiment le coup ?"
 						>
 							<h3 id="faq-q3">
 								🎁 Quels types de bonus valent vraiment le coup ?
@@ -2882,7 +2943,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-4"
-							aria-label="Afficher la réponse à la question : Sur quels jeux de casinos a-t-on le plus de chance de gagner ?"
+							aria-label="Quel casino paie le plus au Canada ?"
 						>
 							<h3 id="faq-q4">💸 Quel casino paie le plus au Canada ?</h3>
 							<span class="faq-toggle">+</span>
@@ -2912,7 +2973,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-5"
-							aria-label="Afficher la réponse à la question : Les bonus des casinos en ligne sont-ils fiables ?"
+							aria-label="Comment reconnaître un casino fiable ?"
 						>
 							<h3 id="faq-q5">🔒 Comment reconnaître un casino fiable ?</h3>
 							<span class="faq-toggle">+</span>
@@ -2946,7 +3007,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-6"
-							aria-label="Afficher la réponse à la question :  Est-ce possible de jouer sur mobile ?"
+							aria-label="Est-ce possible de jouer sur mobile ?"
 						>
 							<h3 id="faq-q6">📱 Est-ce possible de jouer sur mobile ?</h3>
 							<span class="faq-toggle">+</span>
@@ -2973,7 +3034,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-7"
-							aria-label="Afficher la réponse à la question : Que faire si j’ai un problème avec un casino en ligne ?"
+							aria-label="Que faire si j’ai un problème avec un casino en ligne ?"
 						>
 							<h3 id="faq-q7">
 								🆘 Que faire si j’ai un problème avec un casino en ligne ?
@@ -3004,7 +3065,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-8"
-							aria-label="Afficher la réponse à la question : Peut-on jouer gratuitement avant de miser de l’argent ?"
+							aria-label="Peut-on jouer gratuitement avant de miser de l’argent ?"
 						>
 							<h3 id="faq-q8">
 								💡 Peut-on jouer gratuitement avant de miser de l’argent ?
@@ -3033,7 +3094,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-9"
-							aria-label="Afficher la réponse à la question : Quels sont les avantages de choisir un casino en ligne régulé ?"
+							aria-label="Quels sont les avantages de choisir un casino en ligne régulé ?"
 						>
 							<h3 id="faq-q9">
 								⚡ Quels sont les avantages de choisir un casino en ligne régulé
@@ -3071,7 +3132,7 @@
 							class="faq-question"
 							aria-expanded="false"
 							aria-controls="faq-10"
-							aria-label="Afficher la réponse à la question : Peut-on vraiment gagner gros en jouant en ligne ?"
+							aria-label="Peut-on vraiment gagner gros en jouant en ligne ?"
 						>
 							<h3 id="faq-q10">
 								🏆 Peut-on vraiment gagner gros en jouant en ligne ?

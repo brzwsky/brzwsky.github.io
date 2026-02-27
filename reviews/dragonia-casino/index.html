@@ -268,6 +268,7 @@
 			}
 			main {
 				flex: 1 0 auto;
+				margin: 0 auto;
 				max-width: var(--max-content-width);
 				padding: 0 var(--spacing-lg);
 			}
@@ -318,9 +319,111 @@
 				outline: 2px solid var(--color-red-hover);
 				outline-offset: 2px;
 			}
-		</style>
+			.header {
+				box-sizing: border-box;
+				padding: var(--spacing-xs) 0;
+				position: sticky;
+				top: 0;
+				width: 100%;
+				z-index: 900;
+			}
+			.header__container {
+				align-items: center;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				margin: 0 auto;
+				max-width: var(--max-content-width);
+				padding: 0.15rem 0;
+				position: relative;
+				width: 100%;
+			}
+			.header__logo {
+				height: 60px;
+				object-fit: contain;
+				width: 160px;
+			}
+			.header__logo-block {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+			}
+			.header__logo-text {
+				text-align: center;
+			}
+			.header__logo-line {
+				line-height: 1.2;
+				margin: 0;
+				text-align: center;
+			}
+			.hero {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.hero__title {
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+			.hero__meta {
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin: 1.2rem 0 1.5rem;
+			}
+			.hero__text p {
+				max-width: 1200px;
+			}
+			.author {
+				align-items: center;
+				display: inline-flex;
+				gap: 0.5rem;
+			}
+			.author__photo {
+				aspect-ratio: 1 / 1;
+				border-radius: 50%;
+				display: inline-block;
+				height: 35px;
+				object-fit: cover;
+				width: 35px;
+			}
+			.casino-card {
+				box-sizing: border-box;
+				width: 100%;
+			}
+			.casino-card__info--logo .casino-card__image {
+				display: block;
+				height: auto;
+				margin: 0 auto;
+				max-width: 150px;
+				width: 100%;
+			}
+			@media (max-width: 768px) {
+				main {
+					max-width: 100%;
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+			}
+			@media (min-width: 768px) and (max-width: 1200px) {
+				.header__container {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+				main {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+			}
+			</style>
 		<!-- Non-critical CSS loaded async (render-blocking fix) -->
-		<link rel="stylesheet" href="/style.minified.css">
+		<link
+			rel="stylesheet"
+			href="/style.minified.css"
+			media="print"
+			onload="this.media = 'all'"
+			fetchpriority="low"
+		/>
 
 		<!-- Main JS -->
 		<!-- Defer JS, but also add async fallback for browsers that support it -->
