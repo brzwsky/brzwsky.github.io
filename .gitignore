@@ -7,6 +7,7 @@ DS_Store
 # Unminified source files (use minified versions in production)
 style.css
 app.js
+scripts/
 
 # Development environment
 .env
@@ -48,4 +49,3 @@ build/
 
 # Wrangler (Cloudflare)
 .wrangler/
-scripts/

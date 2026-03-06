@@ -583,7 +583,7 @@
 								aria-haspopup="dialog"
 								aria-controls="popup"
 							>
-								Qui suis-je ?
+								Qui suis-je&nbsp;?
 							</button>
 						</li>
 						<li class="nav-menu__item">
@@ -600,22 +600,50 @@
 					</ul>
 				</nav>
 				<div class="header__controls u-fade-in">
-					<!-- Canada region link -->
-					<a
-						href="/ca/"
-						class="country-flag-link"
-						aria-label="Version Canada"
-						title="Découvrir TopJeu Canada"
-					>
-						<img
-							src="/assets/img/ca-icon.webp"
-							alt="Drapeau du Canada"
-							class="country-flag-icon"
-							width="18"
-							height="18"
-							loading="lazy"
-						/>
-					</a>
+					<!-- Language toggle -->
+					<div class="language-toggle" data-language-toggle>
+						<button
+							type="button"
+							class="language-toggle__button"
+							data-language-toggle-button
+							aria-label="Choisir la version linguistique"
+							aria-expanded="false"
+							aria-controls="language-options"
+						>
+							<span class="language-toggle__flag" aria-hidden="true">🇫🇷</span>
+						</button>
+						<div
+							id="language-options"
+							class="language-toggle__options"
+							data-language-options
+						>
+							<a
+								href="/"
+								class="language-toggle__option is-active"
+								aria-label="Version France"
+								aria-current="page"
+								title="Version France"
+							>
+								<span class="language-toggle__flag" aria-hidden="true">🇫🇷</span>
+							</a>
+							<a
+								href="/ca/"
+								class="language-toggle__option"
+								aria-label="Version Canada"
+								title="Version Canada"
+							>
+								<span class="language-toggle__flag" aria-hidden="true">🇨🇦</span>
+							</a>
+							<a
+								href="/ch/"
+								class="language-toggle__option"
+								aria-label="Version Suisse"
+								title="Version Suisse"
+							>
+								<span class="language-toggle__flag" aria-hidden="true">🇨🇭</span>
+							</a>
+						</div>
+					</div>
 
 					<!-- Theme toggle -->
 					<button
@@ -3383,7 +3411,7 @@
 									class="footer__link u-fade-in"
 									data-popup-target="about"
 								>
-									Qui suis-je ?
+									Qui suis-je&nbsp;?
 								</a>
 							</li>
 							<li>
@@ -3609,7 +3637,7 @@
 				<button id="popup-close" class="popup__close" aria-label="Fermer">
 					&times;
 				</button>
-				<h2 id="about-title" class="popup__title">Qui suis-je ?</h2>
+				<h2 id="about-title" class="popup__title">Qui suis-je&nbsp;?</h2>
 				<div class="about-author">
 					<span class="author"
 						><img
