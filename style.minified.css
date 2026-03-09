@@ -10,3 +10,26 @@
 .header__controls .language-toggle .language-toggle__flag.theme-icon{font-size:20px;width:20px;height:20px}
 @media (max-width:768px){.header__controls .language-toggle .language-toggle__flag.theme-icon{font-size:18px;width:18px;height:18px}}
 .header__controls .language-toggle .theme-toggle-button:hover{border-color:#932431;box-shadow:0 14px 30px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.62),0 0 0 1px rgba(147,36,49,.35)}
+/* language toggle collapse stability */
+.header__controls .language-toggle{flex-direction:row-reverse;justify-content:flex-start}
+.header__controls .language-toggle__button{order:0;z-index:2;flex:0 0 auto}
+.header__controls .language-toggle__options{order:1;flex:0 1 auto}
+.header__controls .language-toggle.is-open .language-toggle__button{order:0}
+.header__controls .language-toggle.is-open .language-toggle__options{order:1}
+@media (max-width:768px){
+  .header__controls .language-toggle{flex-direction:column;justify-content:flex-start}
+  .header__controls .language-toggle__button{order:1}
+  .header__controls .language-toggle__options{order:2}
+  .header__controls .language-toggle.is-open .language-toggle__button{order:1}
+  .header__controls .language-toggle.is-open .language-toggle__options{order:2}
+}
+/* align language toggle capsule tone with theme-toggle-button */
+body:not(.is-dark) .header__controls .language-toggle.is-open{
+  background:linear-gradient(145deg,rgba(255,255,255,0.66),rgba(219,219,219,0.34));
+  border-color:rgba(0,0,0,0.08);
+  box-shadow:0 14px 28px rgba(20,20,20,0.2),0 3px 10px rgba(20,20,20,0.12),inset 0 1px 0 rgba(255,255,255,0.5);
+}
+body.is-dark .header__controls .language-toggle.is-open{
+  background:linear-gradient(145deg,rgba(42,42,42,0.55),rgba(18,18,18,0.28));
+  border-color:rgba(255,255,255,0.2);
+}
