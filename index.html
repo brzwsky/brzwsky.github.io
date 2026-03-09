@@ -600,51 +600,23 @@
 					</ul>
 				</nav>
 				<div class="header__controls u-fade-in">
-					<!-- Language toggle -->
 					<div class="language-toggle" data-language-toggle>
 						<button
 							type="button"
-							class="language-toggle__button"
+							class="language-toggle__button theme-toggle-button"
 							data-language-toggle-button
 							aria-label="Choisir la version linguistique"
 							aria-expanded="false"
 							aria-controls="language-options"
 						>
-							<span class="language-toggle__flag" aria-hidden="true">🇫🇷</span>
+							<span class="language-toggle__flag theme-icon" aria-hidden="true">🇫🇷</span>
 						</button>
-						<div
-							id="language-options"
-							class="language-toggle__options"
-							data-language-options
-						>
-							<a
-								href="/"
-								class="language-toggle__option is-active"
-								aria-label="Version France"
-								aria-current="page"
-								title="Version France"
-							>
-								<span class="language-toggle__flag" aria-hidden="true">🇫🇷</span>
-							</a>
-							<a
-								href="/ca/"
-								class="language-toggle__option"
-								aria-label="Version Canada"
-								title="Version Canada"
-							>
-								<span class="language-toggle__flag" aria-hidden="true">🇨🇦</span>
-							</a>
-							<a
-								href="/ch/"
-								class="language-toggle__option"
-								aria-label="Version Suisse"
-								title="Version Suisse"
-							>
-								<span class="language-toggle__flag" aria-hidden="true">🇨🇭</span>
-							</a>
+						<div id="language-options" class="language-toggle__options" data-language-options>
+							<a href="/" class="language-toggle__option theme-toggle-button is-active" aria-label="Version France" aria-current="page"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇫🇷</span></a>
+							<a href="/ca/" class="language-toggle__option theme-toggle-button" aria-label="Version Canada"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇦</span></a>
+							<a href="/ch/" class="language-toggle__option theme-toggle-button" aria-label="Version Suisse"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇭</span></a>
 						</div>
 					</div>
-
 					<!-- Theme toggle -->
 					<button
 						type="button"
