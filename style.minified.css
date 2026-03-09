@@ -7,3 +7,6 @@
 .header__controls .language-toggle__options{transform:none;transition:max-width .34s cubic-bezier(.22,1,.36,1),opacity .2s ease}
 .header__controls .language-toggle.is-open .language-toggle__options{transform:none}
 @media (max-width:768px){.header__controls .language-toggle__options,.header__controls .language-toggle.is-open .language-toggle__options{transform:none}}
+.header__controls .language-toggle .language-toggle__flag.theme-icon{font-size:20px;width:20px;height:20px}
+@media (max-width:768px){.header__controls .language-toggle .language-toggle__flag.theme-icon{font-size:18px;width:18px;height:18px}}
+.header__controls .language-toggle .theme-toggle-button:hover{border-color:#932431;box-shadow:0 14px 30px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.62),0 0 0 1px rgba(147,36,49,.35)}
