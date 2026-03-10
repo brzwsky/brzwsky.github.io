@@ -822,7 +822,7 @@
 				max-width: 150px;
 				width: 100%;
 			}
-			</style>
+		</style>
 
 		<!-- Preload LCP Image -->
 		<link
@@ -846,6 +846,20 @@
 	</head>
 
 	<body lang="fr-CA" id="top">
+		<script>
+			(function () {
+				try {
+					var storedTheme = localStorage.getItem('theme');
+					var prefersDark =
+						window.matchMedia &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches;
+					var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+					window.__initialThemeIsDark = isDark;
+					document.body.classList.toggle('is-dark', isDark);
+					document.body.classList.toggle('is-light', !isDark);
+				} catch {}
+			})();
+		</script>
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner">
 			<p>
@@ -991,12 +1005,46 @@
 							aria-expanded="false"
 							aria-controls="language-options"
 						>
-							<span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇦</span>
+							<span class="language-toggle__flag theme-icon" aria-hidden="true"
+								>🇨🇦</span
+							>
 						</button>
-						<div id="language-options" class="language-toggle__options" data-language-options>
-							<a href="/" class="language-toggle__option theme-toggle-button" aria-label="Version France"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇫🇷</span></a>
-							<a href="/ca/" class="language-toggle__option theme-toggle-button is-active" aria-label="Version Canada" aria-current="page"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇦</span></a>
-							<a href="/ch/" class="language-toggle__option theme-toggle-button" aria-label="Version Suisse"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇭</span></a>
+						<div
+							id="language-options"
+							class="language-toggle__options"
+							data-language-options
+						>
+							<a
+								href="/"
+								class="language-toggle__option theme-toggle-button"
+								aria-label="Version France"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇫🇷</span
+								></a
+							>
+							<a
+								href="/ca/"
+								class="language-toggle__option theme-toggle-button is-active"
+								aria-label="Version Canada"
+								aria-current="page"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇨🇦</span
+								></a
+							>
+							<a
+								href="/ch/"
+								class="language-toggle__option theme-toggle-button"
+								aria-label="Version Suisse"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇨🇭</span
+								></a
+							>
 						</div>
 					</div>
 					<!-- Theme toggle -->
@@ -1008,6 +1056,22 @@
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
+					<script>
+						(function () {
+							try {
+								var isDark =
+									typeof window.__initialThemeIsDark === 'boolean'
+										? window.__initialThemeIsDark
+										: document.body.classList.contains('is-dark');
+								var btn = document.getElementById('theme-toggle');
+								if (!btn) return;
+								var icon = btn.querySelector('.theme-icon');
+								if (!icon) return;
+								var next = isDark ? '☀️' : '🌙';
+								if (icon.textContent !== next) icon.textContent = next;
+							} catch {}
+						})();
+					</script>
 				</div>
 			</div>
 		</header>
@@ -1066,20 +1130,19 @@
 						avec leurs bonus de bienvenue et ce qui les rend vraiment
 						intéressants pour jouer en toute confiance.
 					</p>
+					<h2>Les casinos en ligne les plus fiables au Québec</h2>
+					<p class="u-content-width">
+						Pour établir ma sélection, j’ai analysé chaque casino selon des
+						critères essentiels : sécurité, variété et qualité des jeux,
+						transparence des promotions, options de paiement et rapidité du
+						service client. Découvre
+						<strong>mon top des casinos au Québec</strong> et les bonus de
+						bienvenue qui les accompagnent.
+					</p>
 				</div>
 			</section>
 			<!-- Casino Cards -->
 			<section id="top5" class="casino-cards-container casino-cards">
-				<h2>Les casinos en ligne les plus fiables au Québec</h2>
-				<p class="u-content-width">
-					Pour établir ma sélection, j’ai analysé chaque casino selon des
-					critères essentiels : sécurité, variété et qualité des jeux,
-					transparence des promotions, options de paiement et rapidité du
-					service client. Découvre
-					<strong>mon top des casinos au Québec</strong> et les bonus de
-					bienvenue qui les accompagnent.
-				</p>
-
 				<!--Card Crowngreen Casino-->
 				<article class="casino-article">
 					<div id="crowngreen" class="casino-card casino-card--top">

@@ -461,6 +461,20 @@
 		<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" id="top">
+		<script>
+			(function () {
+				try {
+					var storedTheme = localStorage.getItem('theme');
+					var prefersDark =
+						window.matchMedia &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches;
+					var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+					window.__initialThemeIsDark = isDark;
+					document.body.classList.toggle('is-dark', isDark);
+					document.body.classList.toggle('is-light', !isDark);
+				} catch {}
+			})();
+		</script>
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner u-fade-in">
 			<p>
@@ -626,6 +640,22 @@
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
+					<script>
+						(function () {
+							try {
+								var isDark =
+									typeof window.__initialThemeIsDark === 'boolean'
+										? window.__initialThemeIsDark
+										: document.body.classList.contains('is-dark');
+								var btn = document.getElementById('theme-toggle');
+								if (!btn) return;
+								var icon = btn.querySelector('.theme-icon');
+								if (!icon) return;
+								var next = isDark ? '☀️' : '🌙';
+								if (icon.textContent !== next) icon.textContent = next;
+							} catch {}
+						})();
+					</script>
 				</div>
 			</div>
 		</header>
@@ -634,7 +664,6 @@
 			<h1 class="hero__title">
 				Meilleurs casinos en ligne en France – Classement 2026
 			</h1>
-
 			<!-- Hero Section -->
 			<section class="hero u-fade-in">
 				<p class="hero__meta">
@@ -676,12 +705,7 @@
 						fiabilité des opérateurs, qualité des bonus, richesse de la
 						ludothèque, réactivité du support client et rapidité des retraits.
 					</p>
-				</div>
-			</section>
-
-			<!-- Casino Cards -->
-			<section id="top5" class="casino-cards-container casino-cards u-fade-in">
-				<h2>Liste des Casinos en ligne français fiables</h2>
+					<h2>Liste des Casinos en ligne français fiables</h2>
 				<p class="u-content-width u-fade-in">
 					Pour composer ce classement, j’ai évalué chaque casino en ligne selon
 					des critères clés : fiabilité, richesse du catalogue de jeux, clarté
@@ -689,7 +713,11 @@
 					support client. Retrouve ici mon comparatif des meilleurs casinos en
 					ligne en France, avec leurs bonus de bienvenue.
 				</p>
+				</div>
+			</section>
 
+			<!-- Casino Cards -->
+			<section id="top5" class="casino-cards-container casino-cards u-fade-in">
 				<!--Card Mafia-->
 				<article class="casino-article">
 					<div class="casino-card casino-card--top">

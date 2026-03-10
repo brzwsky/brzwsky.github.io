@@ -481,6 +481,20 @@
 		<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
+		<script>
+			(function () {
+				try {
+					var storedTheme = localStorage.getItem('theme');
+					var prefersDark =
+						window.matchMedia &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches;
+					var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+					window.__initialThemeIsDark = isDark;
+					document.body.classList.toggle('is-dark', isDark);
+					document.body.classList.toggle('is-light', !isDark);
+				} catch {}
+			})();
+		</script>
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner">
 			<p>
@@ -629,6 +643,22 @@
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
+					<script>
+						(function () {
+							try {
+								var isDark =
+									typeof window.__initialThemeIsDark === 'boolean'
+										? window.__initialThemeIsDark
+										: document.body.classList.contains('is-dark');
+								var btn = document.getElementById('theme-toggle');
+								if (!btn) return;
+								var icon = btn.querySelector('.theme-icon');
+								if (!icon) return;
+								var next = isDark ? '☀️' : '🌙';
+								if (icon.textContent !== next) icon.textContent = next;
+							} catch {}
+						})();
+					</script>
 				</div>
 			</div>
 		</header>

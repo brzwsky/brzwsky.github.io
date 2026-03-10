@@ -825,6 +825,20 @@
 	</head>
 
 	<body lang="fr-CH" id="top">
+		<script>
+			(function () {
+				try {
+					var storedTheme = localStorage.getItem('theme');
+					var prefersDark =
+						window.matchMedia &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches;
+					var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+					window.__initialThemeIsDark = isDark;
+					document.body.classList.toggle('is-dark', isDark);
+					document.body.classList.toggle('is-light', !isDark);
+				} catch {}
+			})();
+		</script>
 		<!-- Cookie Consent Banner -->
 		<div class="cookie-consent-banner">
 			<p>
@@ -970,12 +984,46 @@
 							aria-expanded="false"
 							aria-controls="language-options"
 						>
-							<span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇭</span>
+							<span class="language-toggle__flag theme-icon" aria-hidden="true"
+								>🇨🇭</span
+							>
 						</button>
-						<div id="language-options" class="language-toggle__options" data-language-options>
-							<a href="/" class="language-toggle__option theme-toggle-button" aria-label="Version France"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇫🇷</span></a>
-							<a href="/ca/" class="language-toggle__option theme-toggle-button" aria-label="Version Canada"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇦</span></a>
-							<a href="/ch/" class="language-toggle__option theme-toggle-button is-active" aria-label="Version Suisse" aria-current="page"><span class="language-toggle__flag theme-icon" aria-hidden="true">🇨🇭</span></a>
+						<div
+							id="language-options"
+							class="language-toggle__options"
+							data-language-options
+						>
+							<a
+								href="/"
+								class="language-toggle__option theme-toggle-button"
+								aria-label="Version France"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇫🇷</span
+								></a
+							>
+							<a
+								href="/ca/"
+								class="language-toggle__option theme-toggle-button"
+								aria-label="Version Canada"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇨🇦</span
+								></a
+							>
+							<a
+								href="/ch/"
+								class="language-toggle__option theme-toggle-button is-active"
+								aria-label="Version Suisse"
+								aria-current="page"
+								><span
+									class="language-toggle__flag theme-icon"
+									aria-hidden="true"
+									>🇨🇭</span
+								></a
+							>
 						</div>
 					</div>
 					<!-- Theme toggle -->
@@ -987,6 +1035,22 @@
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
+					<script>
+						(function () {
+							try {
+								var isDark =
+									typeof window.__initialThemeIsDark === 'boolean'
+										? window.__initialThemeIsDark
+										: document.body.classList.contains('is-dark');
+								var btn = document.getElementById('theme-toggle');
+								if (!btn) return;
+								var icon = btn.querySelector('.theme-icon');
+								if (!icon) return;
+								var next = isDark ? '☀️' : '🌙';
+								if (icon.textContent !== next) icon.textContent = next;
+							} catch {}
+						})();
+					</script>
 				</div>
 			</div>
 		</header>
@@ -1038,7 +1102,7 @@
 						>
 					</p>
 					<p class="u-content-width">J’évalue chaque casino en fonction de :</p>
-					<ul>
+					<ul class="u-content-width">
 						<li>la sécurité et la licence officielle</li>
 						<li>la variété et la qualité des jeux</li>
 						<li>les bonus et promotions pour les joueurs suisses</li>
@@ -1079,12 +1143,22 @@
 
 				<h2>Les meilleurs casinos en ligne en Suisse en 2026</h2>
 				<p>
-					Pour établir ce classement des meilleurs casinos en ligne en Suisse en
-					2026, j’ai appliqué une analyse approfondie basée sur plusieurs
-					critères essentiels : sécurité de la plateforme, qualité du catalogue
-					de jeux, transparence des conditions de bonus, rapidité des paiements
-					et compatibilité avec les joueurs suisses (CHF et €).
+					Pour établir ce classement des
+					<strong>meilleurs casinos en ligne en Suisse en 2026,</strong> j’ai
+					appliqué une analyse approfondie basée sur plusieurs critères
+					essentiels : sécurité de la plateforme, qualité du catalogue de jeux,
+					transparence des conditions de bonus, rapidité des paiements et
+					compatibilité avec les joueurs suisses (CHF et €).
 				</p>
+				<p class="u-content-width">
+					Cette sélection regroupe uniquement des casinos en ligne reconnus pour
+					leur fiabilité, leur performance technique et leur expérience
+					utilisateur fluide. Les plateformes retenues proposent des méthodes de
+					paiement adaptées à la Suisse, des retraits rapides ainsi qu’un large
+					choix de jeux provenant de fournisseurs réputés.
+				</p>
+				
+				<h2>Voici ma sélection des meilleurs casinos en ligne en Suisse :</h2>
 
 				<!--Card Crowngreen Casino-->
 				<article class="casino-article">
