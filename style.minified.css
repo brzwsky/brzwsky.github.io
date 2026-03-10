@@ -257,3 +257,26 @@ body.is-dark .header__controls .language-toggle.is-open{
   .header__controls .language-toggle__option{transform:translateY(-6px) scale(.96) !important;}
   .header__controls .language-toggle.is-open .language-toggle__option{transform:translateY(0) scale(1) !important;}
 }
+
+/* desktop: clip collapsing language toggle flags */
+@media (min-width:769px){
+  .header__controls .language-toggle{
+    overflow:hidden;
+  }
+  .header__controls .language-toggle__options,
+  .header__controls .language-toggle.is-open .language-toggle__options{
+    overflow:visible;
+  }
+}
+
+/* mobile: remove square backdrop on language options */
+@media (max-width:768px){
+  .header__controls .language-toggle__option.theme-toggle-button{
+    background:transparent !important;
+    border-color:transparent !important;
+    box-shadow:none !important;
+  }
+  .header__controls .language-toggle__option.theme-toggle-button::before{
+    content:none !important;
+  }
+}
