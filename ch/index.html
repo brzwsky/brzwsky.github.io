@@ -801,6 +801,13 @@
 				max-width: 150px;
 				width: 100%;
 			}
+			/* FOUC guard: keep language options hidden until main CSS loads */
+			.language-toggle__options {
+				display: none;
+			}
+			.language-toggle.is-open .language-toggle__options {
+				display: flex;
+			}
 		</style>
 
 		<!-- Preload LCP Image -->
@@ -1141,26 +1148,7 @@
 					critères principaux quand je teste un casino.
 				</p>
 
-				<h2>Les meilleurs casinos en ligne en Suisse en 2026</h2>
-				<p>
-					Pour établir ce classement des
-					<strong>meilleurs casinos en ligne en Suisse en 2026,</strong> j’ai
-					appliqué une analyse approfondie basée sur plusieurs critères
-					essentiels : sécurité de la plateforme, qualité du catalogue de jeux,
-					transparence des conditions de bonus, rapidité des paiements et
-					compatibilité avec les joueurs suisses (CHF et €).
-				</p>
-				<p class="u-content-width">
-					Cette sélection regroupe uniquement des casinos en ligne reconnus pour
-					leur fiabilité, leur performance technique et leur expérience
-					utilisateur fluide. Les plateformes retenues proposent des méthodes de
-					paiement adaptées à la Suisse, des retraits rapides ainsi qu’un large
-					choix de jeux provenant de fournisseurs réputés.
-				</p>
-				
-				<h2>Voici ma sélection des meilleurs casinos en ligne en Suisse :</h2>
-
-				<!--Card Crowngreen Casino-->
+				<!--Card MoonWin Casino-->
 				<article class="casino-article">
 					<div id="crowngreen" class="casino-card casino-card--top">
 						<div class="casino-card__rank-bg"></div>
@@ -1189,24 +1177,22 @@
 								"
 							/>
 							<div>
-								<h3 class="casino-card__title">Crowngreen Casino</h3>
+								<h3 class="casino-card__title">MoonWin Casino</h3>
 								<p class="casino-card__bonus">
-									Jusqu’à 9000 CAD + 250 tours gratuits
+									Bonus jusqu’à 6 500 € + 180 tours gratuits
 								</p>
 							</div>
 						</div>
 						<ul class="casino-card__features">
-							<li>Plus de 3 000 jeux variés</li>
-							<li>Bonus attractifs</li>
-							<li>Programme VIP complet et avantageux</li>
+							<li>VIP avec cashback et retraits rapides</li>
+							<li>Bonus avec exigences de mise claires</li>
+							<li>+10 000 jeux en ligne pour la Suisse</li>
 						</ul>
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.9</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
-								<strong id="casino-name-crowngreen-top5"
-									>Crowngreen Casino</strong
-								>
+								<strong id="casino-name-crowngreen-top5">MoonWin Casino</strong>
 							</p>
 						</div>
 						<a
@@ -1244,14 +1230,14 @@
 							<div>
 								<h3 class="casino-card__title">SpinEmpire Casino</h3>
 								<p class="casino-card__bonus">
-									275% jusqu’à 1800 CAD + 80 tours gratuits + 55 pièces
+									Bonus 260 % jusqu’à 1 200 CHF + 80 tours gratuits + 55 pièces
 								</p>
 							</div>
 						</div>
 						<ul class="casino-card__features">
-							<li>Catalogue de jeux riche et qualitatif</li>
-							<li>Nombreux moyens de paiement</li>
-							<li>Assistance client disponible 24h/24 et 7j/7</li>
+							<li>Catalogue premium de slots et live casino Suisse</li>
+							<li>Paiements sécurisés en CHF</li>
+							<li>Support client 24/7 en français</li>
 						</ul>
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.8</p>
@@ -1297,13 +1283,13 @@
 
 							<div>
 								<h3 class="casino-card__title">Spininio Casino</h3>
-								<p class="casino-card__bonus">Jusqu’à 1500 CAD</p>
+								<p class="casino-card__bonus">Bonus jusqu’à 1 000 CHF</p>
 							</div>
 						</div>
 						<ul class="casino-card__features">
-							<li>Support client 24/7 en direct</li>
-							<li>Plateforme ultra-sécurisée</li>
-							<li>Mobile et desktop optimisés</li>
+							<li>Assistance 24/7 pour joueurs suisses</li>
+							<li>Plateforme sécurisée et fiable</li>
+							<li>Optimisé mobile & desktop</li>
 						</ul>
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.6</p>
@@ -1346,14 +1332,14 @@
 							<div>
 								<h3 class="casino-card__title">Vegazone Casino</h3>
 								<p class="casino-card__bonus">
-									260% jusqu’à 3600 CAD + 260 tours gratuits
+									Bonus 260 % jusqu’à 2 600 CHF + 260 tours gratuits
 								</p>
 							</div>
 						</div>
 						<ul class="casino-card__features">
-							<li>Machines à sous en ligne populaires</li>
-							<li>Casino en direct de qualité</li>
-							<li>Compatible avec les cryptomonnaies</li>
+							<li>Machines à sous populaires en Suisse</li>
+							<li>Live casino HD avec croupiers</li>
+							<li>Dépôts en CHF et crypto</li>
 						</ul>
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.3</p>
@@ -1395,13 +1381,15 @@
 							/>
 							<div>
 								<h3 class="casino-card__title">Mafia Casino</h3>
-								<p class="casino-card__bonus">750 CAD + 200 tours gratuits</p>
+								<p class="casino-card__bonus">
+									Bonus 100 % jusqu’à 550 CHF + 200 tours gratuits
+								</p>
 							</div>
 						</div>
 						<ul class="casino-card__features">
-							<li>Application mobile parfaitement optimisée</li>
-							<li>Pari sportif intégré</li>
-							<li>Plus de 11 300 jeux à découvrir</li>
+							<li>+11 000 jeux casino en ligne Suisse</li>
+							<li>Paris sportifs intégrés</li>
+							<li>Jackpots progressifs et bonus CHF</li>
 						</ul>
 						<div class="casino-card__rating">
 							<p class="casino-card__score">9.2</p>
@@ -1426,32 +1414,24 @@
 
 			<!--Mon Top 5 des meilleurs casinos en ligne 2026-->
 			<div class="u-content-width u-fade-in">
-				<h2>
-					🏅 Top 5 des meilleurs casinos en ligne au Canada : ma sélection
-					fiable 2026
-				</h2>
+				<h2>Les meilleurs casinos en ligne en Suisse en 2026</h2>
+				<p>
+					Pour établir ce classement des
+					<strong>meilleurs casinos en ligne en Suisse en 2026,</strong> j’ai
+					appliqué une analyse approfondie basée sur plusieurs critères
+					essentiels : sécurité de la plateforme, qualité du catalogue de jeux,
+					transparence des conditions de bonus, rapidité des paiements et
+					compatibilité avec les joueurs suisses (CHF et €).
+				</p>
 				<p class="u-content-width">
-					J’ai pris le temps de
-					<strong
-						>sélectionner avec soin les meilleurs casinos en ligne au Canada
-						pour 2026</strong
-					>, en appliquant une méthode d’analyse rigoureuse. Mon classement
-					regroupe uniquement des plateformes de jeu
-					<strong>fiables et performantes</strong>, avec des points forts bien
-					précis : un <strong>catalogue de jeux varié</strong>, une
-					<strong>sécurité maximale</strong> et des
-					<strong
-						>bonus de bienvenue attractifs pour les joueurs canadiens.</strong
-					>
-					Tous ces casinos permettent de jouer en dollars canadiens ($CAD) et
-					garantissent une expérience fluide et sécurisée.
+					Cette sélection regroupe uniquement des casinos en ligne reconnus pour
+					leur fiabilité, leur performance technique et leur expérience
+					utilisateur fluide. Les plateformes retenues proposent des méthodes de
+					paiement adaptées à la Suisse, des retraits rapides ainsi qu’un large
+					choix de jeux provenant de fournisseurs réputés.
 				</p>
 
-				<p class="u-content-width u-fade-in">
-					Voici
-					<strong>ma sélection des meilleurs casinos en ligne au Canada</strong>
-					:
-				</p>
+				<p><strong>Voici ma sélection des meilleurs casinos en ligne en Suisse :</strong></p>
 
 				<ul>
 					<li>

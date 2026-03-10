@@ -350,7 +350,12 @@
 				margin-bottom: 0.6rem;
 			}
 			.header {
+				backdrop-filter: blur(20px) saturate(180%);
+				background: var(--overlay-medium);
+				box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
 				box-sizing: border-box;
+				color: var(--color-white);
+				font-family: Arial, sans-serif;
 				padding: var(--spacing-xs) 0;
 				position: sticky;
 				top: 0;
@@ -379,12 +384,26 @@
 				flex-direction: column;
 			}
 			.header__logo-text {
+				color: var(--color-white);
 				text-align: center;
 			}
 			.header__logo-line {
 				line-height: 1.2;
 				margin: 0;
 				text-align: center;
+			}
+			.header__logo-line--title {
+				color: var(--color-white);
+				font-family: Helvetica, sans-serif;
+				font-size: 1.2rem;
+				font-weight: 700;
+			}
+			.header__logo-line--subtitle {
+				color: var(--color-white);
+				font-family: Helvetica, sans-serif;
+				font-size: 0.7rem;
+				font-weight: 500;
+				text-transform: uppercase;
 			}
 			.hero {
 				padding-left: 0;
@@ -446,6 +465,13 @@
 					padding-left: 1rem;
 					padding-right: 1rem;
 				}
+			}
+			/* FOUC guard: keep language options hidden until main CSS loads */
+			.language-toggle__options {
+				display: none;
+			}
+			.language-toggle.is-open .language-toggle__options {
+				display: flex;
 			}
 		</style>
 		<!-- Non-critical CSS loaded async -->

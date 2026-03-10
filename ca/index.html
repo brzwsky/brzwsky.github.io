@@ -822,6 +822,13 @@
 				max-width: 150px;
 				width: 100%;
 			}
+			/* FOUC guard: keep language options hidden until main CSS loads */
+			.language-toggle__options {
+				display: none;
+			}
+			.language-toggle.is-open .language-toggle__options {
+				display: flex;
+			}
 		</style>
 
 		<!-- Preload LCP Image -->
