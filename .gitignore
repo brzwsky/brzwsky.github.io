@@ -49,3 +49,6 @@ build/
 
 # Wrangler (Cloudflare)
 .wrangler/
+
+tools
+backups

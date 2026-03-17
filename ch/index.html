@@ -418,9 +418,11 @@
 				--card-transition: transform 180ms ease, box-shadow 180ms ease;
 				--transition-fast: 180ms ease;
 				--transition-medium: 240ms ease;
-				--transition-slow: 300ms ease;
+				--transition-slow: 300ms;
 				--transition-standard: 0.3s ease;
 				--mobile-header-control-size: 30px;
+				--mobile-header-side-offset: 1rem;
+				--mobile-header-control-left-offset: 0.5rem;
 				--max-content-width: 1200px;
 			}
 			html {
@@ -524,6 +526,12 @@
 				position: relative;
 				width: 100%;
 			}
+			.header__logo {
+				width: 160px;
+				height: 60px;
+				margin-right: var(--spacing-lg);
+				object-fit: contain;
+			}
 			.header__logo-block {
 				align-items: center;
 				display: flex;
@@ -531,11 +539,6 @@
 			}
 			.header__logo-block .header__logo {
 				display: block;
-				margin: 0 auto 0.1rem;
-				max-height: 85px;
-				object-fit: contain;
-				width: 160px;
-				height: 60px;
 			}
 			.header__logo-text {
 				color: var(--color-white);
@@ -559,6 +562,10 @@
 				font-weight: 500;
 				text-transform: uppercase;
 			}
+			body:not(.is-dark) .header__logo-line--title,
+			body:not(.is-dark) .header__logo-line--subtitle {
+				color: var(--color-black);
+			}
 			.header__burger {
 				background: 0;
 				border: 0;
@@ -581,6 +588,66 @@
 				align-items: center;
 				display: flex;
 				gap: 2rem;
+			}
+			.theme-toggle-button,
+			.language-toggle__button,
+			.language-toggle__option {
+				align-items: center;
+				backdrop-filter: blur(24px) saturate(190%);
+				-webkit-backdrop-filter: blur(24px) saturate(190%);
+				background: linear-gradient(
+					145deg,
+					rgba(255, 255, 255, 0.22),
+					rgba(255, 255, 255, 0.06)
+				);
+				border: 1px solid rgba(255, 255, 255, 0.26);
+				border-radius: 50%;
+				box-sizing: border-box;
+				box-shadow:
+					0 14px 30px rgba(0, 0, 0, 0.18),
+					inset 0 1px 0 rgba(255, 255, 255, 0.48),
+					inset 0 -10px 20px rgba(255, 255, 255, 0.06);
+				display: flex;
+				flex: 0 0 auto;
+				height: 44px;
+				justify-content: center;
+				padding: 0;
+				position: relative;
+				overflow: hidden;
+				width: 44px;
+			}
+			.theme-toggle-button::before,
+			.language-toggle__button::before,
+			.language-toggle__option::before {
+				content: '';
+				position: absolute;
+				inset: 1px;
+				border-radius: inherit;
+				background: linear-gradient(
+					165deg,
+					rgba(255, 255, 255, 0.45) 0%,
+					rgba(255, 255, 255, 0.1) 40%,
+					rgba(255, 255, 255, 0.02) 100%
+				);
+				pointer-events: none;
+			}
+			.theme-icon,
+			.language-toggle__flag {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				line-height: 1;
+			}
+			.language-toggle {
+				display: inline-flex;
+				align-items: center;
+				flex: 0 0 auto;
+			}
+			.language-toggle__options {
+				display: none;
+			}
+			.language-toggle.is-open .language-toggle__options {
+				display: flex;
 			}
 			.nav-menu {
 				display: block;
@@ -734,15 +801,18 @@
 					top: -1rem;
 					transform: none;
 				}
+				.header {
+					padding: 1.5rem 1rem;
+				}
 				.header__burger {
 					align-items: center;
 					display: flex;
 					flex-direction: column;
 					gap: 4px;
-					height: 30px;
+					height: var(--mobile-header-control-size);
 					justify-content: center;
 					position: absolute;
-					right: 1rem;
+					right: var(--mobile-header-side-offset);
 					top: 50%;
 					transform: translateY(-50%);
 					width: 24px;
@@ -750,30 +820,85 @@
 				}
 				.header__container {
 					justify-content: center;
-					min-height: 30px;
-					padding: 0.5rem 1rem;
+					min-height: calc(var(--mobile-header-control-size) + 3.8rem);
+					padding: 0.5rem 0;
+				}
+				.header__logo-text {
+					margin-top: 0.5rem;
 				}
 				.header__logo-block {
+					justify-content: center;
+					margin-top: 0.01rem;
 					left: 50%;
 					position: absolute;
 					top: 50%;
-					transform: translate(-50%, -50%);
+					transform: translate(-50%, -50%) translateY(6px);
 					z-index: 1001;
 					max-width: 140px;
 				}
 				.header__logo-block .header__logo {
+					display: block;
+					height: auto;
+					margin: 0 auto;
+					max-width: 100%;
+					object-fit: contain;
+				}
+				.header__logo {
+					height: auto;
 					max-height: 45px;
+					min-height: unset;
+					object-fit: contain;
+					width: auto;
 				}
 				.header__controls {
-					left: 1rem;
+					align-items: flex-start;
+					left: var(--mobile-header-side-offset);
 					position: absolute;
-					top: 50%;
-					transform: translateY(-50%);
+					top: calc(50% - (var(--mobile-header-control-size) / 2));
+					transform: none;
 					z-index: 1002;
+				}
+				.header__logo-line--subtitle {
+					display: none;
+				}
+				.header__logo-line--title {
+					font-size: 0.9rem;
+				}
+				.header__logo-line--title,
+				.header__logo-line--subtitle {
+					margin-top: 0.01rem;
 				}
 				.nav-menu[hidden] {
 					display: none;
 				}
+			}
+			/* Critical dark theme baseline */
+			body.is-dark {
+				background: #121212;
+				color: var(--color-white);
+			}
+			body.is-dark p,
+			body.is-dark strong,
+			body.is-dark li,
+			body.is-dark span,
+			body.is-dark h1,
+			body.is-dark h2,
+			body.is-dark h3,
+			body.is-dark h4 {
+				color: var(--color-white);
+			}
+			body.is-dark .theme-toggle-button,
+			body.is-dark .language-toggle__button,
+			body.is-dark .language-toggle__option {
+				background: linear-gradient(
+					145deg,
+					rgba(42, 42, 42, 0.55),
+					rgba(18, 18, 18, 0.28)
+				);
+				border-color: rgba(255, 255, 255, 0.2);
+				box-shadow:
+					0 2px 8px rgba(0, 0, 0, 0.2),
+					inset 0 1px 1px rgba(255, 255, 255, 0.05);
 			}
 			@media (min-width: 768px) and (max-width: 1200px) {
 				.header__container {
@@ -801,20 +926,64 @@
 				max-width: 150px;
 				width: 100%;
 			}
-			/* FOUC guard: keep language options hidden until main CSS loads */
-			.language-toggle__options {
-				display: none;
-			}
-			.language-toggle.is-open .language-toggle__options {
-				display: flex;
-			}
 		</style>
+		<script>
+			(function () {
+				function getInitialTheme() {
+					try {
+						if (typeof window.__initialThemeIsDark === 'boolean') {
+							return window.__initialThemeIsDark;
+						}
+						var storedTheme = localStorage.getItem('theme');
+						var prefersDark =
+							window.matchMedia &&
+							window.matchMedia('(prefers-color-scheme: dark)').matches;
+						var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+						window.__initialThemeIsDark = isDark;
+						return isDark;
+					} catch {
+						return document.body
+							? document.body.classList.contains('is-dark')
+							: false;
+					}
+				}
+
+				function syncThemeIcon() {
+					var btn = document.getElementById('theme-toggle');
+					if (!btn) return false;
+					var icon = btn.querySelector('.theme-icon');
+					if (!icon) return false;
+					var next = getInitialTheme() ? '☀️' : '🌙';
+					if (icon.textContent !== next) icon.textContent = next;
+					return true;
+				}
+
+				if (syncThemeIcon()) return;
+				if (typeof requestAnimationFrame !== 'function') {
+					document.addEventListener('DOMContentLoaded', syncThemeIcon);
+					return;
+				}
+				var attempts = 0;
+				var maxAttempts = 30;
+				(function tick() {
+					attempts += 1;
+					if (syncThemeIcon() || attempts >= maxAttempts) return;
+					requestAnimationFrame(tick);
+				})();
+			})();
+		</script>
+		<link
+			rel="preload"
+			href="/style.minified.css"
+			as="style"
+			fetchpriority="high"
+		/>
 
 		<!-- Preload LCP Image -->
 		<link
 			rel="preload"
 			as="image"
-			href="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
+			href="/assets/img/ch/banners/crowngreen/crowngreen-banner-1200.webp"
 			fetchpriority="high"
 		/>
 
@@ -826,6 +995,9 @@
 			onload="this.media = 'all'"
 			fetchpriority="low"
 		/>
+		<noscript>
+			<link rel="stylesheet" href="/style.minified.css" />
+		</noscript>
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
@@ -896,7 +1068,9 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="nav-menu__close" aria-label="Fermer le menu">✕</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">
+						&times;
+					</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -1042,22 +1216,6 @@
 					>
 						<span class="theme-icon">🌙</span>
 					</button>
-					<script>
-						(function () {
-							try {
-								var isDark =
-									typeof window.__initialThemeIsDark === 'boolean'
-										? window.__initialThemeIsDark
-										: document.body.classList.contains('is-dark');
-								var btn = document.getElementById('theme-toggle');
-								if (!btn) return;
-								var icon = btn.querySelector('.theme-icon');
-								if (!icon) return;
-								var next = isDark ? '☀️' : '🌙';
-								if (icon.textContent !== next) icon.textContent = next;
-							} catch {}
-						})();
-					</script>
 				</div>
 			</div>
 		</header>
@@ -1090,7 +1248,7 @@
 						>
 					</span>
 					· Dernière mise à jour :
-					<span class="u-font-light">03 Mars 2026</span>
+					<span class="u-font-light">20 Mars 2026</span>
 				</p>
 				<p class="disclaimer">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
@@ -1164,16 +1322,16 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
-								data-dark="/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
+								src="/assets/img/ch/logos/crowngreen/crowngreen-logo.webp"
+								data-dark="/assets/img/ch/logos/crowngreen/crowngreen-logo-dark.webp"
 								alt="Logo de Crowngreen Casino, classé numéro 1"
 								loading="eager"
 								fetchpriority="high"
 								width="150"
 								height="83"
 								imagesrcset="
-									/assets/img/ca/logos/crowngreen/crowngreen-logo.webp 150w
-									/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp 150w
+									/assets/img/ch/logos/crowngreen/crowngreen-logo.webp 150w
+									/assets/img/ch/logos/crowngreen/crowngreen-logo-dark.webp 150w
 								"
 							/>
 							<div>
@@ -1216,15 +1374,15 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp"
+								src="/assets/img/ch/logos/spinempire/spinempire-logo.webp"
 								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino, classé numéro 2"
 								loading="lazy"
 								width="150"
 								height="83"
 								imagesrcset="
-									/assets/img/ca/logos/spinempire/spinempire-logo.webp 150w
-									/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp 150w
+									/assets/img/ch/logos/spinempire/spinempire-logo.webp 150w
+									/assets/img/ch/logos/spinempire/spinempire-logo-dark.webp 150w
 								"
 							/>
 							<div>
@@ -1319,14 +1477,14 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/vegazone/vegazone-logo.webp"
+								src="/assets/img/ch/logos/vegazone/vegazone-logo.webp"
 								alt="Logo de Vegazone Casino, classé numéro 4"
 								loading="lazy"
 								width="150"
 								height="83"
 								imagesrcset="
-									/assets/img/ca/logos/vegazone/vegazone-logo.webp 150w
-									/assets/img/ca/logos/vegazone/vegazone-logo-dark.webp 150w
+									/assets/img/ch/logos/vegazone/vegazone-logo.webp 150w
+									/assets/img/ch/logos/vegazone/vegazone-logo-dark.webp 150w
 								"
 							/>
 							<div>
@@ -1431,7 +1589,12 @@
 					choix de jeux provenant de fournisseurs réputés.
 				</p>
 
-				<p><strong>Voici ma sélection des meilleurs casinos en ligne en Suisse :</strong></p>
+				<p>
+					<strong
+						>Voici ma sélection des meilleurs casinos en ligne en Suisse
+						:</strong
+					>
+				</p>
 
 				<ul>
 					<li>
@@ -1469,23 +1632,35 @@
 
 			<!-- Reviews -->
 			<section class="landing-content">
-				<!-- Review Crowngreen Casino -->
+				<!-- Review MoonWin Casino -->
 				<section
-					id="crowngreen-casino"
+					id="moonwin-casino"
 					class="casino-review casino-review--crowngreen-casino u-fade-in"
 				>
 					<h2 class="u-content-width u-fade-in">
-						Crowngreen Casino - meilleur nouveau casino en ligne au Canada
+						MoonWin Casino – meilleur casino en ligne en Suisse 2026
 					</h2>
 					<p class="u-content-width u-fade-in">
-						Crowngreen Casino s’impose comme
+						MoonWin Casino est l’un des meilleurs casinos en ligne sur le marché
+						grâce à son interface moderne et intuitive, sa vaste collection de
+						jeux et ses promotions attractives. Ce site appartient à
+						<strong>Dama N.V.,</strong> un opérateur international reconnu qui
+						gère plusieurs casinos populaires. Lancé en 2023, MoonWin s’est
+						rapidement fait une place parmi les
+						<strong>meilleurs casinos en ligne pour les joueurs suisses</strong
+						>, grâce à sa sécurité renforcée, sa licence valide à Curaçao et ses
+						partenariats avec les plus grands développeurs de jeux comme
 						<strong
-							>l’un des meilleurs nouveaux casinos en ligne au Canada</strong
+							>NetEnt, Pragmatic Play, Yggdrasil ou Evolution Gaming.</strong
 						>
-						pour les joueurs canadiens francophones. La plateforme propose des
-						bonus en dollars canadiens (CAD), accepte Interac, et met l’accent
-						sur la fidélité avec un programme VIP complet et du cashback
-						quotidien.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Le site propose une expérience complète : machines à sous, jeux de
+						table, jackpots progressifs, Crash Games, et une section
+						<strong>Live Casino</strong> immersive qui recrée l’ambiance d’un
+						vrai casino terrestre. Les jeux sont disponibles en
+						<strong>francs suisses (CHF) </strong> et la plateforme est
+						entièrement optimisée pour <strong>mobile et desktop.</strong>
 					</p>
 					<a
 						class="banners u-fade-in"
@@ -1496,27 +1671,21 @@
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
-								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-400.webp
-								"
+								srcset="/assets/img/ch/banners/"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
-								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-800.webp
-								"
+								srcset="/assets/img/ch/banners/"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
-								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp
-								"
+								srcset="/assets/img/ch/banners/"
 							/>
 							<img
-								src="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
-								alt="Bannière promotionnelle de Crowngreen Casino, offrant un bonus de bienvenue"
+								src="/assets/img/ch/banners/"
+								alt="Bannière promotionnelle de MoonWin Casino, offrant un bonus de bienvenue"
 								width="1200"
 								height="600"
 								loading="eager"
@@ -1528,24 +1697,24 @@
 					<section class="casino-info u-content-width u-fade-in">
 						<table>
 							<caption class="u-visually-hidden">
-								Informations sur Crowngreen Casino
+								Informations sur MoonWin Casino
 							</caption>
 							<tbody>
 								<tr>
 									<th>📅 Année de création</th>
-									<td>2025</td>
+									<td>2023</td>
 								</tr>
 								<tr>
 									<th>🎮 Nombre de jeux</th>
-									<td>2500+</td>
+									<td>10 000+</td>
 								</tr>
 								<tr>
 									<th>🎁 Bonus de bienvenue</th>
-									<td>Jusqu’à 9000 CAD + 250 tours gratuits</td>
+									<td>Jusqu'à 6500 € + 180 FS</td>
 								</tr>
 								<tr>
 									<th>💳 Dépôt minimum</th>
-									<td>30 CAD</td>
+									<td>20 €</td>
 								</tr>
 								<tr>
 									<th>⏳ Délai de dépôt</th>
@@ -1553,32 +1722,59 @@
 								</tr>
 								<tr>
 									<th>💶 Retrait minimum</th>
-									<td>50 CAD</td>
+									<td>20 €</td>
 								</tr>
 								<tr>
 									<th>🕛 Délai de retrait</th>
-									<td>
-										<ul class="u-list-unstyled">
-											<li>Portefeuilles électroniques : 0 à 1 heure</li>
-											<li>Cartes bancaires : 1 à 3 jours</li>
-											<li>Virements bancaires : 1 à 5 jours</li>
-										</ul>
-									</td>
+									<td>0 - 1 jours ouvrables</td>
 								</tr>
 								<tr>
 									<th>📜 Licence</th>
-									<td>Anjouan Gaming License</td>
+									<td>Curaçao Gaming License</td>
 								</tr>
 							</tbody>
 						</table>
 					</section>
+
+					<h3>🎁 Bonus de bienvenue MoonWin Casino</h3>
+					<p class="u-content-width u-fade-in">
+						MoonWin offre un
+						<strong>pack de bienvenue en 3 dépôts,</strong> idéal pour les
+						joueurs suisses :
+					</p>
+					<ul class="u-content-width u-fade-in">
+						<li>
+							<strong>1er dépôt : </strong> 100 % jusqu’à 5 000 CHF/€ + 100
+							tours gratuits sur <em> Wild Cash </em>
+						</li>
+						<li>
+							<strong>2ème dépôt : </strong> 75 % jusqu’à 1 000 CHF/€ + 50 tours
+							gratuits sur <em>Lady Wolf Moon</em>
+						</li>
+						<li>
+							<strong>3ème dépôt :</strong> 50 % jusqu’à 500 CHF/€ + 30 tours
+							gratuits sur <em>Cactus Riches</em>
+						</li>
+					</ul>
+					<p class="u-content-width u-fade-in">
+						Le casino propose également des
+						<strong
+							>promotions hebdomadaires, des tours gratuits du lundi et
+							mercredi,</strong
+						>
+						des jeux du mois, ainsi qu’un
+						<strong>programme de fidélité Cosmic Cash</strong> avec cashback
+						jusqu’à 20 % et récompenses VIP sur 10 niveaux.
+					</p>
+
+					<!-- Banner button -->
 					<section class="casino-card casino-card--button u-fade-in">
 						<div class="casino-card__info casino-card__info--logo u-fade-in">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
-								data-dark="/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
-								alt="Logo de Crowngreen Casino (section avis détaillé)"
+								src="/assets/img/ch/logos/"
+								data-dark="/assets/img/ch/logos/"
+								alt="Logo de MoonWin Casino (section avis détaillé)"
 								width="150"
 								height="150"
 								loading="lazy"
@@ -1587,7 +1783,7 @@
 						<div class="casino-card__rating u-fade-in">
 							<p>
 								<strong id="casino-name-crowngreen-detail">
-									Crowngreen Casino
+									MoonWin Casino
 								</strong>
 							</p>
 							<p class="casino-card__score">9.9</p>
@@ -1595,98 +1791,82 @@
 						</div>
 						<div class="casino-card__features u-fade-in">
 							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
-							<p class="casino-card__bonus">
-								Jusqu’à 9000 CAD + 250 tours gratuits
-							</p>
+							<p class="casino-card__bonus">Jusqu'à 6500 € + 180 FS</p>
 						</div>
 						<a
 							class="casino-card__button u-fade-in"
-							href="https://clickcrowngreen.com/asdtlsck0"
+							href="/"
 							target="_blank"
 							rel="nofollow noopener sponsored"
 							tabindex="0"
-							aria-describedby="casino-name-crowngreen-detail"
+							aria-describedby="casino-name-moonwin-detail"
 						>
 							<span class="casino-card__button-link u-fade-in"
 								>Jouez maintenant</span
 							>
 						</a>
 					</section>
-					<h3>🎁 Bonus de bienvenue Crowngreen Casino</h3>
-					<p class="u-content-width u-fade-in">
-						Le <strong>bonus de bienvenue</strong> de CrownGreen offre
-						<strong>250 %</strong> jusqu’à <strong>9 000 $ CAD</strong> plus
-						<strong>250 tours gratuits</strong>. Le dépôt minimum est de
-						30 $ CAD et le bonus doit être rejoué <strong>40×</strong> (bonus +
-						tours gratuits) dans les <strong>5 jours</strong>. Les machines à
-						sous comptent à <strong>100 %</strong>, les jeux de table à
-						<strong>10 %</strong>, et le casino live/arcade à
-						<strong>5 %</strong>. Aucun <strong>code bonus</strong> n’est
-						nécessaire pour en profiter.
-					</p>
 
 					<h3>💳 Dépôts et retraits</h3>
 					<p class="u-content-width u-fade-in">
-						Crowngreen Casino accepte plusieurs méthodes de paiement populaires
-						au Canada :
-						<strong
-							>Interac, Visa, Mastercard, ApplePay, GooglePay, Crypto</strong
-						>.
+						MoonWin Casino propose des méthodes de paiement rapides et
+						sécurisées pour les joueurs suisses :
 					</p>
+					<ul class="u-content-width u-fade-in">
+						<li>Cartes bancaires : Visa, Mastercard</li>
+						<li>Portefeuilles électroniques : Skrill, Neteller, MiFinity</li>
+						<li>Cryptomonnaies : Bitcoin, Ethereum, Dogecoin, USDT</li>
+						<li>Virements bancaires</li>
+					</ul>
 					<p class="u-content-width u-fade-in">
 						Les dépôts sont instantanés, tandis que les retraits sont traités
 						sous 1 à 3 jours ouvrables, après validation du compte.
-					</p>
-					<p class="u-content-width u-fade-in">
-						💰 Dépôt min. : 30 CAD | ⏱️ Retraits en 1 à 3 jours ouvrables
 					</p>
 
 					<h3 class="u-fade-in u-mt-lg">✅ Avantages :</h3>
 
 					<ul class="u-content-width u-fade-in">
+						<li>Interface moderne et navigation intuitive</li>
 						<li>
-							Un <strong>Bonus de bienvenue</strong>
-							<strong>jusqu’à 9 000 CAD + 250 FS </strong>
+							Collection massive de jeux : +10 000 titres, dont +700 en live
 						</li>
-						<li>
-							<strong>Paiements en CAD</strong> avec Interac, Visa et Mastercard
-						</li>
-						<li>
-							<strong>Cashback quotidien jusqu’à 15%</strong>
-						</li>
-						<li>
-							<strong>Programme VIP à 5 niveaux</strong> avec retraits accélérés
-						</li>
-						<li>
-							<strong>Plus de 3 000 jeux de casino</strong> (slots, live,
-							jackpots)
-						</li>
+						<li>Bonus généreux et promotions régulières</li>
+						<li>Paiements en CHF rapides et sécurisés</li>
+						<li>Live Casino HD avec croupiers réels</li>
+						<li>Mobile friendly sans téléchargement nécessaire</li>
 					</ul>
 
 					<h3 class="u-fade-in u-mt-lg">❌ À noter :</h3>
 					<ul class="u-content-width u-fade-in">
+						<li>Pas d’application mobile dédiée</li>
 						<li>
-							<strong>Conditions de mise élevées</strong> (x40, x30 pour VIP)
-						</li>
-						<li>
-							<strong>Support téléphonique réservé aux joueurs VIP </strong>
+							Les jeux RNG de table sont dispersés, pas regroupés dans une
+							section unique
 						</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h3>
 					<p class="u-font-light u-fade-in u-italic">
-						Crowngreen Casino conviendra particulièrement aux joueurs canadiens
-						qui recherchent un <strong>casino en ligne en CAD</strong>, avec
-						<strong>Interac</strong>, des <strong>bonus évolutifs</strong> et
-						une vraie logique de fidélisation sur le long terme.
+						J’ai passé plusieurs heures à tester MoonWin, et j’ai été
+						impressionnée par la fluidité de l’interface, la qualité du Live
+						Casino, et la transparence des bonus en CHF. La sécurité est solide
+						grâce au SSL et à l’authentification à deux facteurs, et les
+						retraits sont rapides, ce qui est un vrai plus pour les joueurs
+						suisses.
 					</p>
 					<h3 class="u-fade-in u-mt-lg">Verdict :</h3>
 					<p class="u-content-width u-fade-in">
-						<strong>Crowngreen Casino Canada est un excellent choix</strong>
-						pour les joueurs recherchant un casino en ligne fiable en CAD, des
-						bonus progressifs, et une expérience optimisée pour Interac et les
-						joueurs réguliers.
+						MoonWin Casino est un
+						<strong>excellent choix pour les joueurs suisses</strong> qui
+						recherchent un casino en ligne fiable, sécurisé et complet. Que vous
+						soyez fan de
+						<strong
+							>machines à sous, jackpots, Live Casino ou paris rapides,</strong
+						>
+						MoonWin offre une expérience moderne et immersive avec des
+						<strong>bonus attractifs en CHF,</strong> des méthodes de paiement
+						sécurisées et un support client réactif.
 					</p>
 				</section>
 
@@ -1696,56 +1876,62 @@
 					class="casino-review casino-review--spinempire-casino u-fade-in"
 				>
 					<h2 class="u-content-width u-fade-in">
-						SpinEmpire Casino - Bonus exclusifs, crypto & jeux premium en 2026
+						SpinEmpire Casino - casino en ligne recommandé pour les joueurs
+						suisses 2026
 					</h2>
 					<p class="u-content-width u-fade-in">
-						<strong>SpinEmpire Casino</strong> est un
-						<strong>casino en ligne lancé en 2025</strong>, qui cible les
-						<strong>joueurs canadiens francophones</strong> à la recherche d’une
-						expérience moderne, complète et orientée flexibilité. La plateforme
-						combine une <strong>bibliothèque de jeux étendue</strong>, des
-						<strong>bonus réguliers</strong>, un
-						<strong>système de cashback par niveaux</strong> et une
-						<strong>large sélection de moyens de paiement</strong>, incluant
-						cartes, e-wallets et <strong>cryptomonnaies</strong>.
+						<strong>SpinEmpire Casino</strong> est une plateforme de jeu en
+						ligne bien établie qui attire l’attention des joueurs suisses grâce
+						à son
+						<strong
+							>large catalogue de jeux et ses promotions claires et
+							généreuses</strong
+						>. Conçu pour offrir une expérience fluide et sécurisée, SpinEmpire
+						fonctionne sous une licence de Curaçao délivrée à un opérateur
+						structuré avec une grande variété de fournisseurs de logiciels, ce
+						qui permet d’accéder à des
+						<strong
+							>slots, jeux de table, jeux live et bonus attractifs.</strong
+						>
 					</p>
 					<p class="u-content-width u-fade-in">
-						<strong
-							>Grâce à son interface fluide et à son site entièrement optimisé
-							pour mobile</strong
-						>, SpinEmpire s’adapte aussi bien aux joueurs occasionnels qu’aux
-						profils plus actifs, sur ordinateur comme sur smartphone.
+						Le lobby de jeu est organisé par catégories (slots, roulette,
+						blackjack, baccarat, jeux live), ce qui facilite la navigation sur
+						mobile ou desktop. Les jeux sont disponibles en
+						<strong>francs suisses (CHF)</strong> et la plateforme prend en
+						charge plusieurs langues, y compris le français, pour une expérience
+						adaptée aux joueurs suisses.
 					</p>
 
 					<a
 						class="banners u-fade-in"
 						rel="nofollow noopener sponsored"
-						href="https://spinempire.sbs/duoksba1b"
+						href=""
 					>
 						<picture>
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-400.webp
+									/assets/img/ch/banners/spinempire/spinempire-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-800.webp
+									/assets/img/ch/banners/spinempire/spinempire-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-1200.webp
+									/assets/img/ch/banners/spinempire/spinempire-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/spinempire/spinempire-banner-1200.webp"
+								src="/assets/img/ch/banners/spinempire/spinempire-banner-1200.webp"
 								alt="Bannière promotionnelle de SpinEmpire Casino, bonus de bienvenue"
 								width="1200"
 								height="600"
@@ -1770,11 +1956,13 @@
 								</tr>
 								<tr>
 									<th>🎁 Bonus de bienvenue</th>
-									<td>275% jusqu’à 1800 CAD + 80 tours gratuits + 55 pièces</td>
+									<td>
+										260 % jusqu’à 1 200 CHF + 80 tours gratuits + 55 pièces
+									</td>
 								</tr>
 								<tr>
 									<th>💳 Dépôt minimum</th>
-									<td>25 CAD</td>
+									<td>20 CHF</td>
 								</tr>
 								<tr>
 									<th>⏳ Délai de dépôt</th>
@@ -1782,7 +1970,7 @@
 								</tr>
 								<tr>
 									<th>💶 Retrait minimum</th>
-									<td>60 CAD</td>
+									<td>50 CHF</td>
 								</tr>
 								<tr>
 									<th>🕛 Délai de retrait</th>
@@ -1796,12 +1984,51 @@
 						</table>
 					</section>
 
+					<h3 class="u-content-width u-fade-in">
+						🎁 Bonus de bienvenue SpinEmpire Casino
+					</h3>
+					<p class="u-content-width u-fade-in">
+						Pour les nouveaux joueurs en Suisse,
+						<strong>SpinEmpire Casino</strong> propose une offre de bienvenue
+						compétitive combinant bonus en CHF et récompenses supplémentaires :
+					</p>
+					<ul>
+						<li>
+							<strong
+								>Bonus de bienvenue principal : 260 % jusqu’à 1 200 CHF + 80
+								tours gratuits + 55 pièces
+							</strong>
+						</li>
+						<li>
+							Offre répartie sur les premiers dépôts, avec pourcentage de bonus
+							et free spins selon le montant versé
+						</li>
+						<li>
+							<strong> Promotions hebdomadaires : </strong>bonus de recharge,
+							campagnes de tours gratuits et offres spéciales ponctuelles
+						</li>
+						<li>
+							<strong> Programme VIP & cashback : </strong> système de fidélité
+							avec avantages progressifs et remises selon le niveau du joueur
+						</li>
+					</ul>
+					<p class="u-content-width u-fade-in">
+						Toutes les promotions sont détaillées dans la section dédiée, avec
+						les
+						<strong
+							>conditions de mise, les plafonds et les jeux éligibles</strong
+						>
+						clairement indiqués, afin que les joueurs suisses puissent consulter
+						les informations avant activation.
+					</p>
+
+					<!-- Banner button -->
 					<section class="casino-card casino-card--button u-fade-in">
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp"
-								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
+								src="/assets/img/ch/logos/spinempire/spinempire-logo.webp"
+								data-dark="/assets/img/ch/logos/spinempire/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino (section avis détaillé)"
 								width="150"
 								height="150"
@@ -1820,12 +2047,12 @@
 						<div class="casino-card__features u-fade-in">
 							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
 							<p class="casino-card__bonus">
-								275% jusqu’à 1800 CAD + 80 tours gratuits + 55 pièces
+								260 % jusqu’à 1 200 CHF + 80 tours gratuits + 55 pièces
 							</p>
 						</div>
 						<a
 							class="casino-card__button u-fade-in"
-							href="https://spinempire.sbs/duoksba1b"
+							href=""
 							target="_blank"
 							rel="nofollow noopener sponsored"
 							tabindex="0"
@@ -1836,124 +2063,76 @@
 							>
 						</a>
 					</section>
-					<h3 class="u-content-width u-fade-in">
-						🎁 Bonus de bienvenue SpinEmpire Casino
-					</h3>
-					<p class="u-content-width u-fade-in">
-						SpinEmpire propose un
-						<strong>bonus de bienvenue progressif</strong>, réparti sur
-						plusieurs dépôts, avec des offres distinctes pour joueurs standards
-						et Highrollers.
-					</p>
-					<ul>
-						<li>
-							<strong>1er dépôt : 100% jusqu’à 300 CAD + 5 pièces </strong>
-						</li>
-						<li>
-							<strong
-								>Highroller (1er dépôt) : 100% jusqu’à 750 CAD + 20 pièces
-							</strong>
-						</li>
-						<li>
-							<strong
-								>2e dépôt : 50% jusqu’à 150 CAD + 20 tours gratuits + 5 pièces
-							</strong>
-						</li>
-						<li>
-							<strong
-								>3e dépôt : 50% jusqu’à 150 CAD + 60 tours gratuits + 10 pièces
-							</strong>
-						</li>
-						<li>
-							<strong>4e dépôt : 75% jusqu’à 150 CAD + 5 pièces</strong>
-						</li>
-						<li>
-							<strong>
-								Highroller (4e dépôt) : 75% jusqu’à 750 CAD + 20 pièces
-							</strong>
-						</li>
-					</ul>
-					<p class="u-content-width u-fade-in">
-						Le casino complète cette offre par des
-						<strong>bonus hebdomadaires</strong>, des
-						<strong>promotions week-end et</strong> un
-						<strong>programme de fidélité avec cashback.</strong>
-					</p>
-					<p class="u-content-width u-fade-in">
-						J’ai trouvé la structure du bonus bien pensée pour une utilisation
-						sur la durée, avec une vraie distinction entre joueurs occasionnels
-						et profils Highroller.
-					</p>
+
 					<h3 class="u-content-width u-fade-in">💳 Dépôts et retraits</h3>
 					<p class="u-content-width u-fade-in">
-						SpinEmpire Casino propose de nombreuses
-						<strong>options de paiement adaptées aux joueurs canadiens</strong>
-						:
+						SpinEmpire met à disposition
+						<strong>des méthodes de paiement sécurisées et adaptées</strong> aux
+						joueurs suisses :
 					</p>
+					<ul class="u-content-width u-fade-in">
+						<li><strong>Cartes bancaires</strong>: Visa, Mastercard</li>
+						<li><strong>Portefeuilles électroniques</strong></li>
+						<li>
+							<strong>Cryptomonnaies</strong> (selon disponibilité du site)
+						</li>
+						<li><strong>Virements bancaires </strong></li>
+					</ul>
 					<p class="u-content-width u-fade-in">
-						<strong>Visa, Mastercard, MiFinity, Cashlib</strong>, ainsi qu’un
-						large choix de <strong>cryptomonnaies</strong> (Bitcoin, Ethereum,
-						USDT, Litecoin, Dogecoin, etc.).
-					</p>
-					<p class="u-content-width u-fade-in">
-						<strong>Les dépôts sont rapides</strong>, tandis que les
-						<strong>retraits en crypto figurent parmi les plus rapides</strong>,
-						sous réserve de validation du compte.
+						Les dépôts sont généralement instantanés et les retraits sont
+						traités rapidement, souvent
+						<strong>dans un délai d’environ 1 heure</strong>, selon la méthode
+						utilisée et la vérification du compte. Cela permet aux joueurs de
+						recevoir leurs fonds dans des délais courts tout en bénéficiant d’un
+						environnement de jeu sécurisé.
 					</p>
 
 					<h3 class="u-fade-in u-mt-lg">✅ Avantages :</h3>
 					<ul class="u-content-width u-fade-in">
-						<li>Bonus de bienvenue attractifs répartis sur plusieurs dépôts</li>
-						<li>
-							<strong>Paiements en CAD</strong> et
-							<strong>cryptomonnaies acceptées</strong>
-						</li>
-						<li>Cashback hebdomadaire jusqu’à <strong>15%</strong></li>
-						<li>
-							Casino en direct, jeux rapides et machines à sous populaires
-						</li>
+						<li><strong>Bonus en CHF</strong> clairement structurés</li>
+						<li>Navigation fluide sur mobile et ordinateur</li>
+						<li>Support client accessible via chat en direct</li>
+						<li>Interface conviviale pour les joueurs suisses</li>
+						<li>Options de paiement multiples avec traitement rapide</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">❌ À noter :</h3>
 					<ul class="u-content-width u-fade-in">
 						<li>
-							<strong>Pas d’application mobile dédiée</strong>, : bien que le
-							site soit optimisé pour mobile, SpinEmpire ne propose pas encore
-							d’application native pour Android ou iOS, ce qui peut décevoir les
-							joueurs habitués aux apps de casino.
-						</li>
-						<li>
-							<strong>Absence de support téléphonique</strong> l’assistance
-							client est disponible via le chat en direct et l’e-mail, mais
-							aucun service d’aide par téléphone n’est proposé pour le moment.
+							<strong>PSupport sans ligne téléphonique directe</strong>: le
+							service client est accessible par chat en direct et par e-mail,
+							cependant il n’existe pas d'assistance téléphonique, ce qui peut
+							être un inconvénient pour certains utilisateurs en Suisse qui
+							préfèrent un contact vocal.
 						</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h3>
 					<p class="u-font-light u-fade-in u-italic">
-						SpinEmpire Casino est particulièrement intéressant pour les joueurs
-						canadiens qui souhaitent profiter de
-						<strong>cryptomonnaies</strong>, d’un
-						<strong>large choix de jeux et de promotions fréquentes</strong>,
-						tout en gardant une interface simple à utiliser.
-					</p>
-					<p class="u-font-light u-fade-in u-italic">
-						J’ai effectué un
-						<strong>dépôt en CAD via cryptomonnaie</strong> pour lancer une
-						machine à sous : les fonds ont été crédités quasi instantanément sur
-						mon compte. Le retrait a également été traité rapidement, sans
-						complications ni demandes excessives, ce qui renforce la confiance
-						dans la gestion des paiements crypto du casino.
+						En testant SpinEmpire Casino, j’ai apprécié la
+						<strong
+							>navigation intuitive et la largeur du catalogue de jeux</strong
+						>
+						qui permet de trouver rapidement ses titres préférés. Les promotions
+						sont bien présentées et faciles à comprendre, ce qui est un plus
+						pour les joueurs suisses qui souhaitent profiter de bonus
+						transparents. Le support client est disponible en plusieurs langues,
+						ce qui facilite l’accès à l’aide en cas de besoin.
 					</p>
 
 					<h3 class="u-fade-in u-mt-lg">Verdict :</h3>
 					<p class="u-content-width u-fade-in">
-						<strong>SpinEmpire Casino Canada</strong> constitue une
-						<strong>alternative moderne</strong> dans un
-						<strong>top casinos en ligne au Canada</strong>, idéale pour les
-						joueurs à la recherche de <strong>diversité</strong>, de
-						<strong>bonus réguliers</strong> et de
-						<strong>moyens de paiement flexibles</strong>.
+						Après avoir testé SpinEmpire en détail, je peux dire que c’est un
+						casino qui mise surtout sur la stabilité et la rapidité. J’ai
+						particulièrement apprécié les retraits traités en peu de temps et la
+						clarté des bonus en CHF, sans surprises cachées pendant
+						l’activation. La sélection de jeux est suffisante pour varier les
+						sessions, que ce soit sur les slots ou les tables classiques.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Pour les joueurs suisses qui recherchent une plateforme simple,
+						efficace et bien structurée, SpinEmpire offre une expérience
+						cohérente et agréable à utiliser au quotidien.
 					</p>
 				</section>
 
@@ -1963,58 +2142,73 @@
 					class="casino-review casino-review--spininio-casino u-fade-in"
 				>
 					<h2 class="u-content-width u-fade-in">
-						Spininio Casino - casino en ligne & sports betting réunis pour les
-						joueurs canadiens
+						Spininio Casino – casino en ligne à forte sélection de jeux pour la
+						Suisse
 					</h2>
 					<p class="u-content-width u-fade-in">
-						Spininio Casino est une plateforme de jeux d’argent en ligne moderne
-						pensée pour les joueurs au <strong>Canada</strong>, combinant casino
-						<strong>en ligne et paris sportifs</strong> dans un seul compte. Le
-						site propose de
-						<strong>gros bonus attractifs en dollars canadiens</strong>, une
-						<strong>bibliothèque de jeux diversifiée</strong> et une interface
-						intuitive aussi bien sur <strong>mobile</strong> que sur ordinateur.
+						<strong>Spininio Casino</strong> est une plateforme en ligne
+						complète qui attire de plus en plus de joueurs en Suisse grâce à son
+						catalogue impressionnant de
+						<strong>plus de 10’000 jeux.</strong> L’offre comprend des machines
+						à sous modernes, des jackpots progressifs, des jeux instantanés, des
+						TV Games, des tournois ainsi qu’une section eSports et Social
+						Casino.
 					</p>
 					<p class="u-content-width u-fade-in">
-						L’inscription est simple, les transactions sont effectuées en
-						<strong>CAD</strong>, et de nombreuses options de dépôt/retrait sont
-						disponibles, notamment Interac <strong>e‑Transfer</strong>, cartes
-						bancaires et portefeuilles électroniques.
+						Le site collabore avec des studios internationaux reconnus tels que
+						<strong
+							>Pragmatic Play, NetEnt, Microgaming, Play’n GO, Evolution Gaming,
+							Nolimit City, Push Gaming, Relax Gaming, Red Tiger, Quickspin,
+							Yggdrasil et Novomatic,</strong
+						>
+						garantissant une grande variété de mécaniques, de thèmes et de
+						fonctionnalités bonus.
 					</p>
 					<p class="u-content-width u-fade-in">
-						<strong>Spininio Casino met l’accent sur</strong> : navigation
-						fluide, offres généreuses dès l’arrivée et une expérience cohérente
-						pour tous les profils de joueurs.
+						Le <strong>Live Casino</strong> est particulièrement développé avec
+						plus de 100 tables en direct (et davantage via les lobbys des
+						fournisseurs), incluant roulette, blackjack sous plusieurs
+						variantes, baccarat, poker live ainsi que des jeux interactifs
+						populaires comme Crazy Time ou Monopoly Live.
+					</p>
+					<p>
+						Spininio fonctionne en Instant Play sur navigateur, avec une
+						optimisation complète pour mobile et desktop, ainsi qu’une
+						application Android dédiée. La plateforme opère sous
+						<strong>licence Anjouan (ALSI-102310002-F15)</strong> et propose
+						plusieurs méthodes de paiement adaptées aux joueurs suisses, avec
+						des retraits traités rapidement. Un programme VIP vient compléter
+						l’expérience pour les joueurs réguliers.
 					</p>
 					<a
 						class="banners u-fade-in"
 						rel="nofollow noopener sponsored"
-						href="https://go.spininio.online/visit/?bta=35107&nci=7791"
+						href=""
 					>
 						<picture>
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-400.webp
+									/assets/img/ch/banners/spininio/spininio-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-800.webp
+									/assets/img/ch/banners/spininio/spininio-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-1200.webp
+									/assets/img/ch/banners/spininio/spininio-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/spininio/spininio-banner-1200.webp"
+								src="/assets/img/ch/banners/spininio/spininio-banner-1200.webp"
 								alt="Bannière promotionnelle de Spininio Casino, univers pirate"
 								width="1200"
 								height="600"
@@ -2032,19 +2226,19 @@
 							<tbody>
 								<tr>
 									<th>📅 Année de création</th>
-									<td>2025</td>
+									<td>2026</td>
 								</tr>
 								<tr>
 									<th>🎮 Nombre de jeux</th>
-									<td>11000+</td>
+									<td>10000+</td>
 								</tr>
 								<tr>
 									<th>🎁 Bonus de bienvenue</th>
-									<td>Jusqu’à 1500 CAD</td>
+									<td>Bonus jusqu’à 1 000 CHF</td>
 								</tr>
 								<tr>
 									<th>💳 Dépôt minimum</th>
-									<td>15 CAD</td>
+									<td>10 CHF</td>
 								</tr>
 								<tr>
 									<th>⏳ Délai de dépôt</th>
@@ -2052,7 +2246,7 @@
 								</tr>
 								<tr>
 									<th>💶 Retrait minimum</th>
-									<td>8 CAD</td>
+									<td>10 CHF</td>
 								</tr>
 								<tr>
 									<th>🕛 Délai de retrait</th>
@@ -2065,6 +2259,38 @@
 							</tbody>
 						</table>
 					</section>
+					<h3>🎁 Bonus de bienvenue Spininio Casino</h3>
+					<p class="u-content-width u-fade-in">
+						Spininio propose aux joueurs suisses un
+						<strong
+							>pack de bienvenue complet sur les quatre premiers dépôts</strong
+						>, avec des codes bonus précis pour activer chaque offre :
+					</p>
+					<ul>
+						<li>
+							1er dépôt : 100 % jusqu’à 200 CHF (CASINO100). Dépôt minimum - 10
+							CHF
+						</li>
+						<li>
+							2e dépôt : 50% jusqu’à 375 CAD (CASINO50). Dépôt minimum - 10 CHF
+						</li>
+						<li>
+							3e dépôt : 50% jusqu’à 375 CAD (50CASINO). Dépôt minimum - 10 CHF
+						</li>
+						<li>
+							4e dépôt : 100% jusqu’à 450 CAD (100CASINO). Dépôt minimum - 10
+							CHF
+						</li>
+					</ul>
+					<p class="u-content-width u-fade-in">
+						💡 <strong>Exigences de mise</strong> : 40x le bonus + dépôt, à
+						réaliser dans un délai de 21 jours. La majorité des machines à sous
+						et jeux à gratter contribuent à 100 %, tandis que certains jeux de
+						table et casino live sont partiellement ou non éligibles. La
+						conversion maximale du bonus est de 5x le montant attribué.
+					</p>
+
+					<!-- Banner button -->
 					<section class="casino-card casino-card--button u-fade-in">
 						<div class="casino-card__info casino-card__info--logo">
 							<img
@@ -2092,7 +2318,7 @@
 						</div>
 						<a
 							class="casino-card__button u-fade-in"
-							href="https://go.spininio.online/visit/?bta=35107&nci=7791"
+							href=""
 							target="_blank"
 							rel="nofollow noopener sponsored"
 							tabindex="0"
@@ -2103,161 +2329,199 @@
 							>
 						</a>
 					</section>
-					<h3>🎁 Bonus de bienvenue Spininio Casino</h3>
+
+					<h3 class="u-content-width u-fade-in">
+						Promotions régulières et tours gratuits
+					</h3>
 					<p class="u-content-width u-fade-in">
-						Spininio Casino propose un
-						<strong>bonus sur vos 4 premiers dépôts :</strong>
+						Spininio offre également des
+						<strong>promotions hebdomadaires et mensuelles</strong> pour les
+						joueurs suisses :
 					</p>
 					<ul>
-						<li>1er dépôt : 100% jusqu’à 300 CAD (CASINO100)</li>
-						<li>2e dépôt : 50% jusqu’à 375 CAD (CASINO50)</li>
-						<li>3e dépôt : 50% jusqu’à 375 CAD (50CASINO)</li>
-						<li>4e dépôt : 100% jusqu’à 450 CAD (100CASINO)</li>
+						<li>
+							<strong>Bonus de recharge du mardi – 50 % jusqu’à 200 CHF</strong>
+							<ul>
+								<li>Code : RELOAD50</li>
+								<li>
+									Idéal pour relancer votre compte et profiter des jeux de table
+									ou machines à sous
+								</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tours gratuits mensuels – jusqu’à 210 free spins</strong>
+							<ul>
+								<li>
+									Dépôt de 20 CHF → 10 tours gratuits (Viking Voyage, Book of
+									Darkness, Monster Pop) <strong>Code : SPIN10X2</strong>
+								</li>
+								<li>
+									Dépôt de 50 CHF → 40 tours gratuits (mêmes jeux)
+									<strong>Code : SPIN40</strong>
+								</li>
+								<li>
+									Dépôt de 100 CHF → 100 tours gratuits (Viking Voyage, Book of
+									Darkness, Monster Pop, Lava Gold, Jungle Stripes)
+									<strong> : SPIN150</strong>
+								</li>
+								<li>
+									<strong>Tournois thématiques</strong> comme
+									<em>Spin Express de Gamzix</em> : du jeudi au samedi chaque
+									semaine, avec des jackpots allant jusqu’à 1 000 000 CHF et des
+									étapes mensuelles comme
+									<em>Gare du grand jackpot ou Route 777</em>.
+								</li>
+							</ul>
+						</li>
 					</ul>
 					<p class="u-content-width u-fade-in">
-						<strong>Dépôt minimum : 15 CAD</strong> - mise à rejouer 40× (bonus
-						+ dépôt) en 21 jours. Machines à sous et jeux à gratter comptent à
-						100%, roulette 10%, live casino et certains jeux à 0%. Conversion
-						max : 5× le bonus.
-					</p>
-					<p>
-						J’aime que le bonus s’étale sur plusieurs dépôts et permette
-						vraiment de découvrir le casino et le sportsbook. Les conditions
-						sont claires, mais il faut jouer un peu stratégiquement pour valider
-						le bonus.
-					</p>
-					<h3 class="u-content-width u-fade-in">💳 Dépôts et retraits</h3>
-					<p class="u-content-width u-fade-in">
-						Spininio Casino propose une
-						<strong>large variété de méthodes de paiement</strong> pour les
-						joueurs canadiens, incluant :
+						➡️ Tous les bonus et codes sont visibles dans le tableau des
+						promotions, avec conditions et exigences de mise claires, ce qui
+						permet aux joueurs suisses de
 						<strong
-							>VISA, MasterCard, Google Pay, Apple Pay, Skrill, Neteller,
-							Interac, Crypto, PaySafe, cartes prépayées et virements
-							bancaires.</strong
+							>savoir exactement ce qu’ils reçoivent avant de
+							participer.</strong
 						>
 					</p>
-					<ul>
-						<li>
-							<strong>Dépôt minimum : 15 CAD</strong> - instantané pour la
-							plupart des méthodes
-						</li>
-						<li>
-							<strong>Retrait minimum : 8 CAD</strong>
-						</li>
-						<li>
-							<strong
-								>Limite de retrait : jusqu’à 3 000 € (ou équivalent en CAD) par
-								semaine</strong
-							>
-						</li>
-						<li>
-							<strong>Délai de retrait : jusqu’à 72 h</strong>après validation
-							KYC et conditions de mise
-						</li>
-					</ul>
+
+					<h3 class="u-content-width u-fade-in">💳 Dépôts et retraits</h3>
+
 					<p class="u-content-width u-fade-in">
-						Tout est simple et rapide, avec un large choix pour s’adapter aux
-						préférences locales des joueurs canadiens.
+						Lors de mon test de Spininio, j’ai trouvé la section paiements
+						particulièrement complète pour les joueurs en Suisse. Le
+						<strong>dépôt minimum est fixé à 10 € (ou équivalent en CHF)</strong
+						>, ce qui permet de commencer sans engagement important.
+					</p>
+					<p class="u-content-width u-fade-in">
+						La plateforme accepte les
+						<strong>cartes Visa et Mastercard,</strong> ainsi que plusieurs
+						portefeuilles électroniques populaires comme
+						<strong>Skrill, Neteller, MiFinity, MuchBetter et Jeton</strong>.
+						Les solutions mobiles <strong>ApplePay et GooglePay</strong> sont
+						également disponibles, ce qui rend les dépôts très rapides depuis un
+						smartphone. Pour ceux qui préfèrent plus de flexibilité, des options
+						comme
+						<strong
+							>Paysafecard, NeoSurf, CashLib, Flexepin, Revolut, virement
+							bancaire</strong
+						>
+						ainsi que les <strongs>cryptomonnaies</strongs> sont proposées.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Les dépôts sont généralement instantanés.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Côté retraits, le <strong>montant minimum est de 5 €</strong>, avec
+						un
+						<strong>plafond pouvant atteindre 3 000 € par semaine</strong> (ou
+						équivalent en CHF). Les demandes sont traitées dans un délai pouvant
+						aller jusqu’à <strong> 72 heures après validation</strong>, à
+						condition que la vérification d’identité (KYC) soit complétée et que
+						les exigences de mise soient respectées.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Dans l’ensemble, j’ai trouvé le processus clair et bien structuré,
+						avec suffisamment d’options pour s’adapter aux préférences des
+						joueurs suisses.
 					</p>
 
 					<h3 class="u-fade-in u-mt-lg">✅ Avantages :</h3>
 					<ul class="u-content-width">
 						<li>
-							Offre combinée
-							<strong>casino + paris sportifs</strong> dans une seule interface
+							Large
+							<strong>bibliothèque de jeux </strong> (slots, live, jackpots)
 						</li>
-						<li>
-							<strong>Bonus de bienvenue très généreux</strong> en CAD dès
-							l’inscription 🎁
-						</li>
-						<li>
-							<strong>Promotions régulières et reloads</strong> pour les joueurs
-							existants
-						</li>
-						<li>
-							Large éventail de
-							<strong>machines à sous, jeux de table et live casino </strong>
-						</li>
-						<li>Paris sportifs disponibles, y compris événements live</li>
-						<li>
-							Transactions en <strong>CAD</strong>, dépôts rapides et retraits
-							fluides avec Interac e‑Transfer
-						</li>
-						<li>
-							<strong>Optimisé pour mobile</strong> sans besoin d’application
-							dédiée
-						</li>
-						<li>
-							Jeux fournis par des studios majeurs (Pragmatic, Evolution,
-							NetEnt, etc.)
-						</li>
+						<li>Bonus généreux avec possibilités de reloads et cashback</li>
+						<li>Navigation fluide, responsive sur mobile</li>
+						<li>Support client adapté aux besoins du marché suisse</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">❌ À noter :</h3>
 					<ul class="u-content-width">
 						<li>
-							<strong>Licence offshore</strong> : moins stricte qu’une licence
-							MGA ou provinciale canadienne —u de protection joueur plus bas
+							Certaines conditions de bonus requièrent un volume de mise
+							important
 						</li>
-						<li>
-							<strong>Exigences de mise importantes</strong> : sur les bonus
-							(souvent 35×) avant retrait possible
-						</li>
-						<li>
-							Certaines promos ou limites peuvent varier selon la localisation
-							au Canada
-						</li>
+						<li>Pas d’application mobile dédiée (mais site mobile optimisé)</li>
 					</ul>
+
 					<h3 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h3>
 					<p class="u-font-light u-fade-in u-italic">
-						J’ai effectué un <strong>dépôt via Interac</strong> pour jouer au
-						<strong>Baccara</strong>, et l’argent a été
-						<strong>crédité instantanément</strong> sur mon compte. Les jeux se
-						sont <strong>chargés rapidement</strong> et ont parfaitement
-						fonctionné, offrant une expérience de jeu fluide et agréable.
+						Après plusieurs sessions sur Spininio, j’ai trouvé la navigation
+						fluide et intuitive, même en passant du desktop au mobile. Le
+						catalogue est réellement vaste, ce qui permet d’alterner facilement
+						entre slots, jeux live et formats plus interactifs sans sensation de
+						répétition.
+					</p>
+
+					<p class="u-font-light u-fade-in u-italic">
+						J’ai également apprécié la mise en avant claire des promotions dans
+						l’espace dédié, ainsi que le programme VIP qui ajoute un vrai
+						sentiment de progression au fil des sessions. L’ensemble donne une
+						expérience dynamique et bien structurée, adaptée aux joueurs qui
+						aiment varier les styles de jeu.
 					</p>
 
 					<h3 class="u-fade-in u-mt-lg">Verdict :</h3>
 					<p class="u-content-width">
-						Spininio Casino convient aux joueurs canadiens qui veulent une
-						plateforme simple, polyvalente et généreuse en bonus, avec la
-						possibilité de passer facilement du casino aux paris sportifs. Ce
-						n’est pas le casino le plus strictement régulé ni le plus ancien du
-						marché, mais il propose une
-						<strong>expérience moderne et bien pensée</strong>, surtout pour
-						ceux qui jouent régulièrement et aiment les
-						<strong>offres en CAD</strong>.
+						Spininio Casino est une option solide pour les joueurs suisses qui
+						cherchent un
+						<strong
+							>catalogue de jeux riche, des bonus intéressants et une expérience
+							fluide</strong
+						>, notamment sans installation d’app.
 					</p>
 				</section>
 
 				<!-- Review Vegazone Casino -->
 				<section class="casino-review casino-review--vegazone-casino u-fade-in">
 					<h2 class="u-content-width u-fade-in">
-						Vegazone Casino - 260 % de bonus, 260 free spins et paiements
-						sécurisés en CAD
+						VegaZone Casino – Jeux, Live Casino et bonus pour joueurs suisses
 					</h2>
 					<article class="u-content-width u-fade-in">
 						<p class="u-content-width u-fade-in">
-							<strong>Vegazone Casino</strong> est un casino en ligne accessible
-							aux joueurs canadiens, qui mise sur une interface moderne, une
-							navigation fluide et un catalogue de jeux varié incluant machines
-							à sous, jeux de table et live casino. La plateforme
-							<strong>accepte les dépôts en CAD</strong> ainsi que plusieurs
-							cryptomonnaies, ce qui la rend flexible pour les joueurs au Canada
-							recherchant des options de paiement alternatives.
+							<strong>Vegazone Casino</strong> fait partie des nouveaux casinos
+							en ligne en Suisse lancés en <strong>2025</strong>, et se
+							positionne déjà comme une plateforme complète pour les joueurs
+							recherchant un <strong>casino en ligne fiable en CHF</strong>.
+							Exploité par <strong>GBL Factory</strong> et titulaire d’une
+							<strong>licence de Curaçao</strong>, le site propose une
+							infrastructure moderne, une assistance disponible
+							<strong>24/7</strong> et une offre de jeux particulièrement
+							étendue.
 						</p>
 						<p class="u-content-width u-fade-in">
-							En matière de transparence, le site Vegazone.com est exploité par
-							GBL Solutions N.V., société enregistrée à Curaçao et réglementée
-							par la Curaçao Gaming Control Board (licence OGL/2024/589/0556).
+							Le catalogue rassemble plusieurs milliers de titres issus de
+							fournisseurs majeurs du secteur tels que
+							<strong
+								>Pragmatic Play, Evolution, NetEnt, Play’n GO, Nolimit City,
+								Playtech, Big Time Gaming, Relax Gaming, Quickspin, Yggdrasil,
+								Red Tiger, Games Global, Novomatic, Hacksaw Gaming et
+								Spribe.</strong
+							>
+							Cette diversité permet aux joueurs suisses d’accéder à un large
+							choix de
+							<strong
+								>machines à sous en ligne, jackpots progressifs, jeux crash,
+								roulettes, blackjack et baccarat en live.</strong
+							>
 						</p>
 						<p class="u-content-width u-fade-in">
-							D’un point de vue pratique, cela signifie que VegaZone opère sous
-							licence internationale et applique les standards classiques de
-							sécurité et de protection des transactions attendus dans
-							l’industrie des casinos en ligne.
+							La section <strong>Live Casino Suisse</strong> est alimentée par
+							des studios reconnus comme Evolution et Pragmatic Live,
+							garantissant des tables en direct avec croupiers professionnels.
+							Les jeux sont accessibles sur ordinateur et mobile via navigateur,
+							sans téléchargement obligatoire, avec une expérience optimisée
+							pour le marché suisse.
+						</p>
+						<p class="u-content-width u-fade-in">
+							Grâce à une grande variété de fournisseurs, des paiements modernes
+							incluant les cryptomonnaies et une disponibilité en CHF, VegaZone
+							s’impose comme une option à considérer pour les joueurs
+							recherchant un casino
+							<strong>en ligne sécurisé et complet en Suisse.</strong>
 						</p>
 					</article>
 
@@ -2271,25 +2535,25 @@
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-400.webp
+									/assets/img/ch/banners/vegazone/vegazone-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-800.webp
+									/assets/img/ch/banners/vegazone/vegazone-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-1200.webp
+									/assets/img/ch/banners/vegazone/vegazone-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/vegazone/vegazone-banner-1200.webp"
+								src="/assets/img/ch/banners/vegazone/vegazone-banner-1200.webp"
 								alt="Bannière promotionnelle de Vegazone Casino"
 								width="1200"
 								height="600"
@@ -2314,11 +2578,11 @@
 								</tr>
 								<tr>
 									<th>🎁 Bonus de bienvenue</th>
-									<td>260% Jusqu’à 3600 CAD + 260 tours gratuits</td>
+									<td>260 % jusqu’à 2 600 CHF + 260 tours gratuits</td>
 								</tr>
 								<tr>
 									<th>💳 Dépôt minimum</th>
-									<td>15 CAD</td>
+									<td>20 CHF</td>
 								</tr>
 								<tr>
 									<th>⏳ Délai de dépôt</th>
@@ -2326,7 +2590,7 @@
 								</tr>
 								<tr>
 									<th>💶 Retrait minimum</th>
-									<td>20 CAD</td>
+									<td>50 CHF</td>
 								</tr>
 								<tr>
 									<th>🕛 Délai de retrait</th>
@@ -2339,11 +2603,67 @@
 							</tbody>
 						</table>
 					</section>
+
+					<article>
+						<h3>🎁 Bonus de bienvenue Vegazone Casino</h3>
+						<p class="u-content-width u-fade-in">
+							VegaZone Casino accueille les nouveaux joueurs suisses avec un
+							<strong>Galactic Welcome Package généreux</strong>, réparti sur
+							<strong>plusieurs dépôts</strong> pour maximiser votre expérience
+							de jeu :
+						</p>
+						<ul
+							style="list-style: none; padding-left: 0"
+							class="u-content-width u-fade-in"
+						>
+							<li>
+								<strong>1er dépôt</strong> : 100 % j jusqu’à
+								<strong>500 CHF + 100 tours gratuits</strong>
+								<em>(tours gratuits attribués pour les dépôts ≥ 50 CHF)</em>
+							</li>
+							<li>
+								<strong>2e dépôt</strong> : % jusqu’à
+								<strong>600 CHF + 50 tours gratuits</strong>
+							</li>
+							<li>
+								<strong>3e dépôt</strong> : 50 % jusqu’à
+								<strong>700 CHF + 50 tours gratuits</strong>
+							</li>
+							<li>
+								<strong>4e dépôt</strong> : 60 % jusqu’à
+								<strong>800 CHF + 60 tours gratuits</strong>
+							</li>
+						</ul>
+						<p class="u-content-width u-fade-in">
+							👉 La <strong>valeur totale combinée</strong> de ce pack peut
+							atteindre
+							<strong>260 % jusqu’à 2 600 CHF + 260 tours gratuits</strong>,
+							selon les montants déposés et les conditions d’éligibilité.
+						</p>
+						<p class="u-content-width u-fade-in">
+							📌 Le
+							<strong
+								>dépôt minimum pour activer les bonus est de 20 CHF</strong
+							>
+							(et souvent 50 CHF pour débloquer les tours gratuits).
+						</p>
+						<p class="u-content-width u-fade-in">
+							💡 Les fonds bonus et les
+							<strong
+								>tours gratuits sont généralement soumis à des conditions de
+								mise (exigence de playthrough x45)</strong
+							>
+							qui doivent être complétées avant de pouvoir retirer vos gains
+							éventuels.
+						</p>
+					</article>
+
+					<!-- Banner button -->
 					<section class="casino-card casino-card--button u-fade-in">
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="/assets/img/ca/logos/vegazone/vegazone-logo.webp"
+								src="/assets/img/ch/logos/vegazone/vegazone-logo.webp"
 								alt="Logo de Vegazone Casino (section avis détaillé)"
 								width="150"
 								height="150"
@@ -2362,7 +2682,7 @@
 						<div class="casino-card__features u-fade-in">
 							<span class="casino-card__bonus-title">Bonus De Bienvenue</span>
 							<p class="casino-card__bonus">
-								260% jusqu’à 3600 CAD + 260 tours gratuits
+								260 % jusqu’à 2 600 CHF + 260 tours gratuits
 							</p>
 						</div>
 						<a
@@ -2378,98 +2698,175 @@
 							>
 						</a>
 					</section>
+
 					<article>
-						<h3>🎁 Bonus de bienvenue Vegazone Casino</h3>
+						<h3 class="u-content-width u-fade-in">
+							🪐 Options supplémentaires de promotions régulières
+						</h3>
 						<p class="u-content-width u-fade-in">
-							VegaZone propose un pack
-							<span>“Bienvenue Galactique”</span>pouvant atteindre 260 % jusqu’à
-							C$3,600 + 260 tours gratuits, réparti sur les quatre premiers
-							dépôts.
+							En plus du pack de bienvenue, VegaZone propose régulièrement :
 						</p>
-						<ul
-							style="list-style: none; padding-left: 0"
-							class="u-content-width u-fade-in"
-						>
-							<li>🔹 1er dépôt : 100 % jusqu’à C$700 + 100 free spins</li>
-							<li>🔹 2e dépôt : 50 % jusqu’à C$800 + 50 free spins</li>
-							<li>🔹 3e dépôt : 50 % jusqu’à C$1,000 + 50 free spins</li>
-							<li>🔹 4e dépôt : 60 % jusqu’à C$1,100 + 60 free spins</li>
+						<ul class="u-content-width u-fade-in">
+							<li>
+								<strong>Cosmic Cashback</strong> et bonus de recharge
+								hebdomadaire
+							</li>
+							<li><strong>Bonus Sunday Funday</strong>et Weekend Reload</li>
+							<li>Offres spécifiques pour les VIP et niveaux de fidélité</li>
 						</ul>
 						<p class="u-content-width u-fade-in">
-							👉 Dépôt minimum à partir de C$15.
+							Ces promotions offrent des opportunités supplémentaires d’obtenir
+							des récompenses tout au long de votre expérience de jeu.
 						</p>
 						<p class="u-content-width u-fade-in">
-							Une offre High Roller est également disponible : 100 % jusqu’à
-							C$2,000 + 200 tours gratuits sur le premier dépôt.
-						</p>
-						<p class="u-content-width u-fade-in">
-							Les exigences de mise sont de 45x (35x pour le High Roller), avec
-							un plafond de mise de C$7 par tour.
+							<em
+								>💡 Toutes les conditions spécifiques (jeux éligibles, durée de
+								validité des bonus, limites de mise et modalités précises) sont
+								disponibles dans la section Promotions du casino. Il est
+								recommandé de les consulter avant d’activer une offre.</em
+							>
 						</p>
 					</article>
+
 					<article>
 						<h3 class="u-content-width u-fade-in">💳 Dépôts et retraits</h3>
 						<p class="u-content-width u-fade-in">
-							VegaZone accepte plusieurs méthodes de paiement adaptées aux
-							joueurs canadiens :
+							VegaZone Casino met à disposition des joueurs en Suisse une gamme
+							étendue de méthodes de paiement modernes, compatibles avec les
+							transactions en <strong>francs suisses (CHF)</strong>.
 						</p>
-						<ul class="u-content-width u-fade-in">
-							<li>Cartes bancaires (Visa, Mastercard)</li>
-							<li>Portefeuilles électroniques</li>
-							<li>Cartes prépayées</li>
-							<li>Cryptomonnaies (Bitcoin, Ethereum, USDT, etc.)</li>
+						<p class="u-content-width u-fade-in">
+							Les joueurs peuvent effectuer leurs dépôts via :
+						</p>
+						<ul>
+							<li><strong>Cartes bancaires</strong> : Visa, Mastercard</li>
+							<li>
+								<strong>Portefeuilles électroniques</strong>: Skrill, Neteller,
+								MiFinity, Jeton, MuchBetter, eZeeWallet
+							</li>
+							<li>
+								<strong>Solutions bancaires & fintech</strong> : Sofort, Noda
+								Bank Transfer, Revolut, WISE, virement bancaire
+							</li>
+							<li>
+								<strong>Paiements mobiles</strong> : Apple Pay, Google Pay
+							</li>
+							<li>
+								<strong>Cartes prépayées</strong> : PaySafeCard, Neosurf,
+								CASHlib
+							</li>
+							<li>
+								<strong>Cryptomonnaies</strong> : Bitcoin, Ethereum, Litecoin,
+								USDT (ERC20 & TRC20), Dogecoin, Ripple, Solana, Binance Pay et
+								autres
+							</li>
 						</ul>
+						<p class="u-content-width">
+							Les dépôts sont généralement <strong>instantanés</strong>, selon
+							la méthode choisie.
+						</p>
+						<p class="u-content-width">
+							Les retraits sont traités dans un délai estimé de<strong
+								>3 à 5 jours ouvrables</strong
+							>, sous réserve de validation KYC et du respect des conditions de
+							mise.
+						</p>
+						<p class="u-content-width">
+							Pour les comptes en <strong>CHF</strong>, les plafonds de retrait
+							dépendent du niveau VIP :
+						</p>
+
+						<table class="u-content-width vip-limits-table">
+							<thead>
+								<tr>
+									<th>Niveau</th>
+									<th>Par transaction</th>
+									<th>Par jour</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1 – 10</td>
+									<td>500 CHF</td>
+									<td>500 CHF</td>
+								</tr>
+								<tr>
+									<td>11 – 40</td>
+									<td>750 CHF</td>
+									<td>750 CHF</td>
+								</tr>
+								<tr>
+									<td>41 – 60</td>
+									<td>1 000 CHF</td>
+									<td>1 000 CHF</td>
+								</tr>
+								<tr>
+									<td>61 – 89</td>
+									<td>1 250 CHF</td>
+									<td>1 250 CHF</td>
+								</tr>
+								<tr>
+									<td>90 – 100</td>
+									<td>3 000 CHF</td>
+									<td>3 000 CHF</td>
+								</tr>
+							</tbody>
+						</table>
+
 						<p class="u-content-width u-fade-in">
-							Les dépôts sont généralement instantanés, tandis que les retraits
-							sont traités sous un délai moyen de
-							<strong>3 à 5 jours ouvrables</strong>, selon la méthode de
-							paiement choisie.
+							Ce système progressif récompense les joueurs réguliers avec des
+							limites plus élevées au fil de leur activité.
 						</p>
 						<p class="u-content-width u-fade-in">
-							Une vérification d’identité peut être demandée pour sécuriser les
-							transactions, conformément aux standards du secteur.
+							Dans l’ensemble, VegaZone propose une infrastructure de paiement
+							complète et adaptée au marché suisse, combinant méthodes
+							traditionnelles, solutions digitales et crypto-paiements pour une
+							gestion flexible des fonds en CHF.
 						</p>
 					</article>
 					<h3 class="u-fade-in u-mt-lg">✅ Avantages :</h3>
 					<ul class="u-content-width u-fade-in">
-						<li>Dépôts sans frais supplémentaires</li>
-						<li>
-							Support client
-							<strong>disponible 24h/24 et 7j/7 via chat en direct</strong>
-						</li>
-						<li>
-							Catalogue de jeux signé par des fournisseurs reconnus du secteur
-						</li>
+						<li><strong>Large sélection de slots</strong> et jeux Live</li>
+						<li>Bonus de bienvenue compétitif</li>
+						<li>Support multi‑plateforme <strong>(mobile, desktop)</strong></li>
+						<li><strong>Plusieurs options de paiement </strong> modernes</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">❌ À noter :</h3>
 					<ul class="u-content-width u-fade-in">
-						<li>
-							<strong
-								>Les retraits ne sont pas traités en soirée ni durant le
-								week-end</strong
-							>, ce qui peut rallonger les délais de paiement.
-						</li>
+						<li>Pas de retraits possibles en soirée ni le week-end</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h3>
 					<p class="u-font-light u-fade-in u-italic">
-						Lors de mon test, j’ai
-						<strong>effectué un dépôt en CAD</strong> pour essayer plusieurs
-						machines à sous. Les fonds ont été crédités rapidement, et
-						l’interface s’est révélée fluide et intuitive. Le processus de
-						retrait s’est déroulé sans complications majeures, ce qui renforce
-						la fiabilité globale de la plateforme pour les joueurs canadiens.
+						Lors de mon test, j’ai choisi d’effectuer un dépôt en
+						<strong>Bitcoin</strong>, et j’ai été agréablement surprise par la
+						rapidité du traitement. La transaction a été confirmée très vite sur
+						le réseau, et les fonds sont apparus sur mon compte presque
+						immédiatement, ce qui m’a permis de commencer à jouer sans attente.
+					</p>
+					<p class="u-font-light u-fade-in u-italic">
+						Côté jeux, j’ai vraiment apprécié l’équilibre entre les machines à
+						sous modernes et les titres plus classiques. Je suis passée
+						facilement des slots dynamiques aux tables avec croupiers en direct,
+						sans difficulté de navigation. La sélection m’a semblé variée et
+						bien structurée, idéale autant pour les amateurs de nouveautés que
+						pour celles et ceux qui préfèrent les jeux de casino traditionnels.
 					</p>
 					<h3 class="u-fade-in u-mt-lg">Verdict :</h3>
 					<p class="u-content-width u-fade-in">
-						<strong>VegaZone Casino Canada</strong> se distingue par une
-						approche plus structurée et maîtrisée de l’expérience joueur,
-						combinant environnement technique stable, transactions en CAD et
-						architecture de bonus bien pensée. La plateforme s’adresse aux
-						joueurs exigeants qui recherchent un cadre fiable, une gestion
-						fluide des paiements et une progression cohérente des offres
-						promotionnelles, sans complexité inutile.
+						Après mon test, VegaZone Casino m’a laissé une impression très
+						positive. Entre une sélection équilibrée de machines à sous modernes
+						et de jeux de table en live, une navigation fluide et des moyens de
+						paiement variés — notamment le <strong>Bitcoin</strong>, que j’ai
+						utilisé avec un dépôt traité très rapidement — l’expérience s’est
+						révélée complète et agréable.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Avec sa compatibilité en CHF, ses plafonds de retrait évolutifs
+						selon le niveau VIP et ses nombreuses options de paiement (cartes,
+						e-wallets, crypto), VegaZone constitue une plateforme moderne et
+						bien adaptée aux attentes du marché francophone suisse.
 					</p>
 				</section>
 
@@ -2479,16 +2876,46 @@
 					class="casino-review casino-review--mafiacasino u-fade-in"
 				>
 					<h2 class="u-content-width u-fade-in">
-						Mafia Casino - casino en ligne compatible avec les cryptomonnaies
-						pour les joueurs canadiens
+						Mafia Casino – large choix de jeux et plateforme moderne pour les
+						joueurs suisses
 					</h2>
 					<p class="u-content-width u-fade-in">
-						Lancé en 2025, Mafia Casino se distingue déjà par sa ludothèque XXL
-						et son interface moderne, pensée pour les joueurs au Canada. La
-						plateforme propose plus de 11 300 jeux issus de 100+ fournisseurs,
-						incluant machines à sous, jeux de table, jackpots progressifs et
-						casino en direct. J’ai testé la plateforme pour vous donner un
-						retour concret sur l’expérience de jeu.
+						Lancé en 2025, <strong>Mafia Casino</strong> s’impose rapidement
+						comme un nouveau casino en ligne attractif pour les joueurs suisses
+						grâce à une plateforme moderne, une large bibliothèque de jeux et
+						une expérience fluide sur tous les appareils. Le site se distingue
+						notamment par un univers graphique original inspiré de l’esthétique
+						des jeux vidéo, avec une interface dynamique et intuitive qui
+						facilite la navigation entre les différentes sections du casino.
+					</p>
+					<p class="u-content-width u-fade-in">
+						La plateforme fonctionne sous licence délivrée par l’autorité
+						d’Anjouan et collabore avec plusieurs éditeurs reconnus de
+						l’industrie du jeu. Parmi eux, on retrouve notamment Play’n GO,
+						PragmaticPlay ou encore Spribe, ce qui garantit l’accès à des
+						machines à sous populaires, à des jeux rapides et à des expériences
+						innovantes comme les crash games. Les titres disponibles sont
+						régulièrement vérifiés et affichent un
+						<strong>RTP moyen d’environ 96 %</strong>, un niveau compétitif dans
+						le secteur des casinos en ligne.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Du côté de l’offre de jeux, Mafia Casino propose plusieurs milliers
+						de titres : machines à sous vidéo, jeux de table classiques, jeux
+						instantanés et autres formats modernes. Cette diversité permet aux
+						joueurs suisses de trouver facilement des jeux adaptés à leurs
+						préférences, qu’il s’agisse de slots à jackpot, de roulette ou de
+						formats plus rapides.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Le site est également crypto-friendly et propose une expérience
+						optimisée pour les utilisateurs internationaux. L’interface est
+						disponible en plusieurs langues, dont le français, ce qui facilite
+						l’accès pour <strong>les joueurs suisses francophones</strong>.
+						Grâce à une navigation simple, un design bien structuré et une
+						bibliothèque de jeux particulièrement riche, Mafia Casino se
+						positionne comme une plateforme intéressante à découvrir pour les
+						amateurs de casino en ligne.
 					</p>
 					<a
 						class="banners"
@@ -2499,20 +2926,20 @@
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-400.webp"
+								srcset="/assets/img/ch/banners/mafia/mafia-banner-400.webp"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-800.webp"
+								srcset="/assets/img/ch/banners/mafia/mafia-banner-800.webp"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
+								srcset="/assets/img/ch/banners/mafia/mafia-banner-1200.webp"
 							/>
 							<img
-								src="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
+								src="/assets/img/ch/banners/mafia/mafia-banner-1200.webp"
 								alt="Bannière promotionnelle de Mafia Casino"
 								width="1200"
 								height="600"
@@ -2537,11 +2964,11 @@
 								</tr>
 								<tr>
 									<th>🎁 Bonus de bienvenue</th>
-									<td>750 CAD + 200 tours gratuits</td>
+									<td>100 % jusqu’à 550 CHF + 200 tours gratuits</td>
 								</tr>
 								<tr>
 									<th>💳 Dépôt minimum</th>
-									<td>30 CAD</td>
+									<td>10 CHF</td>
 								</tr>
 								<tr>
 									<th>⏳ Délai de dépôt</th>
@@ -2549,7 +2976,7 @@
 								</tr>
 								<tr>
 									<th>💶 Retrait minimum</th>
-									<td>20 CAD</td>
+									<td>20 CHF</td>
 								</tr>
 								<tr>
 									<th>🕛 Délai de retrait</th>
@@ -2562,6 +2989,54 @@
 							</tbody>
 						</table>
 					</section>
+
+					<h3 class="u-fade-in u-mt-lg">🎁 Bonus de bienvenue Mafia Casino</h3>
+					<p class="u-content-width u-fade-in">
+						Pour attirer les nouveaux joueurs en Suisse, Mafia Casino propose un
+						<strong>bonus de bienvenue compétitif en CHF</strong>, combinant un
+						bonus de dépôt et des tours gratuits sur les machines à sous
+						populaires du site.
+					</p>
+					<p class="u-content-width u-fade-in">
+						<strong
+							>Offre de bienvenue : 100 % jusqu’à 550 CHF + 200 tours
+							gratuits</strong
+						>
+					</p>
+					<p class="u-content-width u-fade-in">
+						Lors du premier dépôt, le casino double le montant crédité sur votre
+						compte jusqu’à 550 CHF, ce qui permet de commencer avec un budget de
+						jeu plus important. En complément, les nouveaux inscrits reçoivent
+						<strong>200 free spins</strong>, distribués progressivement pour
+						prolonger l’expérience sur les slots.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Cette offre s’adresse particulièrement aux
+						<strong
+							>joueurs suisses recherchant un casino en ligne avec bonus en CHF
+							et free spins</strong
+						>, tout en conservant des conditions relativement standards pour ce
+						type de promotion.
+					</p>
+					<h3 class="u-content-width u-fade-in">
+						Conditions principales du bonus
+					</h3>
+					<ul>
+						<li><strong>Dépôt minimum</strong> : 22 CHF</li>
+						<li><strong>Bonus</strong> : 100 % jusqu’à 550 CHF</li>
+						<li><strong>Free spins</strong> : 200 tours gratuits</li>
+						<li><strong>Exigence de mise</strong>: 35× (bonus + dépôt)</li>
+						<li><strong>Exigence sur les gains des free spins</strong>: 40×</li>
+						<li><strong>Validité du bonus</strong>: 10 jours</li>
+					</ul>
+					<p class="u-content-width u-fade-in">
+						Les <strong>200 tours gratuits</strong> sont crédités
+						<strong>par blocs de 20 free spins par jour pendant 10 jours</strong
+						>, ce qui permet de profiter du bonus sur plusieurs sessions de jeu
+						plutôt que de tout utiliser en une seule fois.
+					</p>
+
+					<!-- Banner button -->
 					<section class="casino-card casino-card--button u-fade-in">
 						<div class="casino-card__info casino-card__info--logo">
 							<img
@@ -2597,314 +3072,320 @@
 							>
 						</a>
 					</section>
-					<h3 class="u-fade-in u-mt-lg">🎁 Bonus de bienvenue Mafia Casino</h3>
-					<p class="u-content-width u-fade-in">
-						Mafia Casino offre un <strong>bonus sur le premier dépôt</strong> de
-						100% jusqu’à <strong>750 CAD + 200 tours gratuits</strong> répartis
-						sur 10 jours.
-					</p>
-					<ul>
-						<li>
-							<strong>Dépôt minimum : 20 CAD</strong>
-						</li>
-						<li>
-							<strong>Exigence de mise : 35× sur dépôt + bonus</strong>
-						</li>
-						<li>
-							Les free spins sont crédités progressivement avec un wagering de
-							40×.
-						</li>
-					</ul>
-					<p class="u-content-width u-fade-in">
-						Le bonus est généreux et permet de
-						<strong>découvrir la plateforme progressivement</strong>, avec une
-						grande variété de jeux.
-					</p>
+
 					<h3 class="u-content-width u-fade-in">💳 Dépôts et retraits</h3>
 					<p class="u-content-width u-fade-in">
-						Mafia Casino propose un
-						<strong>
-							large choix de méthodes adaptées aux joueurs canadiens</strong
-						>incluant :
+						Pour les joueurs en Suisse, <strong>Mafia Casino</strong> propose un
+						système de paiements flexible avec plusieurs méthodes populaires
+						permettant de déposer et retirer facilement des fonds en ligne. La
+						plateforme accepte aussi bien les moyens classiques que les
+						cryptomonnaies, ce qui offre une grande liberté pour gérer son
+						compte.
 					</p>
 					<p class="u-content-width u-fade-in">
-						<strong
-							>VISA, MasterCard, Google Pay, Apple Pay, Skrill, Neteller,
-							Interac, PaySafe, cartes prépayées, cryptomonnaies et virements
-							bancaires.
-						</strong>
+						Parmi les méthodes les plus utilisées sur le marché suisse, on
+						retrouve notamment :
 					</p>
 					<ul>
+						<li><strong>Cartes bancaires</strong> : Visa, Mastercard</li>
 						<li>
-							<strong>Dépôt minimum : 10 CAD</strong> - instantané pour la
-							plupart des méthodes
+							<strong>Portefeuilles électroniques</strong> : Skrill, Neteller,
+							MiFinity
+						</li>
+						<li><strong>Cartes prépayées</strong> : PaysafeCard</li>
+						<li>
+							<strong>Cryptomonnaies</strong> : Bitcoin, Ethereum, Litecoin,
+							Dogecoin, USDT
 						</li>
 						<li>
-							<strong>Retrait minimum : 20 CAD</strong>
-						</li>
-						<li>
-							<strong>Délais de retrait</strong> instantané à 72 h selon la
-							méthode
-						</li>
-						<li>
-							Les cryptomonnaies (Bitcoin, Ethereum, Litecoin, DOGE, USDT,
-							Cardano) sont traitées en <strong>moins d’une heure</strong>
+							<strong>Virements bancaires et transferts en ligne</strong
+							>(Internet Banking, SEPA)
 						</li>
 					</ul>
+					<p class="u-content-width u-fade-in">
+						Le
+						<strong>dépôt minimum est généralement fixé à environ 10 CHF</strong
+						>, et la majorité des transactions sont créditées instantanément, ce
+						qui permet de commencer à jouer immédiatement sur les machines à
+						sous ou les tables live.
+					</p>
+					<p class="u-content-width u-fade-in">
+						Côté retraits, plusieurs options sont également disponibles, avec un
+						<strong>montant minimal d’environ 10 CHF par opération</strong>. Les
+						paiements par
+						<strong>cryptomonnaies peuvent être traités très rapidement</strong
+						>, tandis que les retraits via
+						<strong
+							>carte bancaire ou virement SEPA prennent en moyenne entre 1 et 3
+							jours ouvrables</strong
+						>
+						selon la méthode sélectionnée.
+					</p>
+					<p class="u-content-width u-fade-in">
+						La plateforme applique également une
+						<strong
+							>limite maximale d’environ 5 000 CHF par transaction,</strong
+						>
+						avec des plafonds plus élevés pour certains comptes VIP. Dans
+						l’ensemble, Mafia Casino propose un système de paiements simple et
+						fiable, adapté aux habitudes des joueurs suisses.
+					</p>
+
 					<h3 class="u-fade-in u-mt-lg">✅ Avantages :</h3>
 					<ul class="u-content-width u-fade-in">
-						<li>Plus de <strong> 11 300 jeux disponibles </strong></li>
-						<li>Acceptation des <strong>cryptomonnaies</strong></li>
-						<li><strong>Support client 24/7</strong> en français</li>
 						<li>
-							<strong>Version mobile optimisée</strong>
+							<strong
+								>Bibliothèque massive de plus de 9 200 jeux de casino,</strong
+							>, incluant machines à sous, jeux de table et titres innovants
 						</li>
-						<li>Promotions et bonus réguliers</li>
-						<li>Casino live et section paris sportifs</li>
+						<li>
+							<strong>Bonus variés et promotions régulières </strong> : offres
+							de bienvenue, free spins et cashback pour prolonger le temps de
+							jeu
+						</li>
+						<li>
+							<strong>Programme VIP évolutif</strong> avec récompenses
+							exclusives et avantages pour les joueurs fidèles
+						</li>
+						<li>
+							<strong>Plateforme accessible aux joueurs suisses</strong> avec
+							interface multilingue et navigation simple
+						</li>
+						<li>
+							<strong>Design immersif inspiré de l’univers Mafia</strong>, qui
+							donne une identité visuelle unique au casino
+						</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">❌ À noter :</h3>
 					<ul class="u-content-width u-fade-in">
-						<li>Wager relativement élevé sur certains bonus</li>
-						<li>Dépôts via Skrill et Neteller exclus des promotions</li>
+						<li>Plafond de retrait limité à 5 000 € par transaction</li>
+						<li>
+							Traitement des retraits uniquement pendant les heures ouvrables,
+							sans validation le soir ni le week-end
+						</li>
 					</ul>
 					<h3 class="u-fade-in u-mt-lg">
 						🔍 Mon petit mot en tant que testeuse :
 					</h3>
 					<p class="u-font-light u-fade-in u-italic">
-						J’ai créé mon compte sur Mafia Casino en quelques minutes, tout a
-						été approuvé immédiatement. J’ai ensuite effectué un
-						<strong>dépôt de 50$ via ApplePay</strong>, crédité instantanément,
-						et
-						<strong
-							>j’ai testé plusieurs jeux de table dont le Baccara et le
-							Blackjack</strong
-						>. Les jeux se sont chargés rapidement et ont parfaitement
-						fonctionné, offrant une expérience fluide et agréable.
+						Lors de mon test de Mafia Casino, la première chose que j’ai
+						remarquée est la rapidité du processus d’inscription. La création de
+						compte m’a pris seulement quelques minutes et tout s’est déroulé de
+						manière simple et fluide. J’ai ensuite effectué un dépôt avec
+						<strong>Visa</strong>, qui a été crédité presque instantanément sur
+						mon compte, ce qui permet de commencer à jouer sans attente.
+					</p>
+					<p class="u-font-light u-fade-in u-italic">
+						Une fois sur la plateforme, j’ai aussi apprécié l’ampleur du
+						catalogue de jeux. On trouve facilement aussi bien des machines à
+						sous populaires que des titres plus récents ainsi qu’une sélection
+						de jeux de table et de Live Casino. Malgré la taille de la
+						bibliothèque, la navigation reste claire et agréable, ce qui rend
+						l’exploration des jeux assez intuitive. Globalement, mon expérience
+						sur le site a été très positive.
 					</p>
 					<h3 class="u-fade-in u-mt-lg">Verdict :</h3>
 					<p class="u-content-width u-fade-in">
-						Mafia Casino est une excellente option pour les joueurs canadiens
-						qui recherchent
-						<strong>une ludothèque immense, des jeux rapides et fiables</strong
-						>, et la possibilité de jouer avec
-						<strong>des cryptomonnaies</strong>. Les
-						<strong>bonus généreux</strong> et les promotions régulières
-						permettent de profiter pleinement de la plateforme, tandis que les
-						<strong>dépôts et retraits rapides</strong>, notamment via Interac
-						et crypto, rendent l’expérience pratique et agréable. Idéal pour les
-						joueurs réguliers et ceux qui veulent explorer un large éventail de
-						jeux.
+						Grâce à sa bibliothèque impressionnante de plus de 9 000 jeux, ses
+						partenariats avec de nombreux studios reconnus et ses options de
+						paiement flexibles, Mafia Casino se positionne comme une plateforme
+						intéressante pour les joueurs suisses à la recherche d’un casino en
+						ligne riche en contenu. Le site propose une grande variété de
+						machines à sous, de jeux de table et d’expériences Live Casino
+						accessibles sur ordinateur comme sur mobile.
 					</p>
 					<p class="u-content-width u-fade-in">
-						<strong>Je ne me limite pas au Canada</strong> - pour mes lecteurs
-						francophones, j’ai aussi sélectionné :
+						Même si la plateforme fonctionne avec une licence internationale
+						plutôt qu’une licence locale suisse, elle reste une option à
+						considérer pour les joueurs francophones qui souhaitent découvrir un
+						<strong
+							>casino en ligne avec un large choix de jeux et des promotions
+							régulières.</strong
+						>
+					</p>
+					<p class="u-content-width u-fade-in">
+						Je ne me concentre pas uniquement sur la Suisse – pour mes lecteurs
+						francophones, j’ai également préparé une sélection dédiée :
 					</p>
 					<ul>
-						<li>Les <strong>casinos en ligne reconnus en Suisse</strong></li>
 						<li>
-							Classement des 10 meilleurs casinos en ligne en
-							<a href="/" class="u-font-bold">France</a>
+							Meilleur <strong>casino en ligne Canada</strong> – comparatif
+							complet
+						</li>
+						<li>
+							Top 10 des <strong>meilleurs casinos en ligne France</strong> 2026
 						</li>
 					</ul>
 				</section>
 
 				<!-- Guide -->
-				<h2 id="responsable" class="u-content-width u-fade-in">
-					Comment choisir le meilleur casino en ligne au Canada en 2026
+				<h2
+					id="responsable"
+					class="u-content-width u-fade-in red-line red-line--after"
+				>
+					Les meilleurs jeux de casino en ligne
 				</h2>
 				<p class="u-content-width u-fade-in">
-					Trouver un casino en ligne fiable n’est pas toujours simple. Pour moi,
-					un établissement mérite d’être recommandé seulement s’il respecte des
-					<strong>normes strictes de sécurité et de qualité</strong>. Mais
-					comment déterminer le casino idéal pour toi ? Voici
-					<strong>les 9 critères que j’utilise personnellement</strong> pour
-					évaluer chaque plateforme :
+					En tant que <strong>testeuse de casinos en ligne,</strong> j’ai eu
+					l’occasion d’explorer des centaines de jeux proposés aux joueurs
+					suisses. Voici ceux que je recommande particulièrement, avec mon avis
+					personnel et des conseils pour en profiter au maximum :
 				</p>
-				<ol class="u-content-width u-fade-in">
+				<h3>🎴 Poker en ligne</h3>
+				<p class="u-content-width u-fade-in">
+					Si vous aimez le <strong>poker,</strong> vous allez adorer les
+					variantes proposées dans les casinos suisses. Que ce soit en
+					<strong>Sit’n’Go,</strong> en mode gratuit ou lors de tournois
+					passionnants, j’ai trouvé que ces parties offrent un excellent mélange
+					de stratégie et de fun. Préparez vos jetons et votre bluff pour des
+					sessions captivantes !
+				</p>
+				<h3>🃏 Vidéo Poker</h3>
+				<p class="u-content-width u-fade-in">
+					Le <strong>vidéo poker</strong> combine le meilleur des machines à
+					sous et du poker classique. Lors de mes tests, j’ai apprécié de
+					pouvoir choisir quelles cartes garder ou rejeter pour former la
+					meilleure combinaison. C’est idéal pour apprendre les bases du poker
+					tout en s’amusant et en gagnant de vrais gains.
+				</p>
+				<h3>🎰 Machines à sous</h3>
+				<p class="u-content-width u-fade-in">
+					Les <strong>machines à sous</strong> restent incontestablement mes
+					jeux préférés. Chaque casino suisse en propose plusieurs centaines :
+				</p>
+				<ul>
+					<li><strong>Machines classiques</strong>3 ou 5 rouleaux</li>
 					<li>
-						<p>
-							<strong>Licence et sécurité</strong> - Je ne recommande que les
-							casinos disposant d’une licence officielle (UKGC, MGA, Curaçao,
-							ANJ…) avec un cryptage robuste. Idéalement, ils sont aussi
-							certifiés par des organismes indépendants comme eCOGRA ou iTech
-							Labs.
-						</p>
+						<strong>Machines vidéo modernes</strong>avec animations et thèmes
+						variés
 					</li>
 					<li>
-						<strong>Bonus de bienvenue</strong> - Je regarde au-delà des
-						chiffres annoncés. L’intérêt réel d’un bonus dépend des conditions
-						de mise, des délais et de la contribution des différents jeux.
+						<strong>Machines à sous bonus</strong>offrant tours gratuits et
+						mini-jeux
 					</li>
-					<li>
-						<strong>Catalogue de jeux</strong> - Je privilégie les casinos
-						proposant une large variété de jeux, des machines à sous aux jeux de
-						table, fournis par des éditeurs reconnus et des studios spécialisés.
-					</li>
-					<li>
-						<strong>Jeux à haut RTP </strong>- Pour moi, il est essentiel que
-						les casinos offrent des titres avec un
-						<strong>Taux de Retour au Joueur ≥96%</strong>, afin de maximiser
-						tes chances sur le long terme.
-					</li>
-					<li>
-						<strong>Méthodes de paiement</strong> - Je teste toutes les options
-						disponibles, qu’il s’agisse de monnaies classiques ou de crypto, en
-						évaluant la sécurité, la rapidité des retraits et l’éventuelle
-						présence de frais.
-					</li>
-					<li>
-						<strong> Expérience mobile </strong> - Aujourd’hui, un bon casino
-						doit être <strong>100% compatible mobile</strong>, que ce soit sur
-						navigateur ou via une application dédiée. Je vérifie également la
-						fluidité et l’existence de bonus exclusifs pour mobile.
-					</li>
-					<li>
-						<strong>Service client</strong> - Je regarde la disponibilité, la
-						rapidité des réponses, les différents moyens de contact et la
-						qualité des FAQ pour m’assurer que le support est fiable.
-					</li>
-					<li>
-						<strong>Jeu responsable</strong> - Je vérifie que le casino propose
-						des outils pour jouer de manière responsable : limites de dépôt,
-						pauses, auto-exclusion et liens vers des organismes spécialisés.
-					</li>
-					<li>
-						<strong>Avis des joueurs</strong> - Enfin, je consulte les retours
-						des utilisateurs sur des forums et plateformes comme Trustpilot pour
-						mesurer la réputation réelle et la satisfaction des joueurs.
-					</li>
-				</ol>
+				</ul>
+				<h3>💰 Machines à sous progressives</h3>
+				<p class="u-content-width u-fade-in">
+					Les <strong>machines à sous progressives</strong> sont
+					particulièrement excitantes : elles offrent des jackpots pouvant
+					dépasser <strong>un million de francs suisses !</strong> Lors de mes
+					tests, j’ai été impressionnée par les gains et les nombreuses
+					surprises bonus intégrées à ces jeux.
+				</p>
+				<h3>🖤 Blackjack</h3>
+				<p class="u-content-width u-fade-in">
+					Le <strong>blackjack</strong> est l’un des rares jeux où la stratégie
+					peut réellement influencer le résultat. En jouant plusieurs heures
+					pour mes tests, j’ai constaté qu’un joueur attentif peut battre le
+					croupier en appliquant les bonnes techniques. Une maîtrise des règles
+					est indispensable pour profiter pleinement du jeu.
+				</p>
+				<h3>🎡 Roulette</h3>
+				<p class="u-content-width u-fade-in">
+					La <strong>roulette</strong> séduit tous les profils de joueurs, que
+					ce soit en version
+					<strong>européenne, américaine, française ou multi-roues</strong>.
+					Pendant mes tests, j’ai remarqué que comprendre les types de paris et
+					leurs probabilités permet de mieux gérer ses mises et d’optimiser le
+					plaisir de jeu.
+				</p>
+				<h3>🎥 Jeux avec croupiers en direct</h3>
+				<p class="u-content-width u-fade-in">
+					Pour reproduire l’ambiance d’un vrai casino, j’adore tester les
+					<strong>jeux avec croupiers en direct.</strong> Que ce soit le
+					blackjack, la roulette ou le poker, les croupiers et croupières en
+					direct rendent l’expérience immersive et authentique. J’ai trouvé que
+					cela ajoute beaucoup de réalisme et de plaisir à vos sessions.
+				</p>
+				<h3>⚽ Paris sportifs</h3>
+				<p class="u-content-width u-fade-in">
+					Si vous voulez varier les plaisirs, certains casinos suisses offrent
+					aussi des <strong>paris sportifs.</strong> Football, tennis, basket,
+					cyclisme ou hockey… j’ai personnellement testé plusieurs plateformes
+					et c’est une excellente manière de combiner stratégie et fun, surtout
+					en suivant mes conseils pour optimiser vos mises.
+				</p>
 
-				<h2 id="inscription">
-					Comment s’inscrire sur un casino en ligne au Québec
+				<h2
+					id="inscription"
+					class="u-content-width u-fade-in red-line red-line--after"
+				>
+					Les avantages de jouer aux jeux d’argent en ligne en Suisse
 				</h2>
 				<p class="u-content-width u-fade-in">
-					Ouvrir un compte sur un casino en ligne fiable est en réalité simple
-					et rapide. La plupart des sites suivent des étapes assez similaires,
-					et il faut généralement moins de 3 minutes pour compléter
-					l’inscription. Pour te guider, voici
-					<strong
-						>ma méthode pas à pas pour t’inscrire sur un casino en ligne
-						canadien :</strong
-					>
+					La Suisse ouvre progressivement ses portes aux
+					<strong>jeux d’argent en ligne.</strong> Le
+					<strong>poker en ligne</strong> est légal, et de nombreux autres jeux
+					comme les
+					<strong>machines à sous, la roulette et le craps</strong> sont
+					également disponibles. Les joueurs suisses peuvent tester ces jeux
+					gratuitement pour s’entraîner ou jouer en
+					<strong>argent réel</strong> pour profiter pleinement des gains et
+					bonus.
 				</p>
 
-				<ol class="u-content-width u-fade-in">
-					<li>
-						<h3>Choisir un casino sûr et adapté à tes besoins</h3>
-						<p class="u-content-width u-fade-in">
-							Avant tout, sélectionne un casino en ligne
-							<strong>fiable, sécurisé et réglementé.</strong> Pour te faciliter
-							la vie, tu peux choisir l’un des casinos de mon classement qui
-							correspond à tes attentes : sécurité, licence officielle et bonnes
-							critiques. Par exemple, <strong>Crowngreen Casino</strong> est un
-							excellent choix pour commencer.
-						</p>
-						<p class="u-content-width u-fade-in">
-							Une fois ton choix fait, rends-toi sur le site officiel du casino.
-							Clique sur le bouton « S’inscrire » ou « Jouer maintenant » pour
-							accéder directement à la bonne page, sans risque de te tromper
-							d’URL.
-						</p>
-					</li>
-					<li>
-						<h3>Créer ton compte joueur</h3>
-						<p class="u-content-width u-fade-in">
-							Après avoir cliqué sur « S’inscrire », un formulaire s’affiche.
-							Commence par entrer ton <strong>adresse e-mail</strong> et créer
-							un <strong>mot de passe sécurisé</strong>. Ensuite, renseigne tes
-							informations personnelles : nom, prénom, date de naissance, pays,
-							province, adresse complète, numéro de téléphone et devise préférée
-							(CAD).
-						</p>
-						<p class="u-content-width u-fade-in">
-							Une fois tous les champs remplis, clique sur
-							<strong>« Créer un compte »</strong>. Tu recevras souvent un
-							e-mail de confirmation : pense à cliquer sur le lien pour
-							<strong>valider ton inscription</strong>.
-						</p>
-					</li>
-					<li>
-						<h3>Vérifier ton identité (KYC)</h3>
-						<p class="u-content-width u-fade-in">
-							Avant de pouvoir retirer tes gains, la plupart des casinos
-							canadiens demandent une vérification d’identité (procédure KYC, «
-							Know Your Customer »). Il faudra fournir :
-						</p>
-						<ul>
-							<li>
-								Une copie de pièce d’identité (passeport, permis de conduire ou
-								carte d’identité)
-							</li>
-							<li>
-								Un justificatif de domicile récent (facture d’eau,
-								d’électricité, d’internet ou relevé bancaire de moins de 3 mois)
-							</li>
-						</ul>
-						<p class="u-content-width u-fade-in">
-							Cette étape est rapide et sert à protéger ton compte et prévenir
-							la fraude. Lors de mon test sur CrownGreen, mon retrait a été
-							validé en moins de 24 heures après envoi des documents. Pour
-							accélérer le processus, veille à envoyer des scans ou photos
-							<strong>clairs et lisibles.</strong>
-						</p>
-					</li>
-					<li>
-						<h3>Effectuer ton premier dépôt</h3>
-						<p class="u-content-width u-fade-in">
-							Ton compte créé et vérifié ? Il est temps de le
-							<strong>créditer</strong>. Va dans la section
-							<strong>« Caisse »</strong> ou <strong>« Dépôt »</strong>, choisis
-							ta méthode de paiement (cartes, virement, crypto…) et indique le
-							montant. La plupart des dépôts sont <strong>instantanés</strong>.
-							Par exemple, un dépôt de 50 $ via Interac apparaît presque
-							immédiatement sur ton compte
-						</p>
-						<p class="u-content-width u-fade-in">
-							Si jamais un paiement est refusé ou prend plus de temps que prévu,
-							<strong>contacte le support client</strong>, ils sont là pour
-							t’aider.
-						</p>
-					</li>
-					<li>
-						<h3>Réclamer ton bonus de bienvenue</h3>
-						<p class="u-content-width u-fade-in">
-							La plupart des casinos attribuent<strong
-								>automatiquement le bonus de bienvenue</strong
-							>
-							après ton premier dépôt. Sur certains sites, il faut cocher la
-							case « Activer le bonus » ou entrer un
-							<strong>code promo</strong> lors du dépôt. Une fois le paiement
-							validé, ton bonus est crédité sur ton compte.
-						</p>
-					</li>
-					<li>
-						<h3>Profiter pleinement de ton casino en ligne</h3>
-						<p class="u-content-width u-fade-in">
-							Ton compte est maintenant créé, vérifié et approvisionné. Il ne te
-							reste plus qu’à <strong>explorer la ludothèque !</strong> Parcours
-							les catégories : machines à sous, blackjack, roulette, live
-							casino… et teste les jeux qui t’attirent.
-						</p>
-						<p class="u-content-width u-fade-in">
-							Je te conseille de
-							<strong>commencer en mode démo gratuit</strong> pour te
-							familiariser avec les règles avant de miser de l’argent réel.
-						</p>
-						<p class="u-content-width u-fade-in">
-							Profite aussi des <strong>fonctionnalités du site</strong> :
-							recherche par fournisseur, filtres par thème, liste de favoris…
-							elles rendent la navigation beaucoup plus agréable. Enfin,
-							consulte la rubrique <strong>Promotions</strong> : en plus du
-							bonus de bienvenue, les meilleurs casinos proposent souvent
-							<strong>tournois, bonus de recharge, cashback</strong>, et bien
-							d’autres surprises.
-						</p>
-					</li>
-				</ol>
+				<p class="u-content-width u-fade-in">
+					Voici les principaux avantages de jouer en argent réel par rapport aux
+					jeux gratuits :
+				</p>
+
+				<h3>💎 Obtenez des bonus de bienvenue attractifs</h3>
+				<p class="u-content-width u-fade-in">
+					Les <strong>bonus de bienvenue</strong> proposés par les casinos en
+					ligne sont souvent très généreux. Pour en profiter pleinement, il faut
+					généralement miser de l’argent réel afin de
+					<strong>débloquer le bonus</strong> selon les conditions du casino.
+					Jouer en réel est donc la clé pour maximiser ces avantages.
+				</p>
+
+				<h3>💰 Accédez aux jackpots les plus élevés</h3>
+				<p class="u-content-width u-fade-in">
+					Les jeux gratuits sont parfaits pour s’amuser et apprendre, mais seuls
+					les jeux en <strong>argent réel</strong> permettent de viser les
+					<strong>gros jackpots</strong>. Si vous souhaitez tenter de remporter
+					des gains significatifs, il est indispensable de jouer avec de
+					l’argent réel. Nos tests vous permettent de repérer les casinos
+					proposant les jackpots les plus élevés en Suisse.
+				</p>
+
+				<h3>🎥 Profitez des jeux avec croupiers en direct</h3>
+				<p class="u-content-width u-fade-in">
+					Les <strong>jeux en live</strong> avec croupiers sont toujours
+					payants. Jouer en argent réel vous donne accès à cette expérience
+					immersive et réaliste, qui recrée l’ambiance d’un vrai casino depuis
+					chez vous.
+				</p>
+
+				<h3>🃏 Accédez à un catalogue de jeux plus vaste</h3>
+				<p class="u-content-width u-fade-in">
+					En jouant avec de l’argent réel, vous avez
+					<strong>beaucoup plus de choix</strong> que sur les versions
+					gratuites. Vous pouvez découvrir toutes les variantes de
+					<strong>roulette, poker et blackjack</strong>, ainsi que des jeux
+					exclusifs testés et approuvés par nos experts pour les joueurs
+					suisses.
+				</p>
+
+				<h2 class="u-content-width u-fade-in red-line red-line--after">
+					Conclusion – Mon verdict
+				</h2>
+				<p class="u-content-width u-fade-in">
+					Après avoir testé personnellement ces casinos, je peux vous assurer
+					que
+					<strong>MoonWin, SpinEmpire, Spininio, VegaZone et Mafia</strong>
+					offrent sécurité, fiabilité et bonus attractifs pour les joueurs
+					suisses.
+				</p>
+				<p class="u-content-width u-fade-in">
+					Jouez de manière responsable et profitez des meilleures offres de
+					casino en ligne Suisse dès aujourd’hui, avec mon guide basé sur mon
+					expérience réelle.
+				</p>
 
 				<section class="faq u-fade-in">
-					<h2 id="faq" class="u-fade-in">FAQ sur les casinos en ligne</h2>
+					<h2 id="faq" class="u-fade-in">
+						FAQ – Mes conseils pour jouer en ligne en Suisse
+					</h2>
 
 					<!-- FAQ 1 -->
 					<div class="faq-item u-fade-in">
@@ -2915,7 +3396,8 @@
 							aria-label="Est-ce sûr de jouer sur un casino en ligne au Québec ?"
 						>
 							<h3 id="faq-q1">
-								🎰 Est-ce sûr de jouer sur un casino en ligne au Québec ?
+								Quels types de jeux de hasard sont les plus prisés par les
+								joueurs suisses ?
 							</h3>
 							<span class="faq-toggle">+</span>
 						</button>
@@ -2926,13 +3408,12 @@
 							aria-labelledby="faq-q1"
 						>
 							<p class="u-content-width">
-								Oui, à condition de choisir un site
-								<strong>licencié et régulé</strong>. Au Québec, Loto-Québec est
-								l’opérateur officiel, mais tu peux aussi jouer sur certains
-								casinos privés étrangers autorisés pour les Canadiens.
-								L’important est de privilégier les plateformes
-								<strong>sécurisées et reconnues</strong> pour protéger tes
-								informations et tes dépôts.
+								D’après mon expérience, les joueurs suisses adorent
+								principalement les <strong>machines à sous</strong>, la
+								<strong>roulette</strong>, le <strong>blackjack</strong>, le
+								<strong>poker</strong> et les
+								<strong>jeux live avec croupiers</strong>. Ces jeux offrent à la
+								fois excitation et possibilités de gains intéressants.
 							</p>
 						</div>
 					</div>
@@ -2946,7 +3427,8 @@
 							aria-label="Puis-je jouer et déposer en dollars canadiens ?"
 						>
 							<h3 id="faq-q2">
-								🤑 Puis-je jouer et déposer en dollars canadiens ?
+								Les casinos en ligne suisses permettent-ils de jouer en francs
+								suisses ?
 							</h3>
 							<span class="faq-toggle">+</span>
 						</button>
@@ -2957,11 +3439,10 @@
 							aria-labelledby="faq-q2"
 						>
 							<p class="u-content-width">
-								Absolument ! Les meilleurs casinos acceptent les comptes en
-								<strong>CAD</strong>, ce qui évite les frais de conversion et
-								facilite les retraits. Avant de t’inscrire, vérifie simplement
-								que le casino propose le dollar canadien comme devise principale
-								dans les paramètres.
+								Oui ! Tous les casinos que je recommande acceptent la
+								<strong>devise locale (CHF),</strong> ce qui facilite les
+								dépôts, retraits et gestion de bankroll sans conversion de
+								devises.
 							</p>
 						</div>
 					</div>
@@ -2975,7 +3456,8 @@
 							aria-label="Quels types de bonus valent vraiment le coup ?"
 						>
 							<h3 id="faq-q3">
-								🎁 Quels types de bonus valent vraiment le coup ?
+								Comment déposer et retirer de l’argent des casinos en ligne en
+								Suisse ?
 							</h3>
 							<span class="faq-toggle">+</span>
 						</button>
@@ -2986,12 +3468,16 @@
 							aria-labelledby="faq-q3"
 						>
 							<p class="u-content-width">
-								Je recommande de chercher des
-								<strong>bonus qui apportent une vraie valeur</strong> : bonus
-								sans dépôt, free spins sans condition de mise ou cashback sur
-								les pertes. Les bonus avec des conditions de mise claires et
-								raisonnables sont toujours les meilleurs, car tu peux vraiment
-								profiter de ton argent.
+								Les casinos en ligne suisses offrent plusieurs options de
+								paiement sûres et fiables. Vous pouvez utiliser cartes
+								<strong
+									>bancaires, virements, portefeuilles électroniques</strong
+								>
+								et parfois même <strong>cryptomonnaies</strong>. Les
+								<strong>dépôts sont instantanés</strong>, tandis que les
+								<strong>retraits</strong> peuvent prendre de quelques
+								<strong>heures jusqu’à quelques jours</strong>, selon la méthode
+								choisie.
 							</p>
 						</div>
 					</div>
@@ -3004,7 +3490,9 @@
 							aria-controls="faq-4"
 							aria-label="Quel casino paie le plus au Canada ?"
 						>
-							<h3 id="faq-q4">💸 Quel casino paie le plus au Canada ?</h3>
+							<h3 id="faq-q4">
+								Est-il obligatoire de jouer avec de l’argent réel en Suisse ?
+							</h3>
 							<span class="faq-toggle">+</span>
 						</button>
 						<div
@@ -3014,14 +3502,11 @@
 							aria-labelledby="faq-q4"
 						>
 							<p class="u-content-width">
-								Il n’y a pas un « meilleur payeur » unique, car les jeux ont
-								tous un
-								<strong>Taux de Retour au Joueur (RTP) théorique</strong>
-								similaire. Pour augmenter tes chances, je conseille de choisir
-								un casino avec beaucoup de
-								<strong>machines à sous à RTP élevé</strong> (≥96%) et des jeux
-								de table comme le blackjack (~99%), et surtout un site
-								<strong>réputé pour ses paiements rapides</strong>.
+								Non, pas du tout ! Beaucoup de casinos proposent un
+								<strong>mode démo gratuit</strong>, ce qui permet de tester les
+								jeux et stratégies sans risquer votre argent. Mais pour profiter
+								des <strong>bonus et jackpots</strong>, il faut jouer avec de
+								l’argent réel.
 							</p>
 						</div>
 					</div>
@@ -3034,7 +3519,7 @@
 							aria-controls="faq-5"
 							aria-label="Comment reconnaître un casino fiable ?"
 						>
-							<h3 id="faq-q5">🔒 Comment reconnaître un casino fiable ?</h3>
+							<h3 id="faq-q5">Combien de temps prennent les retraits ?</h3>
 							<span class="faq-toggle">+</span>
 						</button>
 						<div
@@ -3043,20 +3528,10 @@
 							role="region"
 							aria-labelledby="faq-q5"
 						>
-							<p class="u-content-width">Un casino fiable doit avoir :</p>
-							<ul>
-								<li>
-									Une <strong>licence officielle</strong> (Ontario, MGA,
-									Curaçao, Kahnawake…)
-								</li>
-								<li>Des avis positifs d’autres joueurs</li>
-								<li>Un <strong>support client réactif</strong></li>
-								<li>
-									Des <strong>conditions claires</strong> et un chiffrement
-									HTTPS
-								</li>
-								<li>Des outils de <strong>jeu responsable</strong></li>
-							</ul>
+							<p class="u-content-width">
+								Entre 24 et 48 heures selon la méthode. Je vérifie toujours la
+								rapidité avant de recommander un casino.
+							</p>
 						</div>
 					</div>
 
@@ -3068,7 +3543,7 @@
 							aria-controls="faq-6"
 							aria-label="Est-ce possible de jouer sur mobile ?"
 						>
-							<h3 id="faq-q6">📱 Est-ce possible de jouer sur mobile ?</h3>
+							<h3 id="faq-q6">Quels jeux sont les plus intéressants ?</h3>
 							<span class="faq-toggle">+</span>
 						</button>
 						<div
@@ -3078,11 +3553,9 @@
 							aria-labelledby="faq-q6"
 						>
 							<p class="u-content-width">
-								Oui ! La plupart des casinos sont optimisés pour
-								<strong>smartphones et tablettes</strong>. Que tu sois sur
-								Android ou iOS, tu auras accès aux mêmes jeux, bonus et
-								fonctionnalités (dépôts, chat support…) avec une interface
-								adaptée aux écrans tactiles.
+								Slots, Roulette, Blackjack, Poker et Casino live. J’aime
+								particulièrement tester les jeux live pour l’expérience
+								immersive.
 							</p>
 						</div>
 					</div>
@@ -3095,9 +3568,7 @@
 							aria-controls="faq-7"
 							aria-label="Que faire si j’ai un problème avec un casino en ligne ?"
 						>
-							<h3 id="faq-q7">
-								🆘 Que faire si j’ai un problème avec un casino en ligne ?
-							</h3>
+							<h3 id="faq-q7">Comment choisir un casino fiable en Suisse ?</h3>
 							<span class="faq-toggle">+</span>
 						</button>
 						<div
@@ -3107,109 +3578,9 @@
 							aria-labelledby="faq-q7"
 						>
 							<p class="u-content-width">
-								Commence par contacter le <strong>support client</strong> du
-								site (chat, email) en expliquant clairement le problème. Si cela
-								ne suffit pas, et que le casino est licencié, tu peux
-								<strong>déposer</strong> une
-								<strong>plainte auprès de l’autorité de régulation.</strong>
-								Enfin, partager ton expérience sur des forums peut prévenir
-								d’autres joueurs.
-							</p>
-						</div>
-					</div>
-
-					<!-- FAQ 8 -->
-					<div class="faq-item u-fade-in">
-						<button
-							class="faq-question"
-							aria-expanded="false"
-							aria-controls="faq-8"
-							aria-label="Peut-on jouer gratuitement avant de miser de l’argent ?"
-						>
-							<h3 id="faq-q8">
-								💡 Peut-on jouer gratuitement avant de miser de l’argent ?
-							</h3>
-							<span class="faq-toggle">+</span>
-						</button>
-						<div
-							id="faq-8"
-							class="faq-answer"
-							role="region"
-							aria-labelledby="faq-q8"
-						>
-							<p class="u-content-width">
-								Oui ! La plupart des casinos proposent un
-								<strong>mode démo</strong>. Cela permet de tester les jeux,
-								comprendre les règles et te familiariser avec l’interface sans
-								risquer ton argent. C’est parfait pour les débutants ou pour
-								tester de nouvelles stratégies.
-							</p>
-						</div>
-					</div>
-
-					<!-- FAQ 9 -->
-					<div class="faq-item u-fade-in">
-						<button
-							class="faq-question"
-							aria-expanded="false"
-							aria-controls="faq-9"
-							aria-label="Quels sont les avantages de choisir un casino en ligne régulé ?"
-						>
-							<h3 id="faq-q9">
-								⚡ Quels sont les avantages de choisir un casino en ligne régulé
-								?
-							</h3>
-							<span class="faq-toggle">+</span>
-						</button>
-						<div
-							id="faq-9"
-							class="faq-answer"
-							role="region"
-							aria-labelledby="faq-q9"
-						>
-							<p class="u-content-width">Les casinos régulés garantissent :</p>
-							<ul>
-								<li>
-									La
-									<strong
-										>protection de tes fonds et données personnelles</strong
-									>
-								</li>
-								<li>Des <strong>jeux équitables</strong> avec RNG certifié</li>
-								<li>Des <strong>paiements fiables et rapides</strong></li>
-								<li>
-									Des outils de <strong>jeu responsable</strong> pour t’aider à
-									rester maître de tes mises
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<!-- FAQ 10 -->
-					<div class="faq-item u-fade-in">
-						<button
-							class="faq-question"
-							aria-expanded="false"
-							aria-controls="faq-10"
-							aria-label="Peut-on vraiment gagner gros en jouant en ligne ?"
-						>
-							<h3 id="faq-q10">
-								🏆 Peut-on vraiment gagner gros en jouant en ligne ?
-							</h3>
-							<span class="faq-toggle">+</span>
-						</button>
-						<div
-							id="faq-10"
-							class="faq-answer"
-							role="region"
-							aria-labelledby="faq-q10"
-						>
-							<p class="u-content-width">
-								Comme pour tout jeu de hasard, les gains sont incertains et
-								jamais garantis. Il est important de
-								<strong>jouer de manière responsable</strong> et de considérer
-								le jeu en ligne avant tout comme un divertissement, avec des
-								mises adaptées à son budget.
+								Vérifiez la licence, la sécurité, les méthodes de paiement
+								locales, les bonus et le support client. C’est ce que je fais
+								avant chaque test.
 							</p>
 						</div>
 					</div>

@@ -275,9 +275,11 @@
 				--card-transition: transform 180ms ease, box-shadow 180ms ease;
 				--transition-fast: 180ms ease;
 				--transition-medium: 240ms ease;
-				--transition-slow: 300ms ease;
+				--transition-slow: 300ms;
 				--transition-standard: 0.3s ease;
 				--mobile-header-control-size: 30px;
+				--mobile-header-side-offset: 1rem;
+				--mobile-header-control-left-offset: 0.5rem;
 				--max-content-width: 1200px;
 			}
 			html {
@@ -456,32 +458,334 @@
 					padding-right: 1rem;
 				}
 			}
-			@media (min-width: 768px) and (max-width: 1200px) {
+				@media (min-width: 768px) and (max-width: 1200px) {
+					.header__container {
+						padding-left: 1rem;
+						padding-right: 1rem;
+					}
+					main {
+						padding-left: 1rem;
+						padding-right: 1rem;
+					}
+				}
+				/* Critical header styles to reduce FOUC */
+				html,
+				body {
+					margin: 0;
+					padding: 0;
+				}
+				body {
+					font-family: Helvetica, sans-serif;
+				}
+				.header {
+					backdrop-filter: blur(20px) saturate(180%);
+					background: var(--overlay-medium);
+					border-bottom: 0;
+					box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+					box-sizing: border-box;
+					color: var(--color-white);
+					font-family: Arial, sans-serif;
+					padding: var(--spacing-xs) 0;
+					position: sticky;
+					top: 0;
+					width: 100%;
+					z-index: 900;
+				}
 				.header__container {
-					padding-left: 1rem;
-					padding-right: 1rem;
+					align-items: center;
+					box-sizing: border-box;
+					display: flex;
+					justify-content: space-between;
+					margin: 0 auto;
+					max-width: var(--max-content-width);
+					padding: 0.15rem 0;
+					position: relative;
+					width: 100%;
 				}
-				main {
-					padding-left: 1rem;
-					padding-right: 1rem;
+				.header__logo {
+					width: 160px;
+					height: 60px;
+					margin-right: var(--spacing-lg);
+					object-fit: contain;
 				}
-			}
-			/* FOUC guard: keep language options hidden until main CSS loads */
-			.language-toggle__options {
-				display: none;
-			}
-			.language-toggle.is-open .language-toggle__options {
-				display: flex;
-			}
-		</style>
-		<!-- Non-critical CSS loaded async -->
-		<link
-			rel="stylesheet"
-			href="/style.minified.css"
-			media="print"
-			onload="this.media = 'all'"
-			fetchpriority="low"
-		/>
+				.header__logo-block {
+					align-items: center;
+					display: flex;
+					flex-direction: column;
+				}
+				.header__logo-block .header__logo {
+					display: block;
+				}
+				.header__logo-text {
+					color: var(--color-white);
+					text-align: center;
+				}
+				.header__logo-line {
+					line-height: 1.2;
+					margin: 0;
+					text-align: center;
+				}
+				.header__logo-line--title {
+					color: var(--color-white);
+					font-family: Helvetica, sans-serif;
+					font-size: 1.2rem;
+					font-weight: 700;
+				}
+				.header__logo-line--subtitle {
+					color: var(--color-white);
+					font-family: Helvetica, sans-serif;
+					font-size: 0.7rem;
+					font-weight: 500;
+					text-transform: uppercase;
+				}
+				body:not(.is-dark) .header__logo-line--title,
+				body:not(.is-dark) .header__logo-line--subtitle {
+					color: var(--color-black);
+				}
+				.header__controls {
+					align-items: center;
+					display: flex;
+					gap: 2rem;
+				}
+					.theme-toggle-button,
+					.language-toggle__button,
+					.language-toggle__option {
+						align-items: center;
+						backdrop-filter: blur(24px) saturate(190%);
+						-webkit-backdrop-filter: blur(24px) saturate(190%);
+					background: linear-gradient(
+						145deg,
+						rgba(255, 255, 255, 0.22),
+						rgba(255, 255, 255, 0.06)
+					);
+					border: 1px solid rgba(255, 255, 255, 0.26);
+					border-radius: 50%;
+					box-sizing: border-box;
+						box-shadow:
+							0 14px 30px rgba(0, 0, 0, 0.18),
+							inset 0 1px 0 rgba(255, 255, 255, 0.48),
+							inset 0 -10px 20px rgba(255, 255, 255, 0.06);
+						display: flex;
+						flex: 0 0 auto;
+						height: 44px;
+						justify-content: center;
+						padding: 0;
+						position: relative;
+						overflow: hidden;
+					width: 44px;
+				}
+				.theme-toggle-button::before,
+				.language-toggle__button::before,
+				.language-toggle__option::before {
+					content: '';
+					position: absolute;
+					inset: 1px;
+					border-radius: inherit;
+					background: linear-gradient(
+						165deg,
+						rgba(255, 255, 255, 0.45) 0%,
+						rgba(255, 255, 255, 0.1) 40%,
+						rgba(255, 255, 255, 0.02) 100%
+					);
+					pointer-events: none;
+				}
+				.theme-icon,
+				.language-toggle__flag {
+					align-items: center;
+					display: flex;
+					justify-content: center;
+					line-height: 1;
+				}
+					.language-toggle {
+						display: inline-flex;
+						align-items: center;
+						flex: 0 0 auto;
+					}
+				.header__burger {
+					background: 0;
+					border: 0;
+					cursor: pointer;
+					display: none;
+					flex-direction: column;
+					height: 18px;
+					justify-content: space-between;
+					margin: 0;
+					padding: 0;
+					width: 24px;
+				}
+				.header__burger span {
+					background-color: var(--color-white);
+					display: block;
+					height: 2px;
+					width: 100%;
+				}
+				@media (max-width: 768px) {
+					.header {
+						padding: 1.5rem 1rem;
+					}
+					.header__burger {
+						align-items: center;
+						display: flex;
+						flex-direction: column;
+						gap: 4px;
+						height: var(--mobile-header-control-size);
+						justify-content: center;
+						position: absolute;
+						right: var(--mobile-header-side-offset);
+						top: 50%;
+						transform: translateY(-50%);
+						width: 24px;
+						z-index: 1002;
+					}
+					.header__container {
+						justify-content: center;
+						min-height: calc(var(--mobile-header-control-size) + 3.8rem);
+						padding: 0.5rem 0;
+					}
+					.header__logo-text {
+						margin-top: 0.5rem;
+					}
+					.header__logo-block {
+						justify-content: center;
+						margin-top: 0.01rem;
+						left: 50%;
+						position: absolute;
+						top: 50%;
+						transform: translate(-50%, -50%) translateY(6px);
+						z-index: 1001;
+						max-width: 140px;
+					}
+					.header__logo-block .header__logo {
+						display: block;
+						height: auto;
+						margin: 0 auto;
+						max-width: 100%;
+						object-fit: contain;
+					}
+					.header__logo {
+						height: auto;
+						max-height: 45px;
+						min-height: unset;
+						object-fit: contain;
+						width: auto;
+					}
+					.header__controls {
+						align-items: flex-start;
+						left: var(--mobile-header-side-offset);
+						position: absolute;
+						top: calc(50% - (var(--mobile-header-control-size) / 2));
+						transform: none;
+						z-index: 1002;
+					}
+					.header__logo-line--subtitle {
+						display: none;
+					}
+					.header__logo-line--title {
+						font-size: 0.9rem;
+					}
+					.header__logo-line--title,
+					.header__logo-line--subtitle {
+						margin-top: 0.01rem;
+					}
+				}
+				/* Critical dark theme baseline */
+				body.is-dark {
+					background: #121212;
+					color: var(--color-white);
+				}
+				body.is-dark p,
+				body.is-dark strong,
+				body.is-dark li,
+				body.is-dark span,
+				body.is-dark h1,
+				body.is-dark h2,
+				body.is-dark h3,
+				body.is-dark h4 {
+					color: var(--color-white);
+				}
+				body.is-dark .theme-toggle-button,
+				body.is-dark .language-toggle__button,
+				body.is-dark .language-toggle__option {
+					background: linear-gradient(
+						145deg,
+						rgba(42, 42, 42, 0.55),
+						rgba(18, 18, 18, 0.28)
+					);
+					border-color: rgba(255, 255, 255, 0.2);
+					box-shadow:
+						0 2px 8px rgba(0, 0, 0, 0.2),
+						inset 0 1px 1px rgba(255, 255, 255, 0.05);
+				}
+				/* FOUC guard: keep language options hidden until main CSS loads */
+				.language-toggle__options {
+					display: none;
+				}
+				.language-toggle.is-open .language-toggle__options {
+					display: flex;
+				}
+				</style>
+				<script>
+					(function () {
+						function getInitialTheme() {
+							try {
+								if (typeof window.__initialThemeIsDark === 'boolean') {
+									return window.__initialThemeIsDark;
+								}
+								var storedTheme = localStorage.getItem('theme');
+								var prefersDark =
+									window.matchMedia &&
+									window.matchMedia('(prefers-color-scheme: dark)').matches;
+								var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+								window.__initialThemeIsDark = isDark;
+								return isDark;
+							} catch {
+								return document.body
+									? document.body.classList.contains('is-dark')
+									: false;
+							}
+						}
+
+						function syncThemeIcon() {
+							var btn = document.getElementById('theme-toggle');
+							if (!btn) return false;
+							var icon = btn.querySelector('.theme-icon');
+							if (!icon) return false;
+							var next = getInitialTheme() ? '☀️' : '🌙';
+							if (icon.textContent !== next) icon.textContent = next;
+							return true;
+						}
+
+						if (syncThemeIcon()) return;
+						if (typeof requestAnimationFrame !== 'function') {
+							document.addEventListener('DOMContentLoaded', syncThemeIcon);
+							return;
+						}
+						var attempts = 0;
+						var maxAttempts = 30;
+						(function tick() {
+							attempts += 1;
+							if (syncThemeIcon() || attempts >= maxAttempts) return;
+							requestAnimationFrame(tick);
+						})();
+					})();
+				</script>
+				<link
+					rel="preload"
+					href="/style.minified.css"
+					as="style"
+				fetchpriority="high"
+			/>
+			<!-- Non-critical CSS loaded async -->
+			<link
+				rel="stylesheet"
+				href="/style.minified.css"
+				media="print"
+				onload="this.media = 'all'"
+				fetchpriority="low"
+			/>
+			<noscript>
+				<link rel="stylesheet" href="/style.minified.css" />
+			</noscript>
 
 		<!-- Defer JS-->
 		<script src="/app.minified.js" defer></script>
@@ -550,7 +854,7 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="nav-menu__close" aria-label="Fermer le menu">✕</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">&times;</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -658,33 +962,17 @@
 						</div>
 					</div>
 					<!-- Theme toggle -->
-					<button
-						type="button"
-						id="theme-toggle"
-						class="theme-toggle-button"
-						aria-label="Basculer le theme clair/sombre"
-					>
-						<span class="theme-icon">🌙</span>
-					</button>
-					<script>
-						(function () {
-							try {
-								var isDark =
-									typeof window.__initialThemeIsDark === 'boolean'
-										? window.__initialThemeIsDark
-										: document.body.classList.contains('is-dark');
-								var btn = document.getElementById('theme-toggle');
-								if (!btn) return;
-								var icon = btn.querySelector('.theme-icon');
-								if (!icon) return;
-								var next = isDark ? '☀️' : '🌙';
-								if (icon.textContent !== next) icon.textContent = next;
-							} catch {}
-						})();
-					</script>
+						<button
+							type="button"
+							id="theme-toggle"
+							class="theme-toggle-button"
+							aria-label="Basculer le theme clair/sombre"
+						>
+							<span class="theme-icon">🌙</span>
+						</button>
+					</div>
 				</div>
-			</div>
-		</header>
+			</header>
 
 		<main role="main">
 			<h1 class="hero__title">
