@@ -1599,13 +1599,20 @@ class DarkModeManager {
 		this.themeIcon = this.toggleButton?.querySelector('.theme-icon') || null;
 		this.body = document.body;
 		this.mutationObserver = null;
+		this.darkImageObserver = null;
 		this.observedContainers = new Set();
 		this.pendingUpdates = new Set();
 		this.updateScheduled = !1;
 		this.init();
 	}
 	init() {
+		if (this.body) {
+			this.setupDarkImageObserver();
+		}
 		this.loadSavedTheme();
+		if (this.body) {
+			this.observeDarkImages(document.querySelectorAll('img[data-dark]'));
+		}
 		if (this.toggleButton && this.body) {
 			this.setupEventListeners();
 			this.setupMutationObserver();
@@ -1699,31 +1706,88 @@ class DarkModeManager {
 		this.pendingUpdates.clear();
 		this.updateDynamicLogos(images);
 	}
-	updateDynamicLogos(images) {
-		const isDark = this.body.classList.contains('is-dark');
+	setupDarkImageObserver() {
+		if (typeof IntersectionObserver !== 'function') return;
+		this.darkImageObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					this.applyThemeToImage(entry.target);
+					this.darkImageObserver?.unobserve(entry.target);
+				});
+			},
+			{ rootMargin: '300px 0px' },
+		);
+	}
+	shouldDeferThemeSync(img) {
+		if (!img || !this.darkImageObserver) return !1;
+		if (img.loading !== 'lazy' || img.complete) return !1;
+		const rect = img.getBoundingClientRect();
+		const verticalBuffer = Math.max(window.innerHeight * 0.5, 200);
+		return (
+			rect.top > window.innerHeight + verticalBuffer ||
+			rect.bottom < -verticalBuffer
+		);
+	}
+	observeDarkImages(images) {
+		if (!this.darkImageObserver) return;
 		images.forEach((img) => {
-			const darkSrc = img.dataset.dark;
-			if (!darkSrc) return;
-			if (isDark) {
-				if (!img.dataset.light) {
-					img.dataset.light = img.src;
-				}
-				img.src = darkSrc;
-			} else if (img.dataset.light) {
-				img.src = img.dataset.light;
+			if (!img?.dataset?.dark) return;
+			if (this.shouldDeferThemeSync(img)) {
+				this.darkImageObserver.observe(img);
+				return;
 			}
+			this.darkImageObserver.unobserve(img);
 		});
+	}
+	applyThemeToImage(img) {
+		if (!img || !this.body) return;
+		const isDark = this.body.classList.contains('is-dark');
+		const darkSrc = img.dataset.dark;
+		if (!darkSrc) return;
+		if (isDark) {
+			if (!img.dataset.light) {
+				img.dataset.light = img.src;
+			}
+			img.src = darkSrc;
+		} else if (img.dataset.light) {
+			img.src = img.dataset.light;
+		}
+		if (img.srcset) {
+			if (isDark) {
+				if (!img.dataset.originalSrcset) {
+					img.dataset.originalSrcset = img.srcset;
+				}
+				img.srcset = '';
+			} else if (img.dataset.originalSrcset) {
+				img.srcset = img.dataset.originalSrcset;
+			}
+		}
+	}
+	syncThemeForImages(images) {
+		images.forEach((img) => {
+			if (!img?.dataset?.dark) return;
+			if (this.shouldDeferThemeSync(img)) {
+				this.darkImageObserver?.observe(img);
+				return;
+			}
+			this.darkImageObserver?.unobserve(img);
+			this.applyThemeToImage(img);
+		});
+	}
+	updateDynamicLogos(images) {
+		this.syncThemeForImages(images);
 	}
 	updateNewCasinoCards(container = null) {
 		const targetContainer = container || document;
-		const newImages = targetContainer.querySelectorAll('.casino-card__image');
+		const newImages = targetContainer.querySelectorAll('img[data-dark]');
 		if (newImages.length > 0) {
 			this.updateDynamicLogos(Array.from(newImages));
 		}
 	}
 	forceUpdateAllLogos() {
 		this.updateLogos();
-		const allCasinoImages = document.querySelectorAll('.casino-card__image');
+		const allCasinoImages = document.querySelectorAll('img[data-dark]');
 		this.updateDynamicLogos(Array.from(allCasinoImages));
 	}
 	toggleTheme() {
@@ -1758,37 +1822,17 @@ class DarkModeManager {
 	}
 	updateLogos() {
 		if (!this.body) return;
-		const isDark = this.body.classList.contains('is-dark');
 		const allCasinoImages = document.querySelectorAll('img[data-dark]');
-		allCasinoImages.forEach((img) => {
-			const darkSrc = img.dataset.dark;
-			if (!darkSrc) return;
-			if (isDark) {
-				if (!img.dataset.light) {
-					img.dataset.light = img.src;
-				}
-				img.src = darkSrc;
-			} else if (img.dataset.light) {
-				img.src = img.dataset.light;
-			}
-			if (img.srcset) {
-				if (isDark) {
-					if (!img.dataset.originalSrcset) {
-						img.dataset.originalSrcset = img.srcset;
-					}
-					img.srcset = '';
-				} else {
-					if (img.dataset.originalSrcset) {
-						img.srcset = img.dataset.originalSrcset;
-					}
-				}
-			}
-		});
+		this.syncThemeForImages(Array.from(allCasinoImages));
 	}
 	cleanup() {
 		if (this.mutationObserver) {
 			this.mutationObserver.disconnect();
 			this.mutationObserver = null;
+		}
+		if (this.darkImageObserver) {
+			this.darkImageObserver.disconnect();
+			this.darkImageObserver = null;
 		}
 		this.observedContainers.clear();
 	}

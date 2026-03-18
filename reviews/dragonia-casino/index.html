@@ -678,20 +678,10 @@
 				as="style"
 				fetchpriority="high"
 			/>
-			<!-- Non-critical CSS loaded async (render-blocking fix) -->
-			<link
-				rel="stylesheet"
-				href="/style.minified.css"
-				media="print"
-				onload="this.media = 'all'"
-				fetchpriority="low"
-			/>
-			<noscript>
 				<link rel="stylesheet" href="/style.minified.css" />
-			</noscript>
 
-		<!-- Main JS -->
-		<script src="/app.minified.js" defer></script>
+			<!-- Main JS -->
+			<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<script>

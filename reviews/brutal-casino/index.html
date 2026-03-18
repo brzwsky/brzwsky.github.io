@@ -730,20 +730,10 @@
 				fetchpriority="high"
 			/>
 
-			<!-- Non-critical CSS loaded async (render-blocking fix) -->
-			<link
-				rel="stylesheet"
-				href="/style.minified.css"
-				media="print"
-				onload="this.media = 'all'"
-				fetchpriority="low"
-			/>
-			<noscript>
 				<link rel="stylesheet" href="/style.minified.css" />
-			</noscript>
 
-		<!-- Defer JS -->
-		<script src="/app.minified.js" defer></script>
+			<!-- Defer JS -->
+			<script src="/app.minified.js" defer></script>
 	</head>
 	<body lang="fr" class="page-review" id="top">
 		<script>

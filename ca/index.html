@@ -168,7 +168,7 @@
 						"primaryImageOfPage": {
 							"@type": "ImageObject",
 							"@id": "https://www.topjeu777.com/ca/#primaryimage",
-							"url": "https://www.topjeu777.com/ca/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp",
+							"url": "https://www.topjeu777.com/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-1200.webp",
 							"width": 1200,
 							"height": 600
 						},
@@ -393,562 +393,6 @@
 			}
 		</script>
 
-		<!-- Inline critical CSS -->
-		<style>
-			:root {
-				--color-white: #fff;
-				--color-black: #000;
-				--color-text-primary: #1a1a1a;
-				--color-text-secondary: #444;
-				--color-gray-light: #e6e6e6;
-				--color-gray-medium: #bfbfbf;
-				--color-gray-dark: #555;
-				--color-red-primary: #b30000;
-				--color-red-hover: #e60000;
-				--color-red-light: #ffefef;
-				--color-red-lighter: #ffe6e6;
-				--color-green-primary: #28a745;
-				--color-green-dark: #1e7e34;
-				--color-green-success: #53a551;
-				--color-gold: #ffd700;
-				--color-green-light: #e0ffd6;
-				--overlay-light: rgba(0, 0, 0, 0.1);
-				--overlay-medium: rgba(0, 0, 0, 0.2);
-				--overlay-strong: rgba(0, 0, 0, 0.35);
-				--overlay-dark: rgba(0, 0, 0, 0.4);
-				--white-overlay-light: rgba(255, 255, 255, 0.06);
-				--white-overlay-medium: rgba(255, 255, 255, 0.3);
-				--white-overlay-strong: rgba(255, 255, 255, 0.7);
-				--red-overlay-light: rgba(179, 0, 0, 0.12);
-				--red-overlay-medium: rgba(179, 0, 0, 0.16);
-				--font-family-base: Helvetica, sans-serif;
-				--font-family-heading: 'Arial Black', Arial, sans-serif;
-				--font-size-base: 1rem;
-				--font-size-small: 0.8rem;
-				--font-size-medium: 0.875rem;
-				--font-size-large: 1.5rem;
-				--font-size-xlarge: 2rem;
-				--spacing-xs: 0.5rem;
-				--spacing-sm: 1rem;
-				--spacing-md: 1.5rem;
-				--spacing-lg: 2rem;
-				--radius-small: 8px;
-				--radius-medium: 12px;
-				--radius-large: 16px;
-				--radius-xlarge: 20px;
-				--card-transition: transform 180ms ease, box-shadow 180ms ease;
-				--transition-fast: 180ms ease;
-				--transition-medium: 240ms ease;
-				--transition-slow: 300ms;
-				--transition-standard: 0.3s ease;
-				--mobile-header-control-size: 30px;
-				--mobile-header-side-offset: 1rem;
-				--mobile-header-control-left-offset: 0.5rem;
-				--max-content-width: 1200px;
-			}
-			html {
-				box-sizing: border-box;
-				margin: 0;
-				min-width: 320px;
-				overflow-x: hidden;
-				padding: 0;
-				width: 100%;
-			}
-			body {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-				color: var(--color-black);
-				display: flex;
-				flex-direction: column;
-				font-family: var(--font-family-base);
-				font-size: var(--font-size-base);
-				min-height: 100vh;
-				min-width: 320px;
-				overflow-x: hidden;
-				overflow-y: visible;
-				width: 100%;
-			}
-			main {
-				flex: 1 0 auto;
-				margin: 0 auto;
-				max-width: var(--max-content-width);
-				padding: 0 var(--spacing-lg);
-			}
-			section {
-				margin-top: var(--spacing-lg);
-			}
-			h1 {
-				color: var(--color-text-primary);
-				font-family: var(--font-family-heading);
-				line-height: 1.2;
-				font-size: 2.8rem;
-				font-weight: 900;
-				letter-spacing: 0.05em;
-				margin: var(--spacing-lg) 0 0.5rem;
-			}
-			p {
-				color: #222;
-				font-size: 0.975rem;
-				line-height: 1.6;
-				margin-bottom: var(--spacing-sm);
-				max-width: 800px;
-			}
-			strong {
-				color: var(--color-black);
-				font-weight: 700;
-			}
-			a {
-				color: var(--color-red-primary);
-				text-decoration: underline;
-			}
-			a:hover {
-				color: var(--color-red-hover);
-			}
-			ul {
-				color: var(--color-text-secondary);
-				margin-bottom: var(--spacing-md);
-				max-width: 700px;
-				padding-left: var(--spacing-md);
-			}
-			li {
-				line-height: 1.4;
-				margin-bottom: 0.6rem;
-			}
-			*:focus {
-				outline: 0;
-			}
-			body.is-tabbing :focus-visible {
-				outline: 2px solid var(--color-red-hover);
-				outline-offset: 2px;
-			}
-			/* Above-the-fold: header, cookie banner, hero — avoid FOUC */
-			.header {
-				backdrop-filter: blur(20px) saturate(180%);
-				background: var(--overlay-medium);
-				box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
-				box-sizing: border-box;
-				color: var(--color-white);
-				font-family: Arial, sans-serif;
-				padding: var(--spacing-xs) 0;
-				position: sticky;
-				top: 0;
-				width: 100%;
-				z-index: 900;
-			}
-			.header__container {
-				align-items: center;
-				box-sizing: border-box;
-				display: flex;
-				justify-content: space-between;
-				margin: 0 auto;
-				max-width: var(--max-content-width);
-				padding: 0.15rem 0;
-				position: relative;
-				width: 100%;
-			}
-			.header__logo {
-				width: 160px;
-				height: 60px;
-				margin-right: var(--spacing-lg);
-				object-fit: contain;
-			}
-			.header__logo-block {
-				align-items: center;
-				display: flex;
-				flex-direction: column;
-			}
-			.header__logo-block .header__logo {
-				display: block;
-			}
-			.header__logo-text {
-				color: var(--color-white);
-				text-align: center;
-			}
-			.header__logo-line {
-				line-height: 1.2;
-				margin: 0;
-				text-align: center;
-			}
-			.header__logo-line--title {
-				color: var(--color-white);
-				font-family: Helvetica, sans-serif;
-				font-size: 1.2rem;
-				font-weight: 700;
-			}
-			.header__logo-line--subtitle {
-				color: var(--color-white);
-				font-family: Helvetica, sans-serif;
-				font-size: 0.7rem;
-				font-weight: 500;
-				text-transform: uppercase;
-			}
-			body:not(.is-dark) .header__logo-line--title,
-			body:not(.is-dark) .header__logo-line--subtitle {
-				color: var(--color-black);
-			}
-			.header__burger {
-				background: 0;
-				border: 0;
-				cursor: pointer;
-				display: none;
-				flex-direction: column;
-				height: 18px;
-				justify-content: space-between;
-				margin: 0;
-				padding: 0;
-				width: 24px;
-			}
-			.header__burger span {
-				background-color: var(--color-white);
-				display: block;
-				height: 2px;
-				width: 100%;
-			}
-			.header__controls {
-				align-items: center;
-				display: flex;
-				gap: 2rem;
-			}
-			.theme-toggle-button,
-			.language-toggle__button,
-			.language-toggle__option {
-				align-items: center;
-				backdrop-filter: blur(24px) saturate(190%);
-				-webkit-backdrop-filter: blur(24px) saturate(190%);
-				background: linear-gradient(
-					145deg,
-					rgba(255, 255, 255, 0.22),
-					rgba(255, 255, 255, 0.06)
-				);
-				border: 1px solid rgba(255, 255, 255, 0.26);
-				border-radius: 50%;
-				box-sizing: border-box;
-				box-shadow:
-					0 14px 30px rgba(0, 0, 0, 0.18),
-					inset 0 1px 0 rgba(255, 255, 255, 0.48),
-					inset 0 -10px 20px rgba(255, 255, 255, 0.06);
-				display: flex;
-				flex: 0 0 auto;
-				height: 44px;
-				justify-content: center;
-				padding: 0;
-				position: relative;
-				overflow: hidden;
-				width: 44px;
-			}
-			.theme-toggle-button::before,
-			.language-toggle__button::before,
-			.language-toggle__option::before {
-				content: '';
-				position: absolute;
-				inset: 1px;
-				border-radius: inherit;
-				background: linear-gradient(
-					165deg,
-					rgba(255, 255, 255, 0.45) 0%,
-					rgba(255, 255, 255, 0.1) 40%,
-					rgba(255, 255, 255, 0.02) 100%
-				);
-				pointer-events: none;
-			}
-			.theme-icon,
-			.language-toggle__flag {
-				align-items: center;
-				display: flex;
-				justify-content: center;
-				line-height: 1;
-			}
-			.language-toggle {
-				display: inline-flex;
-				align-items: center;
-				flex: 0 0 auto;
-			}
-			.nav-menu {
-				display: block;
-				position: relative;
-			}
-			.nav-menu__list {
-				align-items: center;
-				display: flex;
-				gap: var(--spacing-sm);
-				list-style: none;
-				margin: 0;
-				padding: 0;
-			}
-			.nav-menu__item {
-				display: flex;
-			}
-			.nav-menu__link {
-				align-items: center;
-				color: var(--color-white);
-				display: flex;
-				gap: 0.4rem;
-				text-decoration: none;
-			}
-			.nav-menu__overlay {
-				display: none;
-			}
-			.cookie-consent-banner {
-				backdrop-filter: blur(20px) saturate(180%);
-				align-items: center;
-				background: rgb(0 0 0 / 0.18);
-				border: 1px solid rgb(255 255 255 / 0.06);
-				border-radius: 8px;
-				box-shadow: 0 8px 30px rgb(0 0 0 / 0.35);
-				color: var(--color-white);
-				display: flex;
-				justify-content: space-between;
-				left: 50%;
-				max-width: 400px;
-				padding: 1rem;
-				position: fixed;
-				top: 8rem;
-				transform: translateX(-50%);
-				width: auto;
-				z-index: 900;
-			}
-			.cookie-consent-banner p {
-				font-size: 0.9rem;
-				margin: 0;
-			}
-			.cookie-consent-banner button {
-				background: var(--color-white);
-				border: 1px solid rgb(0 0 0 / 0.25);
-				border-radius: 999px;
-				color: #1a1a1a;
-				cursor: pointer;
-				margin-left: 1rem;
-				padding: 0.5rem 1rem;
-			}
-			.hero {
-				padding-left: 0;
-				padding-right: 0;
-			}
-			.hero__title {
-				font-size: 2rem;
-				margin-bottom: 0.5rem;
-			}
-			.hero__meta {
-				align-items: center;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-				margin: 1.2rem 0 1.5rem 0;
-			}
-			.hero__text {
-				display: flex;
-				flex-direction: column;
-			}
-			.hero__text p {
-				line-height: 1.6;
-				max-width: 1200px;
-			}
-			.author {
-				align-items: center;
-				display: inline-flex;
-				gap: 0.5rem;
-			}
-			.author__photo {
-				aspect-ratio: 1 / 1;
-				border-radius: 50%;
-				display: inline-block;
-				height: 35px;
-				object-fit: cover;
-				width: 35px;
-			}
-			.disclaimer {
-				background: var(--color-white);
-				background: linear-gradient(298deg, #fff 0, #fffafa 67%, #ffe0d9 100%);
-				border-radius: 10px;
-				color: #555;
-				font-size: 0.7rem;
-				line-height: 1.4;
-				margin-bottom: 1rem;
-				margin-top: 2rem;
-				max-width: 750px;
-				padding: 0.5rem 0.5rem 0.5rem 30px;
-				position: relative;
-			}
-			.disclaimer::before {
-				content: '🔔';
-				font-size: 1rem;
-				left: 5px;
-				position: absolute;
-				top: 55%;
-				transform: translateY(-50%);
-			}
-			.u-content-width {
-				box-sizing: border-box;
-				margin-left: auto;
-				margin-right: auto;
-				max-width: 1200px;
-			}
-			/* CA-only legacy red divider for review cards */
-			section.landing-content > .casino-review > h2 {
-				margin-bottom: 1rem;
-				padding-bottom: 1.5rem;
-				position: relative;
-			}
-			section.landing-content > .casino-review > h2::after {
-				background-image: url(/assets/img/red-line.webp);
-				background-repeat: no-repeat;
-				background-size: 100% 100%;
-				bottom: 3px;
-				content: '';
-				height: 6px;
-				left: 8px;
-				position: absolute;
-				transform: translateY(20%);
-				width: calc(100% - 8px);
-			}
-			@media (max-width: 768px) {
-				main {
-					max-width: 100%;
-					padding-left: 1rem;
-					padding-right: 1rem;
-				}
-				section.landing-content > .casino-review > h2 {
-					padding-top: 1.5rem;
-				}
-				section.landing-content > .casino-review > h2::after {
-					bottom: auto;
-					top: -1rem;
-					transform: none;
-				}
-				.header {
-					padding: 1.5rem 1rem;
-				}
-				.header__burger {
-					align-items: center;
-					display: flex;
-					flex-direction: column;
-					gap: 4px;
-					height: var(--mobile-header-control-size);
-					justify-content: center;
-					position: absolute;
-					right: var(--mobile-header-side-offset);
-					top: 50%;
-					transform: translateY(-50%);
-					width: 24px;
-					z-index: 1002;
-				}
-				.header__container {
-					justify-content: center;
-					min-height: calc(var(--mobile-header-control-size) + 3.8rem);
-					padding: 0.5rem 0;
-				}
-				.header__logo-text {
-					margin-top: 0.5rem;
-				}
-				.header__logo-block {
-					justify-content: center;
-					margin-top: 0.01rem;
-					left: 50%;
-					position: absolute;
-					top: 50%;
-					transform: translate(-50%, -50%) translateY(6px);
-					z-index: 1001;
-					max-width: 140px;
-				}
-				.header__logo-block .header__logo {
-					display: block;
-					height: auto;
-					margin: 0 auto;
-					max-width: 100%;
-					object-fit: contain;
-				}
-				.header__logo {
-					height: auto;
-					max-height: 45px;
-					min-height: unset;
-					object-fit: contain;
-					width: auto;
-				}
-				.header__controls {
-					align-items: flex-start;
-					left: var(--mobile-header-side-offset);
-					position: absolute;
-					top: calc(50% - (var(--mobile-header-control-size) / 2));
-					transform: none;
-					z-index: 1002;
-				}
-				.header__logo-line--subtitle {
-					display: none;
-				}
-				.header__logo-line--title {
-					font-size: 0.9rem;
-				}
-				.header__logo-line--title,
-				.header__logo-line--subtitle {
-					margin-top: 0.01rem;
-				}
-				.nav-menu[hidden] {
-					display: none;
-				}
-			}
-			/* Critical dark theme baseline */
-			body.is-dark {
-				background: #121212;
-				color: var(--color-white);
-			}
-			body.is-dark p,
-			body.is-dark strong,
-			body.is-dark li,
-			body.is-dark span,
-			body.is-dark h1,
-			body.is-dark h2,
-			body.is-dark h3,
-			body.is-dark h4 {
-				color: var(--color-white);
-			}
-			body.is-dark .theme-toggle-button,
-			body.is-dark .language-toggle__button,
-			body.is-dark .language-toggle__option {
-				background: linear-gradient(
-					145deg,
-					rgba(42, 42, 42, 0.55),
-					rgba(18, 18, 18, 0.28)
-				);
-				border-color: rgba(255, 255, 255, 0.2);
-				box-shadow:
-					0 2px 8px rgba(0, 0, 0, 0.2),
-					inset 0 1px 1px rgba(255, 255, 255, 0.05);
-			}
-			@media (min-width: 768px) and (max-width: 1200px) {
-				.header__container {
-					padding-left: 1rem;
-					padding-right: 1rem;
-				}
-				main {
-					padding-left: 1rem;
-					padding-right: 1rem;
-				}
-			}
-			.casino-cards,
-			.casino-cards-container {
-				width: 100%;
-			}
-			.casino-card,
-			.casino-card--top {
-				box-sizing: border-box;
-				width: 100%;
-			}
-				.casino-card__image {
-					display: block;
-					height: auto;
-					margin: 0 auto;
-					max-width: 150px;
-					width: 100%;
-				}
-				/* FOUC guard: keep language options hidden until main CSS loads */
-				.language-toggle__options {
-					display: none;
-				}
-				.language-toggle.is-open .language-toggle__options {
-					display: flex;
-				}
-			</style>
 			<script>
 				(function () {
 					function getInitialTheme() {
@@ -994,32 +438,16 @@
 					})();
 				})();
 			</script>
-			<link
-				rel="preload"
-				href="/style.minified.css"
-				as="style"
-				fetchpriority="high"
-			/>
-
 			<!-- Preload LCP Image -->
 			<link
 				rel="preload"
 			as="image"
-			href="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
+			href="/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-1200.webp"
 			fetchpriority="high"
 		/>
 
 			<!-- CSS -->
-			<link
-				rel="stylesheet"
-				href="/style.minified.css"
-				media="print"
-				onload="this.media = 'all'"
-				fetchpriority="low"
-			/>
-			<noscript>
-				<link rel="stylesheet" href="/style.minified.css" />
-			</noscript>
+			<link rel="stylesheet" href="/style.minified.css" />
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
@@ -1059,7 +487,6 @@
 							class="header__logo"
 							src="/assets/img/logo-queen-red.webp"
 							alt="Logo TopJeu – reine de carte à jouer"
-							fetchpriority="high"
 							loading="eager"
 							width="160"
 							height="60"
@@ -1323,17 +750,12 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
-								data-dark="/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
+								src="/assets/img/logo-casinos/crowngreen-logo.webp"
+								data-dark="/assets/img/logo-casinos/crowngreen-logo-dark.webp"
 								alt="Logo de Crowngreen Casino, classé numéro 1"
 								loading="eager"
-								fetchpriority="high"
 								width="150"
 								height="83"
-								imagesrcset="
-									/assets/img/ca/logos/crowngreen/crowngreen-logo.webp 150w
-									/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp 150w
-								"
 							/>
 							<div>
 								<h3 class="casino-card__title">Crowngreen Casino</h3>
@@ -1377,16 +799,12 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp"
-								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
+								src="/assets/img/logo-casinos/spinempire-logo.webp"
+								data-dark="/assets/img/logo-casinos/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino, classé numéro 2"
 								loading="lazy"
 								width="150"
 								height="83"
-								imagesrcset="
-									/assets/img/ca/logos/spinempire/spinempire-logo.webp 150w
-									/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp 150w
-								"
 							/>
 							<div>
 								<h3 class="casino-card__title">SpinEmpire Casino</h3>
@@ -1436,10 +854,6 @@
 								loading="lazy"
 								width="150"
 								height="83"
-								imagesrcset="
-									/assets/img/logo-casinos/spininio-logo.webp 150w
-									/assets/img/logo-casinos/spininio-logo-dark.webp 150w
-								"
 							/>
 
 							<div>
@@ -1480,15 +894,11 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/vegazone/vegazone-logo.webp"
+								src="/assets/img/logo-casinos/vegazone-logo.webp"
 								alt="Logo de Vegazone Casino, classé numéro 4"
 								loading="lazy"
 								width="150"
 								height="83"
-								imagesrcset="
-									/assets/img/ca/logos/vegazone/vegazone-logo.webp 150w
-									/assets/img/ca/logos/vegazone/vegazone-logo-dark.webp 150w
-								"
 							/>
 							<div>
 								<h3 class="casino-card__title">Vegazone Casino</h3>
@@ -1530,15 +940,11 @@
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
-								src="/assets/img/logo-casinos/mafiacasino-logo.svg"
+								src="/assets/img/logo-casinos/mafiacasino-logo.webp"
 								alt="Logo de Mafia Casino, classé numéro 5"
 								loading="lazy"
 								width="150"
 								height="41"
-								imagesrcset="
-									/assets/img/logo-casinos/mafiacasino-logo.svg 150w
-									/assets/img/logo-casinos/mafiacasino-logo-dark.svg 150w
-								"
 							/>
 							<div>
 								<h3 class="casino-card__title">Mafia Casino</h3>
@@ -1641,7 +1047,7 @@
 					id="crowngreen-casino"
 					class="casino-review casino-review--crowngreen-casino u-fade-in"
 				>
-					<h2 class="u-content-width u-fade-in">
+					<h2 class="u-content-width u-fade-in red-line red-line--geo">
 						Crowngreen Casino - meilleur nouveau casino en ligne au Canada
 					</h2>
 					<p class="u-content-width u-fade-in">
@@ -1664,25 +1070,25 @@
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-400.webp
+									/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-800.webp
+									/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp
+									/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/crowngreen/crowngreen-banner-1200.webp"
+								src="/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-1200.webp"
 								alt="Bannière promotionnelle de Crowngreen Casino, offrant un bonus de bienvenue"
 								width="1200"
 								height="600"
@@ -1743,8 +1149,8 @@
 						<div class="casino-card__info casino-card__info--logo u-fade-in">
 							<img
 								class="casino-card__image"
-								src="/assets/img/ca/logos/crowngreen/crowngreen-logo.webp"
-								data-dark="/assets/img/ca/logos/crowngreen/crowngreen-logo-dark.webp"
+								src="/assets/img/logo-casinos/crowngreen-logo.webp"
+								data-dark="/assets/img/logo-casinos/crowngreen-logo-dark.webp"
 								alt="Logo de Crowngreen Casino (section avis détaillé)"
 								width="150"
 								height="150"
@@ -1862,7 +1268,7 @@
 					id="spinempire"
 					class="casino-review casino-review--spinempire-casino u-fade-in"
 				>
-					<h2 class="u-content-width u-fade-in">
+					<h2 class="u-content-width u-fade-in red-line red-line--geo">
 						SpinEmpire Casino - Bonus exclusifs, crypto & jeux premium en 2026
 					</h2>
 					<p class="u-content-width u-fade-in">
@@ -1894,25 +1300,25 @@
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-400.webp
+									/assets/img/banners/ca/banners/spinempire/spinempire-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-800.webp
+									/assets/img/banners/ca/banners/spinempire/spinempire-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spinempire/spinempire-banner-1200.webp
+									/assets/img/banners/ca/banners/spinempire/spinempire-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/spinempire/spinempire-banner-1200.webp"
+								src="/assets/img/banners/ca/banners/spinempire/spinempire-banner-1200.webp"
 								alt="Bannière promotionnelle de SpinEmpire Casino, bonus de bienvenue"
 								width="1200"
 								height="600"
@@ -1967,8 +1373,8 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="/assets/img/ca/logos/spinempire/spinempire-logo.webp"
-								data-dark="/assets/img/ca/logos/spinempire/spinempire-logo-dark.webp"
+								src="/assets/img/logo-casinos/spinempire-logo.webp"
+								data-dark="/assets/img/logo-casinos/spinempire-logo-dark.webp"
 								alt="Logo de SpinEmpire Casino (section avis détaillé)"
 								width="150"
 								height="150"
@@ -2129,7 +1535,7 @@
 					id="spininio-casino"
 					class="casino-review casino-review--spininio-casino u-fade-in"
 				>
-					<h2 class="u-content-width u-fade-in">
+					<h2 class="u-content-width u-fade-in red-line red-line--geo">
 						Spininio Casino - casino en ligne & sports betting réunis pour les
 						joueurs canadiens
 					</h2>
@@ -2163,25 +1569,25 @@
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-400.webp
+									/assets/img/banners/ca/banners/spininio/spininio-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-800.webp
+									/assets/img/banners/ca/banners/spininio/spininio-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/spininio/spininio-banner-1200.webp
+									/assets/img/banners/ca/banners/spininio/spininio-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/spininio/spininio-banner-1200.webp"
+								src="/assets/img/banners/ca/banners/spininio/spininio-banner-1200.webp"
 								alt="Bannière promotionnelle de Spininio Casino, univers pirate"
 								width="1200"
 								height="600"
@@ -2401,7 +1807,7 @@
 
 				<!-- Review Vegazone Casino -->
 				<section class="casino-review casino-review--vegazone-casino u-fade-in">
-					<h2 class="u-content-width u-fade-in">
+					<h2 class="u-content-width u-fade-in red-line red-line--geo">
 						Vegazone Casino - 260 % de bonus, 260 free spins et paiements
 						sécurisés en CAD
 					</h2>
@@ -2438,25 +1844,25 @@
 								media="(max-width:767px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-400.webp
+									/assets/img/banners/ca/banners/vegazone/vegazone-banner-400.webp
 								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-800.webp
+									/assets/img/banners/ca/banners/vegazone/vegazone-banner-800.webp
 								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
 								srcset="
-									/assets/img/ca/banners/vegazone/vegazone-banner-1200.webp
+									/assets/img/banners/ca/banners/vegazone/vegazone-banner-1200.webp
 								"
 							/>
 							<img
-								src="/assets/img/ca/banners/vegazone/vegazone-banner-1200.webp"
+								src="/assets/img/banners/ca/banners/vegazone/vegazone-banner-1200.webp"
 								alt="Bannière promotionnelle de Vegazone Casino"
 								width="1200"
 								height="600"
@@ -2510,7 +1916,7 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="/assets/img/ca/logos/vegazone/vegazone-logo.webp"
+								src="/assets/img/logo-casinos/vegazone-logo.webp"
 								alt="Logo de Vegazone Casino (section avis détaillé)"
 								width="150"
 								height="150"
@@ -2645,7 +2051,7 @@
 					id="mafiacasino-casino"
 					class="casino-review casino-review--mafiacasino u-fade-in"
 				>
-					<h2 class="u-content-width u-fade-in">
+					<h2 class="u-content-width u-fade-in red-line red-line--geo">
 						Mafia Casino - casino en ligne compatible avec les cryptomonnaies
 						pour les joueurs canadiens
 					</h2>
@@ -2666,20 +2072,20 @@
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-400.webp"
+								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-400.webp"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-800.webp"
+								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-800.webp"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
-								srcset="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
+								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-1200.webp"
 							/>
 							<img
-								src="/assets/img/ca/banners/mafia/mafia-banner-1200.webp"
+								src="/assets/img/banners/ca/banners/mafia/mafia-banner-1200.webp"
 								alt="Bannière promotionnelle de Mafia Casino"
 								width="1200"
 								height="600"
@@ -2733,7 +2139,7 @@
 						<div class="casino-card__info casino-card__info--logo">
 							<img
 								class="casino-card__image u-fade-in"
-								src="/assets/img/logo-casinos/mafiacasino-logo.svg"
+								src="/assets/img/logo-casinos/mafiacasino-logo.webp"
 								alt="Logo de Mafia Casino (section avis détaillé)"
 								width="150"
 								height="150"

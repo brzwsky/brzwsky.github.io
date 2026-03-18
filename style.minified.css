@@ -1740,6 +1740,28 @@ section.landing-content .faq > h2 {
 	top: var(--red-line-bottom-offset);
 	width: calc(100% - var(--red-line-left-offset));
 }
+@media (max-width: 768px) {
+	.red-line.red-line--geo {
+		margin-bottom: 0;
+		margin-top: 1rem;
+		padding-bottom: 0;
+		padding-top: 1.5rem;
+	}
+	.red-line.red-line--geo::after {
+		content: none;
+	}
+	.red-line.red-line--geo::before {
+		background-image: var(--red-line-image);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		content: '';
+		height: var(--red-line-height);
+		left: var(--red-line-left-offset);
+		position: absolute;
+		top: var(--red-line-mobile-top-offset);
+		width: calc(100% - var(--red-line-left-offset));
+	}
+}
 .landing-content h3 {
 	font-size: 1.375rem;
 	margin-top: 1.5rem;
