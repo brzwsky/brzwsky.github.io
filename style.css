@@ -359,6 +359,14 @@ body:not(.is-dark) .header__logo-line--subtitle {
 		box-shadow var(--transition-slow) ease,
 		transform var(--transition-slow) ease;
 }
+body:not(.is-dark) .header__link {
+	box-shadow:
+		0 18px 40px rgba(15, 23, 42, 0.14),
+		0 8px 18px rgba(15, 23, 42, 0.08),
+		0 0 24px rgba(255, 255, 255, 0.68),
+		inset 0 1px 0 rgba(255, 255, 255, 0.78),
+		inset 0 -1px 0 rgba(227, 232, 238, 0.26);
+}
 button.header__link {
 	color: inherit;
 	cursor: pointer;
@@ -386,8 +394,11 @@ body:not(.is-dark) .header__link:focus-visible {
 		rgba(247, 232, 234, 0.36)
 	);
 	box-shadow:
-		inset 0 1px 0 rgba(255, 255, 255, 0.72),
-		0 14px 24px rgba(15, 23, 42, 0.08),
+		0 22px 48px rgba(15, 23, 42, 0.18),
+		0 10px 22px rgba(15, 23, 42, 0.1),
+		0 0 28px rgba(255, 255, 255, 0.76),
+		inset 0 1px 0 rgba(255, 255, 255, 0.88),
+		inset 0 -1px 0 rgba(229, 234, 240, 0.32),
 		0 0 0 1px rgba(182, 55, 64, 0.18);
 	color: #8f1f29;
 }
@@ -427,8 +438,11 @@ body.is-dark .header__link:focus-visible {
 			rgba(247, 232, 234, 0.32)
 		);
 		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.72),
-			0 14px 24px rgba(15, 23, 42, 0.08),
+			0 22px 48px rgba(15, 23, 42, 0.18),
+			0 10px 22px rgba(15, 23, 42, 0.1),
+			0 0 28px rgba(255, 255, 255, 0.76),
+			inset 0 1px 0 rgba(255, 255, 255, 0.88),
+			inset 0 -1px 0 rgba(229, 234, 240, 0.32),
 			0 0 0 1px rgba(182, 55, 64, 0.14);
 		color: #8f1f29;
 	}
@@ -654,9 +668,12 @@ body:not(.is-dark) .theme-toggle-button {
 	);
 	border-color: rgba(0, 0, 0, 0.08);
 	box-shadow:
-		0 14px 28px rgba(20, 20, 20, 0.2),
-		0 3px 10px rgba(20, 20, 20, 0.12),
-		inset 0 1px 0 rgba(255, 255, 255, 0.5);
+		0 24px 54px rgba(15, 23, 42, 0.18),
+		0 10px 24px rgba(15, 23, 42, 0.12),
+		0 2px 6px rgba(15, 23, 42, 0.06),
+		0 0 28px rgba(255, 255, 255, 0.72),
+		inset 0 1px 0 rgba(255, 255, 255, 0.78),
+		inset 0 -1px 0 rgba(227, 232, 238, 0.26);
 }
 body:not(.is-dark) .theme-switch-wrapper,
 body:not(.is-dark) .theme-toggle-button .theme-icon {
@@ -1345,14 +1362,9 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 	-webkit-backdrop-filter: blur(24px) saturate(140%);
 	backdrop-filter: blur(24px) saturate(140%);
 	align-items: center;
-	background: rgb(0 0 0 / 0.18);
 	background-clip: padding-box;
-	border: 1px solid rgb(255 255 255 / 0.08);
 	border-radius: 15px;
 	box-sizing: border-box;
-	box-shadow:
-		0 12px 28px rgb(0 0 0 / 0.18),
-		inset 0 1px 0 rgb(255 255 255 / 0.08);
 	display: flex;
 	isolation: isolate;
 	justify-content: space-between;
@@ -1367,6 +1379,83 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 		transform 260ms cubic-bezier(0, 0, 0.2, 1);
 	transform: translateZ(0);
 	will-change: transform, box-shadow;
+}
+body:not(.is-dark) .casino-card,
+body:not(.is-dark) .casino-card--top {
+	-webkit-backdrop-filter: blur(14px) saturate(120%);
+	backdrop-filter: blur(14px) saturate(120%);
+	background:
+		radial-gradient(
+			circle at 50% -14%,
+			rgba(255, 255, 255, 0.96) 0,
+			rgba(255, 255, 255, 0.48) 26%,
+			transparent 56%
+		),
+		radial-gradient(
+			circle,
+			rgba(182, 55, 64, 0.045) 0.65px,
+			transparent 1px
+		),
+		radial-gradient(
+			circle,
+			rgba(38, 42, 48, 0.025) 0.65px,
+			transparent 1px
+		),
+		linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.74),
+			rgba(248, 250, 252, 0.68)
+		);
+	background-size:
+		auto,
+		24px 24px,
+		18px 18px,
+		auto;
+	background-position:
+		center -18px,
+		10px 12px,
+		0 0,
+		0 0;
+	border: 1px solid rgba(255, 255, 255, 0.72);
+	box-shadow:
+		0 26px 58px rgba(15, 23, 42, 0.14),
+		0 12px 24px rgba(15, 23, 42, 0.08),
+		0 0 34px rgba(255, 255, 255, 0.78),
+		inset 0 1px 0 rgba(255, 255, 255, 0.92),
+		inset 0 -1px 0 rgba(227, 232, 238, 0.36);
+}
+body:not(.is-dark) .casino-card::before,
+body:not(.is-dark) .casino-card--top::before {
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.82),
+		transparent
+	);
+	content: '';
+	height: 1px;
+	left: 14px;
+	pointer-events: none;
+	position: absolute;
+	right: 14px;
+	top: 6px;
+	border-radius: 999px;
+	opacity: 0.9;
+	z-index: 0;
+}
+body:not(.is-dark) .casino-card::after,
+body:not(.is-dark) .casino-card--top::after {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), transparent);
+	content: '';
+	height: calc(72% - 18px);
+	left: 6px;
+	pointer-events: none;
+	position: absolute;
+	top: 12px;
+	width: 1px;
+	border-radius: 999px;
+	opacity: 0.82;
+	z-index: 0;
 }
 .casino-card:focus,
 .casino-card--top:focus {
@@ -1384,8 +1473,16 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 		inset 0 1px 0 rgb(255 255 255 / 0.08);
 	z-index: 10;
 }
-.casino-card--top::before {
-	content: none;
+body:not(.is-dark) .casino-card--top {
+	border-color: rgba(255, 255, 255, 0.76);
+	box-shadow:
+		0 0 20px rgba(182, 55, 64, 0.18),
+		0 0 34px rgba(182, 55, 64, 0.08),
+		0 28px 62px rgba(15, 23, 42, 0.15),
+		0 12px 26px rgba(15, 23, 42, 0.08),
+		0 0 34px rgba(255, 255, 255, 0.82),
+		inset 0 1px 0 rgba(255, 255, 255, 0.94),
+		inset 0 -1px 0 rgba(227, 232, 238, 0.36);
 }
 .casino-card:hover,
 .casino-card:focus-within,
@@ -1398,6 +1495,16 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 		0 0 0 1px rgb(255 255 255 / 0.08);
 	transform: none;
 }
+body:not(.is-dark) .casino-card:hover,
+body:not(.is-dark) .casino-card:focus-within {
+	border-color: rgba(255, 255, 255, 0.82);
+	box-shadow:
+		0 32px 68px rgba(15, 23, 42, 0.16),
+		0 14px 28px rgba(15, 23, 42, 0.1),
+		0 0 40px rgba(255, 255, 255, 0.82),
+		inset 0 1px 0 rgba(255, 255, 255, 0.96),
+		inset 0 -1px 0 rgba(229, 234, 240, 0.42);
+}
 .casino-card--top:hover,
 .casino-card--top:focus-within {
 	border-color: #b63740;
@@ -1408,6 +1515,18 @@ body:not(.is-dark) #accept-analytics-btn:focus-visible {
 		inset 0 1px 0 rgb(255 255 255 / 0.12);
 	outline: 0;
 	transform: none;
+}
+body:not(.is-dark) .casino-card--top:hover,
+body:not(.is-dark) .casino-card--top:focus-within {
+	border-color: rgba(182, 55, 64, 0.52);
+	box-shadow:
+		0 0 0 1px rgba(182, 55, 64, 0.32),
+		0 34px 72px rgba(15, 23, 42, 0.18),
+		0 14px 30px rgba(15, 23, 42, 0.1),
+		0 0 42px rgba(255, 255, 255, 0.84),
+		0 0 26px rgba(182, 55, 64, 0.22),
+		inset 0 1px 0 rgba(255, 255, 255, 0.96),
+		inset 0 -1px 0 rgba(229, 234, 240, 0.42);
 }
 .casino-card__info {
 	align-items: center;
@@ -4509,8 +4628,12 @@ body.is-dark .header__controls .language-toggle.is-open {
 		background: rgb(0 0 0 / 0.18);
 		border-color: rgb(255 255 255 / 0.08);
 		box-shadow:
-			0 12px 28px rgb(0 0 0 / 0.2),
-			inset 0 1px 0 rgb(255 255 255 / 0.08);
+			0 24px 54px rgba(15, 23, 42, 0.18),
+			0 10px 24px rgba(15, 23, 42, 0.12),
+			0 2px 6px rgba(15, 23, 42, 0.06),
+			0 0 28px rgba(255, 255, 255, 0.72),
+			inset 0 1px 0 rgba(255, 255, 255, 0.78),
+			inset 0 -1px 0 rgba(227, 232, 238, 0.26);
 	}
 
 /* Toggle icon centering + hover accent */
@@ -4649,9 +4772,16 @@ body.is-dark .header__controls .language-toggle.is-open {
 		-webkit-backdrop-filter: blur(12px) saturate(180%);
 		background: rgb(0 0 0 / 0.18) !important;
 		border-color: rgb(255 255 255 / 0.08) !important;
+		filter:
+			drop-shadow(0 16px 18px rgba(15, 23, 42, 0.16))
+			drop-shadow(0 6px 8px rgba(15, 23, 42, 0.12));
 		box-shadow:
-			0 12px 28px rgb(0 0 0 / 0.2),
-			inset 0 1px 0 rgb(255 255 255 / 0.08) !important;
+			0 24px 54px rgba(15, 23, 42, 0.18),
+			0 10px 24px rgba(15, 23, 42, 0.12),
+			0 2px 6px rgba(15, 23, 42, 0.06),
+			0 0 28px rgba(255, 255, 255, 0.72),
+			inset 0 1px 0 rgba(255, 255, 255, 0.78),
+			inset 0 -1px 0 rgba(227, 232, 238, 0.26) !important;
 	}
 
 	body:not(.is-dark) .header__controls .language-toggle.is-open {
@@ -4659,9 +4789,16 @@ body.is-dark .header__controls .language-toggle.is-open {
 		-webkit-backdrop-filter: blur(12px) saturate(180%);
 		background: rgb(0 0 0 / 0.18) !important;
 		border-color: rgb(255 255 255 / 0.08) !important;
+		filter:
+			drop-shadow(0 18px 22px rgba(15, 23, 42, 0.16))
+			drop-shadow(0 6px 10px rgba(15, 23, 42, 0.12));
 		box-shadow:
-			0 12px 28px rgb(0 0 0 / 0.2),
-			inset 0 1px 0 rgb(255 255 255 / 0.08) !important;
+			0 24px 54px rgba(15, 23, 42, 0.18),
+			0 10px 24px rgba(15, 23, 42, 0.12),
+			0 2px 6px rgba(15, 23, 42, 0.06),
+			0 0 28px rgba(255, 255, 255, 0.72),
+			inset 0 1px 0 rgba(255, 255, 255, 0.78),
+			inset 0 -1px 0 rgba(227, 232, 238, 0.26) !important;
 	}
 
 	body.is-dark .header__burger,
