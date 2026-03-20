@@ -5,5 +5,7 @@ Disallow: /tmp/
 Disallow: /dev/
 Disallow: /scripts/
 Disallow: /cf-worker/
+Disallow: /backups/
+Disallow: /tools/
 
 Sitemap: https://www.topjeu777.com/sitemap.xml

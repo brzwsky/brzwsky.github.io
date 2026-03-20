@@ -5,6 +5,7 @@ deployment:
     # Core pages
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp -R ca $DEPLOYPATH
+    - /bin/cp -R ch $DEPLOYPATH
 
     # Assets & config
     - /bin/cp -R assets $DEPLOYPATH
@@ -15,6 +16,7 @@ deployment:
     # Scripts & styles (minified)
     - /bin/cp app.minified.js $DEPLOYPATH/app.minified.js
     - /bin/cp style.minified.css $DEPLOYPATH/style.minified.css
+    - /bin/cp style.reviews.minified.css $DEPLOYPATH/style.reviews.minified.css
     - /bin/cp favicon.ico $DEPLOYPATH
 
     # Reviews section
