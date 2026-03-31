@@ -27,6 +27,7 @@
 			href="https://www.topjeu777.com/ca/"
 		/>
 		<link rel="alternate" hreflang="fr-FR" href="https://www.topjeu777.com/" />
+		<link rel="alternate" hreflang="fr-CH" href="https://www.topjeu777.com/ch/" />
 		<link
 			rel="alternate"
 			hreflang="x-default"
@@ -201,9 +202,9 @@
 						"@type": "ItemList",
 						"@id": "https://www.topjeu777.com/ca/#itemlist",
 						"name": "Classement des casinos en ligne au Canada",
-						"description": "Top 5 des casinos en ligne fiables pour les joueurs canadiens avec bonus attractifs et retraits rapides.",
+						"description": "Top 6 des casinos en ligne fiables pour les joueurs canadiens avec bonus attractifs et retraits rapides.",
 						"itemListOrder": "https://schema.org/ItemListOrderDescending",
-						"numberOfItems": 5,
+						"numberOfItems": 6,
 						"itemListElement": [
 							{
 								"@type": "ListItem",
@@ -299,6 +300,16 @@
 										"worstRating": "1"
 									}
 								}
+							},
+							{
+								"@type": "ListItem",
+								"position": 6,
+								"item": {
+									"@type": "Organization",
+									"@id": "https://www.topjeu777.com/ca/#casinolab",
+									"name": "CasinoLab",
+									"url": "https://www.topjeu777.com/ca/#casinolab"
+								}
 							}
 						]
 					},
@@ -393,61 +404,61 @@
 			}
 		</script>
 
-			<script>
-				(function () {
-					function getInitialTheme() {
-						try {
-							if (typeof window.__initialThemeIsDark === 'boolean') {
-								return window.__initialThemeIsDark;
-							}
-							var storedTheme = localStorage.getItem('theme');
-							var prefersDark =
-								window.matchMedia &&
-								window.matchMedia('(prefers-color-scheme: dark)').matches;
-							var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
-							window.__initialThemeIsDark = isDark;
-							return isDark;
-						} catch {
-							return document.body
-								? document.body.classList.contains('is-dark')
-								: false;
+		<script>
+			(function () {
+				function getInitialTheme() {
+					try {
+						if (typeof window.__initialThemeIsDark === 'boolean') {
+							return window.__initialThemeIsDark;
 						}
+						var storedTheme = localStorage.getItem('theme');
+						var prefersDark =
+							window.matchMedia &&
+							window.matchMedia('(prefers-color-scheme: dark)').matches;
+						var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+						window.__initialThemeIsDark = isDark;
+						return isDark;
+					} catch {
+						return document.body
+							? document.body.classList.contains('is-dark')
+							: false;
 					}
+				}
 
-					function syncThemeIcon() {
-						var btn = document.getElementById('theme-toggle');
-						if (!btn) return false;
-						var icon = btn.querySelector('.theme-icon');
-						if (!icon) return false;
-						var next = getInitialTheme() ? '☀️' : '🌙';
-						if (icon.textContent !== next) icon.textContent = next;
-						return true;
-					}
+				function syncThemeIcon() {
+					var btn = document.getElementById('theme-toggle');
+					if (!btn) return false;
+					var icon = btn.querySelector('.theme-icon');
+					if (!icon) return false;
+					var next = getInitialTheme() ? '☀️' : '🌙';
+					if (icon.textContent !== next) icon.textContent = next;
+					return true;
+				}
 
-					if (syncThemeIcon()) return;
-					if (typeof requestAnimationFrame !== 'function') {
-						document.addEventListener('DOMContentLoaded', syncThemeIcon);
-						return;
-					}
-					var attempts = 0;
-					var maxAttempts = 30;
-					(function tick() {
-						attempts += 1;
-						if (syncThemeIcon() || attempts >= maxAttempts) return;
-						requestAnimationFrame(tick);
-					})();
+				if (syncThemeIcon()) return;
+				if (typeof requestAnimationFrame !== 'function') {
+					document.addEventListener('DOMContentLoaded', syncThemeIcon);
+					return;
+				}
+				var attempts = 0;
+				var maxAttempts = 30;
+				(function tick() {
+					attempts += 1;
+					if (syncThemeIcon() || attempts >= maxAttempts) return;
+					requestAnimationFrame(tick);
 				})();
-			</script>
-			<!-- Preload LCP Image -->
-			<link
-				rel="preload"
+			})();
+		</script>
+		<!-- Preload LCP Image -->
+		<link
+			rel="preload"
 			as="image"
 			href="/assets/img/banners/ca/banners/crowngreen/crowngreen-banner-1200.webp"
 			fetchpriority="high"
 		/>
 
-			<!-- CSS -->
-			<link rel="stylesheet" href="/style.minified.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="/style.minified.css" />
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
@@ -468,14 +479,6 @@
 				} catch {}
 			})();
 		</script>
-		<!-- Cookie Consent Banner -->
-		<div class="cookie-consent-banner">
-			<p>
-				Nous utilisons Google Analytics pour améliorer votre expérience.
-				Acceptez-vous ?
-			</p>
-			<button id="accept-analytics-btn">Accepter</button>
-		</div>
 		<div class="nav-menu__overlay" aria-hidden="true"></div>
 
 		<!-- Header -->
@@ -517,7 +520,9 @@
 					hidden
 					aria-hidden="true"
 				>
-					<button class="nav-menu__close" aria-label="Fermer le menu">&times;</button>
+					<button class="nav-menu__close" aria-label="Fermer le menu">
+						&times;
+					</button>
 					<ul class="nav-menu__list" role="list">
 						<li class="nav-menu__item">
 							<a
@@ -655,17 +660,17 @@
 						</div>
 					</div>
 					<!-- Theme toggle -->
-						<button
-							type="button"
-							id="theme-toggle"
-							class="theme-toggle-button"
-							aria-label="Basculer le theme clair/sombre"
-						>
-							<span class="theme-icon">🌙</span>
-						</button>
-					</div>
+					<button
+						type="button"
+						id="theme-toggle"
+						class="theme-toggle-button"
+						aria-label="Basculer le theme clair/sombre"
+					>
+						<span class="theme-icon">🌙</span>
+					</button>
 				</div>
-			</header>
+			</div>
+		</header>
 
 		<main role="main">
 			<!-- Hero Section -->
@@ -870,7 +875,9 @@
 							<p class="casino-card__score">9.6</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
-								<strong id="casino-name-spininio-top-casinos">Spininio Casino</strong>
+								<strong id="casino-name-spininio-top-casinos"
+									>Spininio Casino</strong
+								>
 							</p>
 						</div>
 						<a
@@ -916,7 +923,9 @@
 							<p class="casino-card__score">9.3</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
-								<strong id="casino-name-vegazone-top-casinos">Vegazone Casino</strong>
+								<strong id="casino-name-vegazone-top-casinos"
+									>Vegazone Casino</strong
+								>
 							</p>
 						</div>
 						<a
@@ -970,6 +979,55 @@
 							rel="nofollow noopener sponsored"
 							tabindex="0"
 							aria-describedby="casino-name-mafia-top-casinos"
+						>
+							<span class="casino-card__button-link">Jouez maintenant</span>
+						</a>
+					</div>
+				</article>
+
+				<!--Card Casinolab -->
+				<article class="casino-article u-fade-in">
+					<div id="casinolab" class="casino-card">
+						<div class="casino-card__rank-bg"></div>
+						<div class="casino-card__rank">6</div>
+						<div class="casino-card__info">
+							<img
+								class="casino-card__image"
+								src="/assets/img/logo-casinos/casinolab-logo.webp"
+								data-dark="/assets/img/logo-casinos/casinolab-logo-dark.webp"
+								alt="Logo de Casinolab, classé numéro 6"
+								loading="lazy"
+								width="150"
+								height="41"
+							/>
+							<div>
+								<h3 class="casino-card__title">Casinolab</h3>
+								<p class="casino-card__bonus">
+									100% Jusqu'à 750 CAD + 200 tours gratuits
+								</p>
+							</div>
+						</div>
+						<ul class="casino-card__features">
+							<li>Une ludothèque riche et diversifiée</li>
+							<li>Des bonus attractifs et généreux</li>
+							<li>Des paris sportifs disponibles et variés</li>
+						</ul>
+						<div class="casino-card__rating">
+							<p class="casino-card__score">9.0</p>
+							<p class="casino-card__stars">★★★★★</p>
+							<p class="u-visually-hidden">
+								<strong id="casino-name-casinolab-top-casinos"
+									>Casinolab</strong
+								>
+							</p>
+						</div>
+						<a
+							class="casino-card__button"
+							href="https://cnl.naralvin.com/?mid=309905_1826181"
+							target="_blank"
+							rel="nofollow noopener sponsored"
+							tabindex="0"
+							aria-describedby="casino-name-casinolab-top-casinos"
 						>
 							<span class="casino-card__button-link">Jouez maintenant</span>
 						</a>
@@ -2072,17 +2130,23 @@
 							<source
 								media="(max-width:767px)"
 								type="image/webp"
-								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-400.webp"
+								srcset="
+									/assets/img/banners/ca/banners/mafia/mafia-banner-400.webp
+								"
 							/>
 							<source
 								media="(min-width:768px) and (max-width:1366px)"
 								type="image/webp"
-								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-800.webp"
+								srcset="
+									/assets/img/banners/ca/banners/mafia/mafia-banner-800.webp
+								"
 							/>
 							<source
 								media="(min-width:1367px)"
 								type="image/webp"
-								srcset="/assets/img/banners/ca/banners/mafia/mafia-banner-1200.webp"
+								srcset="
+									/assets/img/banners/ca/banners/mafia/mafia-banner-1200.webp
+								"
 							/>
 							<img
 								src="/assets/img/banners/ca/banners/mafia/mafia-banner-1200.webp"
@@ -3255,60 +3319,6 @@
 				<p id="form-success-message" class="form-success-message u-hidden">
 					Message envoyé avec succès !
 				</p>
-			</div>
-		</div>
-
-		<!-- Cookie Banner -->
-		<div
-			id="cookie-banner"
-			class="cookie-banner"
-			role="dialog"
-			aria-labelledby="cookie-title"
-			aria-describedby="cookie-description"
-			tabindex="-1"
-		>
-			<div
-				class="cookie-banner__minimized-icon"
-				aria-label="Afficher les parametres des cookies"
-				tabindex="0"
-				role="button"
-			>
-				🍪
-			</div>
-			<div class="cookie-banner__container">
-				<div class="cookie-banner__content">
-					<h4 id="cookie-title">Nous sommes des cookies</h4>
-					<p id="cookie-description" class="cookie-banner__text">
-						Nous utilisons des cookies pour améliorer votre expérience sur
-						TopJeu. En continuant à naviguer, vous acceptez notre utilisation
-						des cookies.
-					</p>
-					<p class="cookie-banner__note">
-						<a
-							href="#privacy-popup"
-							class="footer__link cookie-banner__link--emphasis"
-							id="cookie-privacy-link"
-							data-popup-target="privacy"
-							>Lire la politique de confidentialité</a
-						>
-					</p>
-				</div>
-				<div class="cookie-banner__actions">
-					<button
-						id="cookie-accept"
-						class="cookie-banner__btn cookie-banner__btn--accept"
-						aria-label="Accepter tous les cookies"
-					>
-						OK pour moi
-					</button>
-					<button
-						id="cookie-decline"
-						class="cookie-banner__btn cookie-banner__btn--decline"
-						aria-label="Refuser les cookies non essentiels"
-					>
-						Non merci
-					</button>
-				</div>
 			</div>
 		</div>
 
