@@ -1565,6 +1565,69 @@
 			}
 
 			@media (max-width: 768px) {
+				.crowngreen-review .header {
+					padding-bottom: 0.5rem;
+				}
+
+				.crowngreen-review .header__container {
+					min-height: calc(var(--mobile-header-control-size) + 4.3rem);
+					padding: 0.5rem 0.85rem 0.72rem;
+				}
+
+				.crowngreen-review .header__logo-text {
+					margin-top: 0.28rem;
+					padding-bottom: 0.08rem;
+				}
+
+				.crowngreen-review .header__logo-block {
+					justify-content: center;
+					margin-top: 0.01rem;
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%) translateY(2px);
+					z-index: 1001;
+					max-width: 140px;
+				}
+
+				.crowngreen-review .header__logo-block .header__logo {
+					display: block;
+					height: auto;
+					margin: 0 auto;
+					max-width: 100%;
+					object-fit: contain;
+				}
+
+				.crowngreen-review .header__logo {
+					height: auto;
+					max-height: 45px;
+					min-height: unset;
+					object-fit: contain;
+					width: auto;
+				}
+
+				.crowngreen-review .header__controls {
+					align-items: flex-start;
+					left: var(--mobile-header-side-offset);
+					position: absolute;
+					top: calc(50% - (var(--mobile-header-control-size) / 2));
+					transform: none;
+					z-index: 1002;
+				}
+
+				.crowngreen-review .header__logo-line--subtitle {
+					display: none;
+				}
+
+				.crowngreen-review .header__logo-line--title {
+					font-size: 0.9rem;
+				}
+
+				.crowngreen-review .header__logo-line--title,
+				.crowngreen-review .header__logo-line--subtitle {
+					margin-top: 0.01rem;
+				}
+
 				.nav-menu--static .nav-menu__list {
 					gap: 0.8rem;
 					flex-wrap: wrap;
