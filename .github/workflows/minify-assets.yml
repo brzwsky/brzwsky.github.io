@@ -1,0 +1,43 @@
+name: Minify assets
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "app.js"
+      - "style.css"
+      - "style.reviews.css"
+      - "minify.mjs"
+      - "package.json"
+      - ".github/workflows/minify-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  minify-and-commit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Minify assets
+        run: |
+          npx --yes esbuild app.js --minify --target=es2018 --format=iife --outfile=app.minified.js
+          npx --yes esbuild style.css --minify --loader=css --outfile=style.minified.css
+          npx --yes esbuild style.reviews.css --minify --loader=css --outfile=style.reviews.minified.css
+
+      - name: Commit updated minified files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-minify static assets"
+          file_pattern: app.minified.js style.minified.css style.reviews.minified.css

@@ -829,51 +829,6 @@
 				}
 			}
 			</style>
-			<script>
-				(function () {
-					function getInitialTheme() {
-						try {
-							if (typeof window.__initialThemeIsDark === 'boolean') {
-								return window.__initialThemeIsDark;
-							}
-							var storedTheme = localStorage.getItem('theme');
-							var prefersDark =
-								window.matchMedia &&
-								window.matchMedia('(prefers-color-scheme: dark)').matches;
-							var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
-							window.__initialThemeIsDark = isDark;
-							return isDark;
-						} catch {
-							return document.body
-								? document.body.classList.contains('is-dark')
-								: false;
-						}
-					}
-
-					function syncThemeIcon() {
-						var btn = document.getElementById('theme-toggle');
-						if (!btn) return false;
-						var icon = btn.querySelector('.theme-icon');
-						if (!icon) return false;
-						var next = getInitialTheme() ? '☀️' : '🌙';
-						if (icon.textContent !== next) icon.textContent = next;
-						return true;
-					}
-
-					if (syncThemeIcon()) return;
-					if (typeof requestAnimationFrame !== 'function') {
-						document.addEventListener('DOMContentLoaded', syncThemeIcon);
-						return;
-					}
-					var attempts = 0;
-					var maxAttempts = 30;
-					(function tick() {
-						attempts += 1;
-						if (syncThemeIcon() || attempts >= maxAttempts) return;
-						requestAnimationFrame(tick);
-					})();
-				})();
-			</script>
 			<link
 				rel="preload"
 				href="/style.reviews.minified.css"
@@ -1037,7 +992,7 @@
 							class="theme-toggle-button"
 							aria-label="Basculer le theme clair/sombre"
 						>
-							<span class="theme-icon">🌙</span>
+							<span class="theme-icon">🌓</span>
 						</button>
 					</div>
 				</div>
@@ -1047,7 +1002,7 @@
 				Dragonia Casino Avis – Mon expérience complète 2026
 			</h1>
 			<!-- Hero Section -->
-			<section class="hero u-fade-in">
+			<section class="hero">
 				<p class="hero__meta">
 					<span class="author"
 						><img
@@ -1056,15 +1011,23 @@
 							class="author__photo"
 							width="35"
 							height="35"
-							loading="lazy"
+							loading="eager"
 					/></span>
 					Rédigé par :
 					<span>
-						<span class="author__name">Dariah Belle</span>
+						<span class="author__name">
+							<a
+								href="#popup-contact"
+								data-popup-target="contact"
+								aria-label="Contacter Dariah Belle"
+								title="Contacter Dariah Belle"
+								>Dariah Belle</a
+							>
+						</span>
 					</span>
 					· Dernière mise à jour : 24 Février 2026
 				</p>
-				<p class="disclaimer u-fade-in">
+				<p class="disclaimer">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
 					modération, fixez des limites et ne misez jamais plus que ce que vous
 					pouvez vous permettre de perdre. Si vous sentez que le jeu devient un

@@ -265,64 +265,48 @@
 				var schedule =
 					window.requestIdleCallback ||
 					function (callback) {
-						setTimeout(callback, 1200);
+						setTimeout(callback, 1500);
 					};
+
+				function scheduleClarity() {
+					schedule(loadClarity, { timeout: 8000 });
+				}
+
+				var userSignals = [
+					'pointerdown',
+					'keydown',
+					'touchstart',
+					'scroll',
+				];
+				var armed = false;
+				function armClarityLoad() {
+					if (armed) return;
+					armed = true;
+					scheduleClarity();
+					userSignals.forEach(function (eventName) {
+						window.removeEventListener(eventName, armClarityLoad, {
+							passive: true,
+						});
+					});
+				}
+
+				userSignals.forEach(function (eventName) {
+					window.addEventListener(eventName, armClarityLoad, {
+						once: true,
+						passive: true,
+					});
+				});
 
 				window.addEventListener(
 					'load',
 					function () {
-						schedule(loadClarity, { timeout: 4000 });
+						setTimeout(scheduleClarity, 7000);
 					},
 					{ once: true },
 				);
 			})();
 		</script>
 
-		<script>
-			(function () {
-				function getInitialTheme() {
-					try {
-						if (typeof window.__initialThemeIsDark === 'boolean') {
-							return window.__initialThemeIsDark;
-						}
-						var storedTheme = localStorage.getItem('theme');
-						var prefersDark =
-							window.matchMedia &&
-							window.matchMedia('(prefers-color-scheme: dark)').matches;
-						var isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
-						window.__initialThemeIsDark = isDark;
-						return isDark;
-					} catch {
-						return document.body
-							? document.body.classList.contains('is-dark')
-							: false;
-					}
-				}
-
-				function syncThemeIcon() {
-					var btn = document.getElementById('theme-toggle');
-					if (!btn) return false;
-					var icon = btn.querySelector('.theme-icon');
-					if (!icon) return false;
-					var next = getInitialTheme() ? '☀️' : '🌙';
-					if (icon.textContent !== next) icon.textContent = next;
-					return true;
-				}
-
-				if (syncThemeIcon()) return;
-				if (typeof requestAnimationFrame !== 'function') {
-					document.addEventListener('DOMContentLoaded', syncThemeIcon);
-					return;
-				}
-				var attempts = 0;
-				var maxAttempts = 30;
-				(function tick() {
-					attempts += 1;
-					if (syncThemeIcon() || attempts >= maxAttempts) return;
-					requestAnimationFrame(tick);
-				})();
-			})();
-		</script>
 		<!-- Defer JS-->
 		<script src="/app.minified.js" defer></script>
 	</head>
@@ -531,7 +515,7 @@
 						class="theme-toggle-button"
 						aria-label="Basculer le theme clair/sombre"
 					>
-						<span class="theme-icon">🌙</span>
+						<span class="theme-icon">🌓</span>
 					</button>
 				</div>
 			</div>
@@ -542,7 +526,7 @@
 				Meilleurs casinos en ligne en France – Classement 2026
 			</h1>
 			<!-- Hero Section -->
-			<section class="hero u-fade-in">
+			<section class="hero">
 				<p class="hero__meta">
 					<span class="author"
 						><img
@@ -551,17 +535,25 @@
 							class="author__photo"
 							width="60"
 							height="60"
-							loading="lazy"
+							loading="eager"
 						/>
 					</span>
 					Rédigé par :
 					<span>
-						<span class="author__name">Dariah Belle</span>
+						<span class="author__name">
+							<a
+								href="#popup-contact"
+								data-popup-target="contact"
+								aria-label="Contacter Dariah Belle"
+								title="Contacter Dariah Belle"
+								>Dariah Belle</a
+							>
+						</span>
 					</span>
 					· Dernière mise à jour :
 					<span class="u-font-light">02 avril 2026</span>
 				</p>
-				<p class="disclaimer u-fade-in">
+				<p class="disclaimer">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
 					modération, fixez des limites et ne misez jamais plus que ce que vous
 					pouvez vous permettre de perdre. Si vous sentez que le jeu devient un

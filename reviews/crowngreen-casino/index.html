@@ -1488,7 +1488,7 @@
 						class="theme-toggle-button"
 						aria-label="Basculer le thème clair/sombre"
 					>
-						<span class="theme-icon">🌙</span>
+						<span class="theme-icon">🌓</span>
 					</button>
 				</div>
 			</div>
@@ -2883,6 +2883,97 @@
 				</div>
 			</div>
 		</footer>
+
+		<!-- POPUP: À propos de nous -->
+		<div
+			id="popup"
+			class="popup u-hidden"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="about-title"
+		>
+			<div class="popup__content">
+				<button id="popup-close" class="popup__close" aria-label="Fermer">
+					&times;
+				</button>
+				<h2 id="about-title" class="popup__title">Qui suis-je ?</h2>
+				<div class="about-author">
+					<span class="author"
+						><img
+							width="80"
+							height="80"
+							src="/assets/img/author-photo.webp"
+							alt="Portrait de Dariah Belle, auteure du site TopJeu"
+							class="author__photo about-author__photo"
+							loading="lazy"
+					/></span>
+					<h3>Dariah Belle</h3>
+				</div>
+				<p>
+					Moi, c'est Dariah Belle - votre alliée dans l'univers du casino en
+					ligne.
+				</p>
+				<p>
+					Je teste personnellement chaque plateforme pour proposer des avis
+					fiables, transparents et utiles aux joueurs canadiens francophones.
+				</p>
+			</div>
+		</div>
+
+		<!-- POPUP: Contact -->
+		<div
+			id="popup-contact"
+			class="popup u-hidden"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="contact-title"
+		>
+			<div class="popup__content">
+				<button
+					id="popup-contact-close"
+					class="popup__close"
+					aria-label="Fermer"
+				>
+					&times;
+				</button>
+				<h2 id="contact-title">Contactez-moi</h2>
+				<div class="underline"></div>
+				<form
+					id="contact-form"
+					action="https://formspree.io/f/mjkokkor"
+					method="POST"
+				>
+					<label for="name">Nom *</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						required
+						class="popup__input"
+					/>
+					<label for="email">Email *</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						required
+						class="popup__input"
+					/>
+					<label for="message">Message *</label>
+					<textarea
+						id="message"
+						name="message"
+						required
+						rows="5"
+						class="popup__input"
+					></textarea>
+					<button type="submit" class="popup__button">Envoyer</button>
+				</form>
+				<p id="form-success-message" class="form-success-message u-hidden">
+					Message envoye avec succes !
+				</p>
+			</div>
+		</div>
 
 		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
 			<svg
