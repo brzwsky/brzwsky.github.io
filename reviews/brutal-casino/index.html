@@ -826,6 +826,9 @@
 			.hero__text p {
 				max-width: 1200px;
 			}
+			.hero__text .hero__intro {
+				max-width: 980px;
+			}
 			.author {
 				align-items: center;
 				display: inline-flex;
@@ -1087,7 +1090,7 @@
 					problème, demandez de l'aide dès maintenant.
 				</p>
 				<div class="hero__text">
-					<p>
+					<p class="hero__intro">
 						Avec plus de <strong>2 000 jeux</strong>, un
 						<strong>bonus de bienvenue généreux</strong> et une interface
 						intuitive, <strong>Brutal Casino</strong> attire de nombreux joueurs
@@ -1965,6 +1968,7 @@
 		</footer>
 
 		<!-- Politique de confidentialité Popup -->
+		<template id="privacy-popup-template">
 		<div
 			id="privacy-popup"
 			class="privacy-popup"
@@ -2102,8 +2106,10 @@
 				</p>
 			</div>
 		</div>
+		</template>
 
 		<!-- POPUP: À propos de nous -->
+		<template id="popup-template">
 		<div
 			id="popup"
 			class="popup u-hidden"
@@ -2252,8 +2258,10 @@
 				</p>
 			</div>
 		</div>
+		</template>
 
 		<!-- POPUP: Contact -->
+		<template id="popup-contact-template">
 		<div
 			id="popup-contact"
 			class="popup u-hidden"
@@ -2307,6 +2315,7 @@
 				</p>
 			</div>
 		</div>
+		</template>
 
 		<!-- Scroll to top button -->
 		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
