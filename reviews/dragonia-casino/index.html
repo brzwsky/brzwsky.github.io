@@ -36,6 +36,15 @@
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 
+		<!-- Full stylesheet early: download in parallel with JSON-LD + inline critical CSS -->
+		<link
+			rel="preload"
+			href="/style.reviews.minified.css"
+			as="style"
+			fetchpriority="high"
+		/>
+		<link rel="stylesheet" href="/style.reviews.minified.css" />
+
 		<!-- SEO & Robots -->
 		<meta
 			name="robots"
@@ -833,13 +842,6 @@
 				}
 			}
 			</style>
-			<link
-				rel="preload"
-				href="/style.reviews.minified.css"
-				as="style"
-				fetchpriority="high"
-			/>
-			<link rel="stylesheet" href="/style.reviews.minified.css" />
 
 			<!-- Main JS -->
 			<script src="/app.minified.js" defer></script>

@@ -80,6 +80,16 @@
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 
+		<!-- Critical path: CSS + LCP image before large JSON-LD so discovery is early -->
+		<link rel="preload" href="/style.minified.css" as="style" />
+		<link rel="stylesheet" href="/style.minified.css" />
+		<link
+			rel="preload"
+			as="image"
+			href="/assets/img/banners/ch/moonwin/moonwin-banner-1200.webp"
+			fetchpriority="high"
+		/>
+
 		<!-- Structured Data -->
 
 		<script type="application/ld+json">
@@ -472,17 +482,6 @@
 				]
 			}
 		</script>
-
-		<!-- Preload LCP Image -->
-		<link
-			rel="preload"
-			as="image"
-			href="/assets/img/banners/ch/moonwin/moonwin-banner-1200.webp"
-			fetchpriority="high"
-		/>
-
-		<!-- CSS -->
-		<link rel="stylesheet" href="/style.minified.css" />
 
 		<!-- JS -->
 		<script src="/app.minified.js" defer></script>
