@@ -830,11 +830,81 @@
 				max-width: 150px;
 				width: 100%;
 			}
+			body.page-review.dragonia-review .pros-cons {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+				margin: 1.5rem 0 2rem;
+			}
+			body.page-review.dragonia-review .pros-cons__block {
+				border-radius: 10px;
+				padding: 1.2rem 1.4rem;
+			}
+			body.page-review.dragonia-review .pros-cons__block--pros {
+				background: #f0fff4;
+				border: 1px solid #b7ebc8;
+				border-top: 4px solid #28a745;
+				color: #1a1a1a;
+			}
+			body.page-review.dragonia-review .pros-cons__block--cons {
+				background: #fff5f5;
+				border: 1px solid #f5c6cb;
+				border-top: 4px solid #b30000;
+				color: #1a1a1a;
+			}
+			body.page-review.dragonia-review .pros-cons__title {
+				font-size: 0.85rem;
+				font-weight: 700;
+				letter-spacing: 0.06em;
+				margin-bottom: 0.8rem;
+				text-transform: uppercase;
+			}
+			body.page-review.dragonia-review .pros-cons__title--pros {
+				color: #1e7e34;
+			}
+			body.page-review.dragonia-review .pros-cons__title--cons {
+				color: #b30000;
+			}
+			body.page-review.dragonia-review .pros-cons__list {
+				color: inherit;
+				margin: 0;
+				max-width: none;
+				padding-left: 1.2rem;
+			}
+			body.page-review.dragonia-review .pros-cons__block li,
+			body.page-review.dragonia-review .pros-cons__block strong {
+				color: inherit;
+			}
+			body.page-review.dragonia-review .pros-cons__block li {
+				margin-bottom: 0.5rem;
+			}
+			body.page-review.dragonia-review .pros-cons__block li:last-child {
+				margin-bottom: 0;
+			}
+			body.is-dark.page-review.dragonia-review .pros-cons__block--pros {
+				background: linear-gradient(180deg, #13251a 0%, #101913 100%);
+				border-color: rgba(91, 180, 117, 0.4);
+				color: #e7f8ed;
+			}
+			body.is-dark.page-review.dragonia-review .pros-cons__block--cons {
+				background: linear-gradient(180deg, #2d1618 0%, #1c1011 100%);
+				border-color: rgba(219, 101, 101, 0.35);
+				color: #fff0f0;
+			}
+			body.is-dark.page-review.dragonia-review .pros-cons__title--pros {
+				color: #7ee29d;
+			}
+			body.is-dark.page-review.dragonia-review .pros-cons__title--cons {
+				color: #ff9d9d;
+			}
 			@media (max-width: 768px) {
 				main {
 					max-width: 100%;
 					padding-left: 1rem;
 					padding-right: 1rem;
+				}
+				body.page-review.dragonia-review .pros-cons {
+					grid-template-columns: 1fr;
 				}
 			}
 			@media (min-width: 768px) and (max-width: 1200px) {
@@ -852,7 +922,7 @@
 		<!-- Main JS -->
 		<script src="/app.minified.js" defer></script>
 	</head>
-	<body lang="fr" class="page-review" id="top">
+	<body lang="fr" class="page-review dragonia-review" id="top">
 		<script>
 			(function () {
 				try {
@@ -1099,6 +1169,57 @@
 					rel="nofollow noopener noreferrer"
 					tabindex="0"
 					aria-describedby="casino-name-dragonia-detail"
+				>
+					<span class="casino-card__button-link u-fade-in"
+						>Jouez maintenant</span
+					>
+				</a>
+			</section>
+
+			<section id="notre-avis" class="u-content-width u-fade-in">
+				<h2 class="red-line red-line--after u-fade-in">
+					Notre avis résumé
+				</h2>
+				<div class="review-note-global u-fade-in">
+					<p class="review-note-global__title">Note globale</p>
+					<p class="review-note-global__score">9.6<small>/10</small></p>
+					<p class="review-note-global__stars">★★★★★</p>
+				</div>
+				<div class="pros-cons u-fade-in">
+					<div class="pros-cons__block pros-cons__block--pros">
+						<p class="pros-cons__title pros-cons__title--pros">
+							👍 Points forts
+						</p>
+						<ul class="pros-cons__list">
+							<li><strong>500 € + 200 Free Spins</strong> de bienvenue</li>
+							<li>Plus de <strong>11 000 jeux</strong> disponibles</li>
+							<li>Retraits <strong>rapides</strong></li>
+						</ul>
+					</div>
+					<div class="pros-cons__block pros-cons__block--cons">
+						<p class="pros-cons__title pros-cons__title--cons">
+							👎 Points faibles
+						</p>
+						<ul class="pros-cons__list">
+							<li>Pas de <strong>bonus sans dépôt</strong></li>
+							<li>Licence <strong>Anjouan</strong></li>
+						</ul>
+					</div>
+				</div>
+				<p class="u-content-width u-fade-in">
+					Dragonia Casino propose une offre très compétitive pour les joueurs
+					qui cherchent un gros catalogue, un bonus solide et des paiements
+					efficaces.
+				</p>
+				<p class="u-content-width u-fade-in">
+					Malgré une licence offshore et l'absence de bonus sans dépôt, mon
+					avis reste clairement positif pour un usage régulier.
+				</p>
+				<a
+					class="casino-card__button u-fade-in"
+					href="https://drgnn.lynmonkel.com/?mid=319698_1880124"
+					target="_blank"
+					rel="nofollow noopener noreferrer"
 				>
 					<span class="casino-card__button-link u-fade-in"
 						>Jouez maintenant</span
