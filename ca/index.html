@@ -118,10 +118,11 @@
 							"width": 512,
 							"height": 512
 						},
-						"areaServed": {
-							"@type": "Country",
-							"name": "Canada"
-						},
+						"areaServed": [
+							{ "@type": "Country", "name": "Canada" },
+							{ "@type": "Country", "name": "France" },
+							{ "@type": "Country", "name": "Switzerland" }
+						],
 						"sameAs": ["https://t.me/+hxObTKgJlwU3NTBi"]
 					},
 
@@ -145,14 +146,6 @@
 						"inLanguage": "fr-CA",
 						"publisher": {
 							"@id": "https://www.topjeu777.com/#organization"
-						},
-						"potentialAction": {
-							"@type": "SearchAction",
-							"target": {
-								"@type": "EntryPoint",
-								"urlTemplate": "https://www.topjeu777.com/?s={search_term_string}"
-							},
-							"query-input": "required name=search_term_string"
 						}
 					},
 
@@ -183,7 +176,7 @@
 							"@id": "https://www.topjeu777.com/#organization"
 						},
 						"datePublished": "2026-01-01T08:00:00-05:00",
-						"dateModified": "2026-04-15T12:00:00-05:00",
+						"dateModified": "2026-04-18T12:00:00-05:00",
 						"primaryImageOfPage": {
 							"@type": "ImageObject",
 							"@id": "https://www.topjeu777.com/ca/#primaryimage",
@@ -307,7 +300,7 @@
 									"@type": "Organization",
 									"@id": "https://www.topjeu777.com/ca/#dragonia",
 									"name": "Dragonia Casino",
-									"url": "https://drgnn.lynmonkel.com/?mid=319698_2114381",
+									"url": "https://www.dragonia.com",
 									"description": "100% jusqu’à 750 CAD + 20 tours gratuits + 1 bonus crab",
 									"areaServed": { "@type": "Country", "name": "Canada" },
 									"aggregateRating": {
@@ -345,7 +338,7 @@
 									"@type": "Organization",
 									"@id": "https://www.topjeu777.com/ca/#casinolab",
 									"name": "Casinolab",
-									"url": "https://cnl.naralvin.com/?mid=309905_1826181",
+									"url": "https://www.casinolab.com",
 									"description": "100% Jusqu'à 750 CAD + 200 tours gratuits",
 									"areaServed": { "@type": "Country", "name": "Canada" },
 									"aggregateRating": {
@@ -364,7 +357,7 @@
 									"@type": "Organization",
 									"@id": "https://www.topjeu777.com/ca/#romancasino",
 									"name": "Roman Casino",
-									"url": "https://media.vegaslegends.com/visit/?bta=37110&nci=5423",
+									"url": "https://romancasino.net",
 									"description": "Jusqu’à 5000 CAD + 150 tours gratuits + 3 tours de bonus",
 									"areaServed": { "@type": "Country", "name": "Canada" },
 									"aggregateRating": {
@@ -383,7 +376,7 @@
 									"@type": "Organization",
 									"@id": "https://www.topjeu777.com/ca/#talismaniacasino",
 									"name": "Talismania Casino",
-									"url": "https://media.vegaslegends.com/visit/?bta=37110&nci=5395",
+									"url": "https://talismania.com",
 									"description": "100% jusqu’à 750 CAD + 20 tours gratuits + 1 bonus crab",
 									"areaServed": { "@type": "Country", "name": "Canada" },
 									"aggregateRating": {
@@ -561,7 +554,21 @@
 								tabindex="0"
 								aria-label="Visitez notre chaîne YouTube TopJeu"
 							>
-								<svg class="youtube-icon" viewBox="0 0 29 20" width="25" height="25" aria-hidden="true"><g><path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"></path><path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path></g></svg>
+								<svg
+									class="youtube-icon"
+									viewBox="0 0 29 20"
+									width="25"
+									height="25"
+									aria-hidden="true"
+								>
+									<g>
+										<path
+											d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z"
+											fill="#FF0033"
+										></path>
+										<path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path>
+									</g>
+								</svg>
 								<span>YouTube</span>
 							</a>
 						</li>
@@ -719,7 +726,7 @@
 						>
 					</span>
 					· Dernière mise à jour :
-					<span class="u-font-light">18 Février 2026</span>
+					<span class="u-font-light">18 Avril 2026</span>
 				</p>
 				<p class="disclaimer">
 					18+. Le jeu en ligne doit rester un divertissement. Jouez avec
@@ -1056,17 +1063,65 @@
 					</div>
 				</article>
 
-				<!--Card Casinolab -->
+				<!--Card 777Vault Casino -->
 				<article class="casino-article u-fade-in">
-					<div id="casinolab" class="casino-card">
+					<div id="777vault" class="casino-card">
 						<div class="casino-card__rank-bg"></div>
 						<div class="casino-card__rank">7</div>
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
+								src="/assets/img/logo-casinos/777vault-logo.webp"
+								alt="Logo de 777Vault Casino, classé numéro 7"
+								loading="lazy"
+								width="150"
+								height="41"
+							/>
+							<div>
+								<h3 class="casino-card__title">777Vault Casino</h3>
+								<p class="casino-card__bonus">
+									100% jusqu’à 750 CAD + 100 tours gratuits
+								</p>
+							</div>
+						</div>
+						<ul class="casino-card__features">
+							<li>Assistance via chat en direct à toute heure</li>
+							<li>Bonne variété d’options de paiement</li>
+							<li>Accès aux outils de jeu responsable</li>
+						</ul>
+						<div class="casino-card__rating">
+							<p class="casino-card__score">9.0</p>
+							<p class="casino-card__stars">★★★★★</p>
+							<p class="u-visually-hidden">
+								<strong id="casino-name-777vault-top-casinos"
+									>777Vault Casino</strong
+								>
+							</p>
+						</div>
+						<a
+							class="casino-card__button"
+							href="https://cnl.naralvin.com/?mid=309905_1826181"
+							target="_blank"
+							rel="nofollow noopener sponsored"
+							tabindex="0"
+							aria-describedby="casino-name-casinolab-top-casinos"
+						>
+							<span class="casino-card__button-link">Jouez maintenant</span>
+						</a>
+					</div>
+				</article>
+
+				<!--Card Casinolab -->
+				<article class="casino-article u-fade-in">
+					<div id="casinolab" class="casino-card">
+						<div class="casino-card__rank-bg"></div>
+						<div class="casino-card__rank">8</div>
+						<div class="casino-card__info">
+							<img
+								class="casino-card__image"
 								src="/assets/img/logo-casinos/casinolab-logo.webp"
 								data-dark="/assets/img/logo-casinos/casinolab-logo-dark.webp"
-								alt="Logo de Casinolab, classé numéro 7"
+								alt="Logo de Casinolab, classé numéro 8"
 								loading="lazy"
 								width="150"
 								height="41"
@@ -1084,7 +1139,7 @@
 							<li>Des paris sportifs disponibles et variés</li>
 						</ul>
 						<div class="casino-card__rating">
-							<p class="casino-card__score">9.0</p>
+							<p class="casino-card__score">8.9</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
 								<strong id="casino-name-casinolab-top-casinos"
@@ -1109,12 +1164,12 @@
 				<article class="casino-article u-fade-in">
 					<div id="romancasino" class="casino-card">
 						<div class="casino-card__rank-bg"></div>
-						<div class="casino-card__rank">8</div>
+						<div class="casino-card__rank">8.8</div>
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
 								src="/assets/img/logo-casinos/roman-casino-logo.webp"
-								alt="Logo de Roman Casino, classé numéro 8"
+								alt="Logo de Roman Casino, classé numéro 9"
 								loading="lazy"
 								width="150"
 								height="41"
@@ -1132,7 +1187,7 @@
 							<li>Des bonus multiples pour tous les profils</li>
 						</ul>
 						<div class="casino-card__rating">
-							<p class="casino-card__score">8.9</p>
+							<p class="casino-card__score">8.7</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
 								<strong id="casino-name-romancasino-top-casinos"
@@ -1157,12 +1212,12 @@
 				<article class="casino-article u-fade-in">
 					<div id="talismaniacasino" class="casino-card">
 						<div class="casino-card__rank-bg"></div>
-						<div class="casino-card__rank">9</div>
+						<div class="casino-card__rank">10</div>
 						<div class="casino-card__info">
 							<img
 								class="casino-card__image"
 								src="/assets/img/logo-casinos/talismana-casino-logo.webp"
-								alt="Logo de Talismania Casino, classé numéro 9"
+								alt="Logo de Talismania Casino, classé numéro 10"
 								loading="lazy"
 								width="150"
 								height="41"
@@ -1180,7 +1235,7 @@
 							<li>Un programme VIP avantageux</li>
 						</ul>
 						<div class="casino-card__rating">
-							<p class="casino-card__score">8.8</p>
+							<p class="casino-card__score">8.6</p>
 							<p class="casino-card__stars">★★★★★</p>
 							<p class="u-visually-hidden">
 								<strong id="casino-name-talismania-casino-top-casinos"
@@ -3129,7 +3184,21 @@
 								class="footer__link u-fade-in"
 								aria-label="YouTube"
 							>
-								<svg class="youtube-icon u-fade-in" viewBox="0 0 29 20" width="25" height="25" aria-hidden="true"><g><path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"></path><path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path></g></svg>
+								<svg
+									class="youtube-icon u-fade-in"
+									viewBox="0 0 29 20"
+									width="25"
+									height="25"
+									aria-hidden="true"
+								>
+									<g>
+										<path
+											d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z"
+											fill="#FF0033"
+										></path>
+										<path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path>
+									</g>
+								</svg>
 								<!-- fixed path -->
 							</a>
 							<a
@@ -3139,7 +3208,18 @@
 								class="footer__link u-fade-in"
 								aria-label="X"
 							>
-								<svg class="youtube-icon u-fade-in" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor"><g><path d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z"></path></g></svg>
+								<svg
+									class="youtube-icon u-fade-in"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									style="fill: currentColor"
+								>
+									<g>
+										<path
+											d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z"
+										></path>
+									</g>
+								</svg>
 							</a>
 							<a
 								href="https://medium.com/@casinoamie"
@@ -3147,7 +3227,16 @@
 								rel="noopener noreferrer"
 								class="footer__link u-fade-in"
 							>
-								<svg class="youtube-icon u-fade-in" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+								<svg
+									class="youtube-icon u-fade-in"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									style="fill: currentColor"
+								>
+									<path
+										d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
+									/>
+								</svg>
 								<span>Medium</span>
 							</a>
 						</div>
