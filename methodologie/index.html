@@ -689,6 +689,625 @@
 				font-weight: 700;
 			}
 
+			.methodo-shell {
+				margin: 0 auto;
+			}
+
+			.methodo-breadcrumb {
+				margin-bottom: 1rem;
+			}
+
+			.methodo-hero {
+				position: relative;
+				padding: 2rem 2rem 1.7rem;
+				overflow: hidden;
+			}
+
+			.methodo-hero::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 4px;
+				border-radius: 4px 0 0 4px;
+				background: linear-gradient(180deg, var(--cg-red) 0%, rgba(179, 0, 0, 0.16) 100%);
+			}
+
+			.methodo-eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.45rem;
+				margin-bottom: 1rem;
+				padding: 0.36rem 0.8rem;
+				border-radius: 999px;
+				background: rgba(179, 0, 0, 0.08);
+				border: 1px solid rgba(179, 0, 0, 0.18);
+				color: var(--cg-red);
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+
+			.methodo-hero h1 {
+				margin: 0 0 1rem;
+				font-size: 1.92rem;
+				line-height: 1.12;
+			}
+
+			.methodo-meta {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.7rem;
+			}
+
+			.methodo-avatar {
+				width: 38px;
+				height: 38px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 2px solid rgba(179, 0, 0, 0.16);
+			}
+
+			.methodo-byline {
+				font-size: 0.88rem;
+				color: var(--cg-text-soft);
+			}
+
+			.methodo-byline a {
+				color: var(--cg-red);
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			.methodo-date {
+				padding: 0.28rem 0.75rem;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.54);
+				border: 1px solid var(--cg-border-strong);
+				font-size: 0.8rem;
+				color: var(--cg-text-soft);
+			}
+
+			body.is-dark .methodo-date {
+				background: rgba(255, 255, 255, 0.06);
+			}
+
+			.methodo-author-card {
+				display: flex;
+				gap: 1.35rem;
+				align-items: flex-start;
+			}
+
+			.methodo-author-card .crown-author__avatar {
+				flex-basis: 72px;
+				width: 72px;
+				height: 72px;
+				border: 3px solid rgba(179, 0, 0, 0.18);
+				box-shadow:
+					0 0 0 6px rgba(179, 0, 0, 0.08),
+					0 12px 24px rgba(179, 0, 0, 0.18);
+			}
+
+			.methodo-role {
+				font-size: 0.8rem;
+				font-weight: 800;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				color: var(--cg-red);
+				margin: 0.15rem 0 0.8rem;
+			}
+
+			.methodo-rule {
+				margin: 0.9rem 0;
+				padding: 0.95rem 1.1rem;
+				border-radius: 16px;
+				background: rgba(179, 0, 0, 0.07);
+				border: 1px solid rgba(179, 0, 0, 0.16);
+				border-left: 3px solid var(--cg-red);
+				font-weight: 700;
+				color: var(--cg-text);
+			}
+
+			.methodo-market-pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin: 0.8rem 0 0;
+			}
+
+			.methodo-market-pill {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.28rem 0.72rem;
+				border-radius: 999px;
+				background: rgba(179, 0, 0, 0.08);
+				border: 1px solid rgba(179, 0, 0, 0.16);
+				color: var(--cg-red);
+				font-size: 0.8rem;
+				font-weight: 700;
+			}
+
+			.methodo-note-box {
+				margin-top: 0.9rem;
+				padding: 0.8rem 1rem;
+				border-radius: 16px;
+				background: rgba(255, 255, 255, 0.46);
+				border: 1px solid var(--cg-border-strong);
+				color: var(--cg-text-soft);
+				font-size: 0.88rem;
+				line-height: 1.65;
+			}
+
+			body.is-dark .methodo-note-box {
+				background: rgba(255, 255, 255, 0.04);
+			}
+
+			.methodo-selection-grid,
+			.methodo-criteria-grid,
+			.methodo-geo-grid {
+				display: grid;
+				gap: 1rem;
+				margin-top: 1rem;
+			}
+
+			.methodo-selection-grid,
+			.methodo-criteria-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.methodo-geo-grid {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+			.methodo-box,
+			.methodo-card,
+			.methodo-limit-item,
+			.methodo-geo-card,
+			.methodo-source-link,
+			.methodo-grille-row {
+				background: rgba(255, 255, 255, 0.42);
+				border: 1px solid var(--cg-border-strong);
+			}
+
+			body.is-dark .methodo-box,
+			body.is-dark .methodo-card,
+			body.is-dark .methodo-limit-item,
+			body.is-dark .methodo-geo-card,
+			body.is-dark .methodo-source-link,
+			body.is-dark .methodo-grille-row {
+				background: rgba(255, 255, 255, 0.05);
+			}
+
+			.methodo-box {
+				padding: 1rem 1.05rem;
+				border-radius: 18px;
+			}
+
+			.methodo-box--ok {
+				background: var(--cg-green-soft);
+				border-color: rgba(30, 143, 99, 0.22);
+			}
+
+			.methodo-box--ko {
+				background: rgba(179, 0, 0, 0.06);
+				border-color: rgba(179, 0, 0, 0.18);
+			}
+
+			.methodo-box-label {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.45rem;
+				margin-bottom: 0.6rem;
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
+
+			.methodo-box-label--ok {
+				color: var(--cg-green);
+			}
+
+			.methodo-box-label--ko {
+				color: var(--cg-red);
+			}
+
+			.methodo-box-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				color: #fff;
+				font-size: 11px;
+				font-weight: 900;
+			}
+
+			.methodo-box-icon--ok {
+				background: var(--cg-green);
+			}
+
+			.methodo-box-icon--ko {
+				background: var(--cg-red);
+			}
+
+			.methodo-box ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.methodo-box li {
+				display: flex;
+				gap: 0.45rem;
+				padding: 0.28rem 0;
+				font-size: 0.89rem;
+			}
+
+			.methodo-box li::before {
+				content: '';
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				margin-top: 0.55rem;
+				flex-shrink: 0;
+			}
+
+			.methodo-box--ok li::before {
+				background: var(--cg-green);
+			}
+
+			.methodo-box--ko li::before {
+				background: var(--cg-red);
+			}
+
+			.methodo-timeline {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				gap: 0;
+				margin-top: 1rem;
+			}
+
+			.methodo-timeline::before {
+				content: '';
+				position: absolute;
+				left: 22px;
+				top: 24px;
+				bottom: 24px;
+				width: 2px;
+				border-radius: 2px;
+				background: linear-gradient(180deg, var(--cg-red) 0%, rgba(179, 0, 0, 0.08) 100%);
+			}
+
+			.methodo-timeline-item {
+				display: flex;
+				gap: 1rem;
+				padding: 0.8rem 0;
+			}
+
+			.methodo-timeline-num {
+				position: relative;
+				z-index: 1;
+				flex: 0 0 44px;
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				background: var(--cg-red);
+				color: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.8rem;
+				font-weight: 900;
+				box-shadow: 0 4px 12px rgba(179, 0, 0, 0.35);
+			}
+
+			.methodo-timeline-body {
+				padding-top: 0.45rem;
+				flex: 1;
+			}
+
+			.methodo-timeline-body h3 {
+				margin-top: 0;
+				margin-bottom: 0.35rem;
+			}
+
+			.methodo-card {
+				position: relative;
+				overflow: hidden;
+				padding: 1.15rem 1.2rem;
+				border-radius: 18px;
+			}
+
+			.methodo-card::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 90px;
+				height: 90px;
+				background: radial-gradient(circle at top right, rgba(179, 0, 0, 0.08), transparent 70%);
+				pointer-events: none;
+			}
+
+			.methodo-card--wide {
+				grid-column: 1 / -1;
+				max-width: 430px;
+			}
+
+			.methodo-weight {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 46px;
+				height: 46px;
+				margin-bottom: 0.8rem;
+				border-radius: 50%;
+				background: var(--cg-red);
+				color: #fff;
+				font-size: 0.82rem;
+				font-weight: 900;
+				box-shadow: 0 4px 10px rgba(179, 0, 0, 0.28);
+			}
+
+			.methodo-card h3 {
+				margin-top: 0;
+			}
+
+			.methodo-barem {
+				margin-top: 0.8rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.28rem;
+			}
+
+			.methodo-barem-row {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-size: 0.84rem;
+			}
+
+			.methodo-barem-dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				flex-shrink: 0;
+			}
+
+			.methodo-barem-label {
+				color: var(--cg-text-soft);
+			}
+
+			.methodo-barem-score {
+				margin-left: auto;
+				font-weight: 700;
+				color: var(--cg-text);
+			}
+
+			.methodo-example {
+				margin-top: 0.9rem;
+				padding: 0.7rem 0.85rem;
+				border-radius: 12px;
+				background: rgba(179, 0, 0, 0.07);
+				border: 1px solid rgba(179, 0, 0, 0.16);
+				font-size: 0.84rem;
+				line-height: 1.58;
+				color: var(--cg-text);
+			}
+
+			.methodo-example strong {
+				display: block;
+				margin-bottom: 0.22rem;
+				color: var(--cg-red);
+				font-size: 0.76rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+
+			.methodo-score-table thead th {
+				padding: 0.68rem 0.9rem;
+				background: var(--cg-red);
+				color: #fff;
+				font-size: 0.78rem;
+				font-weight: 800;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				text-align: left;
+			}
+
+			.methodo-score-total {
+				font-weight: 900;
+				color: var(--cg-red);
+			}
+
+			.methodo-grille {
+				display: flex;
+				flex-direction: column;
+				gap: 0.55rem;
+				margin-top: 1rem;
+			}
+
+			.methodo-grille-row {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				padding: 0.8rem 1rem;
+				border-radius: 16px;
+			}
+
+			.methodo-grille-badge {
+				min-width: 76px;
+				padding: 0.3rem 0.75rem;
+				border-radius: 999px;
+				font-size: 0.94rem;
+				font-weight: 900;
+				text-align: center;
+			}
+
+			.methodo-grille-level {
+				min-width: 92px;
+				font-size: 0.84rem;
+				font-weight: 700;
+				color: var(--cg-text);
+			}
+
+			.methodo-grille-desc {
+				font-size: 0.84rem;
+				color: var(--cg-text-soft);
+			}
+
+			.methodo-grille-row--excellent {
+				background: rgba(30, 143, 99, 0.12);
+			}
+
+			.methodo-grille-row--excellent .methodo-grille-badge {
+				background: var(--cg-green);
+				color: #fff;
+			}
+
+			.methodo-grille-row--great {
+				background: rgba(30, 143, 99, 0.07);
+			}
+
+			.methodo-grille-row--great .methodo-grille-badge {
+				background: rgba(30, 143, 99, 0.22);
+				color: var(--cg-green);
+			}
+
+			.methodo-grille-row--good {
+				background: rgba(248, 180, 0, 0.08);
+			}
+
+			.methodo-grille-row--good .methodo-grille-badge {
+				background: rgba(248, 180, 0, 0.22);
+				color: #8a6000;
+			}
+
+			body.is-dark .methodo-grille-row--good .methodo-grille-badge {
+				color: #f5c842;
+			}
+
+			.methodo-grille-row--acceptable {
+				background: rgba(200, 100, 0, 0.07);
+			}
+
+			.methodo-grille-row--acceptable .methodo-grille-badge {
+				background: rgba(200, 100, 0, 0.18);
+				color: #944800;
+			}
+
+			body.is-dark .methodo-grille-row--acceptable .methodo-grille-badge {
+				color: #f5a742;
+			}
+
+			.methodo-grille-row--no {
+				background: rgba(179, 0, 0, 0.08);
+			}
+
+			.methodo-grille-row--no .methodo-grille-badge {
+				background: var(--cg-red);
+				color: #fff;
+			}
+
+			.methodo-limit-list {
+				display: flex;
+				flex-direction: column;
+				gap: 0.65rem;
+				margin-top: 0.85rem;
+			}
+
+			.methodo-limit-item {
+				display: flex;
+				gap: 0.75rem;
+				align-items: flex-start;
+				padding: 0.8rem 1rem;
+				border-radius: 16px;
+			}
+
+			.methodo-limit-icon {
+				flex-shrink: 0;
+				font-size: 1.1rem;
+				line-height: 1;
+				margin-top: 0.05rem;
+			}
+
+			.methodo-geo-card {
+				padding: 1rem 1.05rem;
+				border-radius: 16px;
+			}
+
+			.methodo-geo-flag {
+				display: block;
+				margin-bottom: 0.35rem;
+				font-size: 1.45rem;
+			}
+
+			.methodo-geo-card h3 {
+				margin-top: 0;
+				margin-bottom: 0.35rem;
+				font-size: 0.92rem;
+			}
+
+			.methodo-source-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+				margin-top: 0.9rem;
+			}
+
+			.methodo-source-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.38rem 0.86rem;
+				border-radius: 999px;
+				color: var(--cg-text);
+				font-size: 0.82rem;
+				font-weight: 700;
+				text-decoration: none;
+				transition:
+					background 0.2s ease,
+					border-color 0.2s ease,
+					color 0.2s ease;
+			}
+
+			.methodo-source-link:hover {
+				background: rgba(179, 0, 0, 0.08);
+				border-color: rgba(179, 0, 0, 0.18);
+				color: var(--cg-red);
+			}
+
+			.methodo-source-arrow {
+				opacity: 0.55;
+				font-size: 0.7rem;
+			}
+
+			.methodo-contact-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				margin-top: 0.85rem;
+				padding: 0.68rem 1.35rem;
+				border-radius: 999px;
+				background: var(--cg-red);
+				color: #fff;
+				font-size: 0.9rem;
+				font-weight: 700;
+				text-decoration: none;
+				box-shadow: 0 6px 18px rgba(179, 0, 0, 0.28);
+			}
+
+			.methodo-contact-link:hover {
+				opacity: 0.9;
+			}
+
 			.crowngreen-review .faq-question,
 			.crowngreen-review .faq-item.is-open .faq-answer {
 				background: rgba(255, 255, 255, 0.32) !important;
@@ -743,6 +1362,42 @@
 				.crown-section,
 				.crown-author {
 					padding: 1rem;
+				}
+
+				.methodo-hero {
+					padding: 1.35rem 1.1rem 1.15rem;
+				}
+
+				.methodo-author-card {
+					flex-direction: column;
+					gap: 1rem;
+				}
+
+				.methodo-selection-grid,
+				.methodo-criteria-grid,
+				.methodo-geo-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.methodo-card--wide {
+					max-width: none;
+				}
+
+				.methodo-timeline::before {
+					left: 18px;
+				}
+
+				.methodo-timeline-num {
+					flex-basis: 36px;
+					width: 36px;
+					height: 36px;
+					font-size: 0.72rem;
+				}
+
+				.methodo-grille-row {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 0.45rem;
 				}
 
 				.crown-review > .crown-disclaimer {
@@ -925,8 +1580,8 @@
 		</header>
 
 		<main class="crown-main crown-review" role="main">
-			<div class="crown-layout">
-				<nav class="breadcrumb-nav u-fade-in" aria-label="Fil d'Ariane">
+			<div class="methodo-shell">
+				<nav class="breadcrumb-nav methodo-breadcrumb u-fade-in" aria-label="Fil d'Ariane">
 					<ol
 						class="breadcrumb-list"
 						itemscope
@@ -957,89 +1612,74 @@
 					</ol>
 				</nav>
 
-				<section class="crown-section crown-glass u-fade-in">
+				<section class="crown-section crown-glass methodo-hero u-fade-in">
+					<div class="methodo-eyebrow">Éditorial · Standard de notation</div>
 					<h1>Comment j'évalue les casinos en ligne : méthodologie complète TopJeu777</h1>
-					<p class="crown-disclaimer">
+					<div class="methodo-meta">
 						<img
 							src="/assets/img/author-photo.webp"
 							alt="Portrait de Dariah Belle"
-							width="40"
-							height="40"
+							width="38"
+							height="38"
 							loading="eager"
-							style="border-radius: 50%; vertical-align: middle; margin-right: 0.6rem"
+							class="methodo-avatar"
 						/>
-						<a href="#popup" id="open-popup" data-popup-target="about">Dariah Belle</a>
-						— mis à jour le 1er mai 2026
-					</p>
+						<span class="methodo-byline"
+							>Par <a href="#popup" data-popup-target="about">Dariah Belle</a></span
+						>
+						<span class="methodo-date">Mis à jour : 1er mai 2026</span>
+					</div>
 				</section>
 
-				<section class="crown-author crown-glass u-fade-in">
-					<img
-						class="crown-author__avatar"
-						src="/assets/img/author-photo.webp"
-						alt="Portrait de Dariah Belle"
-						width="58"
-						height="58"
-						loading="lazy"
-					/>
+				<section class="crown-author crown-glass methodo-author-card u-fade-in">
+					
 					<div>
 						<h2>À propos de Dariah Belle</h2>
-						<p>
+						<p class="methodo-role">Testeuse principale · TopJeu777 depuis 2019</p>
+						<p class='u-content-width'>
 							Je couvre le secteur des casinos en ligne francophones depuis 2019.
 							Avant de lancer TopJeu777, j'ai travaillé trois ans comme
-							rédactrice spécialisée pour des publications de jeu en ligne —
-							c'est là que j'ai appris à distinguer ce que les opérateurs
-							communiquent de ce qu'ils pratiquent réellement.
+							rédactrice spécialisée pour des publications de jeu en ligne — c'est
+							là que j'ai appris à distinguer ce que les opérateurs communiquent
+							de ce qu'ils pratiquent réellement.
 						</p>
-						<p>
+						<p class='u-content-width'>
 							Mon approche est née d'une frustration simple : les avis que je
 							lisais — et que je rédigeais — reposaient sur des fiches techniques
 							fournies par les casinos eux-mêmes. Aucun test réel. Aucun retrait
 							effectué. Aucune vérification KYC vécue de l'intérieur.
 						</p>
-						<p>
-							En 2021, j'ai adopté une règle que je n'ai jamais abandonnée :
-							<strong>
-								je ne publie pas d'avis sur un casino où je n'ai pas effectué au
-								moins un dépôt et une demande de retrait réels.
-							</strong>
+						<div class="methodo-rule">
+							Je ne publie pas d'avis sur un casino où je n'ai pas effectué au
+							moins un dépôt et une demande de retrait réels.
+						</div>
+						<p class='u-content-width'>
 							Depuis, plusieurs dizaines de casinos ont été testés selon cette
 							méthode. Cette méthodologie est appliquée de manière identique à
 							chaque casino testé.
 						</p>
-						<p><strong>Marchés couverts :</strong></p>
-						<ul>
-							<li>
-								<strong>France</strong> — licences offshore accessibles, statut
-								ANJ clarifié dans chaque avis
-							</li>
-							<li>
-								<strong>Canada</strong> — disponibilité Interac, variations
-								provinciales, délais en CAD
-							</li>
-							<li>
-								<strong>Suisse</strong> — compatibilité TWINT/PostFinance, cadre
-								légal spécifique
-							</li>
-						</ul>
-						<p><strong>Ce que je ne prétends pas faire :</strong></p>
-						<p>
+						<div class="methodo-market-pills">
+							<span class="methodo-market-pill">🇫🇷 France</span>
+							<span class="methodo-market-pill">🇨🇦 Canada</span>
+							<span class="methodo-market-pill">🇨🇭 Suisse</span>
+						</div>
+						<div class="methodo-note-box">
 							Je ne suis pas avocate et je ne fournis pas de conseil juridique.
 							Les informations réglementaires présentes sur ce site sont données
 							à titre informatif et peuvent évoluer. Pour toute question légale,
 							consultez un professionnel qualifié dans votre juridiction.
-						</p>
+						</div>
 					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Pourquoi publier une méthodologie</h2>
-					<p>
+					<p class='u-content-width'>
 						La plupart des sites d'avis casino publient des scores sans expliquer
 						comment ils sont calculés. Un "9.2" sans critères visibles ne
 						signifie rien — c'est une opinion habillée en chiffre.
 					</p>
-					<p>
+					<p class='u-content-width'>
 						Chez TopJeu777, chaque score est le résultat d'une évaluation
 						pondérée sur 5 critères mesurables. Cette page rend le processus
 						entièrement transparent : vous savez ce que je teste, comment je le
@@ -1051,266 +1691,209 @@
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Étape 1 — Sélection du casino</h2>
-					<p>
-						Avant tout test, un casino doit remplir des conditions minimales.
+					<p class='u-content-width'>
+						Avant tout test, un casino doit passer une phase de filtrage. S'il
+						échoue, il n'est pas testé et n'apparaît pas sur le site — même si un
+						partenariat affilié est proposé.
 					</p>
-					<p><strong>Conditions obligatoires :</strong></p>
-					<ul>
-						<li>
-							Licence en cours de validité, vérifiable sur le registre officiel
-							de l'autorité compétente
-						</li>
-						<li>
-							Acceptation des joueurs francophones (France, Canada, Suisse selon
-							le marché ciblé)
-						</li>
-						<li>
-							Au moins un moyen de retrait disponible pour les résidents du
-							marché cible
-						</li>
-						<li>Support client joignable en français</li>
-					</ul>
-					<p><strong>Conditions éliminatoires immédiates :</strong></p>
-					<ul>
-						<li>Licence expirée ou non vérifiable</li>
-						<li>
-							Plaintes non résolues en proportion significative sur des
-							plateformes indépendantes — AskGamblers, Casino Guru, Trustpilot
-							(seuil indicatif : environ 15 %)
-						</li>
-						<li>Absence totale de délai de retrait annoncé dans les CGU</li>
-						<li>Historique documenté de confiscation de gains sans motif</li>
-					</ul>
-					<p>
-						Si un casino ne passe pas cette phase, il n'est pas testé et
-						n'apparaît pas sur le site — même si un partenariat affilié est
-						proposé.
-					</p>
+					<div class="methodo-selection-grid">
+						<div class="methodo-box methodo-box--ok">
+							<div class="methodo-box-label methodo-box-label--ok">
+								<span class="methodo-box-icon methodo-box-icon--ok">✓</span>
+								Conditions requises
+							</div>
+							<ul>
+								<li>Licence vérifiable sur registre officiel</li>
+								<li>Acceptation des joueurs francophones (FR / CA / CH)</li>
+								<li>Moyen de retrait adapté au marché cible</li>
+								<li>Support joignable en français</li>
+							</ul>
+						</div>
+						<div class="methodo-box methodo-box--ko">
+							<div class="methodo-box-label methodo-box-label--ko">
+								<span class="methodo-box-icon methodo-box-icon--ko">✕</span>
+								Éliminatoires immédiats
+							</div>
+							<ul>
+								<li>Licence expirée ou non vérifiable</li>
+								<li>Plaintes non résolues en proportion significative</li>
+								<li>Absence totale de délai de retrait annoncé dans les CGU</li>
+								<li>Historique documenté de confiscation de gains sans motif</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Étape 2 — Processus de test concret (10 jours)</h2>
-					<h3>Jours 1–2 : Inscription et vérification KYC</h3>
-					<ul>
-						<li>Création d'un compte avec des informations réelles</li>
-						<li>
-							Soumission des documents KYC (pièce d'identité + justificatif de
-							domicile)
-						</li>
-						<li>Mesure du délai de validation</li>
-						<li>
-							Note : la vérification est-elle demandée avant ou après le premier
-							dépôt ?
-						</li>
-					</ul>
-					<h3>Jours 2–3 : Dépôt et bonus</h3>
-					<ul>
-						<li>
-							Dépôt minimal via la méthode la plus courante pour le marché cible
-						</li>
-						<li>Activation du bonus de bienvenue</li>
-						<li>
-							Lecture intégrale des CGU : wagering, durée, jeux éligibles, mise
-							maximale par tour
-						</li>
-						<li>Calcul du montant réel à jouer en euros</li>
-					</ul>
-					<h3>Jours 3–5 : Test des jeux</h3>
-					<ul>
-						<li>
-							Navigation dans le catalogue complet : machines à sous, tables,
-							live casino
-						</li>
-						<li>
-							Vérification des fournisseurs annoncés vs présents réellement
-						</li>
-						<li>Test sur mobile iOS et Android : fluidité, chargement, stabilité</li>
-						<li>
-							Disponibilité des RTP lorsqu'ils sont fournis par l'éditeur du jeu
-						</li>
-					</ul>
-					<h3>Jours 5–7 : Test du support client</h3>
-					<ul>
-						<li>
-							Contact via chat en direct avec une question technique (délai de
-							retrait, conditions KYC)
-						</li>
-						<li>Mesure du temps de réponse réel</li>
-						<li>
-							Évaluation : agent francophone réel ou traduction automatique ?
-						</li>
-						<li>
-							Contact par e-mail pour une question secondaire — mesure du délai
-							de réponse
-						</li>
-					</ul>
-					<h3>Jours 7–10 : Retrait</h3>
-					<ul>
-						<li>Demande de retrait du solde disponible</li>
-						<li>
-							Mesure du délai entre la demande et la réception effective des
-							fonds
-						</li>
-						<li>
-							Note de chaque étape intermédiaire : validation interne, délai
-							bancaire, confirmation
-						</li>
-						<li>
-							Vérification des limites applicables (quotidienne, hebdomadaire,
-							mensuelle)
-						</li>
-					</ul>
+					<div class="methodo-timeline">
+						<div class="methodo-timeline-item">
+							<div class="methodo-timeline-num">J1–2</div>
+							<div class="methodo-timeline-body">
+								<h3>Inscription et vérification KYC</h3>
+								<p>
+									Création d'un compte avec des informations réelles, soumission
+									des documents KYC (pièce d'identité + justificatif de domicile),
+									mesure du délai de validation, puis vérification du moment où le
+									KYC est exigé dans le parcours.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-timeline-item">
+							<div class="methodo-timeline-num">J2–3</div>
+							<div class="methodo-timeline-body">
+								<h3>Dépôt et bonus</h3>
+								<p>
+									Dépôt minimal via la méthode la plus courante pour le marché
+									cible, activation du bonus de bienvenue, lecture intégrale des
+									CGU et calcul du montant réel à jouer en euros.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-timeline-item">
+							<div class="methodo-timeline-num">J3–5</div>
+							<div class="methodo-timeline-body">
+								<h3>Test des jeux</h3>
+								<p>
+									Navigation dans le catalogue complet, vérification des
+									fournisseurs annoncés vs présents réellement, test sur iOS et
+									Android, et contrôle de la disponibilité des RTP.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-timeline-item">
+							<div class="methodo-timeline-num">J5–7</div>
+							<div class="methodo-timeline-body">
+								<h3>Test du support client</h3>
+								<p>
+									Contact via chat en direct et e-mail avec des questions
+									techniques pour mesurer le temps de réponse réel et évaluer la
+									qualité du support en français.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-timeline-item">
+							<div class="methodo-timeline-num">J7–10</div>
+							<div class="methodo-timeline-body">
+								<h3>Retrait réel</h3>
+								<p>
+									Demande de retrait du solde disponible, mesure du délai entre la
+									demande et la réception effective des fonds, puis vérification
+									des limites quotidiennes, hebdomadaires et mensuelles.
+								</p>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Étape 3 — Les 5 critères d'évaluation</h2>
-					<h3>Critère 1 — Licence et sécurité (25 %)</h3>
 					<p>
-						La licence est le fondement de tout avis. Un casino peut avoir les
-						meilleurs jeux du monde — sans licence vérifiable, il ne mérite pas
-						la confiance des joueurs.
+						Chaque critère reçoit un poids fixe dans le score final, défini
+						indépendamment de tout partenariat.
 					</p>
-					<p><strong>Ce que j'évalue :</strong></p>
-					<ul>
-						<li>
-							Autorité de délivrance et sa réputation relative : MGA (Malte),
-							Gibraltar, Curaçao, Antigua
-						</li>
-						<li>
-							Numéro de licence vérifié directement sur le registre officiel —
-							MGA : mga.org.mt, Curaçao : gamingcontrolcuracao.com
-						</li>
-						<li>Certificat SSL valide</li>
-						<li>CGU disponibles et lisibles en français</li>
-						<li>
-							Politique de jeu responsable : limites de dépôt, auto-exclusion,
-							liens vers des organismes d'aide (Joueurs Info Service, etc.)
-						</li>
-						<li>Historique de litiges documentés publiquement</li>
-					</ul>
-					<p>
-						<strong>Note sur l'ANJ :</strong> La conformité ANJ n'est pas un
-						critère de sélection — les casinos évalués opèrent sous licences
-						offshore accessibles aux joueurs francophones selon les pratiques du
-						marché. La mention ANJ est fournie à titre informatif dans chaque
-						avis pour que le lecteur comprenne le statut réglementaire exact.
-					</p>
-					<h3>Critère 2 — Retraits (25 %)</h3>
-					<p>
-						C'est l'un des critères les plus déterminants pour les joueurs — et
-						le plus souvent mal évalué sur les sites d'avis. Je ne me base pas
-						sur les délais annoncés dans les CGU.
-						<strong>Je mesure le délai réel.</strong>
-					</p>
-					<p><strong>Ce que j'évalue :</strong></p>
-					<ul>
-						<li>
-							Délai réel entre la demande de retrait et la réception des fonds
-						</li>
-						<li>
-							Diversité des méthodes disponibles (virement SEPA, crypto,
-							portefeuilles électroniques)
-						</li>
-						<li>Limites quotidiennes, hebdomadaires et mensuelles</li>
-						<li>
-							Processus KYC : demandé avant ou après le premier retrait ? Quels
-							documents ? Quel délai ?
-						</li>
-						<li>
-							Compatibilité avec les méthodes courantes selon le marché (FR/CA/CH)
-						</li>
-						<li>Présence de frais cachés</li>
-					</ul>
-					<p><strong>Barème :</strong></p>
-					<table class="crown-table">
-						<tbody>
-							<tr>
-								<td>Délai réel de retrait</td>
-								<td>Note /10</td>
-							</tr>
-							<tr>
-								<td>Moins de 24h</td>
-								<td>9 – 10</td>
-							</tr>
-							<tr>
-								<td>24h à 48h</td>
-								<td>7 – 8</td>
-							</tr>
-							<tr>
-								<td>48h à 72h</td>
-								<td>5 – 6</td>
-							</tr>
-							<tr>
-								<td>Plus de 72h</td>
-								<td>1 – 4</td>
-							</tr>
-						</tbody>
-					</table>
-					<p>
-						<strong>Exemple réel anonymisé :</strong> lors d'un test en mars
-						2026, un casino affiché "retrait sous 24h" dans ses CGU a traité ma
-						demande en 4 jours ouvrés. Raison invoquée : vérification KYC
-						supplémentaire non mentionnée lors de l'inscription. Ce délai non
-						conforme aux CGU a entraîné une réduction de 1,5 point sur le score
-						final du casino concerné.
-					</p>
-					<h3>Critère 3 — Bonus et conditions (20 %)</h3>
-					<p>
-						Un bonus de 200 € avec wagering x60 est objectivement pire qu'un
-						bonus de 100 € avec wagering x20. J'analyse les conditions réelles,
-						pas le montant affiché.
-					</p>
-					<p><strong>Ce que j'évalue :</strong></p>
-					<ul>
-						<li>Wagering : calcul systématique du montant en euros à jouer</li>
-						<li>Durée de validité du bonus</li>
-						<li>Mise maximale autorisée par tour pendant le bonus</li>
-						<li>
-							Jeux éligibles pour remplir le wagering (les slots à faible
-							contribution sont signalés)
-						</li>
-						<li>Bonus récurrents : rechargements, cashback, programme VIP</li>
-						<li>Clarté des CGU en français</li>
-					</ul>
-					<p><strong>Calcul type appliqué dans chaque avis :</strong></p>
-					<p>
-						Dépôt 100 € + bonus 100 € = 200 € × wagering x35 =
-						<strong>7 000 € à jouer</strong> avant tout retrait du bonus.
-					</p>
-					<p>
-						<strong>Exemple réel anonymisé :</strong> un casino testé en janvier
-						2026 affichait "wagering x30" sur la page bonus. En lisant les CGU :
-						wagering x30 appliqué sur le bonus uniquement, soit 3 000 € à jouer
-						— et non 6 000 €. Avantage réel pour le joueur, signalé positivement
-						dans l'avis.
-					</p>
-					<h3>Critère 4 — Jeux et logiciels (20 %)</h3>
-					<p><strong>Ce que j'évalue :</strong></p>
-					<ul>
-						<li>Nombre total de jeux disponibles</li>
-						<li>
-							Qualité et réputation des fournisseurs : NetEnt, Pragmatic Play,
-							Evolution, Microgaming, Play'n GO
-						</li>
-						<li>Présence et qualité du casino en direct (Live Casino)</li>
-						<li>
-							Disponibilité des RTP lorsqu'ils sont fournis par l'éditeur du jeu
-						</li>
-						<li>Fonctionnement sur mobile : fluidité, chargement, stabilité</li>
-						<li>Présence de jackpots progressifs et historique de paiement</li>
-					</ul>
-					<h3>Critère 5 — Support client (10 %)</h3>
-					<p><strong>Ce que j'évalue :</strong></p>
-					<ul>
-						<li>
-							Délai de réponse mesuré sur le chat en direct — testé à deux
-							moments différents (heure de pointe et hors pointe)
-						</li>
-						<li>Qualité de la réponse : agent réel ou bot ? Maîtrise du français ?</li>
-						<li>Canaux disponibles : chat, e-mail, téléphone</li>
-						<li>Disponibilité horaire : 24h/24 ou limitée ?</li>
-						<li>Qualité et exhaustivité de la FAQ</li>
-					</ul>
+					<div class="methodo-criteria-grid">
+						<article class="methodo-card">
+							<div class="methodo-weight">25%</div>
+							<h3>Licence et sécurité</h3>
+							<ul>
+								<li>Autorité de délivrance et réputation relative</li>
+								<li>Numéro de licence vérifié sur registre officiel</li>
+								<li>Certificat SSL valide et CGU en français</li>
+								<li>Politique de jeu responsable et outils de limites</li>
+								<li>Historique de litiges documentés publiquement</li>
+							</ul>
+							<div class="methodo-note-box">
+								La conformité ANJ n'est pas un critère de sélection — les
+								casinos évalués opèrent sous licences offshore. Le statut ANJ est
+								clarifié dans chaque avis.
+							</div>
+						</article>
+
+						<article class="methodo-card">
+							<div class="methodo-weight">25%</div>
+							<h3>Retraits</h3>
+							<ul>
+								<li>Délai réel entre la demande et la réception des fonds</li>
+								<li>Diversité des méthodes disponibles</li>
+								<li>Limites quotidiennes, hebdomadaires et mensuelles</li>
+								<li>Processus KYC avant ou après retrait</li>
+								<li>Compatibilité avec les méthodes courantes selon le marché</li>
+								<li>Présence de frais cachés</li>
+							</ul>
+							<div class="methodo-barem">
+								<div class="methodo-barem-row">
+									<span class="methodo-barem-dot" style="background:#1e8f63"></span>
+									<span class="methodo-barem-label">Moins de 24h</span>
+									<span class="methodo-barem-score" style="color:var(--cg-green)">9–10</span>
+								</div>
+								<div class="methodo-barem-row">
+									<span class="methodo-barem-dot" style="background:#5aac80"></span>
+									<span class="methodo-barem-label">24h à 48h</span>
+									<span class="methodo-barem-score">7–8</span>
+								</div>
+								<div class="methodo-barem-row">
+									<span class="methodo-barem-dot" style="background:#e88c00"></span>
+									<span class="methodo-barem-label">48h à 72h</span>
+									<span class="methodo-barem-score">5–6</span>
+								</div>
+								<div class="methodo-barem-row">
+									<span class="methodo-barem-dot" style="background:var(--cg-red)"></span>
+									<span class="methodo-barem-label">Plus de 72h</span>
+									<span class="methodo-barem-score" style="color:var(--cg-red)">1–4</span>
+								</div>
+							</div>
+							<div class="methodo-example">
+								<strong>Exemple réel — mars 2026</strong>
+								Casino affiché "retrait sous 24h" dans ses CGU → traité en 4
+								jours ouvrés. Motif : KYC supplémentaire non mentionné à
+								l'inscription. Pénalité : −1,5 point.
+							</div>
+						</article>
+
+						<article class="methodo-card">
+							<div class="methodo-weight">20%</div>
+							<h3>Bonus et conditions</h3>
+							<ul>
+								<li>Wagering calculé en euros</li>
+								<li>Durée de validité du bonus</li>
+								<li>Mise maximale autorisée par tour</li>
+								<li>Jeux éligibles pour remplir le wagering</li>
+								<li>Bonus récurrents et programme VIP</li>
+								<li>Clarté des CGU en français</li>
+							</ul>
+							<div class="methodo-example">
+								<strong>Exemple réel — janvier 2026</strong>
+								Casino affichait "wagering x30" → CGU : x30 sur le bonus
+								uniquement, soit 3 000 € à jouer, et non 6 000 €.
+							</div>
+						</article>
+
+						<article class="methodo-card">
+							<div class="methodo-weight">20%</div>
+							<h3>Jeux et logiciels</h3>
+							<ul>
+								<li>Nombre total de jeux disponibles</li>
+								<li>Qualité des fournisseurs : NetEnt, Pragmatic, Evolution</li>
+								<li>Présence et qualité du casino en direct</li>
+								<li>Disponibilité des RTP fournis par l'éditeur</li>
+								<li>Fluidité, chargement et stabilité sur mobile</li>
+								<li>Jackpots progressifs et historique de paiement</li>
+							</ul>
+						</article>
+
+						<article class="methodo-card methodo-card--wide">
+							<div class="methodo-weight">10%</div>
+							<h3>Support client</h3>
+							<ul>
+								<li>Délai de réponse mesuré sur le chat à deux moments</li>
+								<li>Qualité de la réponse et maîtrise du français</li>
+								<li>Canaux disponibles : chat, e-mail, téléphone</li>
+								<li>Disponibilité horaire réelle</li>
+								<li>Qualité et exhaustivité de la FAQ</li>
+							</ul>
+						</article>
+					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
@@ -1319,8 +1902,15 @@
 						Chaque critère est noté sur 10 puis multiplié par son poids. Le
 						résultat final est une moyenne pondérée.
 					</p>
-					<h3>Exemple de calcul</h3>
-					<table class="crown-table">
+					<table class="crown-table methodo-score-table">
+						<thead>
+							<tr>
+								<th>Critère</th>
+								<th>Poids</th>
+								<th>Note /10</th>
+								<th>Pondéré</th>
+							</tr>
+						</thead>
 						<tbody>
 							<tr>
 								<td>Licence &amp; sécurité</td>
@@ -1356,7 +1946,7 @@
 								<td><strong>Score final</strong></td>
 								<td></td>
 								<td></td>
-								<td><strong>8,88 → 8,9</strong></td>
+								<td><span class="methodo-score-total">8,88 → 8,9</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -1364,45 +1954,41 @@
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Étape 5 — Grille d'interprétation des scores</h2>
-					<table class="crown-table">
-						<tbody>
-							<tr>
-								<td>9,5 – 10,0</td>
-								<td>Exceptionnel</td>
-								<td>
-									Recommandé sans réserve — référence du marché
-								</td>
-							</tr>
-							<tr>
-								<td>8,5 – 9,4</td>
-								<td>Très bon</td>
-								<td>
-									Recommandé — quelques points perfectibles
-								</td>
-							</tr>
-							<tr>
-								<td>7,5 – 8,4</td>
-								<td>Bon</td>
-								<td>
-									Correct — lacunes notables à connaître avant inscription
-								</td>
-							</tr>
-							<tr>
-								<td>7,0 – 7,4</td>
-								<td>Acceptable</td>
-								<td>
-									Recommandé avec réserves — pour profil spécifique uniquement
-								</td>
-							</tr>
-							<tr>
-								<td>En dessous de 7,0</td>
-								<td>Non recommandé</td>
-								<td>
-									Non publié sur TopJeu777
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="methodo-grille">
+						<div class="methodo-grille-row methodo-grille-row--excellent">
+							<div class="methodo-grille-badge">9,5 – 10</div>
+							<div class="methodo-grille-level">Exceptionnel</div>
+							<div class="methodo-grille-desc">
+								Recommandé sans réserve — référence du marché
+							</div>
+						</div>
+						<div class="methodo-grille-row methodo-grille-row--great">
+							<div class="methodo-grille-badge">8,5 – 9,4</div>
+							<div class="methodo-grille-level">Très bon</div>
+							<div class="methodo-grille-desc">
+								Recommandé — quelques points perfectibles
+							</div>
+						</div>
+						<div class="methodo-grille-row methodo-grille-row--good">
+							<div class="methodo-grille-badge">7,5 – 8,4</div>
+							<div class="methodo-grille-level">Bon</div>
+							<div class="methodo-grille-desc">
+								Correct — lacunes notables à connaître avant inscription
+							</div>
+						</div>
+						<div class="methodo-grille-row methodo-grille-row--acceptable">
+							<div class="methodo-grille-badge">7,0 – 7,4</div>
+							<div class="methodo-grille-level">Acceptable</div>
+							<div class="methodo-grille-desc">
+								Recommandé avec réserves — pour profil spécifique uniquement
+							</div>
+						</div>
+						<div class="methodo-grille-row methodo-grille-row--no">
+							<div class="methodo-grille-badge">&lt; 7,0</div>
+							<div class="methodo-grille-level">Non recommandé</div>
+							<div class="methodo-grille-desc">Non publié sur TopJeu777</div>
+						</div>
+					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
@@ -1411,82 +1997,112 @@
 						Aucune méthode d'évaluation n'est parfaite. Voici ce que cette
 						méthodologie ne couvre pas :
 					</p>
-					<p>
-						<strong>Un test ne remplace pas l'expérience longue durée.</strong>
-						Je mesure le délai de retrait sur une transaction. Un casino peut
-						traiter rapidement les petits montants et ralentir sur les montants
-						élevés. Lorsque des lecteurs me signalent ce type d'écart, l'avis est
-						mis à jour.
-					</p>
-					<p>
-						<strong>Les conditions changent.</strong> Un wagering peut être
-						modifié du jour au lendemain. C'est pourquoi chaque avis indique une
-						date de révision et est mis à jour dès qu'un changement significatif
-						est détecté.
-					</p>
-					<p>
-						<strong>Je ne teste pas chaque méthode de paiement.</strong> Je teste
-						la méthode la plus courante pour le marché cible. D'autres méthodes
-						peuvent avoir des délais différents.
-					</p>
-					<p>
-						<strong>Je ne joue pas des montants importants.</strong> Les tests
-						sont réalisés avec des mises minimales. Le comportement d'un casino
-						envers les gros joueurs peut différer.
-					</p>
+					<div class="methodo-limit-list">
+						<div class="methodo-limit-item">
+							<span class="methodo-limit-icon">⏱</span>
+							<div>
+								<strong>Un test ne remplace pas l'expérience longue durée.</strong>
+								<p class='u-content-width'>
+									Je mesure le délai de retrait sur une transaction. Un casino
+									peut traiter rapidement les petits montants et ralentir sur les
+									montants élevés.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-limit-item">
+							<span class="methodo-limit-icon">🔄</span>
+							<div>
+								<strong>Les conditions changent.</strong>
+								<p class='u-content-width'>
+									Un wagering peut être modifié du jour au lendemain. C'est
+									pourquoi chaque avis indique une date de révision et est mis à
+									jour dès qu'un changement significatif est détecté.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-limit-item">
+							<span class="methodo-limit-icon">💳</span>
+							<div>
+								<strong>Je ne teste pas chaque méthode de paiement.</strong>
+								<p class='u-content-width'>
+									Je teste la méthode la plus courante pour le marché cible.
+									D'autres méthodes peuvent avoir des délais différents.
+								</p>
+							</div>
+						</div>
+						<div class="methodo-limit-item">
+							<span class="methodo-limit-icon">🎲</span>
+							<div>
+								<strong>Je ne joue pas des montants importants.</strong>
+								<p class='u-content-width'>
+									Les tests sont réalisés avec des mises minimales. Le
+									comportement d'un casino envers les gros joueurs peut différer.
+								</p>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Considérations géographiques</h2>
-					<p>
+					<p class='u-content-width'>
 						TopJeu777 couvre trois marchés francophones distincts. Les critères
 						s'appliquent universellement, mais certains points varient :
 					</p>
-					<div class="crown-pill-grid">
-						<span class="crown-pill">
-							<strong>France (/fr/)</strong> — Accent sur les méthodes de
-							paiement françaises (Visa, Mastercard, virement SEPA), le support
-							francophone natif, et la clarté des mentions relatives au statut
-							réglementaire offshore.
-						</span>
-						<span class="crown-pill">
-							<strong>Canada (/ca/)</strong> — Accent sur la disponibilité en
-							CAD, les méthodes locales (Interac), et les délais de retrait pour
-							les joueurs canadiens. Les conditions d'accès varient selon la
-							province.
-						</span>
-						<span class="crown-pill">
-							<strong>Suisse (/ch/)</strong> — Accent sur la disponibilité en
-							CHF, les méthodes locales (TWINT, PostFinance), et la compatibilité
-							avec le cadre légal suisse.
-						</span>
+					<div class="methodo-geo-grid">
+						<div class="methodo-geo-card">
+							<span class="methodo-geo-flag">🇫🇷</span>
+							<h3>France</h3>
+							<p>
+								Accent sur les méthodes de paiement françaises, le support
+								francophone natif et la clarté du statut réglementaire offshore.
+							</p>
+						</div>
+						<div class="methodo-geo-card">
+							<span class="methodo-geo-flag">🇨🇦</span>
+							<h3>Canada</h3>
+							<p>
+								Accent sur la disponibilité en CAD, les méthodes locales
+								(Interac) et les délais de retrait pour les joueurs canadiens.
+							</p>
+						</div>
+						<div class="methodo-geo-card">
+							<span class="methodo-geo-flag">🇨🇭</span>
+							<h3>Suisse</h3>
+							<p>
+								Accent sur la disponibilité en CHF, les méthodes locales
+								(TWINT, PostFinance) et la compatibilité avec le cadre légal
+								suisse.
+							</p>
+						</div>
 					</div>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Sources et vérifications</h2>
-					<p>
-						Les informations utilisées dans cette méthodologie reposent sur
-						plusieurs types de sources :
+					<p class='u-content-width'>
+						Les informations utilisées dans cette méthodologie reposent sur des
+						registres officiels, les documents opérateurs, les données éditeurs et
+						des plateformes indépendantes de plaintes.
 					</p>
-					<ul>
-						<li>
-							Registres officiels des autorités de licence
-							(<a href="https://www.mga.org.mt/" target="_blank" rel="noopener noreferrer">MGA</a>,
-							<a href="https://www.gamingcontrolcuracao.com/" target="_blank" rel="noopener noreferrer">Curaçao</a>,
-							<a href="https://www.gra.gi/" target="_blank" rel="noopener noreferrer">Gibraltar</a>)
-						</li>
-						<li>Données fournies par les éditeurs de jeux (RTP, fournisseurs)</li>
-						<li>
-							Plateformes indépendantes de plaintes :
-							<a href="https://www.askgamblers.com/" target="_blank" rel="noopener noreferrer">AskGamblers</a>,
-							<a href="https://casino.guru/" target="_blank" rel="noopener noreferrer">Casino Guru</a>,
-							Trustpilot
-						</li>
-						<li>Conditions générales des opérateurs</li>
-						<li>Tests réalisés sur comptes réels dans le cadre de cette méthodologie</li>
-					</ul>
-					<p>
+					<div class="methodo-source-links">
+						<a class="methodo-source-link" href="https://www.mga.org.mt/" target="_blank" rel="noopener noreferrer"
+							>MGA <span class="methodo-source-arrow">↗</span></a
+						>
+						<a class="methodo-source-link" href="https://www.gamingcontrolcuracao.com/" target="_blank" rel="noopener noreferrer"
+							>Curaçao <span class="methodo-source-arrow">↗</span></a
+						>
+						<a class="methodo-source-link" href="https://www.gra.gi/" target="_blank" rel="noopener noreferrer"
+							>Gibraltar <span class="methodo-source-arrow">↗</span></a
+						>
+						<a class="methodo-source-link" href="https://www.askgamblers.com/" target="_blank" rel="noopener noreferrer"
+							>AskGamblers <span class="methodo-source-arrow">↗</span></a
+						>
+						<a class="methodo-source-link" href="https://casino.guru/" target="_blank" rel="noopener noreferrer"
+							>Casino Guru <span class="methodo-source-arrow">↗</span></a
+						>
+					</div>
+					<p class='u-content-width'>
 						Lorsque des informations ne peuvent pas être vérifiées
 						indépendamment, cela est signalé dans l'avis concerné.
 					</p>
@@ -1500,10 +2116,7 @@
 					</p>
 					<ul>
 						<li>Le casino modifie ses conditions de bonus ou de retrait</li>
-						<li>
-							Une plainte significative est documentée sur les forums
-							indépendants
-						</li>
+						<li>Une plainte significative est documentée sur les forums indépendants</li>
 						<li>La licence change ou expire</li>
 						<li>Le casino lance de nouvelles promotions majeures</li>
 					</ul>
@@ -1512,43 +2125,35 @@
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Transparence et conflits d'intérêts</h2>
-					<p>
+					<p class='u-content-width'>
 						TopJeu777 perçoit une commission d'affiliation lorsqu'un joueur
 						s'inscrit via un lien présent sur ce site. Cette commission est
 						versée par l'opérateur et
 						<strong>n'a aucun impact sur le score attribué</strong> — les
-						critères d'évaluation sont définis indépendamment de tout
-						partenariat.
+						critères d'évaluation sont définis indépendamment de tout partenariat.
 					</p>
-					<p>
+					<p class='u-content-width'>
 						Les casinos sans accord d'affiliation actif peuvent également
-						apparaître dans les comparatifs si leur score le justifie. La
-						présence d'un lien affilié est signalée dans le pied de page de
-						chaque avis, conformément aux exigences RGPD.
+						apparaître dans les comparatifs si leur score le justifie. La présence
+						d'un lien affilié est signalée dans le pied de page de chaque avis,
+						conformément aux exigences RGPD.
 					</p>
 				</section>
 
 				<section class="crown-section crown-glass u-fade-in">
 					<h2>Vous avez un problème avec un casino listé ?</h2>
-					<p>
-						Grâce à mes contacts dans le secteur, je peux orienter les lecteurs
-						en cas de :
+					<p class='u-content-width'>
+						Grâce à mes contacts dans le secteur, je peux orienter les lecteurs en
+						cas de retrait bloqué, compte suspendu, bonus non crédité ou
+						documents KYC refusés sans justification.
 					</p>
-					<ul>
-						<li>Retrait bloqué ou retardé sans explication</li>
-						<li>Compte suspendu sans motif clair</li>
-						<li>Bonus non crédité après remplissage des conditions</li>
-						<li>Documents KYC refusés sans justification</li>
-					</ul>
-					<p>
+					<p class='u-content-width'>
 						Contactez-moi via le formulaire de contact — réponse sous 24h,
 						assistance gratuite et confidentielle.
 					</p>
-					<p>
-						<a href="#popup-contact" data-popup-target="contact"
-							>Ouvrir le formulaire de contact</a
-						>
-					</p>
+					<a class="methodo-contact-link" href="#popup-contact" data-popup-target="contact"
+						>Ouvrir le formulaire de contact</a
+					>
 				</section>
 
 				<section id="faq" class="crown-section crown-glass faq u-fade-in">
@@ -1574,7 +2179,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q1"
 						>
-							<p>
+							<p class='u-content-width'>
 								Oui. Chaque avis publié sur TopJeu777 implique un dépôt réel et
 								une demande de retrait réelle. C'est une règle non négociable
 								adoptée en 2021.
@@ -1601,7 +2206,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q2"
 						>
-							<p>
+							<p class='u-content-width'>
 								Je ne teste que les casinos qui passent la phase de sélection
 								décrite à l'Étape 1. Les casinos sans licence vérifiable ou avec
 								un historique de litiges non résolus ne sont pas testés.
@@ -1628,7 +2233,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q3"
 						>
-							<p>
+							<p class='u-content-width'>
 								Non. Le score est calculé mécaniquement à partir des 5 critères
 								pondérés. Un partenariat affilié ne modifie pas la note — il
 								conditionne uniquement la présence d'un lien de référence dans
@@ -1657,7 +2262,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q4"
 						>
-							<p>
+							<p class='u-content-width'>
 								Soit ils n'ont pas passé la phase de sélection, soit ils n'ont
 								pas encore été testés. Un casino populaire n'est pas
 								nécessairement un casino fiable.
@@ -1684,7 +2289,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q5"
 						>
-							<p>
+							<p class='u-content-width'>
 								Non. TopJeu777 évalue des casinos opérant sous licences offshore
 								accessibles aux joueurs francophones selon les pratiques du
 								marché. Le statut ANJ est clarifié dans chaque avis.
@@ -1711,7 +2316,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q6"
 						>
-							<p>
+							<p class='u-content-width'>
 								Chaque avis est revu tous les 6 mois minimum. Une mise à jour
 								immédiate est publiée dès qu'un changement significatif est
 								détecté — conditions de retrait, bonus, licence.
@@ -1738,7 +2343,7 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q7"
 						>
-							<p>
+							<p class='u-content-width'>
 								Contactez-moi directement. Les retours lecteurs sont intégrés
 								dans la révision de l'avis, et si un problème systématique est
 								identifié, le score est réévalué.
@@ -1765,14 +2370,13 @@
 							role="region"
 							aria-labelledby="faq-methodologie-q8"
 						>
-							<p>
+							<p class='u-content-width'>
 								Oui. La même grille de 5 critères pondérés s'applique à chaque
 								casino testé, ce qui rend les scores directement comparables.
 							</p>
 						</div>
 					</div>
 				</section>
-			</div>
 		</main>
 
 		<footer class="footer" role="contentinfo">
