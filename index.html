@@ -264,66 +264,6 @@
 			}
 		</script>
 
-		<!-- Clarity tracking code -->
-		<script type="text/javascript">
-			(function () {
-				function loadClarity() {
-					if (window.__clarityLoaded) return;
-					window.__clarityLoaded = true;
-					(function (c, l, a, r, i, t, y) {
-						c[a] =
-							c[a] ||
-							function () {
-								(c[a].q = c[a].q || []).push(arguments);
-							};
-						t = l.createElement(r);
-						t.async = 1;
-						t.src = 'https://www.clarity.ms/tag/' + i;
-						y = l.getElementsByTagName(r)[0];
-						y.parentNode.insertBefore(t, y);
-					})(window, document, 'clarity', 'script', 'w5dbxt348h');
-				}
-
-				var schedule =
-					window.requestIdleCallback ||
-					function (callback) {
-						setTimeout(callback, 1500);
-					};
-
-				function scheduleClarity() {
-					schedule(loadClarity, { timeout: 8000 });
-				}
-
-				var userSignals = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
-				var armed = false;
-				function armClarityLoad() {
-					if (armed) return;
-					armed = true;
-					scheduleClarity();
-					userSignals.forEach(function (eventName) {
-						window.removeEventListener(eventName, armClarityLoad, {
-							passive: true,
-						});
-					});
-				}
-
-				userSignals.forEach(function (eventName) {
-					window.addEventListener(eventName, armClarityLoad, {
-						once: true,
-						passive: true,
-					});
-				});
-
-				window.addEventListener(
-					'load',
-					function () {
-						setTimeout(scheduleClarity, 7000);
-					},
-					{ once: true },
-				);
-			})();
-		</script>
-
 		<!-- Defer JS-->
 		<script src="/app.minified.js" defer></script>
 	</head>
