@@ -92,71 +92,73 @@
 		/>
 
 		<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Casino",
+	"@id": "https://www.topjeu777.com/dragonia-casino/#casino",
+	"name": "Dragonia Casino",
+	"url": "https://www.topjeu777.com/dragonia-casino/",
+	"logo": "https://www.topjeu777.com/assets/img/logo-casinos/dragonia-logo.webp",
+	"image": "https://www.topjeu777.com/dragonia-casino/banners/baner-dragonia-1200.webp",
+	"description": "Avis détaillé sur Dragonia Casino : bonus, jeux, sécurité, retraits et expérience utilisateur en 2026.",
+	"foundingDate": "2025",
+	"currenciesAccepted": "EUR",
+	"paymentAccepted": [
+		"Visa",
+		"MasterCard",
+		"Skrill",
+		"Neteller",
+		"PaysafeCard",
+		"Jeton",
+		"MiFinity",
+		"Bitcoin",
+		"Ethereum",
+		"Litecoin",
+		"Dogecoin"
+	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Bonus Dragonia Casino",
+		"itemListElement": [
 			{
-				"@context": "https://schema.org",
-				"@type": "Casino",
-				"@id": "https://www.topjeu777.com/dragonia-casino/#casino",
-				"name": "Dragonia Casino",
-				"url": "https://www.topjeu777.com/dragonia-casino/",
-				"logo": "https://www.topjeu777.com/assets/img/logo-casinos/dragonia-logo.webp",
-				"image": "https://www.topjeu777.com/dragonia-casino/banners/baner-dragonia-1200.webp",
-				"description": "Avis détaillé sur Dragonia Casino : bonus, jeux, sécurité, retraits et expérience utilisateur en 2026.",
-				"foundingDate": "2025",
-				"currenciesAccepted": "EUR",
-				"paymentAccepted": [
-					"Visa",
-					"MasterCard",
-					"Skrill",
-					"Neteller",
-					"PaysafeCard",
-					"Jeton",
-					"MiFinity",
-					"Bitcoin",
-					"Ethereum",
-					"Litecoin",
-					"Dogecoin"
-				],
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Bonus Dragonia Casino",
-					"itemListElement": [
-						{
-							"@type": "Offer",
-							"name": "Bonus de bienvenue",
-							"description": "100 % jusqu'à 500 € + 200 free spins + Bonus Crab",
-							"price": "0",
-							"priceCurrency": "EUR",
-							"availability": "https://schema.org/InStock"
-						}
-					]
-				},
-				"aggregateRating": {
-					"@type": "AggregateRating",
-					"ratingValue": "9.6",
-					"bestRating": "10",
-					"ratingCount": "1"
-				},
-				"review": {
-					"@type": "Review",
-					"reviewRating": {
-						"@type": "Rating",
-						"ratingValue": "9.6",
-						"bestRating": "10"
-					},
-					"author": {
-						"@type": "Person",
-						"name": "Dariah Belle"
-					},
-					"publisher": {
-						"@type": "Organization",
-						"name": "TopJeu",
-						"url": "https://www.topjeu777.com"
-					},
-					"datePublished": "2026-02-24",
-					"dateModified": "2026-05-07",
-					"reviewBody": "Dragonia Casino propose une expérience complète avec plus de 11 000 jeux, des bonus attractifs, des paiements rapides et une plateforme sécurisée. Un choix solide pour les joueurs francophones en 2026."
-				}
+				"@type": "Offer",
+				"name": "Bonus de bienvenue",
+				"description": "100 % jusqu'à 500 € + 200 free spins + Bonus Crab",
+				"price": "0",
+				"priceCurrency": "EUR",
+				"availability": "https://schema.org/InStock"
 			}
+		]
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "9.6",
+		"bestRating": "10",
+		"ratingCount": "1"
+	},
+	"review": {
+		"@type": "Review",
+		"reviewRating": {
+			"@type": "Rating",
+			"ratingValue": "9.6",
+			"bestRating": "10"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Dariah Belle",
+			"@id": "https://www.topjeu777.com/#author",
+			"url": "https://www.topjeu777.com/a-propos/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "TopJeu",
+			"url": "https://www.topjeu777.com"
+		},
+		"datePublished": "2026-02-24",
+		"dateModified": "2026-05-07",
+		"reviewBody": "Dragonia Casino propose une expérience complète avec plus de 11 000 jeux, des bonus attractifs, des paiements rapides et une plateforme sécurisée. Un choix solide pour les joueurs francophones en 2026."
+	}
+}
 		</script>
 		<script type="application/ld+json">
 			{
@@ -1060,15 +1062,12 @@
 							</div>
 						</li>
 						<li class="nav-menu__item">
-							<button
-								type="button"
+							<a
 								class="header__link nav-menu__link"
-								data-popup-target="about"
-								aria-haspopup="dialog"
-								aria-controls="popup"
+								href="/a-propos/"
 							>
 								Qui suis-je ?
-							</button>
+							</a>
 						</li>
 						<li class="nav-menu__item">
 							<button
@@ -1145,8 +1144,7 @@
 					<span>
 						<span class="author__name">
 							<a
-								href="#popup"
-								data-popup-target="about"
+								href="/a-propos/"
 								aria-label="En savoir plus sur Dariah Belle"
 								title="Qui suis-je ?"
 								>Dariah Belle</a
@@ -2019,9 +2017,8 @@
 							</li>
 							<li>
 								<a
-									href="#popup"
+									href="/a-propos/"
 									class="footer__link u-fade-in"
-									data-popup-target="about"
 								>
 									Qui suis-je ?
 								</a>

@@ -48,10 +48,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-    <url>
+  <url>
     <loc>https://www.topjeu777.com/methodologie/</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.topjeu777.com/a-propos/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
