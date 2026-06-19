@@ -560,9 +560,25 @@
 			.theme-icon,
 			.language-toggle__flag {
 				align-items: center;
+				background: transparent !important;
+				border-radius: 50%;
+				box-shadow: none !important;
 				display: flex;
+				flex: 0 0 auto;
+				font-family: Arial, Helvetica, sans-serif;
 				justify-content: center;
 				line-height: 1;
+				position: relative;
+				z-index: 1;
+			}
+			#theme-toggle {
+				border-radius: 50%;
+				min-height: var(--mobile-header-control-size);
+				min-width: var(--mobile-header-control-size);
+			}
+			#theme-toggle .theme-icon {
+				height: 20px;
+				width: 20px;
 			}
 			body:not(.is-dark) .theme-icon,
 			body:not(.is-dark) .language-toggle__flag {
