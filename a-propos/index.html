@@ -1529,7 +1529,7 @@
 											>Brutal Casino</a
 										>
 									</li>
-									<li role="none" data-geo-review="fr ch">
+									<li role="none" data-geo-review="fr">
 										<a
 											role="menuitem"
 											class="nav-menu__avis-link"
@@ -1940,6 +1940,11 @@
 				function applyGeoReviews(geo) {
 					var reviewList = document.querySelector('[data-geo-review-list]');
 					if (!reviewList) return;
+
+					var reviewNavItem = reviewList.closest('.nav-menu__item--avis');
+					if (reviewNavItem) {
+						reviewNavItem.hidden = geo === 'ch';
+					}
 
 					reviewList.querySelectorAll('[data-geo-review]').forEach(function (item) {
 						var geos = item.getAttribute('data-geo-review').split(/\s+/);
