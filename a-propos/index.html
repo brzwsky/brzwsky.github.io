@@ -1545,7 +1545,7 @@
 											>Captain Slots Casino</a
 										>
 									</li>
-									<li role="none" data-geo-review="fr">
+									<li role="none" data-geo-review="fr ch">
 										<a
 											role="menuitem"
 											class="nav-menu__avis-link"
@@ -1914,8 +1914,18 @@
 
 					try {
 						if (document.referrer) {
-							geo = geoFromPath(new URL(document.referrer).pathname);
-							if (geo) return geo;
+							var referrerUrl = new URL(document.referrer);
+							if (referrerUrl.origin === window.location.origin) {
+								// If referrer is the about page itself (e.g. page refresh),
+								// skip referrer check to fallback to sessionStorage.
+								if (referrerUrl.pathname.indexOf('/a-propos/') === -1) {
+									var pathGeo = geoFromPath(referrerUrl.pathname);
+									if (pathGeo) {
+										return pathGeo;
+									}
+									return 'fr';
+								}
+							}
 						}
 					} catch (error) {}
 
@@ -1937,11 +1947,38 @@
 					});
 				}
 
+				function applyGeoLinks(geo) {
+					// 1. Update logo link
+					var logoLink = document.querySelector('.header__logo-link');
+					if (logoLink) {
+						if (geo === 'ca') {
+							logoLink.setAttribute('href', '/ca/');
+						} else if (geo === 'ch') {
+							logoLink.setAttribute('href', '/ch/');
+						} else {
+							logoLink.setAttribute('href', '/');
+						}
+					}
+
+					// 2. Update "Voir tous les avis" link
+					var allReviewsLink = document.querySelector('.about-review-links a[href="/"]');
+					if (allReviewsLink) {
+						if (geo === 'ca') {
+							allReviewsLink.setAttribute('href', '/ca/');
+						} else if (geo === 'ch') {
+							allReviewsLink.setAttribute('href', '/ch/');
+						} else {
+							allReviewsLink.setAttribute('href', '/');
+						}
+					}
+				}
+
 				var geo = detectGeo();
 				try {
 					sessionStorage.setItem(geoKey, geo);
 				} catch (error) {}
 				applyGeoReviews(geo);
+				applyGeoLinks(geo);
 			})();
 		</script>
 	</body>
