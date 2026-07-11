@@ -1490,16 +1490,9 @@
 									class="nav-menu__avis-dropdown"
 									role="menu"
 									aria-hidden="true"
+									data-geo-review-list
 								>
-									<li>
-										<a
-											role="menuitem"
-											class="nav-menu__avis-link"
-											href="/brutal-casino/"
-											>Brutal Casino</a
-										>
-									</li>
-									<li role="none">
+									<li role="none" data-geo-review="fr">
 										<a
 											role="menuitem"
 											class="nav-menu__avis-link"
@@ -1507,12 +1500,36 @@
 											>Dragonia Casino</a
 										>
 									</li>
-									<li role="none">
+									<li role="none" data-geo-review="fr">
+										<a
+											class="nav-menu__avis-link"
+											role="menuitem"
+											href="/brutal-casino/"
+											>Brutal Casino</a
+										>
+									</li>
+									<li role="none" data-geo-review="fr">
 										<a
 											role="menuitem"
 											class="nav-menu__avis-link"
 											href="/captainslots-casino/"
 											>Captain Slots Casino</a
+										>
+									</li>
+									<li role="none" data-geo-review="fr">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/oneclick-casino/"
+											>OneClick Casino</a
+										>
+									</li>
+									<li role="none" data-geo-review="ca">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/crowngreen-casino/"
+											>Crowngreen Casino</a
 										>
 									</li>
 								</ul>
@@ -2489,6 +2506,7 @@
 					action="https://formspree.io/f/mjkokkor"
 					method="POST"
 				>
+					<input type="hidden" name="_subject" value="TopJeu contact" />
 					<label for="name">Nom *</label>
 					<input
 						type="text"
@@ -2531,5 +2549,96 @@
 				<path d="M12 4l-6 6h4v10h4V10h4z" />
 			</svg>
 		</a>
+		<script>
+			(function () {
+				var geoKey = 'topjeu_about_geo';
+				var allowedGeo = { fr: true, ca: true, ch: true };
+
+				function normalizeGeo(value) {
+					value = String(value || '').toLowerCase();
+					return allowedGeo[value] ? value : '';
+				}
+
+				function geoFromPath(pathname) {
+					if (/^\/ca(?:\/|$)/.test(pathname)) return 'ca';
+					if (/^\/ch(?:\/|$)/.test(pathname)) return 'ch';
+					return '';
+				}
+
+				function detectGeo() {
+					var params = new URLSearchParams(window.location.search);
+					var geo = normalizeGeo(params.get('geo'));
+					if (geo) return geo;
+
+					try {
+						if (document.referrer) {
+							var referrerUrl = new URL(document.referrer);
+							if (referrerUrl.origin === window.location.origin) {
+								if (referrerUrl.pathname.indexOf('/methodologie/') === -1) {
+									var pathGeo = geoFromPath(referrerUrl.pathname);
+									if (pathGeo) {
+										return pathGeo;
+									}
+									return 'fr';
+								}
+							}
+						}
+					} catch (error) {}
+
+					try {
+						geo = normalizeGeo(sessionStorage.getItem(geoKey));
+						if (geo) return geo;
+					} catch (error) {}
+
+					return 'fr';
+				}
+
+				function applyGeoReviews(geo) {
+					var reviewList = document.querySelector('[data-geo-review-list]');
+					if (!reviewList) return;
+
+					var reviewNavItem = reviewList.closest('.nav-menu__item--avis');
+					if (reviewNavItem) {
+						reviewNavItem.hidden = geo === 'ch';
+					}
+
+					reviewList.querySelectorAll('[data-geo-review]').forEach(function (item) {
+						var geos = item.getAttribute('data-geo-review').split(/\s+/);
+						item.hidden = geos.indexOf(geo) === -1;
+					});
+				}
+
+				function applyGeoLinks(geo) {
+					var logoLink = document.querySelector('.header__logo-link');
+					if (logoLink) {
+						if (geo === 'ca') {
+							logoLink.setAttribute('href', '/ca/');
+						} else if (geo === 'ch') {
+							logoLink.setAttribute('href', '/ch/');
+						} else {
+							logoLink.setAttribute('href', '/');
+						}
+					}
+
+					var breadcrumbLink = document.querySelector('.breadcrumb-list a[itemprop="item"]');
+					if (breadcrumbLink) {
+						if (geo === 'ca') {
+							breadcrumbLink.setAttribute('href', '/ca/');
+						} else if (geo === 'ch') {
+							breadcrumbLink.setAttribute('href', '/ch/');
+						} else {
+							breadcrumbLink.setAttribute('href', '/');
+						}
+					}
+				}
+
+				var geo = detectGeo();
+				try {
+					sessionStorage.setItem(geoKey, geo);
+				} catch (error) {}
+				applyGeoReviews(geo);
+				applyGeoLinks(geo);
+			})();
+		</script>
 	</body>
 </html>
