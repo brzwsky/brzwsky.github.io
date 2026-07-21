@@ -246,23 +246,19 @@
 				color: #555;
 				width: 100%;
 				margin: 0 0 1rem;
-				padding: 0.5rem 1rem 0.5rem 2rem;
+				padding: 0.5rem 1rem 0.5rem 2.5rem;
 				font-size: 0.82rem;
 				line-height: 1.4;
 				position: relative;
 			}
 
 			body.is-dark .crown-review > .crown-disclaimer {
-				background: linear-gradient(
-					145deg,
-					rgba(48, 54, 62, 0.78),
-					rgba(20, 24, 31, 0.68) 56%,
-					rgba(16, 19, 24, 0.72) 100%
-				);
-				border-color: rgba(255, 255, 255, 0.12);
+				background: linear-gradient(90deg, #3f0f05, #130f0f);
+				border-color: #444;
 				box-shadow:
 					inset 0 1px 0 rgba(255, 255, 255, 0.08),
 					0 14px 30px rgba(0, 0, 0, 0.24);
+
 				color: #eef3fb;
 			}
 
@@ -649,6 +645,23 @@
 					0 0 12px rgba(255, 200, 64, 0.22);
 			}
 
+			.crown-star-half {
+				display: inline-block;
+				position: relative;
+			}
+
+			.crown-star-half::after {
+				content: '★';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50%;
+				overflow: hidden;
+				color: inherit;
+				-webkit-text-fill-color: inherit;
+				-webkit-text-stroke: inherit;
+			}
+
 			body.is-dark .crown-stars {
 				color: #f2be1a;
 				-webkit-text-fill-color: #f2be1a;
@@ -1016,12 +1029,32 @@
 				margin-top: 1rem;
 			}
 
+			.crown-table th {
+				padding: 0.85rem 1rem;
+				background: rgba(235, 241, 250, 0.75);
+				border-bottom: 2px solid rgba(178, 189, 208, 0.35);
+				color: var(--cg-text);
+				font-weight: 700;
+				font-size: 0.88rem;
+				text-align: left;
+				letter-spacing: 0.02em;
+				white-space: nowrap;
+			}
+
 			.crown-table td {
-				padding: 0.95rem 1rem;
+				padding: 0.85rem 1rem;
 				background: rgba(255, 255, 255, 0.34);
 				border-bottom: 1px solid rgba(255, 255, 255, 0.44);
 				color: var(--cg-text-soft);
-				vertical-align: top;
+				vertical-align: middle;
+			}
+
+			.crown-table:has(th) td {
+				white-space: nowrap;
+			}
+
+			.crown-table:has(th) td:last-child {
+				white-space: normal;
 			}
 
 			.crown-table tr:nth-child(even) td {
@@ -1033,9 +1066,12 @@
 			}
 
 			.crown-table td:first-child {
-				width: 42%;
 				color: var(--cg-text);
 				font-weight: 700;
+			}
+
+			.crown-table:not(:has(th)) td:first-child {
+				width: 38%;
 			}
 
 			.crown-rating-block {
@@ -1047,6 +1083,7 @@
 			}
 
 			body.is-dark .crown-table td,
+			body.is-dark .crown-table th,
 			body.is-dark .crown-rating-block,
 			body.is-dark .crown-panel,
 			body.is-dark .crown-bonus-item,
@@ -1054,6 +1091,11 @@
 				background: rgba(255, 255, 255, 0.04);
 				border-color: rgba(255, 255, 255, 0.1);
 				color: var(--cg-text);
+			}
+
+			body.is-dark .crown-table th {
+				background: rgba(255, 255, 255, 0.08);
+				border-bottom-color: rgba(255, 255, 255, 0.15);
 			}
 
 			body.is-dark .crown-table tr:nth-child(even) td {
@@ -1294,6 +1336,15 @@
 				color: inherit;
 			}
 
+			.crown-sidebar__card:has(.crown-sidebar__score) .crown-sidebar__title,
+			.crown-mobile-score .crown-sidebar__title {
+				text-align: center;
+			}
+
+			.crown-sidebar__card .score-methodology {
+				text-align: center;
+			}
+
 			.crown-sidebar__help p:last-child {
 				margin-bottom: 0;
 			}
@@ -1345,10 +1396,12 @@
 
 			@media (max-width: 768px) {
 				.crown-review > .crown-disclaimer {
-					max-width: 88%;
-					padding-right: 1rem;
+					width: 100%;
+					max-width: 100%;
+					display: block;
+					border-radius: 16px;
 					font-size: 0.85rem;
-					display: inline-block;
+					padding-right: 1rem;
 				}
 
 				.crown-main {
@@ -1378,6 +1431,64 @@
 
 				.crown-rating-item {
 					grid-template-columns: 110px 1fr 38px;
+				}
+
+				/* crown-rating-row: 2-колоночная сетка
+				   Col 1 (auto): звёзды / оценка
+				   Col 2 (1fr): méthodologie / verdict tag */
+				.crown-rating-row {
+					display: grid;
+					grid-template-columns: auto 1fr;
+					align-items: center;
+					gap: 0.5rem 1rem;
+					margin: 1rem 0 0.8rem;
+				}
+
+				.crown-rating-row .score-methodology {
+					margin: 0;
+					text-align: left;
+				}
+
+				.crown-rating-row .crown-verdict-tag {
+					justify-self: start;
+				}
+
+				/* Centre inline-block buttons that have a fixed width */
+				.crown-review p:has(> a.crown-button[style]) {
+					text-align: center;
+				}
+
+				/* Horizontal scroll for tables on mobile */
+				.crown-table {
+					display: block;
+					overflow-x: auto;
+					-webkit-overflow-scrolling: touch;
+					min-width: 0;
+				}
+
+				/* Убираем фиксированную ширину первой колонки — пусть браузер
+				   сам подгоняет по контенту (white-space: nowrap) */
+				.crown-table td:first-child {
+					width: auto;
+					white-space: nowrap;
+				}
+
+				/* Уменьшаем паддинги и шрифт ячеек, запрещаем разрыв процентных знаков и валюты */
+				.crown-table td,
+				.crown-table th {
+					padding: 0.6rem 0.75rem;
+					font-size: 0.85rem;
+					line-height: 1.45;
+					vertical-align: middle;
+					white-space: nowrap;
+				}
+
+				/* Заголовки колонок — по левому краю */
+				.crown-table th {
+					text-align: left;
+					white-space: nowrap;
+					font-size: 0.78rem;
+					letter-spacing: 0.03em;
 				}
 			}
 		</style>
@@ -1440,11 +1551,53 @@
 						&times;
 					</button>
 					<ul class="nav-menu__list" role="list">
+						<li class="nav-menu__item nav-menu__item--avis">
+							<div class="nav-menu__avis">
+								<button
+									type="button"
+									class="header__link nav-menu__link nav-menu__avis-toggle"
+									aria-expanded="false"
+									aria-controls="avis-list"
+								>
+									Avis
+									<span class="nav-menu__avis-toggle-icon" aria-hidden="true">
+										<svg
+											viewBox="0 0 10 10"
+											width="10"
+											height="10"
+											fill="currentColor"
+										>
+											<polygon points="3,2 8,5 3,8" />
+										</svg>
+									</span>
+								</button>
+								<ul
+									id="avis-list"
+									class="nav-menu__avis-dropdown"
+									role="menu"
+									aria-hidden="true"
+								>
+									<li role="none">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/crowngreen-casino/"
+											>Crowngreen Casino</a
+										>
+									</li>
+									<li role="none">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/wild-tokyo-casino/"
+											>Wild Tokyo Casino</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
 						<li class="nav-menu__item">
-							<a
-								class="header__link nav-menu__link"
-								href="/a-propos/"
-							>
+							<a class="header__link nav-menu__link" href="/a-propos/">
 								Qui suis-je ?
 							</a>
 						</li>
@@ -1501,7 +1654,10 @@
 						<span class="breadcrumb-current" itemprop="name" aria-current="page"
 							>Avis Crowngreen Casino</span
 						>
-						<meta itemprop="item" content="https://www.topjeu777.com/crowngreen-casino/" />
+						<meta
+							itemprop="item"
+							content="https://www.topjeu777.com/crowngreen-casino/"
+						/>
 						<meta itemprop="position" content="2" />
 					</li>
 				</ol>
@@ -1528,7 +1684,9 @@
 							</p>
 							<div class="crown-rating-row">
 								<div class="crown-stars">★★★★★</div>
-									<p class="score-methodology"><a href="/methodologie/">méthodologie</a></p>
+								<p class="score-methodology">
+									<a href="/methodologie/">méthodologie</a>
+								</p>
 								<div>
 									<div class="crown-score">9.9 <small>/10</small></div>
 									<div class="crown-meta">Ma note personnelle</div>
@@ -1544,8 +1702,7 @@
 									class="crown-author__name"
 									>Dariah Belle</a
 								>
-								· Dernière mise à jour
-								: avril 2026
+								· Dernière mise à jour : avril 2026
 							</p>
 						</div>
 					</section>
@@ -1882,9 +2039,11 @@
 									<h2 class="crown-sidebar__title">Note globale</h2>
 									<div class="crown-sidebar__score">9.9<small>/10</small></div>
 									<p class="crown-stars" style="text-align: center; margin: 0">
-								★★★★★
-								</p>
-								<p class="score-methodology"><a href="/methodologie/">méthodologie</a></p>
+										★★★★★
+									</p>
+									<p class="score-methodology">
+										<a href="/methodologie/">méthodologie</a>
+									</p>
 								</section>
 							</section>
 							<section id="bonus" class="crown-section crown-glass u-fade-in">
@@ -2529,10 +2688,15 @@
 										></a
 									>
 								</p>
-					<p>Pour comparer Crowngreen à d'autres options disponibles au Canada, retrouvez notre <a href="/ca/">classement des meilleurs casinos en ligne</a> francophones mis à jour en 2026.</p>
-				</section>
+								<p>
+									Pour comparer Crowngreen à d'autres options disponibles au
+									Canada, retrouvez notre
+									<a href="/ca/">classement des meilleurs casinos en ligne</a>
+									francophones mis à jour en 2026.
+								</p>
+							</section>
 
-				<section id="faq" class="crown-section crown-glass faq u-fade-in">
+							<section id="faq" class="crown-section crown-glass faq u-fade-in">
 								<h2>❓ Questions fréquentes</h2>
 
 								<div class="faq-item u-fade-in">
@@ -2819,8 +2983,10 @@
 							<div class="crown-sidebar__score">9.9<small>/10</small></div>
 							<p class="crown-stars" style="text-align: center; margin: 0">
 								★★★★★
-								</p>
-								<p class="score-methodology"><a href="/methodologie/">méthodologie</a></p>
+							</p>
+							<p class="score-methodology">
+								<a href="/methodologie/">méthodologie</a>
+							</p>
 						</section>
 
 						<section
@@ -2862,7 +3028,11 @@
 							<li><a href="#jeux" class="footer__link">Jeux disponibles</a></li>
 							<li><a href="#paiements" class="footer__link">Paiements</a></li>
 							<li><a href="#verdict" class="footer__link">Verdict final</a></li>
-							<li><a href="/methodologie/" class="footer__link">Méthodologie d'évaluation</a></li>
+							<li>
+								<a href="/methodologie/" class="footer__link"
+									>Méthodologie d'évaluation</a
+								>
+							</li>
 						</ul>
 					</div>
 
@@ -2888,7 +3058,21 @@
 								class="footer__link"
 								aria-label="YouTube"
 							>
-								<svg class="youtube-icon" viewBox="0 0 29 20" width="25" height="25" aria-hidden="true"><g><path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"></path><path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path></g></svg>
+								<svg
+									class="youtube-icon"
+									viewBox="0 0 29 20"
+									width="25"
+									height="25"
+									aria-hidden="true"
+								>
+									<g>
+										<path
+											d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z"
+											fill="#FF0033"
+										></path>
+										<path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#fff"></path>
+									</g>
+								</svg>
 							</a>
 							<a
 								href="https://x.com/topjeubelle"
@@ -2897,7 +3081,18 @@
 								class="footer__link"
 								aria-label="X"
 							>
-								<svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor"><g><path d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z"></path></g></svg>
+								<svg
+									class="youtube-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									style="fill: currentColor"
+								>
+									<g>
+										<path
+											d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z"
+										></path>
+									</g>
+								</svg>
 							</a>
 							<a
 								href="https://medium.com/@casinoamie"
@@ -2905,7 +3100,16 @@
 								rel="noopener noreferrer"
 								class="footer__link"
 							>
-								<svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+								<svg
+									class="youtube-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									style="fill: currentColor"
+								>
+									<path
+										d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
+									/>
+								</svg>
 								<span>Medium</span>
 							</a>
 						</div>
@@ -3005,7 +3209,10 @@
 						rows="5"
 						class="popup__input"
 					></textarea>
-					<p class="popup__form-note">⚠ Nous vous prions de ne pas copier-coller le texte, mais de rédiger votre message manuellement.</p>
+					<p class="popup__form-note">
+						⚠ Nous vous prions de ne pas copier-coller le texte, mais de rédiger
+						votre message manuellement.
+					</p>
 					<button type="submit" class="popup__button">Envoyer</button>
 				</form>
 				<p id="form-success-message" class="form-success-message u-hidden">

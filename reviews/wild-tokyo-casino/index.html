@@ -119,7 +119,7 @@
 						"name": "Avis Wild Tokyo Casino Canada 2026",
 						"reviewRating": {
 							"@type": "Rating",
-							"ratingValue": "8.2",
+							"ratingValue": "9.8",
 							"bestRating": "10",
 							"worstRating": "1"
 						},
@@ -432,6 +432,44 @@
 				padding: 0 1.5rem 4rem;
 			}
 
+			.crown-review > .disclaimer {
+				background: linear-gradient(298deg, #fff 0, snow 67%, #ffe0d9 100%);
+				border: 1px solid rgba(255, 255, 255, 0.64);
+				border-radius: 999px;
+				box-shadow:
+					0 10px 24px rgba(164, 174, 190, 0.12),
+					inset 0 1px 0 rgba(255, 255, 255, 0.85);
+				color: #555;
+				width: 100%;
+				margin: 0 0 1rem;
+				padding: 0.5rem 1rem 0.5rem 2.5rem;
+				font-size: 0.82rem;
+				line-height: 1.4;
+				position: relative;
+				box-sizing: border-box;
+			}
+
+			body.is-dark .crown-review > .disclaimer {
+				background: linear-gradient(90deg, #3f0f05, #130f0f);
+				border-color: #444;
+				box-shadow:
+					inset 0 1px 0 rgba(255, 255, 255, 0.08),
+					0 14px 30px rgba(0, 0, 0, 0.24);
+				color: #eef3fb;
+			}
+
+			.crown-review > .disclaimer::before {
+				content: '🔔';
+				font-size: 1rem;
+				line-height: 1;
+				position: absolute;
+				top: 50%;
+				left: 0.75rem;
+				transform: translateY(-50%);
+				transform-origin: top center;
+				animation: crown-bell-wiggle 2.8s ease-in-out infinite;
+			}
+
 			.crown-glass {
 				backdrop-filter: blur(24px) saturate(150%);
 				-webkit-backdrop-filter: blur(24px) saturate(150%);
@@ -601,6 +639,23 @@
 				text-shadow:
 					0 0 6px rgba(255, 215, 0, 0.32),
 					0 0 12px rgba(255, 200, 64, 0.22);
+			}
+
+			.crown-star-half {
+				display: inline-block;
+				position: relative;
+			}
+
+			.crown-star-half::after {
+				content: '★';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 50%;
+				overflow: hidden;
+				color: inherit;
+				-webkit-text-fill-color: inherit;
+				-webkit-text-stroke: inherit;
 			}
 
 			body.is-dark .crown-stars {
@@ -780,10 +835,10 @@
 
 			.crown-button:hover,
 			.crown-button:focus-visible {
-				background: linear-gradient(180deg, #f43f5e, #e11d48);
+				background: linear-gradient(180deg, #1e7e34, #155724);
 				box-shadow:
 					inset 0 1px 0 rgba(255, 255, 255, 0.18),
-					0 12px 22px rgba(225, 29, 72, 0.2);
+					0 12px 22px rgba(21, 87, 36, 0.2);
 				color: #fff;
 			}
 
@@ -973,12 +1028,32 @@
 				margin-top: 1rem;
 			}
 
+			.crown-table th {
+				padding: 0.85rem 1rem;
+				background: rgba(235, 241, 250, 0.75);
+				border-bottom: 2px solid rgba(148, 163, 184, 0.3);
+				color: var(--wt-text);
+				font-weight: 700;
+				font-size: 0.88rem;
+				text-align: left;
+				letter-spacing: 0.02em;
+				white-space: nowrap;
+			}
+
 			.crown-table td {
-				padding: 0.95rem 1rem;
+				padding: 0.85rem 1rem;
 				background: rgba(255, 255, 255, 0.34);
 				border-bottom: 1px solid rgba(255, 255, 255, 0.44);
 				color: var(--wt-text-soft);
-				vertical-align: top;
+				vertical-align: middle;
+			}
+
+			.crown-table:has(th) td {
+				white-space: nowrap;
+			}
+
+			.crown-table:has(th) td:last-child {
+				white-space: normal;
 			}
 
 			.crown-table tr:nth-child(even) td {
@@ -990,9 +1065,12 @@
 			}
 
 			.crown-table td:first-child {
-				width: 42%;
 				color: var(--wt-text);
 				font-weight: 700;
+			}
+
+			.crown-table:not(:has(th)) td:first-child {
+				width: 38%;
 			}
 
 			.crown-rating-block {
@@ -1004,6 +1082,7 @@
 			}
 
 			body.is-dark .crown-table td,
+			body.is-dark .crown-table th,
 			body.is-dark .crown-rating-block,
 			body.is-dark .crown-panel,
 			body.is-dark .crown-bonus-item,
@@ -1011,6 +1090,11 @@
 				background: rgba(255, 255, 255, 0.04);
 				border-color: rgba(255, 255, 255, 0.1);
 				color: var(--wt-text);
+			}
+
+			body.is-dark .crown-table th {
+				background: rgba(255, 255, 255, 0.08);
+				border-bottom-color: rgba(255, 255, 255, 0.15);
 			}
 
 			body.is-dark .crown-table tr:nth-child(even) td {
@@ -1034,8 +1118,8 @@
 			}
 
 			body.is-dark .crown-button {
-				background: linear-gradient(180deg, #be123c, #9f1239);
-				border-color: rgba(244, 63, 94, 0.24);
+				background: linear-gradient(180deg, #2f8f2f, #216f21);
+				border-color: rgba(111, 196, 111, 0.24);
 				color: #fff;
 			}
 
@@ -1251,6 +1335,15 @@
 				color: inherit;
 			}
 
+			.crown-sidebar__card:has(.crown-sidebar__score) .crown-sidebar__title,
+			.crown-mobile-score .crown-sidebar__title {
+				text-align: center;
+			}
+
+			.crown-sidebar__card .score-methodology {
+				text-align: center;
+			}
+
 			.crown-sidebar__help p:last-child {
 				margin-bottom: 0;
 			}
@@ -1329,10 +1422,76 @@
 				.crown-rating-item {
 					grid-template-columns: 110px 1fr 38px;
 				}
+
+				/* crown-rating-row: 2-колоночная сетка как в Crowngreen
+				   Col 1 (auto): звёзды / оценка
+				   Col 2 (1fr): méthodologie / verdict tag */
+				.crown-rating-row {
+					display: grid;
+					grid-template-columns: auto 1fr;
+					align-items: center;
+					gap: 0.5rem 1rem;
+					margin: 1rem 0 0.8rem;
+				}
+
+				.crown-rating-row .score-methodology {
+					margin: 0;
+					text-align: left;
+				}
+
+				.crown-rating-row .crown-verdict-tag {
+					justify-self: start;
+				}
+
+				/* Disclaimer full width on mobile */
+				.crown-review > .disclaimer {
+					width: 100%;
+					max-width: 100%;
+					display: block;
+					border-radius: 16px;
+				}
+
+				/* Centre inline-block buttons that have a fixed width */
+				.crown-review p:has(> a.crown-button[style]) {
+					text-align: center;
+				}
+
+				/* Horizontal scroll for tables on mobile */
+				.crown-table {
+					display: block;
+					overflow-x: auto;
+					-webkit-overflow-scrolling: touch;
+					min-width: 0;
+				}
+
+				/* Убираем фиксированную ширину первой колонки — пусть браузер
+				   сам подгоняет по контенту (white-space: nowrap) */
+				.crown-table td:first-child {
+					width: auto;
+					white-space: nowrap;
+				}
+
+				/* Уменьшаем паддинги и шрифт ячеек, запрещаем разрыв процентных знаков и валюты */
+				.crown-table td,
+				.crown-table th {
+					padding: 0.6rem 0.75rem;
+					font-size: 0.85rem;
+					line-height: 1.45;
+					vertical-align: middle;
+					white-space: nowrap;
+				}
+
+				/* Заголовки колонок — по левому краю */
+				.crown-table th {
+					text-align: left;
+					white-space: nowrap;
+					font-size: 0.78rem;
+					letter-spacing: 0.03em;
+				}
 			}
 
 			.score-methodology {
-				text-align: center;
+				text-align: left;
 			}
 		</style>
 	</head>
@@ -1394,6 +1553,51 @@
 						&times;
 					</button>
 					<ul class="nav-menu__list" role="list">
+						<li class="nav-menu__item nav-menu__item--avis">
+							<div class="nav-menu__avis">
+								<button
+									type="button"
+									class="header__link nav-menu__link nav-menu__avis-toggle"
+									aria-expanded="false"
+									aria-controls="avis-list"
+								>
+									Avis
+									<span class="nav-menu__avis-toggle-icon" aria-hidden="true">
+										<svg
+											viewBox="0 0 10 10"
+											width="10"
+											height="10"
+											fill="currentColor"
+										>
+											<polygon points="3,2 8,5 3,8" />
+										</svg>
+									</span>
+								</button>
+								<ul
+									id="avis-list"
+									class="nav-menu__avis-dropdown"
+									role="menu"
+									aria-hidden="true"
+								>
+									<li role="none">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/crowngreen-casino/"
+											>Crowngreen Casino</a
+										>
+									</li>
+									<li role="none">
+										<a
+											role="menuitem"
+											class="nav-menu__avis-link"
+											href="/wild-tokyo-casino/"
+											>Wild Tokyo Casino</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
 						<li class="nav-menu__item">
 							<a class="header__link nav-menu__link" href="/a-propos/">
 								Qui suis-je ?
@@ -1480,13 +1684,15 @@
 								pour le tester et voici mon verdict complet et sans filtre.
 							</p>
 							<div class="crown-rating-row">
-								<div class="crown-stars">★★★★☆</div>
+								<div class="crown-stars">
+									★★★★<span class="crown-star-half">☆</span>
+								</div>
 								<p class="score-methodology">
 									<a href="/methodologie/">méthodologie</a>
 								</p>
 								<div>
-									<div class="crown-score">8.2 <small>/10</small></div>
-									<div class="crown-meta">Ma note TopJeu</div>
+									<div class="crown-score">9.8 <small>/10</small></div>
+									<div class="crown-meta">Ma note personnelle</div>
 								</div>
 								<span class="crown-verdict-tag">✓ Casino Recommandé</span>
 							</div>
@@ -1843,9 +2049,9 @@
 									class="crown-sidebar__card crown-glass crown-mobile-score u-fade-in"
 								>
 									<h2 class="crown-sidebar__title">Note globale</h2>
-									<div class="crown-sidebar__score">8.2<small>/10</small></div>
+									<div class="crown-sidebar__score">9.8<small>/10</small></div>
 									<p class="crown-stars" style="text-align: center; margin: 0">
-										★★★★☆
+										★★★★<span class="crown-star-half">☆</span>
 									</p>
 									<p class="score-methodology">
 										<a href="/methodologie/">méthodologie</a>
@@ -2893,9 +3099,9 @@
 
 						<section class="crown-sidebar__card crown-glass u-fade-in">
 							<h2 class="crown-sidebar__title">Note globale</h2>
-							<div class="crown-sidebar__score">8.2<small>/10</small></div>
+							<div class="crown-sidebar__score">9.8<small>/10</small></div>
 							<p class="crown-stars" style="text-align: center; margin: 0">
-								★★★★☆
+								★★★★<span class="crown-star-half">☆</span>
 							</p>
 							<p class="score-methodology">
 								<a href="/methodologie/">méthodologie</a>
