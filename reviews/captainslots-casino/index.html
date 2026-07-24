@@ -1976,7 +1976,8 @@
 		</footer>
 
 		<!-- POPUP: Contact -->
-		<div
+		<template id="popup-contact-template">
+			<div
 			id="popup-contact"
 			class="popup u-hidden"
 			role="dialog"
@@ -2031,9 +2032,12 @@
 				</p>
 			</div>
 		</div>
+		</template>
 
 		<!-- Politique de confidentialité Popup -->
-		<div
+		<!-- POPUP: Privacy -->
+		<template id="privacy-popup-template">
+			<div
 			id="privacy-popup"
 			class="privacy-popup"
 			role="dialog"
@@ -2170,6 +2174,7 @@
 					</p>
 			</div>
 		</div>
+		</template>
 
 		<a href="#top" id="scrolltop" aria-label="Remonter en haut de la page">
 			<svg
