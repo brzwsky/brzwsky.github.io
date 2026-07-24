@@ -55,6 +55,7 @@
 			><link rel="stylesheet" href="/style.reviews.minified.css"
 		/></noscript>
 		<script src="/app.minified.js" defer></script>
+		<script src="/popups.minified.js" defer></script>
 
 		<meta property="og:type" content="profile" />
 		<meta
@@ -1383,12 +1384,16 @@
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				background: var(--cg-red);
+				background: #1e7e34;
 				border-radius: 999px;
 				color: #fff;
 				font-weight: 700;
 				padding: 0.85rem 1.25rem;
 				text-decoration: none;
+				transition: background-color 0.2s ease;
+			}
+			.about-contact-button:hover {
+				background: #155724;
 			}
 
 			.about-resources a {
@@ -1408,6 +1413,7 @@
 			}
 
 		</style>
+		<link rel="stylesheet" href="/popups.minified.css" />
 	</head>
 	<body lang="fr" class="page-review crowngreen-review" id="top">
 		<script>
