@@ -803,9 +803,11 @@
 			.crown-button,
 			.crown-button--ghost {
 				box-sizing: border-box;
-				display: block;
-				text-decoration: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				text-align: center;
+				position: relative;
 				border-radius: 999px;
 				padding: 0.95rem 1.2rem;
 				font-weight: 700;
@@ -816,10 +818,11 @@
 			}
 
 			.crown-button__arrow {
-				display: inline-block;
-				margin-left: 0.15rem;
+				position: absolute;
+				right: 1.2rem;
+				top: 50%;
 				opacity: 0;
-				transform: translateX(-6px);
+				transform: translateY(-50%) translateX(-4px);
 				transition:
 					opacity 180ms ease,
 					transform 180ms ease;
@@ -847,7 +850,7 @@
 			.crown-button:hover .crown-button__arrow,
 			.crown-button:focus-visible .crown-button__arrow {
 				opacity: 1;
-				transform: translateX(0);
+				transform: translateY(-50%) translateX(0);
 			}
 
 			.crown-button--ghost {
