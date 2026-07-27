@@ -810,7 +810,6 @@
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				gap: 0.5rem;
 				text-align: center;
 				text-decoration: none !important;
 				border-radius: 999px;
@@ -824,11 +823,9 @@
 
 			.crown-button__arrow {
 				display: inline-block;
-				opacity: 0;
-				transform: translateX(-4px);
-				transition:
-					opacity 180ms ease,
-					transform 180ms ease;
+				margin-left: 0.35rem;
+				opacity: 1;
+				transition: transform 180ms ease;
 			}
 
 			.crown-bonus-card .crown-button__arrow {
@@ -858,8 +855,7 @@
 
 			.crown-button:hover .crown-button__arrow,
 			.crown-button:focus-visible .crown-button__arrow {
-				opacity: 1;
-				transform: translateX(3px);
+				transform: translateX(4px);
 			}
 
 			.crown-button--ghost {
