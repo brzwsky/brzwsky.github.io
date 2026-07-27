@@ -803,14 +803,14 @@
 			.crown-button,
 			.crown-button--ghost {
 				box-sizing: border-box;
-				display: flex;
+				display: inline-flex;
 				align-items: center;
 				justify-content: center;
+				gap: 0.5rem;
 				text-align: center;
-				position: relative;
 				text-decoration: none !important;
 				border-radius: 999px;
-				padding: 0.95rem 2.2rem 0.95rem 1.5rem;
+				padding: 0.95rem 1.6rem;
 				font-weight: 700;
 				transition:
 					transform 180ms ease,
@@ -818,17 +818,10 @@
 					background 180ms ease;
 			}
 
-			.crown-bonus-card .crown-button,
-			.crown-bonus-card .crown-button--ghost {
-				padding: 0.95rem 1.4rem !important;
-			}
-
 			.crown-button__arrow {
-				position: absolute;
-				right: 1.5rem;
-				top: 50%;
+				display: inline-block;
 				opacity: 0;
-				transform: translateY(-50%) translateX(-4px);
+				transform: translateX(-4px);
 				transition:
 					opacity 180ms ease,
 					transform 180ms ease;
@@ -862,7 +855,7 @@
 			.crown-button:hover .crown-button__arrow,
 			.crown-button:focus-visible .crown-button__arrow {
 				opacity: 1;
-				transform: translateY(-50%) translateX(0);
+				transform: translateX(3px);
 			}
 
 			.crown-button--ghost {
