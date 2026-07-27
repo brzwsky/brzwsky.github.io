@@ -824,9 +824,11 @@
 
 			.crown-button__arrow {
 				display: inline-block;
-				margin-left: 0;
-				opacity: 1;
-				transition: transform 180ms ease;
+				opacity: 0;
+				transform: translateX(-4px);
+				transition:
+					opacity 180ms ease,
+					transform 180ms ease;
 			}
 
 			.crown-bonus-card .crown-button__arrow {
@@ -856,7 +858,8 @@
 
 			.crown-button:hover .crown-button__arrow,
 			.crown-button:focus-visible .crown-button__arrow {
-				transform: translateX(4px);
+				opacity: 1;
+				transform: translateX(0);
 			}
 
 			.crown-button--ghost {
