@@ -807,7 +807,7 @@
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-				position: relative;
+				text-decoration: none !important;
 				border-radius: 999px;
 				padding: 0.95rem 1.2rem;
 				font-weight: 700;
@@ -818,14 +818,7 @@
 			}
 
 			.crown-button__arrow {
-				position: absolute;
-				right: 1.2rem;
-				top: 50%;
-				opacity: 0;
-				transform: translateY(-50%) translateX(-4px);
-				transition:
-					opacity 180ms ease,
-					transform 180ms ease;
+				display: none !important;
 			}
 
 			.crown-button {
@@ -833,6 +826,7 @@
 				background: linear-gradient(180deg, #2f8f2f, #237823);
 				border: 1px solid rgba(35, 120, 35, 0.34);
 				color: #fff;
+				text-decoration: none !important;
 				box-shadow:
 					inset 0 1px 0 rgba(255, 255, 255, 0.16),
 					0 10px 18px rgba(35, 120, 35, 0.16);
@@ -841,16 +835,11 @@
 			.crown-button:hover,
 			.crown-button:focus-visible {
 				background: linear-gradient(180deg, #1e7e34, #155724);
+				text-decoration: none !important;
 				box-shadow:
 					inset 0 1px 0 rgba(255, 255, 255, 0.18),
 					0 12px 22px rgba(21, 87, 36, 0.2);
 				color: #fff;
-			}
-
-			.crown-button:hover .crown-button__arrow,
-			.crown-button:focus-visible .crown-button__arrow {
-				opacity: 1;
-				transform: translateY(-50%) translateX(0);
 			}
 
 			.crown-button--ghost {
