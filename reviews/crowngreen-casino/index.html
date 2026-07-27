@@ -811,6 +811,7 @@
 				align-items: center;
 				justify-content: center;
 				text-align: center;
+				position: relative;
 				text-decoration: none !important;
 				border-radius: 999px;
 				padding: 0.95rem 1.2rem;
@@ -822,6 +823,17 @@
 			}
 
 			.crown-button__arrow {
+				position: absolute;
+				right: 1.2rem;
+				top: 50%;
+				opacity: 0;
+				transform: translateY(-50%) translateX(-4px);
+				transition:
+					opacity 180ms ease,
+					transform 180ms ease;
+			}
+
+			.crown-bonus-card .crown-button__arrow {
 				display: none !important;
 			}
 
@@ -844,6 +856,12 @@
 					inset 0 1px 0 rgba(255, 255, 255, 0.18),
 					0 12px 22px rgba(21, 87, 36, 0.2);
 				color: #fff;
+			}
+
+			.crown-button:hover .crown-button__arrow,
+			.crown-button:focus-visible .crown-button__arrow {
+				opacity: 1;
+				transform: translateY(-50%) translateX(0);
 			}
 
 			.crown-button--ghost {
