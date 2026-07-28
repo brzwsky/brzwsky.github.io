@@ -1469,8 +1469,9 @@
 					justify-self: start;
 				}
 
-				/* Centre inline-block buttons that have a fixed width */
-				.crown-review p:has(> a.crown-button[style]) {
+				/* Centre inline-block buttons on mobile */
+				.crown-review p:has(> a.crown-button),
+				.crown-review p:has(> a.crown-button--ghost) {
 					text-align: center;
 				}
 
