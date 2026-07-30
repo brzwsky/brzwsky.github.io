@@ -266,12 +266,26 @@ body:not(.is-dark) .casino-card__stars {
   border-radius: 6px;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  width: 264px;
+  height: 50px;
+  padding: 0;
   text-decoration: none;
   transition: background-color 0.3s;
   display: inline-flex;
   position: relative;
   overflow: hidden;
+}
+
+.casino-card.casino-card--button .casino-card__button {
+  flex: none;
+  order: 4;
+  justify-content: center;
+  align-self: center;
+  width: 210px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .casino-card__button:hover {
@@ -285,8 +299,11 @@ body:not(.is-dark) .casino-card__stars {
   z-index: 1;
   justify-content: center;
   align-items: center;
-  font-size: 0.875rem;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
   display: inline-flex;
   position: relative;
