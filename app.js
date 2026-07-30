@@ -1457,11 +1457,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			navAvis.classList.toggle('is-open', open);
 			toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
 			avisList.setAttribute('aria-hidden', open ? 'false' : 'true');
-			if (open) avisList.removeAttribute('hidden');
+			if (open) {
+				avisList.removeAttribute('hidden');
+			} else {
+				avisList.setAttribute('hidden', '');
+			}
 		};
 
-		avisList.removeAttribute('hidden');
-		avisList.setAttribute('aria-hidden', 'true');
+		// Initialize closed state on page load
+		setOpen(false);
 
 		toggleBtn.addEventListener('click', (event) => {
 			event.preventDefault();

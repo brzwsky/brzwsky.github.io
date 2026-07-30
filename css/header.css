@@ -278,6 +278,10 @@ body.is-dark .header__link:focus-visible {
 	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
+.nav-menu__avis-dropdown[hidden] {
+	display: none !important;
+}
+
 .nav-menu__avis.is-open .nav-menu__avis-dropdown,
 .nav-menu__item--avis:hover .nav-menu__avis-dropdown,
 .nav-menu__item--avis:focus-within .nav-menu__avis-dropdown {
