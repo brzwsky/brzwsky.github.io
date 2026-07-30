@@ -1,0 +1,21 @@
+{
+  "name": "topjeu-website",
+  "version": "1.0.0",
+  "description": "TopJeu Online Casino Review & Comparison Platform",
+  "main": "app.js",
+  "scripts": {
+    "build": "node tools/minify.js",
+    "watch": "node tools/watch.js"
+  },
+  "keywords": [
+    "topjeu",
+    "casino",
+    "reviews"
+  ],
+  "author": "TopJeu",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.40.0"
+  }
+}

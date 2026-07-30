@@ -1,61 +1,24 @@
 .DS_Store
 DS_Store
 .vscode
-.github/*
-!.github/workflows/
-.github/workflows/*
-!.github/workflows/*.yml
-!.github/workflows/*.yaml
 .idea/
 
-# Unminified source files (use minified versions in production)
-app.js
-popups.js
-style.css
-popups.css
-style.reviews.css
-scripts/
-
-# Development environment
+# Environment and Node dependencies
 .env
 .env.local
 .env.*
-!.env.example
 node_modules/
 package-lock.json
 
-# IDE and editor files
-*.swp
-*.swo
-*~
-.sublime-project
-.sublime-workspace
-
-# OS and temporary files
-Thumbs.db
+# Logs and temporary files
 *.log
 *.tmp
 *.bak
 *.orig
 tmp/
 temp/
+backups/
 backup-*/
 
-# Python
-__pycache__/
-*.pyc
-.pytest_cache/
-.venv/
-venv/
-.cache/
-
-# Build outputs
-dist/
-build/
-.next/
-
-# Wrangler (Cloudflare)
-.wrangler/
-
-tools
-backups
+# System files
+Thumbs.db
