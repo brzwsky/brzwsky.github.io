@@ -230,7 +230,7 @@ body.is-dark .header__link:focus-visible {
 
 .nav-menu__list {
   align-items: center;
-  gap: 1.4rem;
+  gap: 2.2rem;
   margin: 0;
   padding: 0;
   list-style: none;
