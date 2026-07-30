@@ -1,0 +1,433 @@
+/* ==========================================================================
+   WIDGETS COMPONENT (Cookie Banner, No-Deposit Bonus, ScrollTop)
+   ========================================================================== */
+
+/* Scroll To Top Button */
+#scrolltop {
+	position: fixed;
+	bottom: var(--spacing-lg);
+	right: var(--spacing-lg);
+	z-index: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	color: var(--color-white);
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: var(--font-size-large);
+	font-weight: 700;
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.18);
+	border: 1px solid var(--white-overlay-light);
+	border-radius: 50%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(12px) saturate(180%);
+	-webkit-backdrop-filter: blur(12px) saturate(180%);
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(20px);
+	will-change: opacity, transform;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+#scrolltop.is-visible {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+#scrolltop:hover {
+	background: rgba(0, 0, 0, 0.26);
+	transition: background var(--transition-standard);
+}
+
+#scrolltop:active {
+	background-color: #09162b;
+	transition: background-color 0.1s;
+}
+
+#scrolltop .arrow-up {
+	transform: translate(1px);
+}
+
+#scrolltop.is-visible .arrow-up {
+	animation: scrolltop-float 2.8s ease-in-out infinite;
+}
+
+.arrow-up {
+	display: block;
+	width: 2.4rem;
+	height: auto;
+	margin: 0;
+	color: var(--color-red-primary);
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.5px;
+	aspect-ratio: 1;
+}
+
+body.is-modal-open #scrolltop,
+body:has(.cookie-banner.is-visible:not(.cookie-banner--minimized)) #scrolltop,
+body:has(.no-deposit-bonus.is-visible:not(.no-deposit-bonus--minimized)) #scrolltop {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+/* Cookie Banner Widget */
+.cookie-banner {
+	position: fixed;
+	bottom: var(--spacing-lg);
+	left: var(--spacing-lg);
+	z-index: 99999;
+	width: 90%;
+	max-width: 500px;
+	padding: var(--spacing-md) var(--spacing-lg);
+	box-sizing: border-box;
+	color: var(--color-white);
+	font-family: Arial, sans-serif;
+	background: rgba(0, 0, 0, 0.18);
+	border: 1px solid var(--white-overlay-light);
+	border-radius: 20px;
+	box-shadow: 0 12px 40px var(--overlay-strong);
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	opacity: 0;
+	overflow: hidden;
+	contain: layout style paint;
+	transform: translateY(24px);
+	transform-origin: 0 100%;
+	will-change: transform, opacity, border-radius;
+	transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cookie-banner.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.cookie-banner[style*='display: none'] {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.cookie-banner.cookie-banner--minimized {
+	position: fixed;
+	bottom: var(--cookie-banner-minimized-bottom);
+	left: var(--cookie-banner-minimized-left);
+	z-index: 900;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--cookie-banner-minimized-size);
+	max-width: 60px;
+	height: var(--cookie-banner-minimized-size);
+	padding: 0;
+	color: var(--color-white);
+	background: rgba(0, 0, 0, 0.18);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	border-radius: 50%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	backdrop-filter: blur(12px) saturate(180%);
+	opacity: 1;
+	cursor: pointer;
+	transform: translateY(0);
+	transform-origin: 0 100%;
+	transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cookie-banner.cookie-banner--minimized:hover {
+	transform: translate(0) scale(1.1);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-banner.cookie-banner--minimized .cookie-banner__container {
+	display: none;
+}
+
+.cookie-banner.cookie-banner--minimized .cookie-banner__minimized-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	color: var(--color-white);
+	font-size: 30px;
+	line-height: 1;
+	text-align: center;
+	transform: translateY(1px);
+	animation: cookie-wiggle 2.4s ease-in-out infinite;
+}
+
+.cookie-banner:not(.cookie-banner--minimized) .cookie-banner__minimized-icon {
+	display: none;
+}
+
+.cookie-banner__container {
+	max-height: none;
+	opacity: 1;
+	overflow: hidden;
+	transform: translate(0, 0) scale(1);
+	transform-origin: 0 100%;
+	will-change: opacity, transform, max-height;
+	transition: opacity var(--cookie-banner-inner-fade-duration) cubic-bezier(0.22, 1, 0.36, 1), transform var(--cookie-banner-inner-shift-duration) cubic-bezier(0.22, 1, 0.36, 1), max-height var(--cookie-banner-inner-shift-duration) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#cookie-title {
+	margin: 0 0 0.5rem;
+	color: var(--color-white);
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+.cookie-banner__text {
+	margin: 0;
+	color: var(--color-gray-dark);
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.cookie-banner__text a {
+	color: var(--color-red-hover);
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.cookie-banner__actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.75rem;
+	margin-top: var(--spacing-sm);
+}
+
+.cookie-banner__btn {
+	display: inline-block;
+	min-width: 120px;
+	padding: 0.75rem var(--spacing-md);
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	border: 0;
+	border-radius: var(--radius-small);
+	cursor: pointer;
+	transition: background var(--transition-slow) ease, color var(--transition-slow) ease, box-shadow var(--transition-slow) ease, transform var(--transition-slow) ease;
+}
+
+.cookie-banner__btn--accept {
+	color: var(--color-black);
+	background: rgba(83, 165, 81, 0.65);
+	border: 1px solid rgba(245, 242, 242, 0.28);
+}
+
+.cookie-banner__btn--accept:hover {
+	background: var(--color-green-success);
+	transform: translateY(-1px);
+}
+
+.cookie-banner__btn--decline {
+	color: var(--color-white);
+	background: rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(8px) saturate(160%);
+}
+
+.cookie-banner__btn--decline:hover {
+	color: var(--color-text-secondary);
+	background: #e9e9e9;
+	transform: translateY(-1px);
+}
+
+body:not(.is-dark) .cookie-banner:not(.cookie-banner--minimized) {
+	color: var(--color-white);
+	background: rgba(15, 18, 26, 0.84);
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+body:not(.is-dark) .cookie-banner__note,
+body:not(.is-dark) .cookie-banner__text {
+	color: rgba(245, 247, 250, 0.92);
+}
+
+body:not(.is-dark) .cookie-banner__btn--accept {
+	color: var(--color-white);
+	background: #2f9e44;
+	border-color: rgba(121, 208, 143, 0.5);
+}
+
+body:not(.is-dark) .cookie-banner__btn--decline {
+	color: var(--color-white);
+	background: rgba(255, 255, 255, 0.14);
+	border-color: rgba(255, 255, 255, 0.24);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* No-Deposit Bonus Widget */
+.no-deposit-bonus {
+	position: fixed;
+	bottom: calc(var(--spacing-lg) + 64px);
+	right: var(--spacing-lg);
+	z-index: 980;
+	display: none;
+	width: 90%;
+	max-width: 340px;
+	padding: 1.25rem var(--spacing-lg);
+	box-sizing: border-box;
+	color: #ffffff;
+	background: rgba(15, 18, 26, 0.84);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 20px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	overflow: hidden;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.no-deposit-bonus.is-visible {
+	display: block !important;
+}
+
+.no-deposit-bonus__eyebrow {
+	margin: 0 2.25rem 0.45rem 0;
+	color: #ffffff;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-shadow: 0 0 3px gold, 0 0 8px gold, 0 0 14px rgba(255, 215, 0, 0.7);
+}
+
+.no-deposit-bonus h4 {
+	margin: 0 2rem 0.75rem 0;
+	color: #ffffff;
+	font-size: 1.05rem;
+	line-height: 1.3;
+}
+
+.no-deposit-bonus__content .banners {
+	display: block !important;
+	width: calc(100% + (2 * var(--spacing-lg))) !important;
+	max-width: none !important;
+	margin-top: 0.75rem !important;
+	margin-bottom: 0.75rem !important;
+	margin-left: calc(0px - var(--spacing-lg)) !important;
+	margin-right: calc(0px - var(--spacing-lg)) !important;
+	transition: transform 0.2s;
+}
+
+.no-deposit-bonus__content .banners img {
+	display: block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	object-fit: cover !important;
+	border-radius: 0 !important;
+}
+
+.no-deposit-bonus__text p {
+	margin: 0.5rem 0 0;
+	color: rgba(245, 247, 250, 0.92) !important;
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+.no-deposit-bonus__cta {
+	display: block;
+	width: 100%;
+	padding: 0.85rem 1rem;
+	box-sizing: border-box;
+	color: #ffffff !important;
+	font-size: 0.95rem;
+	font-weight: 800;
+	text-align: center;
+	text-decoration: none;
+	background: linear-gradient(180deg, #2f9e44, #24843a);
+	border: 1px solid rgba(121, 208, 143, 0.5);
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.no-deposit-bonus__cta:hover {
+	background: linear-gradient(180deg, #24843a, #1e6f31);
+}
+
+.no-deposit-bonus__close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	z-index: 2;
+	width: 28px;
+	height: 28px;
+	color: #ffffff;
+	font-size: 1.1rem;
+	line-height: 1;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.no-deposit-bonus--minimized {
+	position: fixed;
+	bottom: calc(var(--spacing-lg) + 64px);
+	right: var(--spacing-lg);
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	width: 48px !important;
+	height: 48px !important;
+	padding: 0 !important;
+	background: rgba(0, 0, 0, 0.18) !important;
+	border: none !important;
+	border-radius: 50% !important;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+	backdrop-filter: blur(12px) saturate(180%) !important;
+	-webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+	cursor: pointer;
+	transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.no-deposit-bonus--minimized:hover {
+	transform: scale(1.1);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+.no-deposit-bonus--minimized .no-deposit-bonus__container,
+.no-deposit-bonus--minimized .no-deposit-bonus__close {
+	display: none !important;
+}
+
+.no-deposit-bonus__minimized-icon {
+	display: none;
+	font-size: 26px;
+	line-height: 1;
+	text-align: center;
+	animation: cookie-wiggle 2.4s ease-in-out infinite;
+}
+
+.no-deposit-bonus--minimized .no-deposit-bonus__minimized-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Keyframe Animations */
+@keyframes cookie-wiggle {
+	0%, 100% { transform: translateY(1px) scale(1) rotate(0); }
+	30% { transform: translateY(-2px) scale(1.06) rotate(-8deg); }
+	60% { transform: translateY(0) scale(1.1) rotate(8deg); }
+}
+
+@keyframes scrolltop-float {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-4px); }
+}

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CSS DESIGN TOKENS & VARIABLES
+   ========================================================================== */
+
+:root {
+	/* Brand & Base Colors */
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-text-primary: #1a1a1a;
+	--color-text-secondary: #444444;
+	--color-gray-light: #e6e6e6;
+	--color-gray-medium: #bfbfbf;
+	--color-gray-dark: #555555;
+	--color-red-primary: #b30000;
+	--color-red-hover: #e60000;
+	--color-red-light: #ffefef;
+	--color-red-lighter: #ffe6e6;
+	--color-green-primary: #28a745;
+	--color-green-dark: #1e7e34;
+	--color-green-success: #53a551;
+	--color-gold: #ffd700;
+
+	/* Overlays & Transparency */
+	--overlay-medium: rgba(0, 0, 0, 0.2);
+	--overlay-strong: rgba(0, 0, 0, 0.35);
+	--white-overlay-light: rgba(255, 255, 255, 0.06);
+	--red-overlay-light: rgba(179, 0, 0, 0.12);
+	--red-overlay-medium: rgba(179, 0, 0, 0.16);
+
+	/* Typography Tokens */
+	--font-family-base: Helvetica, Arial, sans-serif;
+	--font-family-heading: 'Arial Black', Arial, sans-serif;
+	--font-size-base: 1rem;
+	--font-size-small: 0.8rem;
+	--font-size-medium: 0.875rem;
+	--font-size-large: 1.5rem;
+	--font-size-xlarge: 2rem;
+
+	/* Spacing & Layout Tokens */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 1.5rem;
+	--spacing-lg: 2rem;
+	--max-content-width: 1200px;
+	--radius-small: 8px;
+	--radius-large: 16px;
+
+	/* Animations & Transitions */
+	--card-transition: transform 260ms cubic-bezier(0, 0, 0.2, 1), box-shadow 260ms cubic-bezier(0, 0, 0.2, 1);
+	--transition-slow: 300ms;
+	--transition-standard: 0.3s ease;
+
+	/* Mobile Controls & Helpers */
+	--mobile-header-control-size: 44px;
+	--mobile-header-side-offset: 1rem;
+	--mobile-header-control-left-offset: 0.5rem;
+	--red-line-image: url(assets/img/red-line.webp);
+	--red-line-height: 6px;
+	--red-line-left-offset: 8px;
+	--red-line-bottom-offset: 3px;
+	--red-line-mobile-top-offset: -1rem;
+
+	/* Cookie Banner & Bonus Widget Tokens */
+	--cookie-banner-open-duration: 400ms;
+	--cookie-banner-close-duration: 400ms;
+	--cookie-banner-open-ease: cubic-bezier(0.23, 1, 0.32, 1);
+	--cookie-banner-close-ease: cubic-bezier(0.65, 0, 0.35, 1);
+	--cookie-banner-inner-fade-duration: 180ms;
+	--cookie-banner-inner-shift-duration: 200ms;
+	--cookie-banner-minimized-size: 48px;
+	--cookie-banner-minimized-left: 2rem;
+	--cookie-banner-minimized-bottom: 4rem;
+	--cookie-banner-inner-minimize-transform: translate3d(-12px, 10px, 0) scale(0.94);
+	--cookie-banner-origin-shift-y: -2rem;
+	--language-toggle-hero-offset: 0px;
+}
