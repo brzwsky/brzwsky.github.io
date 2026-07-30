@@ -293,7 +293,7 @@ body:not(.is-dark) .cookie-banner__btn--decline {
 }
 
 .no-deposit-bonus.is-visible {
-	display: block !important;
+	display: block;
 }
 
 .no-deposit-bonus__eyebrow {
@@ -314,28 +314,28 @@ body:not(.is-dark) .cookie-banner__btn--decline {
 }
 
 .no-deposit-bonus__content .banners {
-	display: block !important;
-	width: calc(100% + (2 * var(--spacing-lg))) !important;
-	max-width: none !important;
-	margin-top: 0.75rem !important;
-	margin-bottom: 0.75rem !important;
-	margin-left: calc(0px - var(--spacing-lg)) !important;
-	margin-right: calc(0px - var(--spacing-lg)) !important;
+	display: block;
+	width: calc(100% + (2 * var(--spacing-lg)));
+	max-width: none;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+	margin-left: calc(0px - var(--spacing-lg));
+	margin-right: calc(0px - var(--spacing-lg));
 	transition: transform 0.2s;
 }
 
 .no-deposit-bonus__content .banners img {
-	display: block !important;
-	width: 100% !important;
-	max-width: 100% !important;
-	height: auto !important;
-	object-fit: cover !important;
-	border-radius: 0 !important;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 0;
 }
 
 .no-deposit-bonus__text p {
 	margin: 0.5rem 0 0;
-	color: rgba(245, 247, 250, 0.92) !important;
+	color: rgba(245, 247, 250, 0.92);
 	font-size: 0.9rem;
 	line-height: 1.45;
 }
@@ -345,7 +345,7 @@ body:not(.is-dark) .cookie-banner__btn--decline {
 	width: 100%;
 	padding: 0.85rem 1rem;
 	box-sizing: border-box;
-	color: #ffffff !important;
+	color: #ffffff;
 	font-size: 0.95rem;
 	font-weight: 800;
 	text-align: center;
@@ -380,30 +380,30 @@ body:not(.is-dark) .cookie-banner__btn--decline {
 	position: fixed;
 	bottom: calc(var(--spacing-lg) + 64px);
 	right: var(--spacing-lg);
-	display: flex !important;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 48px !important;
-	height: 48px !important;
-	padding: 0 !important;
-	background: rgba(0, 0, 0, 0.18) !important;
-	border: none !important;
-	border-radius: 50% !important;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
-	backdrop-filter: blur(12px) saturate(180%) !important;
-	-webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	background: rgba(0, 0, 0, 0.18);
+	border: none;
+	border-radius: 50%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	backdrop-filter: blur(12px) saturate(180%);
+	-webkit-backdrop-filter: blur(12px) saturate(180%);
 	cursor: pointer;
 	transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .no-deposit-bonus--minimized:hover {
 	transform: scale(1.1);
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25) !important;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .no-deposit-bonus--minimized .no-deposit-bonus__container,
 .no-deposit-bonus--minimized .no-deposit-bonus__close {
-	display: none !important;
+	display: none;
 }
 
 .no-deposit-bonus__minimized-icon {
