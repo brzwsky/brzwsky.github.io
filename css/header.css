@@ -542,6 +542,7 @@ body:not(.is-dark) .theme-toggle-button .theme-icon {
   border: 0;
   line-height: 1;
   position: absolute;
+  display: none;
 }
 
 .page-review .footer,
