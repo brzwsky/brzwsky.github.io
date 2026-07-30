@@ -47,24 +47,29 @@ function exists(file) {
 }
 
 function run() {
-	if (exists('style.css')) {
-		minifyCss('style.css', 'style.minified.css');
+	if (exists('css/style.css')) {
+		minifyCss('css/style.css', 'css/style.minified.css');
+		console.log('✅ Main CSS minified -> css/style.minified.css');
 	}
 
-	if (exists('style.reviews.css')) {
-		minifyCss('style.reviews.css', 'style.reviews.minified.css');
+	if (exists('css/style.reviews.css')) {
+		minifyCss('css/style.reviews.css', 'css/style.reviews.minified.css');
+		console.log('✅ Review CSS minified -> css/style.reviews.minified.css');
+	}
+
+	if (exists('css/popups.css')) {
+		minifyCss('css/popups.css', 'css/popups.minified.css');
+		console.log('✅ Popups CSS minified -> css/popups.minified.css');
 	}
 
 	if (exists('app.js')) {
 		minifyJs('app.js', 'app.minified.js');
+		console.log('✅ JS minified -> app.minified.js');
 	}
 
 	if (exists('popups.js')) {
 		minifyJs('popups.js', 'popups.minified.js');
-	}
-
-	if (exists('popups.css')) {
-		minifyCss('popups.css', 'popups.minified.css');
+		console.log('✅ Popups JS minified -> popups.minified.js');
 	}
 }
 
