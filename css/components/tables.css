@@ -1,0 +1,149 @@
+/* ==========================================================================
+   TABLES COMPONENT (Casino Specs, VIP Tables, Responsive Table Containers)
+   ========================================================================== */
+
+.table-container,
+.table-responsive,
+.crown-table-wrapper {
+	width: 100%;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	overflow-x: auto !important;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	touch-action: pan-x;
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(18, 18, 18, 0.6);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+body:not(.is-dark) .table-container,
+body:not(.is-dark) .table-responsive,
+body:not(.is-dark) .crown-table-wrapper {
+	background: #ffffff;
+	border-color: rgba(0, 0, 0, 0.12);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+table,
+.casino-info table,
+.comparison-table,
+.crown-table {
+	width: 100%;
+	min-width: 500px;
+	margin: 1.5rem 0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+	border-collapse: collapse !important;
+}
+
+.table-container table,
+.table-responsive table,
+.crown-table-wrapper table {
+	margin: 0 !important;
+	border: none !important;
+}
+
+table th,
+table td,
+.casino-info th,
+.casino-info td,
+.comparison-table th,
+.comparison-table td,
+.crown-table th,
+.crown-table td {
+	padding: 0.85rem 1.1rem;
+	text-align: left;
+	vertical-align: middle;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header Cells */
+table th,
+.casino-info th,
+.comparison-table th,
+.crown-table th {
+	font-weight: 700;
+	color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.06);
+}
+
+body:not(.is-dark) table th,
+body:not(.is-dark) .casino-info th,
+body:not(.is-dark) .comparison-table th,
+body:not(.is-dark) .crown-table th {
+	color: #0f172a !important;
+	background-color: #f8fafc !important;
+	border-color: #e2e8f0 !important;
+}
+
+/* Data Cells */
+table td,
+.casino-info td,
+.comparison-table td,
+.crown-table td {
+	color: #f1f5f9;
+	background-color: rgba(18, 18, 18, 0.4);
+}
+
+body:not(.is-dark) table td,
+body:not(.is-dark) .casino-info td,
+body:not(.is-dark) .comparison-table td,
+body:not(.is-dark) .crown-table td {
+	color: #334155 !important;
+	background-color: #ffffff !important;
+	border-color: #e2e8f0 !important;
+}
+
+/* Row Hover */
+table tbody tr:hover td,
+.comparison-table tbody tr:hover td,
+.crown-table tbody tr:hover td {
+	background-color: rgba(255, 255, 255, 0.03);
+}
+
+body:not(.is-dark) table tbody tr:hover td,
+body:not(.is-dark) .comparison-table tbody tr:hover td,
+body:not(.is-dark) table tbody tr:hover td {
+	background-color: #f1f5f9 !important;
+}
+
+/* Special Tables */
+.casino-info th {
+	width: 40%;
+}
+
+.vip-limits-table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.vip-limits-table th,
+.vip-limits-table td {
+	padding: 0.35rem 1.5rem 0.35rem 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+.vip-limits-table th {
+	font-weight: 700;
+}
+
+.page-review .casino-info--vip table {
+	min-width: 560px;
+}
+
+.landing-content > table,
+.page-review > table,
+.casino-article > table,
+.crown-section > table {
+	display: block !important;
+	width: 100% !important;
+	border-radius: 12px;
+	overflow-x: auto !important;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch !important;
+	touch-action: pan-x;
+}
