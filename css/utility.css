@@ -41,37 +41,48 @@ body.is-dark .casino-review-link {
 }
 
 .disclaimer {
-  background: var(--color-white);
-  color: #555;
-  background: linear-gradient(298deg, #fff 0, snow 67%, #ffe0d9 100%);
-  border-radius: 10px;
-  width: 100%;
-  max-width: 750px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 30px;
-  font-size: 0.7rem;
-  line-height: 1.4;
-  position: relative;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	max-width: 88%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding: 0.65rem 1rem 0.65rem 2.2rem;
+	color: #555;
+	font-size: 0.85rem;
+	line-height: 1.45;
+	background: linear-gradient(298deg, #ffffff 0%, #fffafa 67%, #ffe0d9 100%);
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-.disclaimer:before {
-  content: "🔔";
-  transform: translateY(var(--bell-ty));
-  transform-origin: 50% 0;
-  --bell-ty: -100%;
-  font-size: 1rem;
-  line-height: 1;
-  position: absolute;
-  top: 55%;
-  left: 5px;
+.disclaimer::before {
+	content: '🔔';
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	font-size: 1.15rem;
+	line-height: 1;
+	transform: translateY(-50%) scale(1);
+	transform-origin: 50% 0;
+	transition: transform 0.2s;
+	cursor: pointer;
 }
 
-.disclaimer.bell-start:before,
-.disclaimer:hover:before {
-  animation: 1s ease-in-out 2 bell-ring;
+.disclaimer:hover::before {
+	transform: translateY(-50%) scale(1.18);
+	animation: 0.6s ease-in-out 2 bell-ring;
+}
+
+.disclaimer.bell-muted::before,
+.disclaimer.bell-muted:hover::before {
+	animation: none !important;
+}
+
+body.is-dark .disclaimer {
+	color: var(--color-white);
+	background: linear-gradient(90deg, #3f0f05, #130f0f);
+	border: 1px solid #444;
 }
 
 .u-content-width {
