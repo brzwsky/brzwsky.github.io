@@ -335,7 +335,7 @@ body:not(.is-dark) {
   .casino-card__button {
     justify-content: center;
     align-items: center;
-    width: 264px;
+    width: 220px;
     height: 50px;
     padding: 0;
     display: flex;
@@ -1851,7 +1851,7 @@ body.is-dark .testimonial-carousel__dot[aria-selected="true"] {
   justify-content: center;
   gap: 0.1rem !important;
   width: auto;
-  min-width: 264px;
+  min-width: 220px;
   max-width: 100%;
   padding: 0.95rem 1.6rem !important;
 }
