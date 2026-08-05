@@ -462,7 +462,7 @@ body:not(.is-dark) {
     flex-direction: column;
     justify-content: center !important;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
     width: 100%;
     text-align: center;
   }
@@ -470,7 +470,7 @@ body:not(.is-dark) {
     width: 140px;
     max-width: 140px;
     height: auto;
-    margin: 0 auto 0.5rem;
+    margin: 0 auto;
   }
   .casino-card__info > div {
     max-width: 100%;
