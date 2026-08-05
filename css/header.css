@@ -516,8 +516,7 @@ body:not(.is-dark) .theme-toggle-button .theme-icon {
   height: 18px;
   margin: 0;
   padding: 0;
-  display: none;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .header__burger span {
