@@ -1092,15 +1092,16 @@ body.is-dark .breadcrumb-current {
     position: relative;
   }
   .nav-menu__avis-dropdown {
-    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    backdrop-filter: blur(24px) saturate(190%) contrast(105%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(105%);
     color: #071428;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
     z-index: 1100;
-    background: linear-gradient(160deg, #ffffffeb, #f3f6fad1);
-    border: 1px solid #adb7c238;
-    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(245, 247, 250, 0.42));
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
     min-width: 180px;
     margin: 0;
     padding: 0.25rem 0;
@@ -1112,8 +1113,8 @@ body.is-dark .breadcrumb-current {
     left: 0;
     transform: translateY(-6px) scale(0.995);
     box-shadow:
-      inset 0 1px #ffffffa8,
-      0 18px 36px #0f172a24;
+      inset 0 1.5px 0 0 rgba(255, 255, 255, 0.85),
+      0 20px 40px rgba(15, 23, 42, 0.12);
   }
   .nav-menu__avis.is-open .nav-menu__avis-dropdown,
   .nav-menu__item--avis:focus-within .nav-menu__avis-dropdown,
@@ -1719,18 +1720,18 @@ body.is-dark .testimonial-carousel__dot[aria-selected="true"] {
     position: relative;
   }
   .nav-menu__avis-dropdown {
-    backdrop-filter: blur(20px) saturate(145%);
-    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    backdrop-filter: blur(24px) saturate(190%) contrast(105%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(105%);
     background: linear-gradient(
-      160deg,
-      rgba(255, 255, 255, 0.92),
-      rgba(243, 246, 250, 0.82)
+      135deg,
+      rgba(255, 255, 255, 0.65),
+      rgba(245, 247, 250, 0.42)
     );
-    border: 1px solid rgba(173, 183, 194, 0.22);
-    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.66),
-      0 18px 36px rgb(15 23 42 / 0.14);
+      inset 0 1.5px 0 0 rgba(255, 255, 255, 0.85),
+      0 20px 40px rgba(15, 23, 42, 0.12);
     color: #071428;
     left: 0;
     margin: 0;
