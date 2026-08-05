@@ -349,6 +349,10 @@ body:not(.is-dark) .casino-card__stars {
   transform: translate(20%, -50%) rotate(45deg);
 }
 
+.casino-card__rank-bg {
+  display: none;
+}
+
 .casino-card__rank {
   color: var(--color-white);
   z-index: 7;
