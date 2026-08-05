@@ -409,16 +409,29 @@ body:not(.is-dark) {
   .nav-menu__link span {
     letter-spacing: 0.02em;
   }
-  @media (width>=769px) and (width<=900px) {
+  @media (max-width: 1080px) {
+    .header {
+      padding: 0.5rem 0.8rem;
+    }
+    .header__container {
+      padding: 0.3rem 0.75rem;
+    }
+    .header__logo {
+      width: 130px;
+      min-height: 32px;
+      max-height: 42px;
+      margin-right: 0.5rem;
+    }
     .nav-menu__list {
       align-items: center;
-      gap: 1.4rem;
+      gap: 0.6rem;
     }
     .nav-menu__link {
-      padding: 0.45rem 0.68rem;
+      font-size: 0.82rem;
+      padding: 0.35rem 0.55rem;
     }
     .header__controls {
-      gap: 0.8rem;
+      gap: 0.5rem;
     }
   }
   .arrow-up {
@@ -430,18 +443,7 @@ body:not(.is-dark) {
   }
 }
 
-@media (width>=769px) and (width<=1080px) {
-  .header {
-    padding: 0.6rem 1rem;
-  }
-  .header__container {
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-  }
-  .header__logo {
-    min-height: 35px;
-    max-height: 45px;
-  }
+@media (max-width: 1080px) {
   main {
     max-width: 100%;
     padding: 1rem;
@@ -1747,7 +1749,7 @@ body.is-dark .testimonial-carousel__dot[aria-selected="true"] {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .header__container {
     overflow: visible;
   }
@@ -1804,32 +1806,7 @@ body.is-dark .testimonial-carousel__dot[aria-selected="true"] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1080px) {
-  .casino-card,
-  .casino-card--top {
-    gap: 1.15rem;
-    padding: 1.25rem 1.35rem;
-  }
-  .casino-card__info {
-    gap: 1rem;
-  }
-  .casino-card__image {
-    width: 130px;
-    max-width: 130px;
-  }
-  .casino-card__info > div {
-    max-width: 220px;
-  }
-  .casino-card__features {
-    font-size: 11px;
-    max-width: 240px;
-  }
-  .casino-card__button {
-    width: 190px;
-    height: 48px;
-    flex-shrink: 0;
-  }
-}
+
 
 @media (max-width: 1023px) {
   .casino-card.casino-card--button .casino-card__bonus-title {
