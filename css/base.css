@@ -460,7 +460,7 @@ body:not(.is-dark) {
   }
   .casino-card__info {
     flex-direction: column;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
     gap: 0.5rem;
     width: 100%;
