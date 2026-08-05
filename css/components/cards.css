@@ -214,6 +214,8 @@ body:not(.is-dark) .casino-card--top:hover {
   overflow-wrap: break-word;
   word-wrap: break-word;
   flex: 1 1 auto;
+  width: fit-content;
+  max-width: 320px;
   min-width: 180px;
   max-height: calc(100% - 2rem);
   margin-left: auto;
