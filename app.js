@@ -1191,6 +1191,92 @@ class ScrollRevealManager {
 }
 
 /* ==========================================================================
+   CASINO LIST MANAGER ("Show More / Less" Pagination)
+   ========================================================================== */
+
+class CasinoListManager {
+	constructor() {
+		this.init();
+	}
+
+	init() {
+		this.syncCounts();
+		document.addEventListener('click', (event) => {
+			const btn = event.target?.closest?.('.show-more-casinos-btn');
+			if (btn) {
+				event.preventDefault();
+				this.toggleShowMore(btn);
+			}
+		});
+	}
+
+	getAssociatedContainer(wrapper) {
+		if (!wrapper) return null;
+		let container = wrapper.previousElementSibling;
+		while (container && !container.classList.contains('casino-cards-container')) {
+			container = container.previousElementSibling;
+		}
+		return container || document.querySelector('.casino-cards-container');
+	}
+
+	syncCounts() {
+		document.querySelectorAll('.show-more-casinos-wrapper').forEach(wrapper => {
+			const container = this.getAssociatedContainer(wrapper);
+			if (!container) return;
+
+			const articles = container.querySelectorAll('.casino-article');
+			const total = articles.length;
+			const isCollapsed = container.classList.contains('is-collapsed');
+
+			const shownCountEl = wrapper.querySelector('.shown-count');
+			const totalCountEl = wrapper.querySelector('.total-count');
+
+			if (total <= 12) {
+				wrapper.style.display = 'none';
+			} else {
+				if (shownCountEl) shownCountEl.textContent = isCollapsed ? Math.min(12, total) : total;
+				if (totalCountEl) totalCountEl.textContent = total;
+			}
+		});
+	}
+
+	toggleShowMore(btn) {
+		const wrapper = btn.closest('.show-more-casinos-wrapper');
+		const container = this.getAssociatedContainer(wrapper);
+		if (!container) return;
+
+		const isCollapsed = container.classList.contains('is-collapsed');
+		const textSpan = btn.querySelector('.show-more-text');
+		const shownCountEl = wrapper?.querySelector('.shown-count');
+		const totalCountEl = wrapper?.querySelector('.total-count');
+
+		const articles = container.querySelectorAll('.casino-article');
+		const totalArticles = articles.length;
+
+		if (isCollapsed) {
+			container.classList.remove('is-collapsed');
+			btn.setAttribute('aria-expanded', 'true');
+			btn.setAttribute('aria-label', 'Afficher moins de casinos');
+			if (textSpan) textSpan.textContent = 'Afficher moins';
+			if (shownCountEl) shownCountEl.textContent = totalArticles;
+			if (totalCountEl) totalCountEl.textContent = totalArticles;
+		} else {
+			container.classList.add('is-collapsed');
+			btn.setAttribute('aria-expanded', 'false');
+			btn.setAttribute('aria-label', 'Afficher plus de casinos');
+			if (textSpan) textSpan.textContent = 'Afficher plus';
+			if (shownCountEl) shownCountEl.textContent = Math.min(12, totalArticles);
+			if (totalCountEl) totalCountEl.textContent = totalArticles;
+
+			const targetCard = articles[11] || container;
+			if (targetCard) {
+				targetCard.scrollIntoView({ behavior: 'smooth', block: 'end' });
+			}
+		}
+	}
+}
+
+/* ==========================================================================
    DARK MODE MANAGER
    ========================================================================== */
 
@@ -1445,6 +1531,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	window.languageToggleManager = new LanguageToggleManager();
 	window.mobileMenuManager = new MobileMenuManager();
 	window.darkModeManager = new DarkModeManager();
+	window.casinoListManager = new CasinoListManager();
 
 	// Reviews Dropdown Submenu
 	(function setupAvisDropdown() {
