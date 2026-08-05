@@ -202,7 +202,7 @@ body:not(.is-dark) .casino-card--top:hover {
   border-radius: var(--radius-small);
   height: 150px;
   margin-left: 0;
-  margin-right: var(--spacing-sm);
+  margin-right: 1.5rem;
   object-fit: contain;
   flex-shrink: 0;
   width: 150px;
