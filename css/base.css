@@ -569,6 +569,9 @@ body:not(.is-dark) {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 16px 16px 8px;
+  }
   .nav-menu:not(.is-active) {
     display: none !important;
   }
