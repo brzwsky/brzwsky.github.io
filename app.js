@@ -1243,7 +1243,7 @@ class CasinoListManager {
 	toggleShowMore(btn) {
 		const wrapper = btn.closest('.show-more-casinos-wrapper');
 		const container = this.getAssociatedContainer(wrapper);
-		if (!container) return;
+		if (!container || this.isAnimating) return;
 
 		const isCollapsed = container.classList.contains('is-collapsed');
 		const textSpan = btn.querySelector('.show-more-text');
@@ -1254,6 +1254,7 @@ class CasinoListManager {
 		const totalArticles = articles.length;
 
 		if (isCollapsed) {
+			container.classList.remove('is-collapsing');
 			container.classList.remove('is-collapsed');
 			btn.setAttribute('aria-expanded', 'true');
 			btn.setAttribute('aria-label', 'Afficher moins de casinos');
@@ -1261,17 +1262,24 @@ class CasinoListManager {
 			if (shownCountEl) shownCountEl.textContent = totalArticles;
 			if (totalCountEl) totalCountEl.textContent = totalArticles;
 		} else {
-			container.classList.add('is-collapsed');
-			btn.setAttribute('aria-expanded', 'false');
-			btn.setAttribute('aria-label', 'Afficher plus de casinos');
-			if (textSpan) textSpan.textContent = 'Afficher plus';
-			if (shownCountEl) shownCountEl.textContent = Math.min(12, totalArticles);
-			if (totalCountEl) totalCountEl.textContent = totalArticles;
+			this.isAnimating = true;
+			container.classList.add('is-collapsing');
 
 			const targetCard = articles[11] || container;
 			if (targetCard) {
 				targetCard.scrollIntoView({ behavior: 'smooth', block: 'end' });
 			}
+
+			setTimeout(() => {
+				container.classList.add('is-collapsed');
+				container.classList.remove('is-collapsing');
+				btn.setAttribute('aria-expanded', 'false');
+				btn.setAttribute('aria-label', 'Afficher plus de casinos');
+				if (textSpan) textSpan.textContent = 'Afficher plus';
+				if (shownCountEl) shownCountEl.textContent = Math.min(12, totalArticles);
+				if (totalCountEl) totalCountEl.textContent = totalArticles;
+				this.isAnimating = false;
+			}, 350);
 		}
 	}
 }

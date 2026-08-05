@@ -487,7 +487,12 @@ body.is-dark .casino-card__stars {
   display: none;
 }
 
-.casino-cards-container:not(.is-collapsed) .casino-article:nth-of-type(n + 13) {
+.casino-cards-container.is-collapsing .casino-article:nth-of-type(n + 13) {
+  animation: 0.35s ease-in forwards slideUpFadeOut;
+  pointer-events: none;
+}
+
+.casino-cards-container:not(.is-collapsed):not(.is-collapsing) .casino-article:nth-of-type(n + 13) {
   animation: 0.5s forwards slideDownFadeIn;
 }
 
