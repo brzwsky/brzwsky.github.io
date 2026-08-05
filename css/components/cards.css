@@ -38,6 +38,7 @@
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
+  gap: 1.75rem;
   margin-bottom: 1.5rem;
   padding: 1.5rem 1.75rem;
   transition:
@@ -220,6 +221,8 @@ body:not(.is-dark) .casino-card--top:hover {
   max-height: calc(100% - 2rem);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   font-size: 12px;
   list-style: none;
@@ -419,8 +422,8 @@ body:not(.is-dark) .casino-card__stars {
   max-width: 110px;
   flex-shrink: 0;
   height: 100px;
-  margin-left: 0;
-  margin-right: 1.75rem;
+  margin-left: auto;
+  margin-right: 0;
   display: flex;
 }
 
