@@ -44,12 +44,11 @@ body.is-dark .casino-review-link {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	max-width: 88%;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	padding: 0.65rem 1rem 0.65rem 2.2rem;
-	color: #555;
-	font-size: 0.85rem;
+	max-width: 780px;
+	margin: 32px 0 16px;
+	padding: 8px 0 8px 30px;
+	color: #555555;
+	font-size: 11.2px;
 	line-height: 1.45;
 	background: linear-gradient(298deg, #ffffff 0%, #fffafa 67%, #ffe0d9 100%);
 	border-radius: 10px;
@@ -60,7 +59,7 @@ body.is-dark .casino-review-link {
 	content: '🔔';
 	position: absolute;
 	top: 50%;
-	left: 10px;
+	left: 6px;
 	font-size: 1.15rem;
 	line-height: 1;
 	transform: translateY(-50%) scale(1);
