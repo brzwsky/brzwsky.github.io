@@ -154,7 +154,7 @@ h4 {
 p {
   color: #222;
   margin-bottom: var(--spacing-sm);
-  max-width: 100%;
+  max-width: 800px;
   font-size: 0.975rem;
   line-height: 1.6;
 }
