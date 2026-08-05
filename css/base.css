@@ -568,9 +568,9 @@ body:not(.is-dark) {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .header {
-    padding: 16px 16px 8px;
+    padding: 16px 16px 8px !important;
   }
   .nav-menu:not(.is-active) {
     display: none !important;
