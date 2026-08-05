@@ -194,7 +194,7 @@ body:not(.is-dark) .casino-card--top:hover {
 
 .casino-card__info > div {
   overflow-wrap: break-word;
-  max-width: 200px;
+  max-width: 270px;
 }
 
 .casino-card__image {
