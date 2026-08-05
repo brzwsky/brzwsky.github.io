@@ -173,6 +173,32 @@ a:hover {
   color: var(--color-red-hover);
 }
 
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author__name {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.author__photo {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 35px;
+  max-height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 ul {
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-md);
