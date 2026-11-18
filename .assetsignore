@@ -1,0 +1,16 @@
+.git
+.github
+.gitignore
+.cpanel.yml
+.DS_Store
+.htaccess
+.assetsignore
+scripts
+node_modules
+package.json
+package-lock.json
+*.py
+*.md
+*.zip
+worker.js
+wrangler.jsonc
