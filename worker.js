@@ -94,6 +94,23 @@ function addGeo(request, response) {
 
 export default {
   async fetch(request, env) {
-    return addGeo(request, await handle(request, env));
+    const url = new URL(request.url);
+
+    // apex -> www (путь и query сохраняются)
+    if (url.hostname === "topjeu777.com") {
+      url.hostname = "www.topjeu777.com";
+      const code = request.method === "GET" || request.method === "HEAD" ? 301 : 308;
+      return Response.redirect(url.toString(), code);
+    }
+
+    const response = addGeo(request, await handle(request, env));
+
+    // тестовый адрес не индексируем
+    if (url.hostname.endsWith(".workers.dev")) {
+      const r = new Response(response.body, response);
+      r.headers.set("x-robots-tag", "noindex, nofollow");
+      return r;
+    }
+    return response;
   },
 };
